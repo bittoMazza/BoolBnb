@@ -27,8 +27,8 @@ class CreateApartmentSponsorshipTable extends Migration
                 ->onDelete('cascade');
 
             $table->primary(['apartment_id', 'sponsorship_id']);
-            $table->dateTime('start_sponsor');
-            $table->dateTime('end_sponsor');
+            $table->dateTime('start_sponsor')->nullable();
+            $table->dateTime('end_sponsor')->nullable();
             $table->timestamps();
         });
     }
