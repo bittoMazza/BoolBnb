@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Apartment;
-use App\User;
 use Illuminate\Database\Seeder;
 
 class ApartmentsTableSeeder extends Seeder
@@ -41,7 +40,7 @@ class ApartmentsTableSeeder extends Seeder
                 'lat' => '14.019365200587943',
             ],
             [
-                'user_id' => 3,
+                'user_id' => 2,
                 'title' => 'IzzHome Bella Vista',
                 'rooms' => 3,
                 'beds' => 2,
