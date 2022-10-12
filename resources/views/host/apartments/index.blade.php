@@ -71,10 +71,9 @@
                                     {{ $apartment->lat }}
                                 </td>
                                 <td>
-                                    {{-- <a href="{{ route('host.apartments.edit') }}" class="btn btn-sm btn-success">
+                                    <a href="{{ route('host.apartments.edit', $apartment->id) }}" class="btn btn-sm btn-success">
                                         Edit
-                                    </a> --}}
-                                    Edit
+                                    </a>
                                 </td>
                                 <td>
                                     {{-- <form action="{{ route('host.apartments.destroy', $apartment->id) }}" method="apartment"

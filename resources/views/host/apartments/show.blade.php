@@ -12,7 +12,7 @@
                         <p class="card-text">Bagni: {{ $apartment->bathrooms }}</p>
                         <p class="card-text">Letti: {{ $apartment->beds }}</p>
                         <p class="card-text">Indirizzo: {{ $apartment->address }}</p>
-                        <a href="#" class="btn btn-danger">Rimuovi</a>
+                        <a href="#" class="btn btn-danger text-white">Rimuovi</a>
                     </div>
                 </div>
             </div>
