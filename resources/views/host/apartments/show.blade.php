@@ -5,7 +5,15 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <img src="{{ asset('storage/' . $apartment->image) }}" class="card-img-top" alt="...">
+
+                    @if (filter_var($apartment->image, FILTER_VALIDATE_URL))
+                        <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
+                        {{-- url --}}
+                    @else
+                        <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
+                        {{-- file --}}
+                    @endif
+
                     <div class="card-body">
                         <h5 class="card-title">{{ $apartment->title }}</h5>
                         <p class="card-text">Stanze: {{ $apartment->rooms }}</p>
