@@ -76,16 +76,13 @@
                                     </a>
                                 </td>
                                 <td>
-                                    {{-- <form action="{{ route('host.apartments.destroy', $apartment->id) }}" method="apartment"
-                                        class="form-apartment-delete" data-apartment-name="{{ $apartment->title }}">
-                                        @csrf
+                                    <form action="{{ route('host.apartments.destroy', $apartment->id) }}" method="POST" class="d-inline">
                                         @method('DELETE')
-
+                                        @csrf
                                         <button type="submit" class="btn btn-sm btn-danger">
                                             Delete
                                         </button>
-                                    </form> --}}
-                                    Delete
+                                    </form>
                                 </td>
                             </tr>
                         @empty

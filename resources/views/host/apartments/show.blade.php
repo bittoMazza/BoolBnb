@@ -20,7 +20,13 @@
                         <p class="card-text">Bagni: {{ $apartment->bathrooms }}</p>
                         <p class="card-text">Letti: {{ $apartment->beds }}</p>
                         <p class="card-text">Indirizzo: {{ $apartment->address }}</p>
-                        <a href="#" class="btn btn-danger text-white">Rimuovi</a>
+                        <form action="{{ route('host.apartments.destroy', $apartment->id) }}" method="POST" class="d-inline             form-apartment-delete">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
