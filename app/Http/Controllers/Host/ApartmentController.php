@@ -7,6 +7,7 @@ use App\Models\Amenity;
 use App\Models\Apartment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ApartmentController extends Controller
 {
@@ -90,6 +91,7 @@ class ApartmentController extends Controller
             $apartment->is_visible = false;
         }
         $data['is_visible'] = $apartment->is_visible;
+        $data['image'] = Storage::put('uploads', $data['image']);
         $apartment->update($data);
 
         return redirect()->route('host.apartments.show', $apartment->id);
