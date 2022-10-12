@@ -19,4 +19,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')
+    ->namespace('host')
+    ->name('host.')
+    ->prefix('host')
+    ->group(function () {
+        Route::get('/', 'HomeController@index')->name('home');
+        // Route::resource('/categories' , 'CategoryController');
+        // Route::resource('/tags','TagController');
+        // Route::get('/posts/deleted', 'PostController@deletedPosts')->name('posts.deletePosts');
+        Route::resource('/apartments', 'ApartmentController');
+    });
