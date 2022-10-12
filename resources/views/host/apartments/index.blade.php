@@ -39,10 +39,9 @@
                                 </th>
                                 <td>{{ $apartment->user->name }}</td>
                                 <td>
-                                    {{-- <a href="{{ route('host.apartments.show') }}">
+                                    <a href="{{ route('host.apartments.show', $apartment->id) }}">
                                         {{ $apartment->title }}
-                                    </a> --}}
-                                    {{ $apartment->title }}
+                                    </a>
                                 </td>
                                 <td>
                                     {{ $apartment->rooms }}
