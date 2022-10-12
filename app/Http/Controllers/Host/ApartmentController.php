@@ -105,6 +105,9 @@ class ApartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $apartment = Apartment::findOrFail($id);
+        $apartment->delete();
+
+        return redirect()->route('host.apartments.index')->with('deleted', $apartment->title);
     }
 }
