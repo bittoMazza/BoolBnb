@@ -118,7 +118,7 @@
     <label class="text-light">SELEZIONA GLI OPTIONAL</label>
     @foreach ($amenities as $amenity)
         <div class="form-check text-white">
-            <input class="form-check-input" type="checkbox" value="{{ $amenity->id }}" name="amenity[]" id="exampleRadios1" {{-- {{ $apartment->amenity->contains($amenity) ? 'checked' : '' }} --}}>
+            <input class="form-check-input" type="checkbox" value="{{ $amenity->id }}" name="amenity[]" id="exampleRadios1" {{ $apartment->amenities->contains($amenity) ? 'checked' : '' }}>
             <label class="form-check-label" for="exampleRadios1">
             {{ $amenity->name }}
             </label>
