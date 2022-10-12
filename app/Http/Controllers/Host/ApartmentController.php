@@ -31,7 +31,7 @@ class ApartmentController extends Controller
     {
         $apartment = new Apartment();
         $amenities = Amenity::all();
-        return view('host.apartments.create',compact('apartment','amenities'));
+        return view('host.apartments.create', compact('apartment', 'amenities'));
     }
 
     /**
@@ -79,7 +79,20 @@ class ApartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $apartment = Apartment::findOrFail($id);
+        $data = $request->all();
+        $data['user_id'] = $apartment->user_id;
+        if (isset($data['is_visible'])) {
+            $apartment->is_visible = true;
+        }
+        else
+        {
+            $apartment->is_visible = false;
+        }
+        $data['is_visible'] = $apartment->is_visible;
+        $apartment->update($data);
+
+        return redirect()->route('host.apartments.show', $apartment->id);
     }
 
     /**
