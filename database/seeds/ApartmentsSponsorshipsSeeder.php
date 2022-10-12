@@ -21,13 +21,9 @@ class ApartmentsSponsorshipsSeeder extends Seeder
 
             $sponsorships = Sponsorship::inRandomOrder()->limit(1)->get();
             
-            foreach ($sponsorships as $sponsorship) {
+            for ($i=0; $i < count($sponsorships); $i++) {
 
-                $apartment->sponsorships()->attach($sponsorship->id);
-
-                $apartment->start_sponsor = $faker->dateTime();
-
-                $apartment->end_sponsor = $faker->dateTime();
+                $apartment->sponsorships()->attach($sponsorships[$i]->id, ['start_sponsor' => $faker->dateTime() , 'end_sponsor' => $faker->dateTime()]);
             }
         }
 
