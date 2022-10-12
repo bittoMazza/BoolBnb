@@ -32,7 +32,7 @@ class Apartment extends Model
     }
 
     public function amenities(){
-        return $this->belongsToMany('App\Models\Amenity');
+        return $this->belongsToMany('App\Models\Amenity')->withTimestamps();
     }
 
     public function views(){
