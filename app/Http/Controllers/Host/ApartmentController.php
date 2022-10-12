@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Host;
 
 use App\Http\Controllers\Controller;
+use App\Models\Amenity;
 use App\Models\Apartment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +29,9 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        //
+        $apartment = new Apartment();
+        $amenities = Amenity::all();
+        return view('host.apartments.create',compact('apartment','amenities'));
     }
 
     /**
