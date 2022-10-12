@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    patate al forno
+    <div class="text-center">
+        <h1>SEI LOGGATO</h1>
+    </div>
 @endsection
