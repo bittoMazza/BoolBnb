@@ -12,6 +12,6 @@ class View extends Model
     ];
 
     public function apartment(){
-        return $this->belongsTo('App\Models\Apartment');
+        return $this->belongsTo('App\Models\Apartment')->withTimestamps();
     }
 }
