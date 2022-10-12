@@ -36,6 +36,6 @@ class Apartment extends Model
     }
 
     public function views(){
-        return $this->hasMany('App\Models\View');
+        return $this->hasMany('App\Models\View')->withPivot('ip_address')->withTimestamps();
     }
 }
