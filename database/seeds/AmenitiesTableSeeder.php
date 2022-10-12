@@ -16,6 +16,11 @@ class AmenitiesTableSeeder extends Seeder
             'Riscaldamento a pavimento',
             'Giardino',
             'Posto auto',
+            'Vasca idromassaggio',
+            'Wifi',
+            'Servizio in camera',
+            'Cucina',
+            'Smart tv',
         ];
 
         foreach ($amenities as $amenity) {
