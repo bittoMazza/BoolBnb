@@ -43,7 +43,16 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $data = $request->all();
+        $data['user_id'] = Auth::id();
+        $data['is_visible'] = true;
+        $data['image'] = Storage::put('uploads', $data['image']);
+        $apartment = new Apartment();
+        $apartment->fill($data);
+        $apartment->save($data);
+
+        return redirect()->route('host.apartments.show', $apartment['id']);
     }
 
     /**
