@@ -26,17 +26,5 @@ class ApartmentsSponsorshipsSeeder extends Seeder
                 $apartment->sponsorships()->attach($sponsorships[$i]->id, ['start_sponsor' => $faker->dateTime() , 'end_sponsor' => $faker->dateTime()]);
             }
         }
-
-        // for ($i=0; $i < 1; $i++) { 
-
-        //     $sponsorship = Sponsorship::inRandomOrder()->limit(1)->get();
-
-        //     $date = $faker->dateTime()->start_sponsor;
-
-        //     $apartments[$i]->attach($date);
-
-        //     $apartments[$i]->sponsorships()->attach($sponsorship[$i]->id);
-            
-        // }
     }
 }
