@@ -23,7 +23,6 @@ class CreateApartmentsTable extends Migration
             $table->integer('bathrooms');
             $table->integer('square_meters');
             $table->string('address');
-            $table->text('image');
             $table->boolean('is_visible');
             $table->decimal('long', 10, 7);
             $table->decimal('lat', 10, 7);

@@ -31,6 +31,10 @@ class Apartment extends Model
         return $this->hasMany('App\Models\Message');
     }
 
+    public function images(){
+        return $this->hasMany('App\Models\Image');
+    }
+
     public function sponsorships(){
         return $this->belongsToMany('App\Models\Sponsorship')->withPivot('start_sponsor', 'end_sponsor')->withTimestamps();
     }
