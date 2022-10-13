@@ -50,7 +50,7 @@
                             <div class="index_user_management">
                                 <h2 class="font-weight-bold">I miei Appartamenti</h2>
 
-                                <div class="row">
+                                <div class="row justify-content-around">
                                     <div class="col-6 d-flex">
                                         <div class="card w-50 mr-4">
                                             <img class="card-img-top" src="https://cf.bstatic.com/xdata/images/hotel/max500/162105631.jpg?k=8a20c08a1592ff9589716815636f14eef9f1f35a0a2dd1762ebe7b375307c727&o=&hp=1" alt="titolo">
@@ -67,7 +67,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6">
                                         <ul>
                                             <li class="mb-3">
                                                 <div class="row">
@@ -100,6 +100,10 @@
                                                 </div>
                                             </li>
                                         </ul>
+                                        <div class="d-flex p-4">
+                                            <img class="ms_icon_create_apartment mr-2" src="https://tinypic.host/images/2022/10/13/add-user.png" alt="create"> 
+                                            <a href="#"><p><strong>Aggiungi un nuovo appartamento</strong></p></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
