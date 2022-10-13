@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Host;
 use App\Http\Controllers\Controller;
 use App\Models\Amenity;
 use App\Models\Apartment;
+use App\Models\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -80,7 +81,8 @@ class ApartmentController extends Controller
     public function show($id)
     {
         $apartment = Apartment::findOrFail($id);
-        return view('host.apartments.show', compact('apartment'));
+        $views = View::where('apartment_id','=',$apartment->id)->count();
+        return view('host.apartments.show', compact('apartment', 'views'));
     }
 
     /**
