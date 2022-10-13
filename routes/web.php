@@ -27,6 +27,6 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')->name('home');
         // Route::resource('/categories' , 'CategoryController');
         // Route::resource('/tags','TagController');
-        // Route::get('/posts/deleted', 'PostController@deletedPosts')->name('posts.deletePosts');
+        Route::get('/apartments/deleted', 'ApartmentController@deletedApartments')->name('apartments.deletedApartments');
         Route::resource('/apartments', 'ApartmentController');
     });

@@ -119,4 +119,9 @@ class ApartmentController extends Controller
 
         return redirect()->route('host.apartments.index')->with('deleted', $apartment->title);
     }
+
+    public function deletedApartments(){
+        $apartments = Apartment::onlyTrashed()->paginate(10);
+        return view('host.apartments.deletedApartments',compact('apartments'));
+    }
 }
