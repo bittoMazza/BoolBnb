@@ -124,4 +124,26 @@ class ApartmentController extends Controller
         $apartments = Apartment::onlyTrashed()->paginate(10);
         return view('host.apartments.deletedApartments',compact('apartments'));
     }
+
+    public function restoreApartments($id) 
+    {
+
+        $apartment = Apartment::where('id', $id)->withTrashed()->first();
+
+        $apartment->restore();
+
+        return redirect()->route('host.apartments.index')
+            ->with('success', 'You successfully restored the project');
+    }
+
+    public function deletePermanently($id)
+    {
+        $apartments = Apartment::where('id', $id)->withTrashed()->first();
+
+        $apartments->forceDelete();
+
+        return redirect()->route('host.apartments.index')
+            ->with('success', 'You successfully deleted the project fromt the Recycle Bin');
+
+    }
 }

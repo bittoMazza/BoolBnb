@@ -28,5 +28,7 @@ Route::middleware('auth')
         // Route::resource('/categories' , 'CategoryController');
         // Route::resource('/tags','TagController');
         Route::get('/apartments/deleted', 'ApartmentController@deletedApartments')->name('apartments.deletedApartments');
+        Route::get('apartments/deleted/{id}','ApartmentController@restoreApartments')->name('apartments.restoreApartments');
+        Route::get('apartments/forceDeleted/{id}','ApartmentController@deletePermanently')->name('apartments.deletePermanently');
         Route::resource('/apartments', 'ApartmentController');
     });
