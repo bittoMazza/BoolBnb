@@ -23,8 +23,8 @@
                         <form action="{{ route('host.apartments.destroy', $apartment->id) }}" method="POST" class="d-inline             form-apartment-delete">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">
-                                Delete
+                            <button type="submit" class="btn btn-warning">
+                                Cestina
                             </button>
                         </form>
                     </div>

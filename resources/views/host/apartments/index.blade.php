@@ -72,15 +72,15 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('host.apartments.edit', $apartment->id) }}" class="btn btn-sm btn-success">
-                                        Edit
+                                        Modifica
                                     </a>
                                 </td>
                                 <td>
                                     <form action="{{ route('host.apartments.destroy', $apartment->id) }}" method="POST" class="d-inline">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="btn btn-sm btn-danger">
-                                            Delete
+                                        <button type="submit" class="btn btn-sm btn-warning">
+                                            Cestina
                                         </button>
                                     </form>
                                 </td>
