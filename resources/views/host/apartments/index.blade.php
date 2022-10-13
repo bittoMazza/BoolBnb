@@ -59,7 +59,13 @@
                                     {{ $apartment->address }}
                                 </td>
                                 <td>
-                                    {{ $apartment->image }}
+                                    @if (filter_var($apartment->image, FILTER_VALIDATE_URL))
+                                        <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
+                                        {{-- url --}}
+                                    @else
+                                        <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
+                                        {{-- file --}}
+                                    @endif
                                 </td>
                                 <td>
                                     {{ $apartment->is_visible }}
