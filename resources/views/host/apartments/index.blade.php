@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="index_background">
+    <div class="index_background pb-5">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -16,33 +16,32 @@
 
                         <div class="col-3">
                             <div class="index_user_panel w-100 bg-light p-3 shadow-sm rounded">
-                                <div class="text-center">
-                                    <div class="bg-primary p-5 text-white">Utente</div>
-                                    <div class="font-weight-bold mt-2">Nome Utente</div>
-                                    <div class="font-weight-light mb-2">Data di nascita</div>
-                                </div>
+                                
+                                @forelse ($apartments as $apartment)
+                                    <div class="text-center">
+                                        <div class="bg-primary p-5 text-white">Utente</div>
+                                        <div class="font-weight-bold mt-2">{{ $apartment->user->name }}</div>
+                                        <div class="font-weight-light mb-2">Anno di nascita: {{ $apartment->user->date_birth }}</div>
+                                    </div>
 
-                                <div class="pt-3">Indirizzo e-mail</div>
-                                <div>Visualizzazioni appartamenti: 0</div>
-                                <div class="btn btn-sm btn-outline-primary mt-3 ">Messaggi</div>
-                                <div class="user_panel_messages p-3">
-                                    <div class="my-2">
-                                        <div><span class="font-weight-bold">Autore:</span> Mario</div>
-                                        <div><span class="font-weight-bold">Mail:</span> mario@mario.it</div>
-                                        <p><span class="font-weight-bold">Contenuto:</span> Lorem ipsum dolor sit amet
-                                            consectetur, adipisicing elit. Perspiciatis temporibus exercitationem, magnam
-                                            sed ex enim, placeat quae amet voluptate dolores deleniti unde asperiores
-                                            perferendis quam nostrum consectetur, odio iste magni!</p>
+                                    <div class="pt-3">Indirizzo e-mail: <strong>{{ $apartment->user->email }}</strong></div>
+                                    
+                                    <div class="btn btn-sm btn-outline-primary mt-3 ">Messaggi</div>
+                                    <div class="user_panel_messages p-3">
+                                        @forelse ($apartment->messages as $message)
+                                            <div class="my-2">
+                                                <div><span class="font-weight-bold">Autore:</span> {{ $message->name }}</div>
+                                                <div><span class="font-weight-bold">Mail:</span> {{ $message->email }}</div>
+                                                <p><span class="font-weight-bold">Contenuto:</span> {{ $message->content }}</p>
+                                            </div>
+                                        @empty
+                                            Non ci sono messaggi
+                                        @endforelse
                                     </div>
-                                    <div class="my-2">
-                                        <div><span class="font-weight-bold">Autore:</span> Paolo</div>
-                                        <div><span class="font-weight-bold">Mail:</span> paolo@paolo.it</div>
-                                        <p><span class="font-weight-bold">Contenuto:</span> Lorem ipsum dolor sit amet
-                                            consectetur, adipisicing elit. Perspiciatis temporibus exercitationem, magnam
-                                            sed ex enim, placeat quae amet voluptate dolores deleniti unde asperiores
-                                            perferendis quam nostrum consectetur, odio iste magni!</p>
-                                    </div>
-                                </div>
+                                @empty
+                                    <div>Non ci sono informazioni disponibili.</div>
+                                @endforelse
+                                
                             </div>
                         </div>
 
@@ -52,57 +51,51 @@
 
                                 <div class="row justify-content-around">
                                     <div class="col-6 d-flex">
-                                        <div class="card w-50 mr-4">
-                                            <img class="card-img-top" src="https://cf.bstatic.com/xdata/images/hotel/max500/162105631.jpg?k=8a20c08a1592ff9589716815636f14eef9f1f35a0a2dd1762ebe7b375307c727&o=&hp=1" alt="titolo">
-                                            <div class="card-body card-body-cascade pb-0">
-                                                <h5 class="card-title"><strong>Casa sul Mare</strong></h5>
-                                                <p class="font-italic pb-1">Via Salita Castello 13, 80079 Procida, Italia</p>
+                                        @forelse ($apartments as $apartment)
+                                            <div class="card w-50 mr-4">
+                                                <img class="card-img-top" src="https://cf.bstatic.com/xdata/images/hotel/max500/162105631.jpg?k=8a20c08a1592ff9589716815636f14eef9f1f35a0a2dd1762ebe7b375307c727&o=&hp=1" alt="titolo">
+                                                <div class="card-body card-body-cascade pb-0">
+                                                    <h5 class="card-title"><strong>{{ $apartment->title }}</strong></h5>
+                                                    <p class="font-italic pb-1">{{ $apartment->address }}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="card w-50">
-                                            <img class="card-img-top" src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/299548786.jpg?k=bf33a424fd5407bbb4ba53d7b1be2f2456da4d3aab923a90ee61fdeaa5a7f1e7&o=&hp=1" alt="titolo">
-                                            <div class="card-body card-body-cascade pb-0">
-                                                <h5 class="card-title"><strong>Corallo Residence</strong></h5>
-                                                <p class="font-italic pb-1">284 Via Vittorio Emanuele 284, 80079 Procida, Italia</p>
-                                            </div>
-                                        </div>
+                                        @empty
+                                            <div>Non hai appartamenti.</div>
+                                        @endforelse
                                     </div>
                                     <div class="col-6">
                                         <ul>
-                                            <li class="mb-3">
-                                                <div class="row">
-                                                    <div class="col-8">
-                                                        <strong>Casa sul mare - </strong><span class="font-italic">Via Salita Castello 13, 80079 spanrocida, Italia</span>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <div class="d-flex">
-                                                            <a href="#" class="btn btn-sm btn-success mr-2">Modifica</a>
-                                                            <button type="submit" class="btn btn-sm btn-warning">
-                                                                Cestina
-                                                            </button>
+                                            @forelse ($apartments as $apartment)
+                                                <li class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-8">
+                                                            <strong>{{ $apartment->title }} - </strong><span class="font-italic">{{ $apartment->address }}</span>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <div class="d-flex">
+                                                                <a href="{{ route('host.apartments.edit', $apartment->id) }}"
+                                                                    class="btn btn-sm btn-success mr-2">
+                                                                    Modifica
+                                                                </a>
+                                                                <form action="{{ route('host.apartments.destroy', $apartment->id) }}"
+                                                                    method="POST" class="d-inline">
+                                                                    @method('DELETE')
+                                                                    @csrf
+                                                                    <button type="submit" class="btn btn-sm btn-warning">
+                                                                        Cestina
+                                                                    </button>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-8">
-                                                        <strong>Corallo Residence - </strong><span class="font-italic">284 Via Vittorio Emanuele 284, 80079 Procida, Italia</span>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <div class="d-flex">
-                                                            <a href="#" class="btn btn-sm btn-success mr-2">Modifica</a>
-                                                            <button type="submit" class="btn btn-sm btn-warning">
-                                                                Cestina
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
+                                                </li>
+                                            @empty
+                                                <div>Non hai appartamenti.</div>
+                                            @endforelse
                                         </ul>
                                         <div class="d-flex p-4">
                                             <img class="ms_icon_create_apartment mr-2" src="https://tinypic.host/images/2022/10/13/add.png" alt="create"> 
-                                            <a href="#"><p><strong>Aggiungi un nuovo appartamento</strong></p></a>
+                                            <a href="{{ route('host.apartments.create') }}"><p><strong>Aggiungi un nuovo appartamento</strong></p></a>
                                         </div>
                                     </div>
                                 </div>
@@ -110,8 +103,9 @@
                         </div>
                     </div>
 
-                    <hr>
                     {{-- TABLE DESIGN --}}
+                    {{-- <hr>
+                    
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -136,11 +130,11 @@
                             @forelse ($apartments as $apartment)
                                 <tr>
                                     <th scope="row">
-                                        {{ $apartment->id }}
+                                        {{ $apartment->id }} --}}
                                         {{-- <a href="{{ route('host.apartments.show') }}">
                                         {{ $apartment->id }}
                                     </a> --}}
-                                    </th>
+                                    {{-- </th>
                                     <td>{{ $apartment->user->name }}</td>
                                     <td>
                                         <a href="{{ route('host.apartments.show', $apartment->id) }}">
@@ -165,13 +159,13 @@
                                     <td>
                                         @if (filter_var($apartment->image, FILTER_VALIDATE_URL))
                                             <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}"
-                                                class="img-fluid rounded-start" />
+                                                class="img-fluid rounded-start" /> --}}
                                             {{-- url --}}
-                                        @else
+                                        {{-- @else
                                             <img src="{{ asset('storage/' . $apartment->image) }}"
-                                                alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
+                                                alt="{{ $apartment->title }}" class="img-fluid rounded-start" /> --}}
                                             {{-- file --}}
-                                        @endif
+                                        {{-- @endif
                                     </td>
                                     <td>
                                         {{ $apartment->is_visible }}
@@ -212,7 +206,7 @@
                                 </tr>
                             @endforelse
                         </tbody>
-                    </table>
+                    </table> --}}
 
                 </div>
             </div>
