@@ -18,6 +18,9 @@
                         <a href="{{ route('host.apartments.index') }}">Appartamenti</a>
                     </li>
                     <li>
+                        <a href="{{ route('host.apartments.deletedApartments') }}">Appartamenti cestinati</a>
+                    </li>
+                    <li>
                         <a class="btn btn-sm btn-outline-success mx-3 {{ request()->routeIs('host.apartments.create') ? 'active' : "" }}" href="{{ route('host.apartments.create') }}">Add apartment</a>
                     </li>
                 @endguest
