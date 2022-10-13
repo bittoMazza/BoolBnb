@@ -12,7 +12,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">User ID</th>
+                            <th scope="col">Apartment ID</th>
                             <th scope="col">Username</th>
                             <th scope="col">Title</th>
                             <th scope="col">Rooms</th>
@@ -26,13 +26,14 @@
                             <th scope="col">Lat</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
+                            <th scope="col">Msg</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($apartments as $apartment)
                             <tr>
                                 <th scope="row">
-                                    {{ $apartment->user->id }}
+                                    {{ $apartment->id }}
                                     {{-- <a href="{{ route('host.apartments.show') }}">
                                         {{ $apartment->id }}
                                     </a> --}}
@@ -89,6 +90,13 @@
                                             Cestina
                                         </button>
                                     </form>
+                                </td>
+                                <td>
+                                    @forelse ($apartment->messages as $message)
+                                        {{ $message }}
+                                    @empty
+                                        Non ci sono messaggi
+                                    @endforelse
                                 </td>
                             </tr>
                         @empty
