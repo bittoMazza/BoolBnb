@@ -101,7 +101,7 @@
                                             </li>
                                         </ul>
                                         <div class="d-flex p-4">
-                                            <img class="ms_icon_create_apartment mr-2" src="https://tinypic.host/images/2022/10/13/add-user.png" alt="create"> 
+                                            <img class="ms_icon_create_apartment mr-2" src="https://tinypic.host/images/2022/10/13/add.png" alt="create"> 
                                             <a href="#"><p><strong>Aggiungi un nuovo appartamento</strong></p></a>
                                         </div>
                                     </div>
