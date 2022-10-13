@@ -8,9 +8,24 @@ use App\Models\Apartment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class ApartmentController extends Controller
 {
+
+    protected $validationRules = [          
+        'title' => 'required|min:15|max:255',       
+        'rooms' => 'required|integer|min:3|max:20', 
+        'beds' => 'required|integer|min:1|max:5',
+        'bathrooms' => 'required|integer|min:1|max:5',
+        'square_meters' => 'required|integer|min:1|max:500',
+        'address' => 'required|min:3|max:255',
+        'image' => 'required|image|max:1024',
+        'is_visible' => 'required|boolean',
+        'long' => 'required|numeric',
+        'lat' => 'required|numeric',
+        'amenities' => 'exists:amenities,id'
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -45,6 +60,7 @@ class ApartmentController extends Controller
     {
         // dd($request);
         $data = $request->all();
+        $validatedData = $request->validate($this->validationRules); 
         $data['user_id'] = Auth::id();
         $data['is_visible'] = true;
         $data['image'] = Storage::put('uploads', $data['image']);
@@ -90,7 +106,8 @@ class ApartmentController extends Controller
     public function update(Request $request, $id)
     {
         $apartment = Apartment::findOrFail($id);
-        $data = $request->all();
+        $data = $request->all();  
+        $validatedData = $request->validate($this->validationRules); 
         $data['user_id'] = $apartment->user_id;
         if (isset($data['is_visible'])) {
             $apartment->is_visible = true;
