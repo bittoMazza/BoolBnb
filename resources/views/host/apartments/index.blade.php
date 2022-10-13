@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
+<div class="index_background">
+    <div class="container">
         <div class="row">
             <div class="col-12">
                 @if (session('delete'))
@@ -9,6 +10,43 @@
                         "{{ session('delete') }}" was successfully removed.
                     </div>
                 @endif
+
+                {{-- DASHBOARD DESIGN --}}
+                <div class="row my-4">
+
+                    <div class="col-3 index_user_panel w-100 bg-light p-3 shadow-sm rounded">
+                        <div class="text-center">
+                            <div class="bg-primary p-5 text-white">Utente</div>
+                            <div class="font-weight-bold mt-2">Nome Utente</div>
+                            <div class="font-weight-light mb-2">Data di nascita</div>
+                        </div>
+                        
+                        <div class="pt-3">Indirizzo e-mail</div>
+                        <div>Visualizzazioni appartamenti: 0</div>
+                        <div class="btn btn-sm btn-outline-primary mt-3 ">Messaggi</div>
+                        <div class="user_panel_messages p-3">
+                            <div class="my-2">
+                                <div><span class="font-weight-bold">Autore:</span> Mario</div>
+                                <div><span class="font-weight-bold">Mail:</span> mario@mario.it</div>
+                                <p><span class="font-weight-bold">Contenuto:</span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis temporibus exercitationem, magnam sed ex enim, placeat quae amet voluptate dolores deleniti unde asperiores perferendis quam nostrum consectetur, odio iste magni!</p>
+                            </div>
+                            <div class="my-2">
+                                <div><span class="font-weight-bold">Autore:</span> Paolo</div>
+                                <div><span class="font-weight-bold">Mail:</span> paolo@paolo.it</div>
+                                <p><span class="font-weight-bold">Contenuto:</span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis temporibus exercitationem, magnam sed ex enim, placeat quae amet voluptate dolores deleniti unde asperiores perferendis quam nostrum consectetur, odio iste magni!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-9">
+                        <div class="index_user_management">
+                            CIAO
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+                {{-- TABLE DESIGN --}}
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -26,7 +64,7 @@
                             <th scope="col">Lat</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
-                            <th scope="col">Msg</th>
+                            <th scope="col">Msg Name</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -93,7 +131,7 @@
                                 </td>
                                 <td>
                                     @forelse ($apartment->messages as $message)
-                                        {{ $message }}
+                                        {{ $message->name }}
                                     @empty
                                         Non ci sono messaggi
                                     @endforelse
@@ -110,6 +148,7 @@
             </div>
         </div>
     </div>
+</div>
 @endsection
 
 @section('footer-scripts')
