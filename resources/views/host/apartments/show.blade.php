@@ -27,6 +27,7 @@
                                 Cestina
                             </button>
                         </form>
+                        <span class="card-text btn btn-primary text-white">Numero visite: {{ $views }}</span>
                     </div>
                 </div>
             </div>
