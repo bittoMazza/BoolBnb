@@ -87,8 +87,8 @@
 
 
 <div class="form-group">
-    <label class="text-light">IMMAGINE APPARTMANETO</label>
-    <input type="file" class="form-control" value="{{ old('image',$apartment->image) }}" name="image" placeholder="Inserire immagine" required>
+    <label class="text-light">IMMAGINE APPARTAMENTO</label>
+    <input type="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine" multiple required>
     @error('image')
     <div class="alert alert-danger">
         {{ $message }}

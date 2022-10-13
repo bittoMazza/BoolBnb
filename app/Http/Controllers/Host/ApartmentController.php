@@ -5,24 +5,26 @@ namespace App\Http\Controllers\Host;
 use App\Http\Controllers\Controller;
 use App\Models\Amenity;
 use App\Models\Apartment;
+use App\Models\Image;
 use App\Models\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class ApartmentController extends Controller
 {
 
-    protected $validationRules = [          
-        'title' => 'required|min:15|max:255',       
-        'rooms' => 'required|integer|min:3|max:20', 
+    protected $validationRules = [
+        'title' => 'required|min:15|max:255',
+        'rooms' => 'required|integer|min:1|max:20',
         'beds' => 'required|integer|min:1|max:5',
         'bathrooms' => 'required|integer|min:1|max:5',
         'square_meters' => 'required|integer|min:1|max:500',
         'address' => 'required|min:3|max:255',
-        'image' => 'required|image|max:1024',
-        'is_visible' => 'required|boolean',
+        // 'image[]' => 'required|image',
+        // 'is_visible' => 'required|boolean',
         'long' => 'required|numeric',
         'lat' => 'required|numeric',
         'amenities' => 'exists:amenities,id'
@@ -57,17 +59,34 @@ class ApartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
-        // dd($request);
         $data = $request->all();
-        $validatedData = $request->validate($this->validationRules); 
+
+        $validatedData = $request->validate($this->validationRules);
+
         $data['user_id'] = Auth::id();
-        $data['is_visible'] = true;
-        $data['image'] = Storage::put('uploads', $data['image']);
+        if (isset($data['is_visible'])) {
+            $data['is_visible'] = true;
+        } else {
+            $data['is_visible'] = false;
+        }
         $apartment = new Apartment();
         $apartment->fill($data);
+
+        
         $apartment->save($data);
+
+        foreach ($data['image'] as $image) {
+            $newImage = new Image();
+            $image = Storage::put('uploads',$image);
+            $newImage->image = $image;
+            $apartment_id = (Apartment::orderBy('id','desc')->first()->id);
+            $newImage->apartment_id = $apartment_id;
+            $newImage->save();
+
+        }
 
         return redirect()->route('host.apartments.show', $apartment['id']);
     }
@@ -81,7 +100,7 @@ class ApartmentController extends Controller
     public function show($id)
     {
         $apartment = Apartment::findOrFail($id);
-        $views = View::where('apartment_id','=',$apartment->id)->count();
+        $views = View::where('apartment_id', '=', $apartment->id)->count();
         return view('host.apartments.show', compact('apartment', 'views'));
     }
 
@@ -108,18 +127,30 @@ class ApartmentController extends Controller
     public function update(Request $request, $id)
     {
         $apartment = Apartment::findOrFail($id);
-        $data = $request->all();  
-        $validatedData = $request->validate($this->validationRules); 
+
+
+        $data = $request->all();
+
+        $validatedData = $request->validate($this->validationRules);
+
+        foreach ($data['image'] as $image) {
+            $newImage = new Image();
+            $image = Storage::put('uploads',$image);
+            $newImage->image = $image;
+            $newImage->apartment_id = $id;
+
+            $newImage->save();
+        }
+
+
         $data['user_id'] = $apartment->user_id;
         if (isset($data['is_visible'])) {
             $apartment->is_visible = true;
-        }
-        else
-        {
+        } else {
             $apartment->is_visible = false;
         }
         $data['is_visible'] = $apartment->is_visible;
-        $data['image'] = Storage::put('uploads', $data['image']);
+
         $apartment->update($data);
 
         return redirect()->route('host.apartments.show', $apartment->id);
@@ -139,12 +170,13 @@ class ApartmentController extends Controller
         return redirect()->route('host.apartments.index')->with('deleted', $apartment->title);
     }
 
-    public function deletedApartments(){
+    public function deletedApartments()
+    {
         $apartments = Apartment::onlyTrashed()->paginate(10);
-        return view('host.apartments.deletedApartments',compact('apartments'));
+        return view('host.apartments.deletedApartments', compact('apartments'));
     }
 
-    public function restoreApartments($id) 
+    public function restoreApartments($id)
     {
 
         $apartment = Apartment::where('id', $id)->withTrashed()->first();
@@ -163,6 +195,5 @@ class ApartmentController extends Controller
 
         return redirect()->route('host.apartments.index')
             ->with('success', 'You successfully deleted the project fromt the Recycle Bin');
-
     }
 }
