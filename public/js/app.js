@@ -53795,8 +53795,18 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\Bitto\Documents\Repository\BoolBnb\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\Bitto\Documents\Repository\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+<<<<<<< HEAD
+__webpack_require__(/*! C:\Users\haksn\Desktop\BoolBnb\BoolBnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\haksn\Desktop\BoolBnb\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\Users\vince\Desktop\Boolean\Esercizi\BoolBnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\vince\Desktop\Boolean\Esercizi\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> ca31c5779ac74a9c16c5c3770507d4fbd8e67b39
+>>>>>>> 952a9e46ec86f0b66e714578014dc90de4252290
 
 
 /***/ })

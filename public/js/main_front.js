@@ -104,7 +104,11 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\Users\Bitto\Documents\Repository\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
+=======
+module.exports = __webpack_require__(/*! C:\Users\vince\Desktop\Boolean\Esercizi\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
+>>>>>>> 952a9e46ec86f0b66e714578014dc90de4252290
 
 
 /***/ })
