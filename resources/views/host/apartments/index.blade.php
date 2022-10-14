@@ -64,12 +64,12 @@
                                     <div class="col-6 d-flex flex-wrap justify-content-between">
                                         @forelse ($apartments as $apartment)
                                             <div class="card w-50 mb-2">
-                                                @if (filter_var($apartment->image, FILTER_VALIDATE_URL))
-                                                    <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}"
+                                                @if (filter_var($apartment->images[0]->image, FILTER_VALIDATE_URL))
+                                                    <img src="{{ $apartment->images[0]->image }}" alt="{{ $apartment->title }}"
                                                         class="card-img-top rounded-start" />
                                                     {{-- url --}}
                                                 @else
-                                                    <img src="{{ asset('storage/' . $apartment->image) }}"
+                                                    <img src="{{ asset('storage/' . $apartment->images[0]->image) }}"
                                                         alt="{{ $apartment->title }}" class="card-img-top rounded-start" />
                                                     {{-- file --}}
                                                 @endif
