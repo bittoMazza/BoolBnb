@@ -23,11 +23,11 @@
                             <div class="col">
                                 @if (filter_var($image->image, FILTER_VALIDATE_URL))
                                     <img src="{{ $image->image }}" alt="{{ $apartment->title }}"
-                                        class="w-100 shadow-1-strong rounded mb-4" />
+                                        class="w-100 shadow rounded mb-4" />
                                     {{-- url --}}
                                 @else
                                     <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $apartment->title }}"
-                                        class="w-100 shadow-1-strong rounded mb-4" />
+                                        class="w-100 shadow rounded mb-4" />
                                     {{-- file --}}
                                 @endif
                             </div>
