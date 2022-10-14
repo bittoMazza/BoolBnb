@@ -13,8 +13,12 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 public/css/app.css
+<<<<<<< HEAD
+<<<<<<< HEAD
+public/js/main_front.js
 public/css/app.css
 public/js/app.js
-public/js/main_front.js
+=======
+public/css/app.css
 public/js/app.js
 public/js/main_front.js
