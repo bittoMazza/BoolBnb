@@ -5,14 +5,28 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-
-                    @if (filter_var($apartment->image, FILTER_VALIDATE_URL))
-                        <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
-                        {{-- url --}}
-                    @else
-                        <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
-                        {{-- file --}}
-                    @endif
+                    {{-- @forelse ($apartment->messages as $message)
+                        <div class="my-2">
+                            <div><span class="font-weight-bold">Autore:</span> {{ $message->name }}</div>
+                            <div><span class="font-weight-bold">Mail:</span> {{ $message->email }}</div>
+                            <p><span class="font-weight-bold">Contenuto:</span> {{ $message->content }}</p>
+                        </div>
+                    @empty
+                        Non ci sono messaggi
+                    @endforelse --}}
+                    <div class="d-flex flex-wrap">
+                        @forelse ($apartment->images as $image)
+                            @if (filter_var($image->image, FILTER_VALIDATE_URL))
+                                <img src="{{ $image->image }}" alt="{{ $apartment->title }}" class="w-50 rounded-start" />
+                                {{-- url --}}
+                            @else
+                                <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
+                                {{-- file --}}
+                            @endif   
+                        @empty
+                            Non ci sono immagini
+                        @endforelse
+                    </div>
 
                     <div class="card-body">
                         <h5 class="card-title">{{ $apartment->title }}</h5>

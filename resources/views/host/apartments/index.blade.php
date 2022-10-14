@@ -26,7 +26,7 @@
                             <th scope="col">Lat</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
-                            <th scope="col">Msg</th>
+                            <th scope="col">Message name</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,11 +60,13 @@
                                     {{ $apartment->address }}
                                 </td>
                                 <td>
-                                    @if (filter_var($apartment->image, FILTER_VALIDATE_URL))
-                                        <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
+                                    @if (filter_var($apartment->images['0']->image, FILTER_VALIDATE_URL))
+                                        <img src="{{ $apartment->images['0']->image }}" alt="{{ $apartment->title }}"
+                                        class="img-fluid rounded-start" />
                                         {{-- url --}}
                                     @else
-                                        <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
+                                        <img src="{{ asset('storage/' . $apartment->images['0']->image) }}"
+                                            alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
                                         {{-- file --}}
                                     @endif
                                 </td>
@@ -78,12 +80,14 @@
                                     {{ $apartment->lat }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('host.apartments.edit', $apartment->id) }}" class="btn btn-sm btn-success">
+                                    <a href="{{ route('host.apartments.edit', $apartment->id) }}"
+                                        class="btn btn-sm btn-success">
                                         Modifica
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="{{ route('host.apartments.destroy', $apartment->id) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('host.apartments.destroy', $apartment->id) }}" method="POST"
+                                        class="d-inline">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-warning">
@@ -93,7 +97,7 @@
                                 </td>
                                 <td>
                                     @forelse ($apartment->messages as $message)
-                                        {{ $message }}
+                                        {{ $message->name }}
                                     @empty
                                         Non ci sono messaggi
                                     @endforelse
