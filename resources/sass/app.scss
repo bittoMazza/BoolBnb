@@ -7,6 +7,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Icons Bootstrap
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
 .index_background{
     background-color: #ebeff2;
 }
@@ -19,4 +22,8 @@
 .ms_icon_create_apartment{
     width: 27px;
     height: 27px;
+}
+
+.header_img{
+    width: 120px;
 }

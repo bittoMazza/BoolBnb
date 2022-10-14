@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,800;1,400;1,800&display=swap);@charset "UTF-8"; /*!
+@import url(https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,800;1,400;1,800&display=swap);@import url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css);@charset "UTF-8"; /*!
  * Bootstrap  v5.2.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
  * Copyright 2011-2022 Twitter, Inc.
@@ -10831,4 +10831,8 @@ textarea.form-control-lg {
 .ms_icon_create_apartment {
   width: 27px;
   height: 27px;
+}
+
+.header_img {
+  width: 120px;
 }
