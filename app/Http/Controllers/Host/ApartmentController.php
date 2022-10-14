@@ -167,7 +167,7 @@ class ApartmentController extends Controller
         $apartment = Apartment::findOrFail($id);
         $apartment->delete();
 
-        return redirect()->route('host.apartments.index');
+        return redirect()->route('host.apartments.index')->with('deleted', "Hai spostato l'appartamento nel cestino");
     }
 
     public function deletedApartments()
