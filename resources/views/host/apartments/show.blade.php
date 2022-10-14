@@ -4,6 +4,15 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                @if (session('created'))
+                    <div class="alert alert-success">
+                        <h1>{{ session('created') }}</h1>
+                    </div>
+                @elseif (session('edited'))
+                    <div class="alert alert-success">
+                        <h1>{{ session('edited') }}</h1>
+                    </div>
+                @endif
                 <div class="card">
                     {{-- @forelse ($apartment->messages as $message)
                         <div class="my-2">

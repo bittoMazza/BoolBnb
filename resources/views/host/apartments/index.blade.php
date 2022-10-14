@@ -4,9 +4,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                @if (session('delete'))
-                    <div class="alert alert-warning">
-                        "{{ session('delete') }}" was successfully removed.
+                @if (session('deleted'))
+                    <div class="alert alert-success">
+                        <h1>{{ session('deleted') }}</h1>
+                    </div>
+                @elseif (session('restored'))
+                    <div class="alert alert-success">
+                        <h1>{{ session('restored') }}</h1>
                     </div>
                 @endif
                 <table class="table table-striped">
