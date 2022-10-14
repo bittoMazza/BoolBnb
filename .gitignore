@@ -14,9 +14,15 @@ npm-debug.log
 yarn-error.log
 public/css/app.css
 <<<<<<< HEAD
+<<<<<<< HEAD
 public/js/main_front.js
 public/css/app.css
 public/js/app.js
+=======
+public/css/app.css
+public/js/app.js
+public/js/main_front.js
+>>>>>>> 952a9e46ec86f0b66e714578014dc90de4252290
 =======
 public/css/app.css
 public/js/app.js
