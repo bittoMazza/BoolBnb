@@ -37,7 +37,7 @@
                                     
                 
                                 @forelse($apartments as $apartment)
-                                <div class="mt-3 btn btn-sm btn-outline-primary active"><strong>Messaggi: {{ $apartment->title }}</strong></div>
+                                <div class="mt-3 btn btn-sm btn-outline-primary active text-white"><strong>Messaggi: {{ $apartment->title }}</strong></div>
                                 <div class="user_panel_messages px-1">
                                 @forelse ($apartment->messages as $message)
                                     <div class="my-3">
@@ -61,7 +61,7 @@
                                 <h2 class="font-weight-bold">I miei Appartamenti</h2>
 
                                 <div class="row justify-content-around">
-                                    <div class="col-6 d-flex flex-wrap justify-content-between">
+                                    <div class="col-6 d-flex flex-wrap justify-content-between px-1">
                                         @forelse ($apartments as $apartment)
                                             <div class="card w-50 mb-2">
                                                 @if (filter_var($apartment->images[0]->image, FILTER_VALIDATE_URL))
@@ -102,14 +102,14 @@
                                                         <div class="col-2">
                                                             <div class="d-flex">
                                                                 <a href="{{ route('host.apartments.edit', $apartment->id) }}"
-                                                                    class="btn btn-sm btn-success mr-2">
+                                                                    class="btn btn-sm btn-success mr-2 text-white">
                                                                     Modifica
                                                                 </a>
                                                                 <form action="{{ route('host.apartments.destroy', $apartment->id) }}"
                                                                     method="POST" class="d-inline">
                                                                     @method('DELETE')
                                                                     @csrf
-                                                                    <button type="submit" class="btn btn-sm btn-warning">
+                                                                    <button type="submit" class="btn btn-sm btn-warning ms-2">
                                                                         Cestina
                                                                     </button>
                                                                 </form>
@@ -123,7 +123,7 @@
                                         </ul>
                                         <div class="d-flex p-4">
                                             <img class="ms_icon_create_apartment mr-2" src="https://tinypic.host/images/2022/10/13/add.png" alt="create"> 
-                                            <a href="{{ route('host.apartments.create') }}"><p><strong>Aggiungi un nuovo appartamento</strong></p></a>
+                                            <a class="ms-2" href="{{ route('host.apartments.create') }}"><p><strong>Aggiungi un nuovo appartamento</strong></p></a>
                                         </div>
                                     </div>
                                 </div>
