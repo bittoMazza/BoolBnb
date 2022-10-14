@@ -1,120 +1,234 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                @if (session('deleted'))
-                    <div class="alert alert-success">
-                        <h1>{{ session('deleted') }}</h1>
+    <div class="index_background pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    @if (session('delete'))
+                        <div class="alert alert-warning">
+                            "{{ session('delete') }}" was successfully removed.
+                        </div>
+                    @endif
+
+                    @if (session('not-allowed'))
+                        <div class="alert alert-warning">
+                            {{ session('not-allowed') }}
+                        </div>
+                    @endif
+
+                    {{-- DASHBOARD DESIGN --}}
+                    <div class="row my-4">
+
+                        <div class="col-3">
+                            <div class="index_user_panel w-100 bg-light p-3 shadow-sm rounded">
+
+                                @forelse ($users as $user)
+                                    <div class="text-center">
+                                        <img class="rounded w-75" src="https://tinypic.host/images/2022/10/14/User-Profile-PNG-High-Quality-Image.png" alt="{{ $user->name }}">
+                                        <h4 class="font-weight-bold mt-2 fs-3">{{ $user->name }}</h4>
+                                        <div class="font-weight-light mb-2">Anno di nascita: {{ $user->date_birth }}</div>
+                                    </div>
+
+                                    <div class="pt-3">Indirizzo e-mail: <strong>{{ $user->email }}</strong></div>
+                                @empty
+                                    <div>Non ci sono informazioni disponibili</div>
+                                @endforelse
+                                    
+                
+                                @forelse($apartments as $apartment)
+                                <div class="mt-3 btn btn-sm btn-outline-primary active"><strong>Messaggi: {{ $apartment->title }}</strong></div>
+                                <div class="user_panel_messages px-1">
+                                @forelse ($apartment->messages as $message)
+                                    <div class="my-3">
+                                        <div><span class="font-weight-bold">Autore:</span> {{ $message->name }}</div>
+                                        <div><span class="font-weight-bold">Mail:</span> {{ $message->email }}</div>
+                                        <p><span class="font-weight-bold">Contenuto:</span> {{ $message->content }}</p>
+                                    </div>
+                                    @empty
+                                    Non ci sono messaggi
+                                    @endforelse
+                                </div>
+                                @empty
+                                    <div>Non ci sono informazioni disponibili.</div>
+                                @endforelse
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-9">
+                            <div class="index_user_management">
+                                <h2 class="font-weight-bold">I miei Appartamenti</h2>
+
+                                <div class="row justify-content-around">
+                                    <div class="col-6 d-flex flex-wrap justify-content-between">
+                                        @forelse ($apartments as $apartment)
+                                            <div class="card w-50 mb-2">
+                                                @if (filter_var($apartment->image, FILTER_VALIDATE_URL))
+                                                    <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}"
+                                                        class="card-img-top rounded-start" />
+                                                    {{-- url --}}
+                                                @else
+                                                    <img src="{{ asset('storage/' . $apartment->image) }}"
+                                                        alt="{{ $apartment->title }}" class="card-img-top rounded-start" />
+                                                    {{-- file --}}
+                                                @endif
+
+                                                <div class="card-body card-body-cascade pb-0">
+                                                    <h5 class="card-title"><strong>{{ $apartment->title }}</strong></h5>
+                                                    <p class="font-italic pb-1">{{ $apartment->address }}</p>
+                                                </div>
+                                            </div>
+                                        @empty
+                                            <div>Non hai appartamenti.</div>
+                                        @endforelse
+                                    </div>
+                                    <div class="col-6">
+                                        <ul>
+                                            @forelse ($apartments as $apartment)
+                                                <li class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-8">
+                                                            <strong>{{ $apartment->title }} - </strong><span class="font-italic">{{ $apartment->address }}</span>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <div class="d-flex">
+                                                                <a href="{{ route('host.apartments.edit', $apartment->id) }}"
+                                                                    class="btn btn-sm btn-success mr-2">
+                                                                    Modifica
+                                                                </a>
+                                                                <form action="{{ route('host.apartments.destroy', $apartment->id) }}"
+                                                                    method="POST" class="d-inline">
+                                                                    @method('DELETE')
+                                                                    @csrf
+                                                                    <button type="submit" class="btn btn-sm btn-warning">
+                                                                        Cestina
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @empty
+                                                <div>Non hai appartamenti.</div>
+                                            @endforelse
+                                        </ul>
+                                        <div class="d-flex p-4">
+                                            <img class="ms_icon_create_apartment mr-2" src="https://tinypic.host/images/2022/10/13/add.png" alt="create"> 
+                                            <a href="{{ route('host.apartments.create') }}"><p><strong>Aggiungi un nuovo appartamento</strong></p></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                @elseif (session('restored'))
-                    <div class="alert alert-success">
-                        <h1>{{ session('restored') }}</h1>
-                    </div>
-                @endif
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Apartment ID</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Rooms</th>
-                            <th scope="col">Beds</th>
-                            <th scope="col">Bathrooms</th>
-                            <th scope="col">Square_meters</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Is Visible</th>
-                            <th scope="col">Long</th>
-                            <th scope="col">Lat</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                            <th scope="col">Message name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($apartments as $apartment)
+
+                    {{-- TABLE DESIGN --}}
+                    {{-- <hr>
+                    
+                    <table class="table table-striped">
+                        <thead>
                             <tr>
-                                <th scope="row">
-                                    {{ $apartment->id }}
-                                    {{-- <a href="{{ route('host.apartments.show') }}">
+                                <th scope="col">Apartment ID</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Rooms</th>
+                                <th scope="col">Beds</th>
+                                <th scope="col">Bathrooms</th>
+                                <th scope="col">Square_meters</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Is Visible</th>
+                                <th scope="col">Long</th>
+                                <th scope="col">Lat</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col">Msg Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($apartments as $apartment)
+                                <tr>
+                                    <th scope="row">
+                                        {{ $apartment->id }} --}}
+                                        {{-- <a href="{{ route('host.apartments.show') }}">
                                         {{ $apartment->id }}
                                     </a> --}}
-                                </th>
-                                <td>{{ $apartment->user->name }}</td>
-                                <td>
-                                    <a href="{{ route('host.apartments.show', $apartment->id) }}">
-                                        {{ $apartment->title }}
-                                    </a>
-                                </td>
-                                <td>
-                                    {{ $apartment->rooms }}
-                                </td>
-                                <td>
-                                    {{ $apartment->beds }}
-                                </td>
-                                <td>
-                                    {{ $apartment->bathrooms }}
-                                </td>
-                                <td>
-                                    {{ $apartment->square_meters }}
-                                </td>
-                                <td>
-                                    {{ $apartment->address }}
-                                </td>
-                                <td>
-                                    @if (filter_var($apartment->images['0']->image, FILTER_VALIDATE_URL))
-                                        <img src="{{ $apartment->images['0']->image }}" alt="{{ $apartment->title }}"
-                                        class="img-fluid rounded-start" />
-                                        {{-- url --}}
-                                    @else
-                                        <img src="{{ asset('storage/' . $apartment->images['0']->image) }}"
-                                            alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
-                                        {{-- file --}}
-                                    @endif
-                                </td>
-                                <td>
-                                    {{ $apartment->is_visible }}
-                                </td>
-                                <td>
-                                    {{ $apartment->long }}
-                                </td>
-                                <td>
-                                    {{ $apartment->lat }}
-                                </td>
-                                <td>
-                                    <a href="{{ route('host.apartments.edit', $apartment->id) }}"
-                                        class="btn btn-sm btn-success">
-                                        Modifica
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="{{ route('host.apartments.destroy', $apartment->id) }}" method="POST"
-                                        class="d-inline">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit" class="btn btn-sm btn-warning">
-                                            Cestina
-                                        </button>
-                                    </form>
-                                </td>
-                                <td>
-                                    @forelse ($apartment->messages as $message)
-                                        {{ $message->name }}
-                                    @empty
-                                        Non ci sono messaggi
-                                    @endforelse
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="6">There are no apartments available.</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+                                    {{-- </th>
+                                    <td>{{ $apartment->user->name }}</td>
+                                    <td>
+                                        <a href="{{ route('host.apartments.show', $apartment->id) }}">
+                                            {{ $apartment->title }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ $apartment->rooms }}
+                                    </td>
+                                    <td>
+                                        {{ $apartment->beds }}
+                                    </td>
+                                    <td>
+                                        {{ $apartment->bathrooms }}
+                                    </td>
+                                    <td>
+                                        {{ $apartment->square_meters }}
+                                    </td>
+                                    <td>
+                                        {{ $apartment->address }}
+                                    </td>
+                                    <td>
+                                        @if (filter_var($apartment->image, FILTER_VALIDATE_URL))
+                                            <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}"
+                                                class="img-fluid rounded-start" /> --}}
+                                            {{-- url --}}
+                                        {{-- @else
+                                            <img src="{{ asset('storage/' . $apartment->image) }}"
+                                                alt="{{ $apartment->title }}" class="img-fluid rounded-start" /> --}}
+                                            {{-- file --}}
+                                        {{-- @endif
+                                    </td>
+                                    <td>
+                                        {{ $apartment->is_visible }}
+                                    </td>
+                                    <td>
+                                        {{ $apartment->long }}
+                                    </td>
+                                    <td>
+                                        {{ $apartment->lat }}
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('host.apartments.edit', $apartment->id) }}"
+                                            class="btn btn-sm btn-success">
+                                            Modifica
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('host.apartments.destroy', $apartment->id) }}"
+                                            method="POST" class="d-inline">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-sm btn-warning">
+                                                Cestina
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        @forelse ($apartment->messages as $message)
+                                            {{ $message->name }}
+                                        @empty
+                                            Non ci sono messaggi
+                                        @endforelse
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="6">There are no apartments available.</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table> --}}
 
+                </div>
             </div>
         </div>
     </div>

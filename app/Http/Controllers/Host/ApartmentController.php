@@ -7,6 +7,7 @@ use App\Models\Amenity;
 use App\Models\Apartment;
 use App\Models\Image;
 use App\Models\View;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +24,7 @@ class ApartmentController extends Controller
         'bathrooms' => 'required|integer|min:1|max:5',
         'square_meters' => 'required|integer|min:1|max:500',
         'address' => 'required|min:3|max:255',
-        // 'image[]' => 'required|image',
+        'image' => 'required|image|max:1024',
         // 'is_visible' => 'required|boolean',
         'long' => 'required|numeric',
         'lat' => 'required|numeric',
@@ -37,8 +38,9 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = Apartment::where('user_id', Auth::id())->get();
+        $users = User::where('id', Auth::id())->get();
         // $apartments = Apartment::all();
-        return view('host.apartments.index', compact('apartments'));
+        return view('host.apartments.index', compact('apartments', 'users'));
     }
 
     /**
@@ -113,8 +115,16 @@ class ApartmentController extends Controller
     public function edit($id)
     {
         $apartment = Apartment::findOrFail($id);
+        $apartments = User::where('id', Auth::id())->get();
         $amenities = Amenity::all();
-        return view('host.apartments.edit', compact('apartment', 'amenities'));
+
+        if (Auth::id() === $apartment->user_id) {
+            return view('host.apartments.edit', compact('apartment', 'amenities'));
+        }
+
+        else {
+            return redirect()->route('host.apartments.index', compact('apartments'))->with('not-allowed', 'Il contenuto che hai cercato non è stato trovato nel tuo archivio.');
+        }
     }
 
     /**

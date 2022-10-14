@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,800;1,400;1,800&display=swap);@charset "UTF-8";
 /*!
  * Bootstrap v4.6.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
@@ -9239,4 +9239,17 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+.index_background {
+  background-color: #ebeff2;
+}
+
+.user_panel_messages {
+  height: 150px;
+  overflow: auto;
+}
+
+.ms_icon_create_apartment {
+  width: 27px;
+  height: 27px;
 }

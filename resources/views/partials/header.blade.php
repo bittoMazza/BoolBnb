@@ -15,10 +15,10 @@
                 @guest
                 @else
                     <li>
-                        <a href="{{ route('host.apartments.index') }}">Appartamenti</a>
+                        <a href="{{ route('host.apartments.index') }}">I miei Appartamenti</a>
                     </li>
                     <li>
-                        <a class="px-3" href="{{ route('host.apartments.deletedApartments') }}">Appartamenti cestinati</a>
+                        <a class="px-3" href="{{ route('host.apartments.deletedApartments') }}">Cestino</a>
                     </li>
                     <li>
                         <a class="btn btn-sm btn-outline-success px-3 {{ request()->routeIs('host.apartments.create') ? 'active' : "" }}" href="{{ route('host.apartments.create') }}">Aggiungi Appartamento</a>
@@ -27,7 +27,7 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
@@ -41,7 +41,7 @@
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
 
