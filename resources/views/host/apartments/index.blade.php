@@ -16,28 +16,33 @@
 
                         <div class="col-3">
                             <div class="index_user_panel w-100 bg-light p-3 shadow-sm rounded">
-                                
-                                @forelse ($apartments as $apartment)
+
+                                @forelse ($users as $user)
                                     <div class="text-center">
-                                        <div class="bg-primary p-5 text-white">Utente</div>
-                                        <div class="font-weight-bold mt-2">{{ $apartment->user->name }}</div>
-                                        <div class="font-weight-light mb-2">Anno di nascita: {{ $apartment->user->date_birth }}</div>
+                                        <img class="rounded w-100" src="https://tinypic.host/images/2022/10/14/User-Profile-PNG-High-Quality-Image.png" alt="{{ $user->name }}">
+                                        <h4 class="font-weight-bold mt-2 fs-3">{{ $user->name }}</h4>
+                                        <div class="font-weight-light mb-2">Anno di nascita: {{ $user->date_birth }}</div>
                                     </div>
 
-                                    <div class="pt-3">Indirizzo e-mail: <strong>{{ $apartment->user->email }}</strong></div>
+                                    <div class="pt-3">Indirizzo e-mail: <strong>{{ $user->email }}</strong></div>
+                                @empty
+                                    <div>Non ci sono informazioni disponibili</div>
+                                @endforelse
                                     
-                                    <div class="btn btn-sm btn-outline-primary mt-3 ">Messaggi</div>
-                                    <div class="user_panel_messages p-3">
-                                        @forelse ($apartment->messages as $message)
-                                            <div class="my-2">
-                                                <div><span class="font-weight-bold">Autore:</span> {{ $message->name }}</div>
-                                                <div><span class="font-weight-bold">Mail:</span> {{ $message->email }}</div>
-                                                <p><span class="font-weight-bold">Contenuto:</span> {{ $message->content }}</p>
-                                            </div>
-                                        @empty
-                                            Non ci sono messaggi
-                                        @endforelse
+                
+                                @forelse($apartments as $apartment)
+                                <div class="mt-3 btn btn-sm btn-outline-primary active"><strong>Messaggi: {{ $apartment->title }}</strong></div>
+                                <div class="user_panel_messages px-1">
+                                @forelse ($apartment->messages as $message)
+                                    <div class="my-3">
+                                        <div><span class="font-weight-bold">Autore:</span> {{ $message->name }}</div>
+                                        <div><span class="font-weight-bold">Mail:</span> {{ $message->email }}</div>
+                                        <p><span class="font-weight-bold">Contenuto:</span> {{ $message->content }}</p>
                                     </div>
+                                    @empty
+                                    Non ci sono messaggi
+                                    @endforelse
+                                </div>
                                 @empty
                                     <div>Non ci sono informazioni disponibili.</div>
                                 @endforelse
@@ -53,7 +58,7 @@
                                     <div class="col-6 d-flex">
                                         @forelse ($apartments as $apartment)
                                             <div class="card w-50 mr-4">
-                                                <img class="card-img-top" src="https://cf.bstatic.com/xdata/images/hotel/max500/162105631.jpg?k=8a20c08a1592ff9589716815636f14eef9f1f35a0a2dd1762ebe7b375307c727&o=&hp=1" alt="titolo">
+                                                <img class="card-img-top" src="{{ $apartment->image }}" alt="{{ $apartment->title }}">
                                                 <div class="card-body card-body-cascade pb-0">
                                                     <h5 class="card-title"><strong>{{ $apartment->title }}</strong></h5>
                                                     <p class="font-italic pb-1">{{ $apartment->address }}</p>
