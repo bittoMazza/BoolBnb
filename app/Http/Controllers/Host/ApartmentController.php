@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Amenity;
 use App\Models\Apartment;
 use App\Models\View;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -35,8 +36,9 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = Apartment::where('user_id', Auth::id())->get();
+        $users = User::where('id', Auth::id())->get();
         // $apartments = Apartment::all();
-        return view('host.apartments.index', compact('apartments'));
+        return view('host.apartments.index', compact('apartments', 'users'));
     }
 
     /**
