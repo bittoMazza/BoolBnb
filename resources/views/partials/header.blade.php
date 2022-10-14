@@ -15,7 +15,7 @@
                 @guest
                 @else
                     <li>
-                        <a class="nav-link {{ request()->routeIs('host.apartments.index') ? 'text-primary fw-bold' : "" }}" href="{{ route('host.apartments.index') }}">I Miei Appartamenti</a>
+                        <a class="pe-3 nav-link {{ request()->routeIs('host.apartments.index') ? 'text-primary fw-bold' : "" }}" href="{{ route('host.apartments.index') }}">I Miei Appartamenti</a>
                     </li>
                     <li>
                         <a class="pe-4 nav-link {{ request()->routeIs('host.apartments.deletedApartments') ? 'text-primary fw-bold' : "" }}" href="{{ route('host.apartments.deletedApartments') }}">Cestino</a>
@@ -42,7 +42,7 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <span><i class="bi bi-person-circle align-middle"></i> {{ Auth::user()->name }}</span>
+                            <span><i class="bi bi-person-circle align-middle me-1"></i> {{ Auth::user()->name }}</span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
