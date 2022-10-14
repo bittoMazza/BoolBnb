@@ -65,17 +65,25 @@
                                         @forelse ($apartments as $apartment)
                                             <div class="card w-50 mb-2">
                                                 @if (filter_var($apartment->images[0]->image, FILTER_VALIDATE_URL))
+                                                <a href="{{ route('host.apartments.show', $apartment->id) }}">
                                                     <img src="{{ $apartment->images[0]->image }}" alt="{{ $apartment->title }}"
                                                         class="card-img-top rounded-start" />
                                                     {{-- url --}}
+                                                </a>
                                                 @else
+                                                <a href="{{ route('host.apartments.show', $apartment->id) }}">
                                                     <img src="{{ asset('storage/' . $apartment->images[0]->image) }}"
                                                         alt="{{ $apartment->title }}" class="card-img-top rounded-start" />
                                                     {{-- file --}}
+                                                </a>
                                                 @endif
 
                                                 <div class="card-body card-body-cascade pb-0">
-                                                    <h5 class="card-title"><strong>{{ $apartment->title }}</strong></h5>
+                                                    <h5 class="card-title"><strong>
+                                                        <a href="{{ route('host.apartments.show', $apartment->id) }}">
+                                                            {{ $apartment->title }}                                                        
+                                                        </a>
+                                                    </strong></h5>
                                                     <p class="font-italic pb-1">{{ $apartment->address }}</p>
                                                 </div>
                                             </div>
