@@ -4,19 +4,23 @@
 // Variables
 @import 'variables';
 
+// Loader
+@import 'partials/loader';
+
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.index_background{
+.index_background {
     background-color: #ebeff2;
 }
 
-.user_panel_messages{
+.user_panel_messages {
     height: 150px;
     overflow: auto;
 }
 
-.ms_icon_create_apartment{
+.ms_icon_create_apartment {
     width: 27px;
     height: 27px;
 }

@@ -13,6 +13,8 @@ class HomeController extends Controller
         // $user = Auth::user();
         // $id = Auth::id();
 
+        
+        header("Refresh:2; url=http://127.0.0.1:8000/host/apartments");
         return view('host.home');
     }
 }
