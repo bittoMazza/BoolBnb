@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row bg-light">
             <div class="col-12">
                 @if (session('created'))
                     <div class="alert alert-success">
@@ -13,7 +13,9 @@
                         <h1>{{ session('edited') }}</h1>
                     </div>
                 @endif
-                <div class="card my-4">
+                
+                    <h1 class="card-title my-4 fw-bold"><i class="bi bi-house me-1"></i> {{ $apartment->title }}</h1>
+                    <h5 class="card-title my-4 fst-italic">Indirizzo: <span class="fw-semibold">{{ $apartment->address }}</span> - {{ $apartment->lat }}, {{ $apartment->long }}</h5>
                     <div class="row">
                         <div class="row row-cols-3">
                             @forelse ($apartment->images as $image)
