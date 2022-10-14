@@ -96,8 +96,16 @@ class ApartmentController extends Controller
     public function edit($id)
     {
         $apartment = Apartment::findOrFail($id);
+        $apartments = User::where('id', Auth::id())->get();
         $amenities = Amenity::all();
-        return view('host.apartments.edit', compact('apartment', 'amenities'));
+
+        if (Auth::id() === $apartment->user_id) {
+            return view('host.apartments.edit', compact('apartment', 'amenities'));
+        }
+
+        else {
+            return redirect()->route('host.apartments.index', compact('apartments'))->with('not-allowed', 'Il contenuto che hai cercato non è stato trovato nel tuo archivio.');
+        }
     }
 
     /**
