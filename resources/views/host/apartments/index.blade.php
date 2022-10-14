@@ -11,6 +11,12 @@
                         </div>
                     @endif
 
+                    @if (session('not-allowed'))
+                        <div class="alert alert-warning">
+                            {{ session('not-allowed') }}
+                        </div>
+                    @endif
+
                     {{-- DASHBOARD DESIGN --}}
                     <div class="row my-4">
 
@@ -55,9 +61,9 @@
                                 <h2 class="font-weight-bold">I miei Appartamenti</h2>
 
                                 <div class="row justify-content-around">
-                                    <div class="col-6 d-flex row-cols-2">
+                                    <div class="col-6 d-flex flex-wrap justify-content-between">
                                         @forelse ($apartments as $apartment)
-                                            <div class="card w-50 mr-2">
+                                            <div class="card w-50 mb-2">
                                                 @if (filter_var($apartment->image, FILTER_VALIDATE_URL))
                                                     <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}"
                                                         class="card-img-top rounded-start" />
