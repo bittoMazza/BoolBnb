@@ -18,12 +18,12 @@ class ApartmentController extends Controller
 {
 
     protected $validationRules = [
-        'title' => 'required|min:15|max:255',
+        'title' => 'required|min:5|max:255',
         'rooms' => 'required|integer|min:1|max:20',
-        'beds' => 'required|integer|min:1|max:5',
-        'bathrooms' => 'required|integer|min:1|max:5',
+        'beds' => 'required|integer|min:1|max:20',
+        'bathrooms' => 'required|integer|min:1|max:10',
         'square_meters' => 'required|integer|min:1|max:500',
-        'address' => 'required|min:3|max:255',
+        'address' => 'required|date|',
         'image' => 'required|image|max:1024',
         // 'is_visible' => 'required|boolean',
         'long' => 'required|numeric',
