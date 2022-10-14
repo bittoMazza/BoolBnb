@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+        <a class="p-0 me-4" href="{{ url('/host/apartments') }}">
+            <img class="header_img" src="https://tinypic.host/images/2022/10/14/Logo_sm.png" alt="BoolBnB">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -11,14 +11,14 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav d-flex align-items-center">
+            <ul class="navbar-nav d-flex align-items-center align-items-middle">
                 @guest
                 @else
                     <li>
-                        <a href="{{ route('host.apartments.index') }}">I miei Appartamenti</a>
+                        <a class="pe-3 nav-link {{ request()->routeIs('host.apartments.index') ? 'text-primary fw-bold' : "" }}" href="{{ route('host.apartments.index') }}">I Miei Appartamenti</a>
                     </li>
                     <li>
-                        <a class="px-3" href="{{ route('host.apartments.deletedApartments') }}">Cestino</a>
+                        <a class="pe-4 nav-link {{ request()->routeIs('host.apartments.deletedApartments') ? 'text-primary fw-bold' : "" }}" href="{{ route('host.apartments.deletedApartments') }}">Cestino</a>
                     </li>
                     <li>
                         <a class="btn btn-sm btn-outline-success px-3 {{ request()->routeIs('host.apartments.create') ? 'active' : "" }}" href="{{ route('host.apartments.create') }}">Aggiungi Appartamento</a>
@@ -42,7 +42,7 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                            <span><i class="bi bi-person-circle align-middle me-1"></i> {{ Auth::user()->name }}</span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
