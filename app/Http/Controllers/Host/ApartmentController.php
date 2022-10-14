@@ -23,7 +23,7 @@ class ApartmentController extends Controller
         'square_meters' => 'required|integer|min:1|max:500',
         'address' => 'required|min:3|max:255',
         'image' => 'required|image|max:1024',
-        'is_visible' => 'required|boolean',
+        // 'is_visible' => 'required|boolean',
         'long' => 'required|numeric',
         'lat' => 'required|numeric',
         'amenities' => 'exists:amenities,id'
