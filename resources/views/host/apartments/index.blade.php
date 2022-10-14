@@ -19,7 +19,7 @@
 
                                 @forelse ($users as $user)
                                     <div class="text-center">
-                                        <img class="rounded w-100" src="https://tinypic.host/images/2022/10/14/User-Profile-PNG-High-Quality-Image.png" alt="{{ $user->name }}">
+                                        <img class="rounded w-75" src="https://tinypic.host/images/2022/10/14/User-Profile-PNG-High-Quality-Image.png" alt="{{ $user->name }}">
                                         <h4 class="font-weight-bold mt-2 fs-3">{{ $user->name }}</h4>
                                         <div class="font-weight-light mb-2">Anno di nascita: {{ $user->date_birth }}</div>
                                     </div>
@@ -55,10 +55,19 @@
                                 <h2 class="font-weight-bold">I miei Appartamenti</h2>
 
                                 <div class="row justify-content-around">
-                                    <div class="col-6 d-flex">
+                                    <div class="col-6 d-flex row-cols-2">
                                         @forelse ($apartments as $apartment)
-                                            <div class="card w-50 mr-4">
-                                                <img class="card-img-top" src="{{ $apartment->image }}" alt="{{ $apartment->title }}">
+                                            <div class="card w-50 mr-2">
+                                                @if (filter_var($apartment->image, FILTER_VALIDATE_URL))
+                                                    <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}"
+                                                        class="card-img-top rounded-start" />
+                                                    {{-- url --}}
+                                                @else
+                                                    <img src="{{ asset('storage/' . $apartment->image) }}"
+                                                        alt="{{ $apartment->title }}" class="card-img-top rounded-start" />
+                                                    {{-- file --}}
+                                                @endif
+
                                                 <div class="card-body card-body-cascade pb-0">
                                                     <h5 class="card-title"><strong>{{ $apartment->title }}</strong></h5>
                                                     <p class="font-italic pb-1">{{ $apartment->address }}</p>
