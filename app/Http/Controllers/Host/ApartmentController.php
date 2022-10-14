@@ -102,8 +102,16 @@ class ApartmentController extends Controller
     public function show($id)
     {
         $apartment = Apartment::findOrFail($id);
+        $apartments = User::where('id', Auth::id())->get();
         $views = View::where('apartment_id', '=', $apartment->id)->count();
-        return view('host.apartments.show', compact('apartment', 'views'));
+
+        if (Auth::id() === $apartment->user_id) {
+            return view('host.apartments.show', compact('apartment', 'views'));
+        }
+
+        else {
+            return redirect()->route('host.apartments.index', compact('apartments'))->with('not-allowed', 'Il contenuto che hai cercato non è stato trovato nel tuo archivio.');
+        }
     }
 
     /**
