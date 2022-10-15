@@ -97,7 +97,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6">There are no apartments available.</td>
+                                <td colspan="6">Non ci sono appartamenti disponibili.</td>
                             </tr>
                         @endforelse
                     </tbody>

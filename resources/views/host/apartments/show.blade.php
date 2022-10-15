@@ -33,7 +33,7 @@
                                 {{-- file --}}
                             @endif   
                         @empty
-                            Non ci sono immagini
+                            Non ci sono immagini da mostrare
                         @endforelse
                     </div>
 
@@ -50,7 +50,7 @@
                                 Cestina
                             </button>
                         </form>
-                        <span class="card-text btn btn-primary text-white">Numero visite: {{ $views }}</span>
+                        <span class="card-text btn btn-primary text-white">Numero di visite: {{ $views }}</span>
                     </div>
                 </div>
             </div>
