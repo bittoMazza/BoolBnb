@@ -108,28 +108,29 @@ var map = tt.map({
   zoom: 10
 });
 
-// //! Creazione elemento div del Popup con testo
+// // //! Creazione elemento div del Popup con testo
 
-var divPopup = document.createElement('div');
-divPopup.innerHTML = "\n<img style=\"width:40; height:20;\" src=\"img/pop_up_logoBoobnb.png\" alt=\"Roma\">\n<br>\n<h4>Roma</h4>";
+// const divPopup = document.createElement('div');
+// divPopup.innerHTML = `
+// <img style="width:40; height:20;" src="img/pop_up_logoBoobnb.png" alt="Roma">
+// <br>
+// <h4>Roma</h4>`;
 
-// ! Nuova istanza del popup 
-var popup = new tt.Popup({
-  closeButton: false,
-  offset: 70
-}).setDOMContent(divPopup);
+// // ! Nuova istanza del popup 
+// let popup = new tt.Popup({
+//     closeButton: false,
+//     offset: 70,
+// }).setDOMContent(divPopup);
 
-// //! Creazione elemento div del Marker
+// // //! Creazione elemento div del Marker
 
-var element = document.createElement('div');
-element.id = 'marker';
+// const element = document.createElement('div');
+// element.id = 'marker';
 
-// !Nuova istanza del Marker
+// // !Nuova istanza del Marker
 
-var marker = new tt.Marker({
-  element: element
-}).setLngLat(Rome).setPopup(popup);
-marker.addTo(map);
+// let marker = new tt.Marker({ element: element }).setLngLat(Rome).setPopup(popup)
+// marker.addTo(map);
 
 /***/ }),
 
