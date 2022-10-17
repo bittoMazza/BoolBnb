@@ -8,6 +8,7 @@
             @method('PUT');
             @include('host.apartments.forms.form');
         </form>
+        
         <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Immagini Presenti
         </button>

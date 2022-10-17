@@ -26,8 +26,8 @@ class ApartmentController extends Controller
         /* 'address' => 'required|min:5', */
         'image' => 'required|image|max:1024',
         // 'is_visible' => 'required|boolean',
-        'long' => 'required|numeric',
-        'lat' => 'required|numeric',
+        // 'long' => 'required|numeric',
+        // 'lat' => 'required|numeric',
         'amenities' => 'exists:amenities,id'
     ];
     /**
@@ -153,8 +153,8 @@ class ApartmentController extends Controller
             'bathrooms' => 'required|integer|min:1|max:10',
             'square_meters' => 'required|integer|min:1|max:500',
             'address' => 'required',
-            'long' => 'required|numeric',
-            'lat' => 'required|numeric',
+            // 'long' => 'required|numeric',
+            // 'lat' => 'required|numeric',
             'amenities' => 'exists:amenities,id'
         ];
 
@@ -162,15 +162,17 @@ class ApartmentController extends Controller
 
         $validatedData = $request->validate($validationRules);
 
-        foreach ($data['image'] as $image) {
-            $newImage = new Image();
-            $image = Storage::put('uploads',$image);
-            $newImage->image = $image;
-            $newImage->apartment_id = $id;
-
-            $newImage->save();
+        if (isset($data['image'])) {
+            
+            foreach ($data['image'] as $image) {
+                $newImage = new Image();
+                $image = Storage::put('uploads',$image);
+                $newImage->image = $image;
+                $newImage->apartment_id = $id;
+    
+                $newImage->save();
+            }
         }
-
 
         $data['user_id'] = $apartment->user_id;
         if (isset($data['is_visible'])) {
