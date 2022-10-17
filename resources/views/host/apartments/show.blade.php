@@ -65,7 +65,6 @@
                 </div>
             </div>
         </div>
-
         @include('partials.map')
     </div>
 @endsection

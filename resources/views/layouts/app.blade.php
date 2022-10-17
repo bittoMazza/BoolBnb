@@ -14,6 +14,10 @@
     <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js'defer></script>
     <script src='https://code.jquery.com/jquery-1.12.4.js' defer></script>
     <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js' defer></script>
+    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js' defer></script>
+    <script src="{{ asset('js/main_front.js') }}" defer></script>
+    
+    
 
     {{-- Map Api  --}}
     <link href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css' rel='stylesheet' type='text/css'>

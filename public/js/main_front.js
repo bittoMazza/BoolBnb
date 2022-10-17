@@ -93,7 +93,43 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+// Map integration 
 
+//! Definisco ApiKey e Coordinate luogo
+
+var ApiKey = '6qNAEpN1aWvsSHDysFdG1qoHsAhaUIQ0';
+var Rome = [12.504404953745091, 41.89823194636421];
+
+//! Settaggio mappa Tom Tom
+var map = tt.map({
+  key: ApiKey,
+  container: 'map',
+  center: Rome,
+  zoom: 10
+});
+
+// //! Creazione elemento div del Popup con testo
+
+var divPopup = document.createElement('div');
+divPopup.innerHTML = "\n<img style=\"width:40; height:20;\" src=\"img/pop_up_logoBoobnb.png\" alt=\"Roma\">\n<br>\n<h4>Roma</h4>";
+
+// ! Nuova istanza del popup 
+var popup = new tt.Popup({
+  closeButton: false,
+  offset: 70
+}).setDOMContent(divPopup);
+
+// //! Creazione elemento div del Marker
+
+var element = document.createElement('div');
+element.id = 'marker';
+
+// !Nuova istanza del Marker
+
+var marker = new tt.Marker({
+  element: element
+}).setLngLat(Rome).setPopup(popup);
+marker.addTo(map);
 
 /***/ }),
 
