@@ -9,60 +9,101 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link rel='stylesheet' type='text/css'
+        href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css' />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 
     {{-- Scrtipts --}}
     <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js'></script>
     <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js'></script>
-    <script src="{{ asset('js/main_front.js') }}" defer></script>
 
-    <!-- Styles -->
-    <style>
-        html,
-        body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js">
+    </script>
 
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js">
+    </script>
 
-        .position-ref {
-            position: relative;
-        }
 
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
+    {{-- SearchBox in map  --}}
+    <script>
+        (function() {
+            window.SS = window.SS || {};
+            SS.Require = function(callback) {
+                if (typeof callback === 'function') {
+                    if (window.SS && SS.EventTrack) {
+                        callback();
+                    } else {
+                        var siteSpect = document.getElementById('siteSpectLibraries');
+                        var head = document.getElementsByTagName('head')[0];
+                        if (siteSpect === null && typeof head !== 'undefined') {
+                            siteSpect = document.createElement('script');
+                            siteSpect.type = 'text/javascript';
+                            siteSpect.src = '/__ssobj/core.js+ssdomvar.js+generic-adapter.js';
+                            siteSpect.async = true;
+                            siteSpect.id = 'siteSpectLibraries';
+                            head.appendChild(siteSpect);
+                        }
+                        if (window.addEventListener) {
+                            siteSpect.addEventListener('load', callback, false);
+                        } else {
+                            siteSpect.attachEvent('onload', callback, false);
+                        }
+                    }
+                }
+            };
+        })();
+    </script>
 
-        .content {
-            text-align: center;
-        }
+</head>
+<script src="{{ asset('js/main_front.js') }}" defer></script>
 
-        .title {
-            font-size: 84px;
-        }
+<!-- Styles -->
+<style>
+    html,
+    body {
+        background-color: #fff;
+        color: #636b6f;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 200;
+        height: 100vh;
+        margin: 0;
+    }
 
-        .links>a {
-            color: #000000;
-            padding: 0 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-    </style>
+    .flex-center {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .position-ref {
+        position: relative;
+    }
+
+    .top-right {
+        position: absolute;
+        right: 10px;
+        top: 18px;
+    }
+
+    .content {
+        text-align: center;
+    }
+
+    .title {
+        font-size: 84px;
+    }
+
+    .links>a {
+        color: #000000;
+        padding: 0 25px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: .1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+</style>
 </head>
 
 <body>

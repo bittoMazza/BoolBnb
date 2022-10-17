@@ -108,29 +108,45 @@ var map = tt.map({
   zoom: 10
 });
 
-// // //! Creazione elemento div del Popup con testo
+// //! Creazione elemento div del Popup con testo
 
-// const divPopup = document.createElement('div');
-// divPopup.innerHTML = `
-// <img style="width:40; height:20;" src="img/pop_up_logoBoobnb.png" alt="Roma">
-// <br>
-// <h4>Roma</h4>`;
+var divPopup = document.createElement('div');
+divPopup.innerHTML = "\n<img style=\"width:40; height:20;\" src=\"img/pop_up_logoBoobnb.png\" alt=\"Roma\">\n<br>\n<h4>Roma</h4>";
 
-// // ! Nuova istanza del popup 
-// let popup = new tt.Popup({
-//     closeButton: false,
-//     offset: 70,
-// }).setDOMContent(divPopup);
+// ! Nuova istanza del popup 
+var popup = new tt.Popup({
+  closeButton: false,
+  offset: 70
+}).setDOMContent(divPopup);
 
-// // //! Creazione elemento div del Marker
+// //! Creazione elemento div del Marker
 
-// const element = document.createElement('div');
-// element.id = 'marker';
+var element = document.createElement('div');
+element.id = 'marker';
 
-// // !Nuova istanza del Marker
+// !Nuova istanza del Marker
 
-// let marker = new tt.Marker({ element: element }).setLngLat(Rome).setPopup(popup)
-// marker.addTo(map);
+var marker = new tt.Marker({
+  element: element
+}).setLngLat(Rome).setPopup(popup);
+marker.addTo(map);
+
+// Searchbox 
+
+var options = {
+  searchOptions: {
+    key: '6qNAEpN1aWvsSHDysFdG1qoHsAhaUIQ0',
+    language: 'it-IT',
+    limit: 6
+  },
+  autocompleteOptions: {
+    key: '6qNAEpN1aWvsSHDysFdG1qoHsAhaUIQ0',
+    language: 'it-IT'
+  }
+};
+var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+document.body.append(searchBoxHTML);
 
 /***/ }),
 
