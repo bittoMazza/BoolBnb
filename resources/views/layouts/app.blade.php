@@ -29,5 +29,7 @@
         </main>
         @include('partials.footer')
     </div>
+
+    <script src="{{ asset('js/tomtom_coordinates.js') }}"></script>
 </body>
 </html>
