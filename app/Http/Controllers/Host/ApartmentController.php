@@ -152,9 +152,9 @@ class ApartmentController extends Controller
             'beds' => 'required|integer|min:1|max:20',
             'bathrooms' => 'required|integer|min:1|max:10',
             'square_meters' => 'required|integer|min:1|max:500',
-            'address' => 'required|date|',
-            'long' => 'required|numeric',
-            'lat' => 'required|numeric',
+            'address' => 'required',
+            // 'long' => 'required|numeric',
+            // 'lat' => 'required|numeric',
             'amenities' => 'exists:amenities,id'
         ];
 
