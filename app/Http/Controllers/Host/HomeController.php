@@ -13,6 +13,7 @@ class HomeController extends Controller
         // $user = Auth::user();
         // $id = Auth::id();
 
+        header("Refresh:2; url=/host/apartments");
         return view('host.home');
     }
 }
