@@ -46,7 +46,7 @@
                 </ul>
 
                 <div class="d-flex pb-4">
-                    <div class="btn btn-outline-primary text-white me-3 active">Numero visite: {{ $views }}</div>
+                    <div class="text-bg-primary text-white p-2 me-4">Numero visite: {{ $views }}</div>
 
                     <a href="{{ route('host.apartments.edit', $apartment->id) }}"
                         class="btn btn-success me-2 text-white">
