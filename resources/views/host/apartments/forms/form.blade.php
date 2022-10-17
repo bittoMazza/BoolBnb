@@ -61,7 +61,7 @@
 
 <div class="form-group">
     <label class="text-light">INDIRIZZO*</label>
-    <input type="date" class="form-control" value="{{ old('address',$apartment->address) }}" name="address" placeholder="Inserire indirzzo" required>
+    <input type="text" class="form-control" value="{{ old('address',$apartment->address) }}" name="address" placeholder="Inserire indirzzo" required>
     @error('address')
     <div class="alert alert-danger">
         {{ $message }}
