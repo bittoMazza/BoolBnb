@@ -61,7 +61,7 @@
 
 <div class="form-group">
     <label class="text-light">INDIRIZZO*</label>
-    <input type="text" class="form-control" value="{{ old('address',$apartment->address) }}" name="address" placeholder="Inserire indirzzo" required>
+    <input type="date" class="form-control" value="{{ old('address',$apartment->address) }}" name="address" placeholder="Inserire indirzzo" required>
     @error('address')
     <div class="alert alert-danger">
         {{ $message }}
@@ -96,15 +96,16 @@
 
 <div class="form-group">
     <label class="text-light">IMMAGINE APPARTAMENTO*</label>
-    <input type="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine" multiple required>
-    <div class="form-text">il file deve essere non piu grande di 1 MB</div>
+    <div class="input-group">
+        <input type="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine" multiple required>
+    </div>
     @error('image')
     <div class="alert alert-danger">
         {{ $message }}
     </div>
     @enderror
+    <div class="form-text">il file deve essere non piu grande di 1 MB</div>
 </div>
-
 
 <div class="form-group py-2">
     <label class="text-light">E' DISPONIBILE??*</label>
@@ -137,4 +138,4 @@
 
 
 
-<button type="submit" class="btn btn-primary my-3">Salva l'appartamento</button>
+<button type="submit" value="save" class="btn btn-primary my-3">Salva l'appartamento</button>

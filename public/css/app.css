@@ -10930,3 +10930,8 @@ textarea.form-control-lg {
 .header_img {
   width: 120px;
 }
+
+.dropdown-menu-images {
+  overflow: auto;
+  height: 300px;
+}

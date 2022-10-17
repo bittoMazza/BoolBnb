@@ -146,10 +146,21 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::findOrFail($id);
 
+        $validationRules = [
+            'title' => 'required|min:5|max:255',
+            'rooms' => 'required|integer|min:1|max:20',
+            'beds' => 'required|integer|min:1|max:20',
+            'bathrooms' => 'required|integer|min:1|max:10',
+            'square_meters' => 'required|integer|min:1|max:500',
+            'address' => 'required|date|',
+            'long' => 'required|numeric',
+            'lat' => 'required|numeric',
+            'amenities' => 'exists:amenities,id'
+        ];
 
         $data = $request->all();
 
-        $validatedData = $request->validate($this->validationRules);
+        $validatedData = $request->validate($validationRules);
 
         foreach ($data['image'] as $image) {
             $newImage = new Image();
@@ -213,5 +224,13 @@ class ApartmentController extends Controller
 
         return redirect()->route('host.apartments.index')
             ->with('deleted', "Hai eliminato l'appartamento dal cestino");
+    }
+
+    public function deletedApartmentImage($id)
+    {
+        $image = Image::findOrFail($id);
+        $image->delete();
+
+        return back();
     }
 }
