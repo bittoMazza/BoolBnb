@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/main_front.js": "/js/main_front.js"
+    "/js/main_front.js": "/js/main_front.js",
+    "/js/tomtom_coordinates.js": "/js/tomtom_coordinates.js"
 }

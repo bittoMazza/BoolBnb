@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="form-group my-2">
     <div class="form-text alert alert-warning">I campi contrassegnati con l'asterisco sono obbligatori</div>
     <label class="text-light">TITOLO*</label>
     <input type="text" class="form-control" value="{{ old('title',$apartment->title) }}" name="title" placeholder="Inserire titolo descrittivo" required>
@@ -11,7 +11,7 @@
 </div>
 
 
-<div class="form-group">
+<div class="form-group my-2">
     <label class="text-light">NUMERO DI STANZE*</label>
     <input type="number" class="form-control" value="{{ old('rooms',$apartment->rooms) }}" name="rooms" placeholder="Inserire numero di stanze" required>
     <div class="form-text">deve essere un numero minimo 1 massimo 20</div>
@@ -23,7 +23,7 @@
 </div>
 
 
-<div class="form-group">
+<div class="form-group my-2">
     <label class="text-light">NUMERO DI LETTI*</label>
     <input type="number" class="form-control" value="{{ old('beds',$apartment->beds) }}" name="beds" placeholder="Inserire numero di letti" required>
     <div class="form-text">deve essere un numero minimo 1 massimo 20</div>
@@ -35,7 +35,7 @@
 </div>
 
 
-<div class="form-group">
+<div class="form-group my-2">
     <label class="text-light">NUMERO DI BAGNI*</label>
     <input type="number" class="form-control" value="{{ old('bathrooms',$apartment->bathrooms) }}" name="bathrooms" placeholder="Inserire numero di bagni" required>
     <div class="form-text">deve essere un numero minimo 1 massimo 10</div>
@@ -47,7 +47,7 @@
 </div>
 
 
-<div class="form-group">
+<div class="form-group my-2">
     <label class="text-light">METRI QUADRI*</label>
     <input type="number" class="form-control" value="{{ old('square_meters',$apartment->square_meters) }}" name="square_meters" placeholder="Inserire numero metri quadri" required>
     <div class="form-text">deve essere un numero minimo 1 massimo 500</div>
@@ -59,9 +59,9 @@
 </div>
 
 
-<div class="form-group">
+<div class="form-group my-2">
     <label class="text-light">INDIRIZZO*</label>
-    <input type="text" class="form-control" value="{{ old('address',$apartment->address) }}" name="address" placeholder="Inserire indirzzo" required>
+    <input type="text" id='geoAddress' class="form-control" value="{{ old('address',$apartment->address) }}" name="address" placeholder="Inserire indirzzo" required onkeyup="if (this.value.length > 3) beforeSubmit()">
     @error('address')
     <div class="alert alert-danger">
         {{ $message }}
@@ -70,34 +70,22 @@
 </div>
 
 
-<div class="form-group">
-    <label class="text-light">LONGITUDINE*</label>
-    <input type="text" class="form-control" value="{{ old('long',$apartment->long) }}" name="long" placeholder="Inserire longitudine" required>
-    <div class="form-text">deve essere un numero</div>
-    @error('long')
-    <div class="alert alert-danger">
-        {{ $message }}
-    </div>
-    @enderror
+<div class="form-group my-2">
+    <label class="text-light">LONGITUDINE</label>
+    <input type="text" id='longitudeHtml' class="form-control" value="{{ old('long',$apartment->long) }}" name="long" placeholder="Inserire longitudine" disabled>
 </div>
 
 
-<div class="form-group">
-    <label class="text-light">LATITUDINE*</label>
-    <input type="text" class="form-control" value="{{ old('lat',$apartment->lat) }}" name="lat" placeholder="Inserire latitudine" required>
-    <div class="form-text">deve essere un numero</div>
-    @error('lat')
-    <div class="alert alert-danger">
-        {{ $message }}
-    </div>
-    @enderror
+<div class="form-group my-2">
+    <label class="text-light">LATITUDINE</label>
+    <input type="text" id='latitudeHtml' class="form-control" value="{{ old('lat',$apartment->lat) }}" name="lat" placeholder="Inserire latitudine" disabled>
 </div>
 
 
-<div class="form-group">
+<div class="form-group my-2">
     <label class="text-light">IMMAGINE APPARTAMENTO*</label>
     <div class="input-group">
-        <input type="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine" multiple required>
+        <input type="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine" multiple {{ request()->routeIs('host.apartments.create') ? required : "" }}>
     </div>
     @error('image')
     <div class="alert alert-danger">
