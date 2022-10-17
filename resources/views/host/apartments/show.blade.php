@@ -6,11 +6,11 @@
             <div class="col-12">
                 @if (session('created'))
                     <div class="alert alert-success">
-                        <h1>{{ session('created') }}</h1>
+                        {{ session('created') }}
                     </div>
                 @elseif (session('edited'))
                     <div class="alert alert-success">
-                        <h1>{{ session('edited') }}</h1>
+                        {{ session('edited') }}
                     </div>
                 @endif
 
