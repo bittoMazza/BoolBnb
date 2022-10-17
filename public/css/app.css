@@ -10832,3 +10832,8 @@ textarea.form-control-lg {
   width: 27px;
   height: 27px;
 }
+
+.dropdown-menu-images {
+  overflow: auto;
+  height: 300px;
+}

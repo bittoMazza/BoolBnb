@@ -30,5 +30,6 @@ Route::middleware('auth')
         Route::get('/apartments/deleted', 'ApartmentController@deletedApartments')->name('apartments.deletedApartments');
         Route::get('apartments/deleted/{id}','ApartmentController@restoreApartments')->name('apartments.restoreApartments');
         Route::get('apartments/forceDeleted/{id}','ApartmentController@deletePermanently')->name('apartments.deletePermanently');
+        Route::delete('apartments/deletedApartmentImage/{id}','ApartmentController@deletedApartmentImage')->name('apartments.deleteImage');
         Route::resource('/apartments', 'ApartmentController');
     });
