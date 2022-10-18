@@ -19,7 +19,7 @@
 
                         <li class="nav-item ms-auto fw-bold">
                             <a href="/host" class="nav-link">
-                                Login
+                                LOGIN
                             </a>
                         </li>
                     </ul>
