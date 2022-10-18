@@ -24,7 +24,7 @@ class ApartmentController extends Controller
         'bathrooms' => 'required|integer|min:1|max:10',
         'square_meters' => 'required|integer|min:1|max:500',
         'address' => 'required',
-        'image' => 'required|image|max:1024',
+        'image.*' => 'required|mimes:jpg,jpeg,png,gif|max:1024',
         // 'is_visible' => 'required|boolean',
         // 'long' => 'required|numeric',
         // 'lat' => 'required|numeric',
@@ -76,19 +76,29 @@ class ApartmentController extends Controller
         }
         $apartment = new Apartment();
         $apartment->fill($data);
-
         
         $apartment->save($data);
 
-        foreach ($data['image'] as $image) {
-            $newImage = new Image();
-            $image = Storage::put('uploads',$image);
-            $newImage->image = $image;
-            $apartment_id = (Apartment::orderBy('id','desc')->first()->id);
-            $newImage->apartment_id = $apartment_id;
-            $newImage->save();
-
+        if (isset($data['amenity'])) {
+            $apartment->amenities()->sync($data['amenity']);
         }
+        else
+        {
+            $apartment->amenities()->detach();
+        }
+        
+        if (isset($data['image'])) {
+            
+            foreach ($data['image'] as $image) {
+                $newImage = new Image();
+                $image = Storage::put('uploads',$image);
+                $newImage->image = $image;
+                $apartment_id = (Apartment::orderBy('id','desc')->first()->id);
+                $newImage->apartment_id = $apartment_id;
+                $newImage->save();
+            } 
+        }
+        
 
         return redirect()->route('host.apartments.show', $apartment['id'])->with('created', 'Hai creato un nuovo appartamento');
     }
@@ -157,11 +167,10 @@ class ApartmentController extends Controller
             // 'lat' => 'required|numeric',
             'amenities' => 'exists:amenities,id'
         ];
-
         $data = $request->all();
-
+        
         $validatedData = $request->validate($validationRules);
-
+        
         if (isset($data['image'])) {
             
             foreach ($data['image'] as $image) {
@@ -169,9 +178,18 @@ class ApartmentController extends Controller
                 $image = Storage::put('uploads',$image);
                 $newImage->image = $image;
                 $newImage->apartment_id = $id;
-    
+                
                 $newImage->save();
             }
+        }
+
+
+        if (isset($data['amenity'])) {
+            $apartment->amenities()->sync($data['amenity']);
+        }
+        else
+        {
+            $apartment->amenities()->detach();
         }
 
         $data['user_id'] = $apartment->user_id;
