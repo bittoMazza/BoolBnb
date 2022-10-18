@@ -20,7 +20,7 @@
                         <img class="w-100" src="{{ $image->image }}" alt="">
                         {{-- url --}}
                     @else
-                        <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $apartment->title }}"/>
+                        <img class="w-100" src="{{ asset('storage/' . $image->image) }}" alt="{{ $apartment->title }}"/>
                         {{-- file --}}
                     @endif   
                 </div>
