@@ -10934,6 +10934,13 @@ textarea.form-control-lg {
 .dropdown-menu-images {
   overflow: auto;
   height: 300px;
+  width: 300px;
+}
+
+.ms_pos_btn {
+  position: relative;
+  bottom: 53px;
+  left: 175px;
 }
 
 ul {
