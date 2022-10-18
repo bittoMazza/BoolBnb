@@ -29,68 +29,220 @@
             <span class="tag fs-5">IN EVIDENZA</span>
           </div>
 
-          <div class="in_evidence p-5 row justify-content-between">
+          <div class="in_evidence p-5 row row-cols-4 gx-4">
             
             <!-- CARD -->
-            <div class="col me-5 card mb-2 px-0 shadow-sm">
-              <a href="">
-                <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
-              </a>
-              <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title"><strong>
-                      <a href="#">
-                          Titolo Appartamento                                                       
-                      </a>
-                  </strong></h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
+            <div class="col">
+              <div class="card px-0 shadow-sm">
+                <a href="">
+                  <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
+                </a>
+                <div class="card-body card-body-cascade pb-0">
+                    <h5 class="card-title"><strong>
+                        <a href="#">
+                            Titolo Appartamento                                                       
+                        </a>
+                    </strong></h5>
+                    <p class="fst-italic pb-1">Indirizzo</p>
+                </div>
               </div>
             </div>
 
-            <div class="col me-5 card mb-2 px-0 shadow-sm">
-              <a href="">
-                <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
-              </a>
-              <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title"><strong>
-                      <a href="#">
-                          Titolo Appartamento                                                       
-                      </a>
-                  </strong></h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
+            <!-- INIZIO CARD DUPLICATE -->
+            <div class="col">
+              <div class="card px-0 shadow-sm">
+                <a href="">
+                  <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
+                </a>
+                <div class="card-body card-body-cascade pb-0">
+                    <h5 class="card-title"><strong>
+                        <a href="#">
+                            Titolo Appartamento                                                       
+                        </a>
+                    </strong></h5>
+                    <p class="fst-italic pb-1">Indirizzo</p>
+                </div>
               </div>
             </div>
 
-            <div class="col me-5 card mb-2 px-0 shadow-sm">
-              <a href="">
-                <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
-              </a>
-              <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title"><strong>
-                      <a href="#">
-                          Titolo Appartamento                                                       
-                      </a>
-                  </strong></h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
+            <div class="col">
+              <div class="card px-0 shadow-sm">
+                <a href="">
+                  <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
+                </a>
+                <div class="card-body card-body-cascade pb-0">
+                    <h5 class="card-title"><strong>
+                        <a href="#">
+                            Titolo Appartamento                                                       
+                        </a>
+                    </strong></h5>
+                    <p class="fst-italic pb-1">Indirizzo</p>
+                </div>
               </div>
             </div>
 
-            <div class="col me-5 card mb-2 px-0 shadow-sm">
-              <a href="">
-                <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
-              </a>
-              <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title"><strong>
-                      <a href="#">
-                          Titolo Appartamento                                                       
-                      </a>
-                  </strong></h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
+            <div class="col">
+              <div class="card px-0 shadow-sm">
+                <a href="">
+                  <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
+                </a>
+                <div class="card-body card-body-cascade pb-0">
+                    <h5 class="card-title"><strong>
+                        <a href="#">
+                            Titolo Appartamento                                                       
+                        </a>
+                    </strong></h5>
+                    <p class="fst-italic pb-1">Indirizzo</p>
+                </div>
               </div>
             </div>
+            <!-- FINE CARD DUPLICATE -->
 
           </div>
-
         </div>
+
+        <!-- Lista Appartamenti -->
+        <div class="p-4 container">
+          <div class="text-center mb-4">
+            <h4 class="fw-bold">APPARTAMENTI</h4>
+          </div>
+
+          <div class="p-5 row row-cols-3 gx-4">
+            
+            <!-- CARD -->
+            <div class="col mb-4">
+              <div class="card px-0 shadow-sm">
+                <a href="">
+                  <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
+                </a>
+                <div class="card-body card-body-cascade pb-0">
+                    <h5 class="card-title"><strong>
+                        <a href="#">
+                            Titolo Appartamento                                                       
+                        </a>
+                    </strong></h5>
+                    <p class="fst-italic pb-1">Indirizzo</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- INIZIO CARD DUPLICATE -->
+            <div class="col mb-4">
+              <div class="card px-0 shadow-sm">
+                <a href="">
+                  <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
+                </a>
+                <div class="card-body card-body-cascade pb-0">
+                    <h5 class="card-title"><strong>
+                        <a href="#">
+                            Titolo Appartamento                                                       
+                        </a>
+                    </strong></h5>
+                    <p class="fst-italic pb-1">Indirizzo</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col mb-4">
+              <div class="card px-0 shadow-sm">
+                <a href="">
+                  <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
+                </a>
+                <div class="card-body card-body-cascade pb-0">
+                    <h5 class="card-title"><strong>
+                        <a href="#">
+                            Titolo Appartamento                                                       
+                        </a>
+                    </strong></h5>
+                    <p class="fst-italic pb-1">Indirizzo</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col mb-4">
+              <div class="card px-0 shadow-sm">
+                <a href="">
+                  <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
+                </a>
+                <div class="card-body card-body-cascade pb-0">
+                    <h5 class="card-title"><strong>
+                        <a href="#">
+                            Titolo Appartamento                                                       
+                        </a>
+                    </strong></h5>
+                    <p class="fst-italic pb-1">Indirizzo</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col mb-4">
+              <div class="card px-0 shadow-sm">
+                <a href="">
+                  <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
+                </a>
+                <div class="card-body card-body-cascade pb-0">
+                    <h5 class="card-title"><strong>
+                        <a href="#">
+                            Titolo Appartamento                                                       
+                        </a>
+                    </strong></h5>
+                    <p class="fst-italic pb-1">Indirizzo</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col mb-4">
+              <div class="card px-0 shadow-sm">
+                <a href="">
+                  <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
+                </a>
+                <div class="card-body card-body-cascade pb-0">
+                    <h5 class="card-title"><strong>
+                        <a href="#">
+                            Titolo Appartamento                                                       
+                        </a>
+                    </strong></h5>
+                    <p class="fst-italic pb-1">Indirizzo</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col mb-4">
+              <div class="card px-0 shadow-sm">
+                <a href="">
+                  <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
+                </a>
+                <div class="card-body card-body-cascade pb-0">
+                    <h5 class="card-title"><strong>
+                        <a href="#">
+                            Titolo Appartamento                                                       
+                        </a>
+                    </strong></h5>
+                    <p class="fst-italic pb-1">Indirizzo</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col mb-4">
+              <div class="card px-0 shadow-sm">
+                <a href="">
+                  <img src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg" alt="title" class="card-img-top" />
+                </a>
+                <div class="card-body card-body-cascade pb-0">
+                    <h5 class="card-title"><strong>
+                        <a href="#">
+                            Titolo Appartamento                                                       
+                        </a>
+                    </strong></h5>
+                    <p class="fst-italic pb-1">Indirizzo</p>
+                </div>
+              </div>
+            </div>
+            <!-- FINE CARD DUPLICATE -->
+
+          </div>
+        </div>
+
       </div>
     </div>
   </main>

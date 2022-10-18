@@ -286,9 +286,11 @@ var staticRenderFns = [function () {
   }, [_c("span", {
     staticClass: "tag fs-5"
   }, [_vm._v("IN EVIDENZA")])]), _vm._v(" "), _c("div", {
-    staticClass: "in_evidence p-5 row justify-content-between"
+    staticClass: "in_evidence p-5 row row-cols-4 gx-4"
   }, [_c("div", {
-    staticClass: "col me-5 card mb-2 px-0 shadow-sm"
+    staticClass: "col"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
   }, [_c("a", {
     attrs: {
       href: ""
@@ -307,10 +309,12 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                        Titolo Appartamento                                                       \n                    ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
-  }, [_vm._v("Indirizzo")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col me-5 card mb-2 px-0 shadow-sm"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
   }, [_c("a", {
     attrs: {
       href: ""
@@ -329,10 +333,12 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                        Titolo Appartamento                                                       \n                    ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
-  }, [_vm._v("Indirizzo")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col me-5 card mb-2 px-0 shadow-sm"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
   }, [_c("a", {
     attrs: {
       href: ""
@@ -351,10 +357,12 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                        Titolo Appartamento                                                       \n                    ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
-  }, [_vm._v("Indirizzo")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col me-5 card mb-2 px-0 shadow-sm"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
   }, [_c("a", {
     attrs: {
       href: ""
@@ -373,9 +381,209 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                        Titolo Appartamento                                                       \n                    ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
-  }, [_vm._v("Indirizzo")])])])])])])])]);
+  }, [_vm._v("Indirizzo")])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "p-4 container"
+  }, [_c("div", {
+    staticClass: "text-center mb-4"
+  }, [_c("h4", {
+    staticClass: "fw-bold"
+  }, [_vm._v("APPARTAMENTI")])]), _vm._v(" "), _c("div", {
+    staticClass: "p-5 row row-cols-3 gx-4"
+  }, [_c("div", {
+    staticClass: "col mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])])])])])])]);
 }];
 render._withStripped = true;
 
