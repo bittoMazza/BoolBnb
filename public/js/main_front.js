@@ -247,7 +247,7 @@ var staticRenderFns = [function () {
     staticClass: "content py-3"
   }, [_c("h2", {
     staticClass: "fw-bold text-center py-3"
-  }, [_c("span", [_vm._v("Scopri un appartamento ")]), _c("span", {
+  }, [_c("span", [_vm._v("Scopri una casa ")]), _c("span", {
     staticClass: "text-primary"
   }, [_vm._v("dove amerai vivere")])]), _vm._v(" "), _c("img", {
     attrs: {
@@ -279,7 +279,103 @@ var staticRenderFns = [function () {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Cerca")])])])])])])]);
+  }, [_vm._v("Cerca")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "py-4 container"
+  }, [_c("div", {
+    staticClass: "text-center mb-4"
+  }, [_c("span", {
+    staticClass: "tag fs-5"
+  }, [_vm._v("IN EVIDENZA")])]), _vm._v(" "), _c("div", {
+    staticClass: "in_evidence p-5 row justify-content-between"
+  }, [_c("div", {
+    staticClass: "col me-5 card mb-2 px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("\n                        Titolo Appartamento                                                       \n                    ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col me-5 card mb-2 px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("\n                        Titolo Appartamento                                                       \n                    ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col me-5 card mb-2 px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("\n                        Titolo Appartamento                                                       \n                    ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col me-5 card mb-2 px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("\n                        Titolo Appartamento                                                       \n                    ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])])])])])]);
 }];
 render._withStripped = true;
 
@@ -320,7 +416,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".content img[data-v-04c29797] {\n  height: 500px;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.advanced[data-v-04c29797] {\n  text-decoration: none;\n  font-size: 15px;\n  font-weight: 500;\n}\n.btn-secondary[data-v-04c29797],\n.btn-secondary[data-v-04c29797]:focus,\n.btn-secondary[data-v-04c29797]:active {\n  color: #fff;\n  background-color: #00838f !important;\n  border-color: #00838f !important;\n  box-shadow: none;\n}\n.advanced[data-v-04c29797] {\n  color: #00838f !important;\n}\n.form-control[data-v-04c29797]:focus {\n  box-shadow: none;\n  border: 1px solid #00838f;\n}", ""]);
+exports.push([module.i, ".content img[data-v-04c29797] {\n  height: 500px;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.tag[data-v-04c29797] {\n  padding: 6px 8px;\n  background-color: #19bab3;\n  color: white;\n}\n.in_evidence[data-v-04c29797] {\n  border: 2px solid #19bab3;\n}", ""]);
 
 // exports
 
