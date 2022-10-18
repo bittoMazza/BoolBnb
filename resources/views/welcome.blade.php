@@ -81,7 +81,9 @@
 
             <div class="content">
                 <div class="mb-1">
-                    <img class="img-fluid" src="https://tinypic.host/images/2022/10/14/Logo_sm.png" alt="BoolBnB">
+                    <a href="{{ route('login') }}">
+                        <img class="img-fluid" src="https://tinypic.host/images/2022/10/14/Logo_sm.png" alt="BoolBnB">                    
+                    </a>
                     <div class="mb-2"><strong>accedi per gestire i tuoi appartamenti</strong></div>
                 </div>
 
