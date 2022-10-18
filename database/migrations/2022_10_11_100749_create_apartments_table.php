@@ -24,8 +24,8 @@ class CreateApartmentsTable extends Migration
             $table->integer('square_meters');
             $table->string('address');
             $table->boolean('is_visible');
-            $table->decimal('long', 10, 7);
-            $table->decimal('lat', 10, 7);
+            $table->decimal('long', 10, 7)->nullable();
+            $table->decimal('lat', 10, 7)->nullable();
             $table->timestamps();
         });
     }
