@@ -10945,3 +10945,9 @@ ul {
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+.index_image {
+  max-height: 160px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}

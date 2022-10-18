@@ -67,13 +67,13 @@
                                                 @if (filter_var($apartment->images[0]->image, FILTER_VALIDATE_URL))
                                                 <a href="{{ route('host.apartments.show', $apartment->id) }}">
                                                     <img src="{{ $apartment->images[0]->image }}" alt="{{ $apartment->title }}"
-                                                        class="card-img-top rounded-start" />
+                                                        class="index_image card-img-top rounded-start" />
                                                     {{-- url --}}
                                                 </a>
                                                 @else
                                                 <a href="{{ route('host.apartments.show', $apartment->id) }}">
                                                     <img src="{{ asset('storage/' . $apartment->images[0]->image) }}"
-                                                        alt="{{ $apartment->title }}" class="card-img-top rounded-start" />
+                                                        alt="{{ $apartment->title }}" class="index_image card-img-top rounded-start" />
                                                     {{-- file --}}
                                                 </a>
                                                 @endif
