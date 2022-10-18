@@ -96,7 +96,7 @@
 </div>
 
 <div class="form-group py-2">
-    <label class="text-light">E' DISPONIBILE??*</label>
+    <label class="text-light">E' DISPONIBILE*</label>
     {{-- <input type="text" class="form-control" value="{{ old('is_visible',$apartment->is_visible) }}" name="is_visible" placeholder="L'APPARTAMENTO E' DISPONIBILE?" required> --}}
     <div class="form-check form-switch">
         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" placeholder="L'APPARTAMENTO E' DISPONIBILE?" value="{{ old('is_visible', $apartment->is_visible) }}" {{ $apartment->is_visible ? 'checked' : '' }} name="is_visible">
