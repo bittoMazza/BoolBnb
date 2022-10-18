@@ -1,8 +1,8 @@
-<div class="form-group my-2">
+<div class="form-group">
     <div class="form-text alert alert-warning">I campi contrassegnati con l'asterisco sono obbligatori</div>
     <label class="text-light">TITOLO*</label>
     <input type="text" class="form-control" value="{{ old('title',$apartment->title) }}" name="title" placeholder="Inserire titolo descrittivo" required>
-    <div class="form-text">minimo 5 caratteri massimo 255</div>
+    <span class="form-text">minimo 5 caratteri massimo 255</span>
     @error('title')
     <div class="alert alert-danger">
         {{ $message }}
@@ -14,7 +14,7 @@
 <div class="form-group my-2">
     <label class="text-light">NUMERO DI STANZE*</label>
     <input type="number" class="form-control" value="{{ old('rooms',$apartment->rooms) }}" name="rooms" placeholder="Inserire numero di stanze" required>
-    <div class="form-text">deve essere un numero minimo 1 massimo 20</div>
+    <span class="form-text">deve essere un numero minimo 1 massimo 20</span>
     @error('rooms')
     <div class="alert alert-danger">
         {{ $message }}
@@ -26,7 +26,7 @@
 <div class="form-group my-2">
     <label class="text-light">NUMERO DI LETTI*</label>
     <input type="number" class="form-control" value="{{ old('beds',$apartment->beds) }}" name="beds" placeholder="Inserire numero di letti" required>
-    <div class="form-text">deve essere un numero minimo 1 massimo 20</div>
+    <span class="form-text">deve essere un numero minimo 1 massimo 20</span>
     @error('beds')
     <div class="alert alert-danger">
         {{ $message }}
@@ -38,7 +38,7 @@
 <div class="form-group my-2">
     <label class="text-light">NUMERO DI BAGNI*</label>
     <input type="number" class="form-control" value="{{ old('bathrooms',$apartment->bathrooms) }}" name="bathrooms" placeholder="Inserire numero di bagni" required>
-    <div class="form-text">deve essere un numero minimo 1 massimo 10</div>
+    <span class="form-text">deve essere un numero minimo 1 massimo 10</span>
     @error('bathrooms')
     <div class="alert alert-danger">
         {{ $message }}
@@ -50,7 +50,7 @@
 <div class="form-group my-2">
     <label class="text-light">METRI QUADRI*</label>
     <input type="number" class="form-control" value="{{ old('square_meters',$apartment->square_meters) }}" name="square_meters" placeholder="Inserire numero metri quadri" required>
-    <div class="form-text">deve essere un numero minimo 1 massimo 500</div>
+    <span class="form-text">deve essere un numero minimo 1 massimo 500</span>
     @error('square_meters')
     <div class="alert alert-danger">
         {{ $message }}
@@ -70,19 +70,19 @@
 </div>
 
 
-<div class="form-group my-2">
+<div class="form-group my-3">
     <label class="text-light">LONGITUDINE</label>
     <input type="text" id='longitudeHtml' class="form-control" value="{{ old('long',$apartment->long) }}" name="long" placeholder="Inserire longitudine" readonly>
 </div>
 
 
-<div class="form-group my-2">
+<div class="form-group my-3">
     <label class="text-light">LATITUDINE</label>
     <input type="text" id='latitudeHtml' class="form-control" value="{{ old('lat',$apartment->lat) }}" name="lat" placeholder="Inserire latitudine" readonly>
 </div>
 
 
-<div class="form-group my-2">
+<div class="form-group my-3">
     <label class="text-light">IMMAGINE APPARTAMENTO*</label>
     <div class="input-group">
         <input type="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine" multiple>
@@ -92,7 +92,7 @@
         {{ $message }}
     </div>
     @enderror
-    <div class="form-text">il file deve essere non piu grande di 1 MB</div>
+    <span class="form-text">il file deve essere non piu grande di 1 MB</span>
 </div>
 
 <div class="form-group py-2">
@@ -108,8 +108,6 @@
     </div>
     @enderror
 </div>
-
-
 
 
 <div>
@@ -128,7 +126,6 @@
         </div>
     @endforeach
 </div>
-
 
 
 <button type="submit" value="save" class="btn btn-primary my-3">Salva l'appartamento</button>
