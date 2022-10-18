@@ -1,28 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-center mt-2">Appartamenti nel cestino</h2>
+<div class="container">
+    <div class="text-center fs-2 fw-bold my-4"><i class="bi bi-trash3-fill text-primary"></i> Appartamenti nel cestino </div>
     <div class="row">
         <div class="col-12">
-            @forelse ($apartments as $apartment)
-                <table class="table table-striped">
+            @if ( !$apartments->isEmpty())
+                <table class="table table-striped mt-2">
                     <thead>
                         <tr>
-                            <th scope="col">Apartment ID</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Rooms</th>
-                            <th scope="col">Beds</th>
-                            <th scope="col">Bathrooms</th>
-                            <th scope="col">Square_meters</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Is Visible</th>
-                            <th scope="col">Long</th>
-                            <th scope="col">Lat</th>
+                            <th scope="col">ID Appartamento</th>
+                            <th scope="col">Utente</th>
+                            <th scope="col">Titolo</th>
+                            <th scope="col">Stanze</th>
+                            <th scope="col">Letti</th>
+                            <th scope="col">Bagni</th>
+                            <th scope="col">Metri quadrati</th>
+                            <th scope="col">Indirizzo</th>
+                            <th scope="col">Foto di copertina</th>
+                            <th scope="col">Messagi</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
-                            <th scope="col">Message name</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,7 +48,7 @@
                                     {{ $apartment->bathrooms }}
                                 </td>
                                 <td>
-                                    {{ $apartment->square_meters }}
+                                    {{ $apartment->square_meters }}m²
                                 </td>
                                 <td>
                                     {{ $apartment->address }}
@@ -67,44 +65,41 @@
                                     @endif
                                 </td>
                                 <td>
-                                    {{ $apartment->is_visible }}
-                                </td>
-                                <td>
-                                    {{ $apartment->long }}
-                                </td>
-                                <td>
-                                    {{ $apartment->lat }}
-                                </td>
-                                <td>
-                                    <a class="btn btn-sm btn-success"
-                                        href="{{ route('host.apartments.restoreApartments', $apartment->id) }}">
-                                        Ripristina l'appartamento
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-sm btn-danger"
-                                        href="{{ route('host.apartments.deletePermanently', $apartment->id) }}">
-                                        Elimina definitivamente
-                                    </a>
-                                </td>
-                                <td>
                                     @forelse ($apartment->messages as $message)
                                         {{ $message->name }}
                                     @empty
                                         Non ci sono messaggi
                                     @endforelse
                                 </td>
+                                <td>
+                                    <a class="btn btn-sm btn-success text-white"
+                                        href="{{ route('host.apartments.restoreApartments', $apartment->id) }}">
+                                        Ripristina l'appartamento
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-danger text-white"
+                                        href="{{ route('host.apartments.deletePermanently', $apartment->id) }}">
+                                        Elimina definitivamente
+                                    </a>
+                                </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6">There are no apartments available.</td>
+                                <td colspan="18">Non ci sono appartamenti disponibi.</td>
                             </tr>
                         @endforelse
                     </tbody>
                 </table>
-            @empty
-                non sono stati eliminati post
-            @endforelse
+            @else
+            <div class="text-center">
+                <a href="{{ route('host.apartments.index') }}" class="btn btn-sm btn-outline-primary">
+                    Non hai cancellato nessuno appartamento, torna alla dashboard
+                </a>
+            </div>
+            @endif
+                
         </div>
     </div>
+</div>
 @endsection
