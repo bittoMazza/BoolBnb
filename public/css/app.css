@@ -10931,18 +10931,6 @@ textarea.form-control-lg {
   width: 120px;
 }
 
-.dropdown-menu-images {
-  overflow: auto;
-  height: 300px;
-  width: 300px;
-}
-
-.ms_pos_btn {
-  position: relative;
-  bottom: 53px;
-  left: 175px;
-}
-
 ul {
   list-style: none;
 }
@@ -10957,4 +10945,16 @@ ul {
   max-height: 160px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.dropdown-menu-images {
+  overflow: auto;
+  height: 300px;
+  width: 300px;
+}
+
+.ms_pos_btn {
+  position: relative;
+  bottom: 53px;
+  left: 175px;
 }

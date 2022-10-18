@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     @if (session('deleted'))
-                        <div class="alert alert-warning my-2">
+                        <div class="alert alert-danger my-2">
                             "{{ session('deleted') }}"
                         </div>
                     @endif
