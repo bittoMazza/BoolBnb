@@ -72,20 +72,20 @@
 
 <div class="form-group my-2">
     <label class="text-light">LONGITUDINE</label>
-    <input type="text" id='longitudeHtml' class="form-control" value="{{ old('long',$apartment->long) }}" name="long" placeholder="Inserire longitudine" disabled>
+    <input type="text" id='longitudeHtml' class="form-control" value="{{ old('long',$apartment->long) }}" name="long" placeholder="Inserire longitudine" readonly>
 </div>
 
 
 <div class="form-group my-2">
     <label class="text-light">LATITUDINE</label>
-    <input type="text" id='latitudeHtml' class="form-control" value="{{ old('lat',$apartment->lat) }}" name="lat" placeholder="Inserire latitudine" disabled>
+    <input type="text" id='latitudeHtml' class="form-control" value="{{ old('lat',$apartment->lat) }}" name="lat" placeholder="Inserire latitudine" readonly>
 </div>
 
 
 <div class="form-group my-2">
     <label class="text-light">IMMAGINE APPARTAMENTO*</label>
     <div class="input-group">
-        <input type="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine" multiple {{ request()->routeIs('host.apartments.create') ? required : "" }}>
+        <input type="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine" multiple>
     </div>
     @error('image')
     <div class="alert alert-danger">
@@ -116,10 +116,15 @@
     <label class="text-light">SELEZIONA GLI OPTIONAL*</label>
     @foreach ($amenities as $amenity)
         <div class="form-check text-white">
-            <input class="form-check-input" type="checkbox" value="{{ $amenity->id }}" name="amenity[]" id="exampleRadios1" {{ $apartment->amenities->contains($amenity) ? 'checked' : '' }}>
             <label class="form-check-label" for="exampleRadios1">
             {{ $amenity->name }}
             </label>
+            @if ($errors->any())
+                <input type="checkbox" name="amenity[]" id="exampleRadios1" class="form-check-input" 
+                value="{{ $amenity->id }}" {{ in_array($amenity->id, old('amenity', [])) ? 'checked' : '' }}>
+            @else
+                <input class="form-check-input" type="checkbox" value="{{ $amenity->id }}" name="amenity[]" id="exampleRadios1" {{ $apartment->amenities->contains($amenity) ? 'checked' : '' }}>
+            @endif
         </div>
     @endforeach
 </div>
