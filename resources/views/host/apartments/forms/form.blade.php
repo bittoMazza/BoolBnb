@@ -1,5 +1,5 @@
 <div class="form-group">
-    <div class="form-text alert alert-warning">I campi contrassegnati con l'asterisco sono obbligatori</div>
+    <div class="alert alert-warning">I campi contrassegnati con l'asterisco sono obbligatori</div>
     <label class="text-light">TITOLO*</label>
     <input type="text" class="form-control" value="{{ old('title',$apartment->title) }}" name="title" placeholder="Inserire titolo descrittivo" required>
     <span class="form-text">minimo 5 caratteri massimo 255</span>
@@ -128,4 +128,4 @@
 </div>
 
 
-<button type="submit" value="save" class="btn btn-primary my-3">Salva l'appartamento</button>
+<button type="submit" value="save" class="btn btn-success my-3">Salva l'appartamento</button>

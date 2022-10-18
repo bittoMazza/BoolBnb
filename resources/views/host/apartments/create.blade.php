@@ -7,6 +7,6 @@
         @csrf
         @method('POST'); 
         @include('host.apartments.forms.form');
-      </form>
+    </form>
 </div>
 @endsection
