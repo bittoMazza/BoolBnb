@@ -10935,3 +10935,13 @@ textarea.form-control-lg {
   overflow: auto;
   height: 300px;
 }
+
+ul {
+  list-style: none;
+}
+
+.show_image {
+  max-height: 270px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}

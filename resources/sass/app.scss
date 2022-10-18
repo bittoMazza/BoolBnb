@@ -38,3 +38,8 @@
 ul{
     list-style:none;
 }
+
+.show_image{
+    max-height: 270px;
+    object-fit: cover;
+}

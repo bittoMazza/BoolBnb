@@ -24,11 +24,11 @@
                             <div class="col">
                                 @if (filter_var($image->image, FILTER_VALIDATE_URL))
                                     <img src="{{ $image->image }}" alt="{{ $apartment->title }}"
-                                        class="w-100 shadow rounded mb-4" />
+                                        class="show_image w-100 shadow rounded mb-4" />
                                     {{-- url --}}
                                 @else
                                     <img src="{{ asset('storage/' . $image->image) }}" alt="{{ $apartment->title }}"
-                                        class="w-100 shadow rounded mb-4" />
+                                        class="show_image w-100 shadow rounded mb-4" />
                                     {{-- file --}}
                                 @endif
                             </div>
@@ -43,7 +43,7 @@
                     <li class="list-group-item py-2"><i class="bi bi-house-door-fill me-2"></i> Stanze: {{ $apartment->rooms }}</li>
                     <li class="list-group-item py-2"><i class="bi bi-hdd-fill me-2"></i> Letti: {{ $apartment->beds }}</li>
                     <li class="list-group-item py-2"><i class="bi bi-door-closed-fill me-2"></i> Bagni: {{ $apartment->bathrooms }}</li>
-                    <li class="list-group-item py-2"><i class="bi bi-fullscreen me-2"></i> Metri quadrati: {{ $apartment->square_meters }}</li>
+                    <li class="list-group-item py-2"><i class="bi bi-fullscreen me-2"></i> Metri quadrati: {{ $apartment->square_meters }}m²</li>
                     <li class="list-group-item py-2"><i class="bi bi-info-square-fill me-2"></i> Servizi :<li>
                     <ul>
                         @foreach ($apartment->amenities as $amenity)
