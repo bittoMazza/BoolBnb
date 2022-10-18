@@ -15,6 +15,7 @@
                 @endif
 
                 <h1 class="card-title my-4 fw-bold"><i class="bi bi-house me-1"></i> {{ $apartment->title }}</h1>
+                <h3 class="card-title my-4 fw-bold"><i class="bi bi-circle-fill {{ $apartment->is_visible ? 'text-success':'text-danger' }}"></i> {{ $apartment->is_visible ? 'Appartamento disponibile':'Appartamento non disponibile' }}</h3>
                 <h5 class="card-title my-4 fst-italic">Indirizzo: <span class="fw-semibold">{{ $apartment->address }}</span> -
                     {{ $apartment->lat }}, {{ $apartment->long }}</h5>
                 <div class="row">
@@ -43,6 +44,15 @@
                     <li class="list-group-item py-2"><i class="bi bi-hdd-fill me-2"></i> Letti: {{ $apartment->beds }}</li>
                     <li class="list-group-item py-2"><i class="bi bi-door-closed-fill me-2"></i> Bagni: {{ $apartment->bathrooms }}</li>
                     <li class="list-group-item py-2"><i class="bi bi-fullscreen me-2"></i> Metri quadrati: {{ $apartment->square_meters }}</li>
+                    <li class="list-group-item py-2"><i class="bi bi-info-square-fill me-2"></i> Servizi :<li>
+                    <ul>
+                        @foreach ($apartment->amenities as $amenity)
+                        <li class="list-group-item py-1">
+                            {{ $amenity->name }} 
+                        </li>       
+                        @endforeach
+                    </ul>  
+                    </li>
                 </ul>
 
                 <div class="d-flex pb-4">
