@@ -137,7 +137,7 @@
                 <input type="checkbox" name="amenity[]" id="exampleRadios1" class="form-check-input"
                     value="{{ $amenity->id }}" {{ in_array($amenity->id, old('amenity', [])) ? 'checked' : '' }}>
             @else
-                <input class="form-check-input" type="checkbox" value="{{ $amenity->id }}" name="amenity[]"
+                <input class="form-check-input bg-secondary border" type="checkbox" value="{{ $amenity->id }}" name="amenity[]"
                     id="exampleRadios1" {{ $apartment->amenities->contains($amenity) ? 'checked' : '' }}>
             @endif
         </div>
