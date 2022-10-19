@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-center mt-2">Form per modificare appartamento</h2>
-    <div class="col-6 mx-auto p-3 m-3 bg-dark rounded-4">
+<h2 class="text-center mt-5">Modifica il tuo appartamento</h2>
+    <div class="col-4 mx-auto p-3 m-3 bg-primary rounded-4">
         <form action="{{ route('host.apartments.update', $apartment->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('PUT');
-            @include('host.apartments.forms.form');
+            @method('PUT')
+            @include('host.apartments.forms.form')
         </form>
         
         <button class="btn btn-outline-primary ms_pos_btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

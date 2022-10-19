@@ -67,7 +67,7 @@
 <div class="form-group my-2">
     <label class="text-light">INDIRIZZO*</label>
     <input type="text" id='geoAddress' class="form-control" value="{{ old('address', $apartment->address) }}"
-        name="address" placeholder="Inserire indirzzo" required onkeyup="if (this.value.length > 3) beforeSubmit()">
+        name="address" placeholder="Inserire indirizzo" required onkeyup="if (this.value.length > 3) beforeSubmit()">
     @error('address')
         <div class="alert alert-danger">
             {{ $message }}
