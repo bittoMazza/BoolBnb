@@ -17,6 +17,7 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->foreignId('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
             $table->text('image');
+            $table->boolean('is_cover');
             $table->timestamps();
         });
     }

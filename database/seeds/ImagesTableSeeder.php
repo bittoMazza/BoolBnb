@@ -47,12 +47,22 @@ class ImagesTableSeeder extends Seeder
 
         foreach ($apartments as $apartment) {
             $randomItems = Arr::random($images, 5);
-            foreach ($randomItems as $randomItem) {
+            for ($i=0; $i < count($randomItems); $i++) { 
                 $newImage = new Image();
-                $newImage->image = $randomItem;
+                $newImage->image = $randomItems[$i];
                 $newImage->apartment_id = $apartment->id;
+                if ($i = 0) {
+                    $newImage->is_cover = true;
+                }
                 $newImage->save();
             }
         }
     }
 }
+
+// foreach ($randomItems as $randomItem) {
+//     $newImage = new Image();
+//     $newImage->image = $randomItem;
+//     $newImage->apartment_id = $apartment->id;
+//     $newImage->save();
+// }
