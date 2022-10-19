@@ -92,7 +92,10 @@
                                         @endforelse
                                     </div>
                                     <div class="col-6">
-                                        <ul>
+                                        <span class="fw-bold bg-primary text-white p-1">
+                                            Gestione rapida degli Appartamenti:
+                                        </span>
+                                        <ul class="mt-3">
                                             @forelse ($apartments as $apartment)
                                                 <li class="mb-3">
                                                     <div class="row">
