@@ -81,9 +81,12 @@
     <input type="text" id='latitudeHtml' class="form-control" value="{{ old('lat',$apartment->lat) }}" name="lat" placeholder="Inserire latitudine" readonly>
 </div>
 
-
 <div class="form-group my-3">
-    <label class="text-light">IMMAGINE APPARTAMENTO*</label>
+    @if (Route::is('host.apartments.create'))
+        <label class="text-light">IMMAGINE APPARTAMENTO*</label>
+    @else
+        <label class="text-light">IMMAGINE APPARTAMENTO</label>
+    @endif
     <div class="input-group">
         <input type="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine" multiple>
     </div>
