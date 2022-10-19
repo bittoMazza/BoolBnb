@@ -15,4 +15,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .js('resources/js/main_front.js', 'public/js')
     .js('resources/js/tomtom_coordinates.js', 'public/js')
+    .js('resources/js/register_form_validation.js', 'public/js')
     .options({ processCssUrls: false});
