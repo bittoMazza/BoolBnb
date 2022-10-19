@@ -96,7 +96,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'HeaderWeb'
+  name: "HeaderWeb"
 });
 
 /***/ }),
@@ -160,15 +160,17 @@ var render = function render() {
       id: "navbarSupportedContent"
     }
   }, [_c("ul", {
-    staticClass: "navbar-nav mr-auto w-100 align-items-center align-items-middle"
+    staticClass: "navbar-nav w-100 d-flex justify-content-between align-middle"
+  }, [_c("div", {
+    staticClass: "d-flex"
   }, [_c("li", {
-    staticClass: "nav-item active fw-bold"
+    staticClass: "nav-item active fw-bold mt-2"
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
       to: "/"
     }
-  }, [_vm._v("\n                            Home\n                        ")])], 1), _vm._v(" "), _vm._m(2)])])])])]);
+  }, [_vm._v(" Home ")])], 1)]), _vm._v(" "), _vm._m(2)])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -204,14 +206,23 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("li", {
-    staticClass: "nav-item ms-auto fw-bold"
+  return _c("div", {
+    staticClass: "d-flex mt-2"
+  }, [_c("li", {
+    staticClass: "nav-item fw-bold"
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
       href: "/host"
     }
-  }, [_vm._v("\n                            LOGIN\n                        ")])]);
+  }, [_vm._v(" LOGIN ")])]), _vm._v(" "), _c("li", {
+    staticClass: "nav-item fw-bold"
+  }, [_c("a", {
+    staticClass: "nav-link",
+    attrs: {
+      href: "/host"
+    }
+  }, [_vm._v(" REGISTRATI ")])])]);
 }];
 render._withStripped = true;
 
@@ -16882,7 +16893,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\haksn\Desktop\BoolBnb\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
+module.exports = __webpack_require__(/*! F:\Dev\FULLSTACK\JOBS\FInal_project\Progetto Finale\FInal_project\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
 
 
 /***/ })
