@@ -220,7 +220,7 @@ var staticRenderFns = [function () {
   }, [_c("a", {
     staticClass: "nav-link",
     attrs: {
-      href: "/host"
+      href: "/register"
     }
   }, [_vm._v(" REGISTRATI ")])])]);
 }];

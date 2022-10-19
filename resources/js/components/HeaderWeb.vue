@@ -36,7 +36,7 @@
                 <a href="/host" class="nav-link"> LOGIN </a>
               </li>
               <li class="nav-item fw-bold">
-                <a href="/host" class="nav-link"> REGISTRATI </a>
+                <a href="/register" class="nav-link"> REGISTRATI </a>
               </li>
             </div>
           </ul>
