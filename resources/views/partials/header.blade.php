@@ -3,9 +3,8 @@
         <a class="p-0 me-4" href="{{ url('/') }}">
             <img class="header_img" src="https://tinypic.host/images/2022/10/14/Logo_sm.png" alt="BoolBnB">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="{{ __('Toggle navigation') }}">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -15,13 +14,16 @@
                 @guest
                 @else
                     <li>
-                        <a class="pe-3 nav-link {{ request()->routeIs('host.apartments.index') ? 'text-primary fw-bold' : "" }}" href="{{ route('host.apartments.index') }}">I Miei Appartamenti</a>
+                        <a class="pe-3 nav-link {{ request()->routeIs('host.apartments.index') ? 'text-primary fw-bold' : '' }}"
+                            href="{{ route('host.apartments.index') }}">I Miei Appartamenti</a>
                     </li>
                     <li>
-                        <a class="pe-4 nav-link {{ request()->routeIs('host.apartments.deletedApartments') ? 'text-primary fw-bold' : "" }}" href="{{ route('host.apartments.deletedApartments') }}">Cestino</a>
+                        <a class="pe-4 nav-link {{ request()->routeIs('host.apartments.deletedApartments') ? 'text-primary fw-bold' : '' }}"
+                            href="{{ route('host.apartments.deletedApartments') }}">Cestino</a>
                     </li>
                     <li>
-                        <a class="btn btn-sm btn-outline-success px-3 {{ request()->routeIs('host.apartments.create') ? 'active' : "" }}" href="{{ route('host.apartments.create') }}">Aggiungi Appartamento</a>
+                        <a class="btn btn-sm btn-outline-success px-3 {{ request()->routeIs('host.apartments.create') ? 'active' : '' }}"
+                            href="{{ route('host.apartments.create') }}">Aggiungi Appartamento</a>
                     </li>
                 @endguest
             </ul>
@@ -35,7 +37,7 @@
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                         </li>
                     @endif
                 @else
@@ -48,7 +50,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                                document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
