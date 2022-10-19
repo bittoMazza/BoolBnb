@@ -79,7 +79,7 @@
     <label class="text-light">INDIRIZZO*</label>
     <div class="input-control">
         <input type="text" id='geoAddress' class="form-control" value="{{ old('address',$apartment->address) }}" name="address" placeholder="Inserire indirzzo" required onkeyup="if (this.value.length > 3) beforeSubmit()">
-        <span class="form-text">Es: Via Salita Castello 13, 80079 Procida, Italia</span>
+        <span class="form-text text-white-50">Es: Via Salita Castello 13, 80079 Procida, Italia</span>
         <div class="error fs-6"></div>
     </div>
     @error('address')
