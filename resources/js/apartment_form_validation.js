@@ -1,0 +1,147 @@
+const { set } = require("lodash");
+
+const form = document.getElementById('form_apartment');
+const title = document.getElementById('title');
+const rooms = document.getElementById('rooms');
+const beds = document.getElementById('beds');
+const bathrooms = document.getElementById('bathrooms');
+const square_meters = document.getElementById('square_meters');
+const geoAddress = document.getElementById('geoAddress');
+
+form.addEventListener('submit', e => {
+    validateInputs();
+    if(!validateInputs()) {
+        e.preventDefault();
+    }
+    return true;  
+});
+
+// messaggi d'errore e di successo
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success')
+}
+
+const setSuccess = element => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = '';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+};
+// messaggi d'errore e di successo
+
+// validazioni lato client
+const validateInputs = () => {
+    const titleValue = title.value.trim();
+    const roomsValue = rooms.value.trim();
+    const bedsValue = beds.value.trim();
+    const bathroomsValue = bathrooms.value;
+    const squareMetersValue = square_meters.value.trim();
+    const geoAddressValue = geoAddress.value.trim();
+
+    // validazioni titolo
+    if(titleValue === '') {
+
+        setError(title, 'Titolo obbligatorio');
+        return false;
+
+    } else if (titleValue.length < 5) {
+
+        setError(title, 'il titolo deve essere lungo almeno cinque caratteri');
+        return false;
+
+    } else {
+
+        setSuccess(title);
+    }
+    // validazioni titolo
+
+    // validazioni camere
+    if(roomsValue === '') {
+
+        setError(rooms, 'numero di stanze obbligatorio');
+        return false;
+
+    } else if (roomsValue <= 0 || roomsValue >= 20) {
+        
+        setError(rooms, 'l appartamento deve avere un numero di stanze tra 1 e 20');
+        return false;
+
+    } else {
+
+        setSuccess(rooms);
+    }
+    // validazioni camere
+
+
+    // validazioni letti
+    if(bedsValue === '') {
+
+        setError(beds, 'deve esserci almeno un letto');
+        return false;
+
+    } else if (bedsValue <= 0 || bedsValue >= 20) {
+        
+        setError(beds, 'l appartamento deve avere un numero di letti tra 1 e 20');
+        return false;
+
+    } else {
+        setSuccess(beds);
+    }
+    // validazioni letti
+
+    // validazione bagni
+    if(bathroomsValue === '') {
+
+        setError(bathrooms, 'deve esserci almeno un bagno');
+        return false;
+
+    } else if (bathroomsValue <= 0 || bathroomsValue >= 10) {
+        
+        setError(bathrooms, 'l appartamento deve avere un numero di bagni tra 1 e 10');
+        return false;
+
+    } else {
+        setSuccess(bathrooms);
+    }
+    // validazione bagni
+
+    // validazione metri quadrati 
+    if(squareMetersValue === '') {
+
+        setError(square_meters, 'deve avere una dimensione');
+        return false;
+
+    } else if (squareMetersValue <= 0 || squareMetersValue >= 500) {
+        
+        setError(square_meters, 'l appartamento deve essere grande tra 1mq e 500mq');
+        return false;
+
+    } else {
+        setSuccess(square_meters);
+    }
+    // validazione metri quadrati 
+
+    // validazione indirizzo geoAddressValue
+    if(geoAddressValue === '') {
+
+        setError(geoAddress, 'inserisci un indirizzo');
+        return false;
+
+    } else {
+        setSuccess(geoAddress);
+    }
+    return true;
+    // else if (geoAddressValue <= 0 || geoAddressValue >= 500) {
+    
+    //     setError(geoAddress, 'l appartamento deve essere grande tra 1mq e 500mq');
+    //     return false;}
+
+    // validazione indirizzo geoAddressValue
+}

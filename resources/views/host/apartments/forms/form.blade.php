@@ -1,9 +1,11 @@
 <div class="form-group">
     <div class="alert alert-warning">I campi contrassegnati con l'asterisco sono obbligatori</div>
     <label class="text-light">TITOLO*</label>
-    <input type="text" class="form-control" value="{{ old('title', $apartment->title) }}" name="title"
-        placeholder="Inserire titolo descrittivo" required>
-    <span class="form-text text-white-50">minimo 5 caratteri massimo 255</span>
+    <div class="input-control">
+        <input id="title" type="text" class="form-control" value="{{ old('title',$apartment->title) }}" name="title" placeholder="Inserire titolo descrittivo" required>
+        <span class="form-text text-white-50">minimo 5 caratteri massimo 255</span>
+        <div class="error fs-6"></div>
+    </div>
     @error('title')
         <div class="alert alert-danger">
             {{ $message }}
@@ -14,9 +16,12 @@
 
 <div class="form-group my-2">
     <label class="text-light">NUMERO DI STANZE*</label>
-    <input type="number" class="form-control" value="{{ old('rooms', $apartment->rooms) }}" name="rooms"
-        placeholder="Inserire numero di stanze" required>
-    <span class="form-text text-white-50">deve essere un numero minimo 1 massimo 20</span>
+    <div class="input-control">
+        <input id="rooms" type="number" class="form-control" value="{{ old('rooms',$apartment->rooms) }}" name="rooms" placeholder="Inserire numero di stanze" required>
+        <span class="form-text text-white-50">deve essere un numero minimo 1 massimo 20</span>
+        <div class="error fs-6"></div>
+    </div>
+    <div class="error text-white"></div>
     @error('rooms')
         <div class="alert alert-danger">
             {{ $message }}
@@ -27,9 +32,11 @@
 
 <div class="form-group my-2">
     <label class="text-light">NUMERO DI LETTI*</label>
-    <input type="number" class="form-control" value="{{ old('beds', $apartment->beds) }}" name="beds"
-        placeholder="Inserire numero di letti" required>
-    <span class="form-text text-white-50">deve essere un numero minimo 1 massimo 20</span>
+    <div class="input-control">
+        <input id="beds" type="number" class="form-control" value="{{ old('beds',$apartment->beds) }}" name="beds" placeholder="Inserire numero di letti" required>
+        <span class="form-text text-white-50">deve essere un numero minimo 1 massimo 20</span>
+        <div class="error fs-6"></div>
+    </div>
     @error('beds')
         <div class="alert alert-danger">
             {{ $message }}
@@ -40,9 +47,11 @@
 
 <div class="form-group my-2">
     <label class="text-light">NUMERO DI BAGNI*</label>
-    <input type="number" class="form-control" value="{{ old('bathrooms', $apartment->bathrooms) }}" name="bathrooms"
-        placeholder="Inserire numero di bagni" required>
-    <span class="form-text text-white-50">deve essere un numero minimo 1 massimo 10</span>
+    <div class="input-control">
+        <input id="bathrooms" type="number" class="form-control" value="{{ old('bathrooms',$apartment->bathrooms) }}" name="bathrooms" placeholder="Inserire numero di bagni" required>
+        <span class="form-text text-white-50">deve essere un numero minimo 1 massimo 10</span>
+        <div class="error fs-6"></div>
+    </div>
     @error('bathrooms')
         <div class="alert alert-danger">
             {{ $message }}
@@ -53,9 +62,11 @@
 
 <div class="form-group my-2">
     <label class="text-light">METRI QUADRI*</label>
-    <input type="number" class="form-control" value="{{ old('square_meters', $apartment->square_meters) }}"
-        name="square_meters" placeholder="Inserire numero metri quadri" required>
-    <span class="form-text text-white-50">deve essere un numero minimo 1 massimo 500</span>
+    <div class="input-control">
+        <input id="square_meters" type="number" class="form-control" value="{{ old('square_meters',$apartment->square_meters) }}" name="square_meters" placeholder="Inserire numero metri quadri" required>
+        <span class="form-text text-white-50">deve essere un numero minimo 1 massimo 500</span>
+        <div class="error fs-6"></div>
+    </div>
     @error('square_meters')
         <div class="alert alert-danger">
             {{ $message }}
@@ -66,8 +77,11 @@
 
 <div class="form-group my-2">
     <label class="text-light">INDIRIZZO*</label>
-    <input type="text" id='geoAddress' class="form-control" value="{{ old('address', $apartment->address) }}"
-        name="address" placeholder="Inserire indirizzo" required onkeyup="if (this.value.length > 3) beforeSubmit()">
+    <div class="input-control">
+        <input type="text" id='geoAddress' class="form-control" value="{{ old('address',$apartment->address) }}" name="address" placeholder="Inserire indirzzo" required onkeyup="if (this.value.length > 3) beforeSubmit()">
+        <span class="form-text">Es: Via Salita Castello 13, 80079 Procida, Italia</span>
+        <div class="error fs-6"></div>
+    </div>
     @error('address')
         <div class="alert alert-danger">
             {{ $message }}
@@ -77,16 +91,14 @@
 
 
 <div class="form-group my-3">
-    <label class="text-light">LONGITUDINE</label>
-    <input type="text" id='longitudeHtml' class="form-control" value="{{ old('long', $apartment->long) }}"
-        name="long" placeholder="Inserire longitudine" readonly>
+    {{-- <label class="text-light">LONGITUDINE</label> --}}
+    <input type="text" id='longitudeHtml' class="form-control" value="{{ old('long',$apartment->long) }}" name="long" placeholder="Inserire longitudine" hidden>
 </div>
 
 
 <div class="form-group my-3">
-    <label class="text-light">LATITUDINE</label>
-    <input type="text" id='latitudeHtml' class="form-control" value="{{ old('lat', $apartment->lat) }}"
-        name="lat" placeholder="Inserire latitudine" readonly>
+    {{-- <label class="text-light">LATITUDINE</label> --}}
+    <input type="text" id='latitudeHtml' class="form-control" value="{{ old('lat',$apartment->lat) }}" name="lat" placeholder="Inserire latitudine" hidden>
 </div>
 
 <div class="form-group my-3">

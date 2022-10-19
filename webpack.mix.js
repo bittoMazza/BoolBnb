@@ -16,4 +16,5 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/main_front.js', 'public/js')
     .js('resources/js/tomtom_coordinates.js', 'public/js')
     .js('resources/js/register_form_validation.js', 'public/js')
+    .js('resources/js/apartment_form_validation.js', 'public/js')
     .options({ processCssUrls: false});

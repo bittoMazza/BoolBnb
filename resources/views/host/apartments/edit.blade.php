@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<h2 class="text-center mt-5">Modifica il tuo appartamento</h2>
+    <h2 class="text-center mt-2">Form per modificare appartamento</h2>
     <div class="col-4 mx-auto p-3 m-3 bg-primary rounded-4">
-        <form action="{{ route('host.apartments.update', $apartment->id) }}" method="POST" enctype="multipart/form-data">
+        <form id="form_apartment" action="{{ route('host.apartments.update', $apartment->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             @include('host.apartments.forms.form')
