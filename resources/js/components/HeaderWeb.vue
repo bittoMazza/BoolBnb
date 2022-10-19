@@ -4,9 +4,10 @@
       <div class="container">
         <a class="p-0 me-4" href="/">
           <img
-            class="header_img"
+            class="header_img ms-2"
             src="https://tinypic.host/images/2022/10/14/Logo_sm.png"
             alt="BoolBnB"
+            
           />
         </a>
         <button

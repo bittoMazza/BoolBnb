@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
-        <a class="p-0 me-4" href="{{ url('/') }}">
+        <a class="p-0 me-3" href="{{ url('/') }}">
             <img class="header_img" src="https://tinypic.host/images/2022/10/14/Logo_sm.png" alt="BoolBnB">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

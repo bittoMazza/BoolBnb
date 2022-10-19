@@ -181,7 +181,7 @@ var staticRenderFns = [function () {
       href: "/"
     }
   }, [_c("img", {
-    staticClass: "header_img",
+    staticClass: "header_img ms-2",
     attrs: {
       src: "https://tinypic.host/images/2022/10/14/Logo_sm.png",
       alt: "BoolBnB"
