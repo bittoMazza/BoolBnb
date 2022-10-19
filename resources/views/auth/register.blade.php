@@ -14,7 +14,7 @@
                         <div class="form-group row py-2">
                             <label for="Nome" class="col-md-4 col-form-label text-md-right">{{ __('Nome*') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 input-control">
                                 <input id="username" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                 <div class="error"></div>
                                 @error('name')
@@ -28,7 +28,7 @@
                         <div class="form-group row py-2">
                             <label for="Cognome" class="col-md-4 col-form-label text-md-right">{{ __('Cognome*') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 input-control">
                                 <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
                                 <div class="error"></div>
                                 @error('surname')
@@ -42,7 +42,7 @@
                         <div class="form-group row py-2">
                             <label for="Data di nascita" class="col-md-4 col-form-label text-md-right">{{ __('Data di nascita*') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 input-control">
                                 <input id="date_birth" type="date" class="form-control @error('date_birth') is-invalid @enderror" name="date_birth" value="{{ old('date_birth') }}" required autocomplete="date_birth" autofocus>
                                 <div class="error"></div>
                                 @error('date_birth')
@@ -56,7 +56,7 @@
                         <div class="form-group row py-2">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email*') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 input-control">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                 <div class="error"></div>
                                 @error('email')
@@ -70,7 +70,7 @@
                         <div class="form-group row py-2">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password*') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 input-control">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                 <div class="error"></div>
                                 @error('password')
@@ -84,7 +84,7 @@
                         <div class="form-group row py-2">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password*') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 input-control">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                 <div class="error"></div>
                             </div>
