@@ -251,7 +251,7 @@ var staticRenderFns = [function () {
     staticClass: "text-primary"
   }, [_vm._v("dove amerai vivere")])]), _vm._v(" "), _c("img", {
     attrs: {
-      src: "https://img2.goodfon.com/wallpaper/nbig/f/a8/interer-stil-dizayn-5853.jpg",
+      src: "https://wallpaperaccess.com/full/3434829.jpg",
       alt: "jumbo"
     }
   })]), _vm._v(" "), _c("h3", {
@@ -390,7 +390,7 @@ var staticRenderFns = [function () {
   }, [_c("h4", {
     staticClass: "fw-bold"
   }, [_vm._v("APPARTAMENTI")])]), _vm._v(" "), _c("div", {
-    staticClass: "p-5 row row-cols-3 gx-4"
+    staticClass: "p-5 row row-cols-4 gx-4"
   }, [_c("div", {
     staticClass: "col mb-4"
   }, [_c("div", {

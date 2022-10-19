@@ -9,7 +9,7 @@
             <span>Scopri una casa </span><span class="text-primary">dove amerai vivere</span>
           </h2>
 
-          <img src="https://img2.goodfon.com/wallpaper/nbig/f/a8/interer-stil-dizayn-5853.jpg" alt="jumbo" />
+          <img src="https://wallpaperaccess.com/full/3434829.jpg" alt="jumbo" />
         </div>
 
         <!-- Search bar avanzata -->
@@ -107,7 +107,7 @@
             <h4 class="fw-bold">APPARTAMENTI</h4>
           </div>
 
-          <div class="p-5 row row-cols-3 gx-4">
+          <div class="p-5 row row-cols-4 gx-4">
             
             <!-- CARD -->
             <div class="col mb-4">
