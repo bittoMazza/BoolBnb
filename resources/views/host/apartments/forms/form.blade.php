@@ -71,14 +71,14 @@
 
 
 <div class="form-group my-3">
-    <label class="text-light">LONGITUDINE</label>
-    <input type="text" id='longitudeHtml' class="form-control" value="{{ old('long',$apartment->long) }}" name="long" placeholder="Inserire longitudine" readonly>
+    {{-- <label class="text-light">LONGITUDINE</label> --}}
+    <input type="text" id='longitudeHtml' class="form-control" value="{{ old('long',$apartment->long) }}" name="long" placeholder="Inserire longitudine" hidden>
 </div>
 
 
 <div class="form-group my-3">
-    <label class="text-light">LATITUDINE</label>
-    <input type="text" id='latitudeHtml' class="form-control" value="{{ old('lat',$apartment->lat) }}" name="lat" placeholder="Inserire latitudine" readonly>
+    {{-- <label class="text-light">LATITUDINE</label> --}}
+    <input type="text" id='latitudeHtml' class="form-control" value="{{ old('lat',$apartment->lat) }}" name="lat" placeholder="Inserire latitudine" hidden>
 </div>
 
 <div class="form-group my-3">
