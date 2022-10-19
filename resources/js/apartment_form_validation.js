@@ -49,12 +49,10 @@ const validateInputs = () => {
     if(titleValue === '') {
 
         setError(title, 'Titolo obbligatorio');
-        return false;
 
     } else if (titleValue.length < 5) {
 
         setError(title, 'il titolo deve essere lungo almeno cinque caratteri');
-        return false;
 
     } else {
 
@@ -66,12 +64,10 @@ const validateInputs = () => {
     if(roomsValue === '') {
 
         setError(rooms, 'numero di stanze obbligatorio');
-        return false;
 
     } else if (roomsValue <= 0 || roomsValue >= 20) {
         
         setError(rooms, 'l appartamento deve avere un numero di stanze tra 1 e 20');
-        return false;
 
     } else {
 
@@ -84,12 +80,10 @@ const validateInputs = () => {
     if(bedsValue === '') {
 
         setError(beds, 'deve esserci almeno un letto');
-        return false;
 
     } else if (bedsValue <= 0 || bedsValue >= 20) {
         
         setError(beds, 'l appartamento deve avere un numero di letti tra 1 e 20');
-        return false;
 
     } else {
         setSuccess(beds);
@@ -100,12 +94,10 @@ const validateInputs = () => {
     if(bathroomsValue === '') {
 
         setError(bathrooms, 'deve esserci almeno un bagno');
-        return false;
 
     } else if (bathroomsValue <= 0 || bathroomsValue >= 10) {
         
         setError(bathrooms, 'l appartamento deve avere un numero di bagni tra 1 e 10');
-        return false;
 
     } else {
         setSuccess(bathrooms);
@@ -116,12 +108,10 @@ const validateInputs = () => {
     if(squareMetersValue === '') {
 
         setError(square_meters, 'deve avere una dimensione');
-        return false;
 
     } else if (squareMetersValue <= 0 || squareMetersValue >= 500) {
         
         setError(square_meters, 'l appartamento deve essere grande tra 1mq e 500mq');
-        return false;
 
     } else {
         setSuccess(square_meters);
@@ -132,10 +122,13 @@ const validateInputs = () => {
     if(geoAddressValue === '') {
 
         setError(geoAddress, 'inserisci un indirizzo');
-        return false;
 
     } else {
         setSuccess(geoAddress);
+    }
+    const errorDisplay = document.getElementsByClassName('success');
+    if(errorDisplay.length != 6){
+        return false
     }
     return true;
     // else if (geoAddressValue <= 0 || geoAddressValue >= 500) {

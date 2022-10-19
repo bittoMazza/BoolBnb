@@ -2,14 +2,14 @@
 
 @section('content')
     <h2 class="text-center mt-5">Modifica appartamento</h2>
-    <div class="col-4 mx-auto p-3 m-3 bg-primary rounded-4">
+    <div class="col-4 mx-auto p-3 m-3 bg-dark rounded-4">
         <form id="form_apartment" action="{{ route('host.apartments.update', $apartment->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             @include('host.apartments.forms.form')
         </form>
         
-        <button class="btn btn-outline-info text-white ms_pos_btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-outline-primary text-white ms_pos_btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Immagini Presenti
         </button>
         <div class="dropdown-menu dropdown-menu-bottom bg-dark p-3 dropdown-menu-images">

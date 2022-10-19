@@ -50,26 +50,33 @@ const validateInputs = () => {
     const password2Value = password_confirm.value.trim();
 
     if(usernameValue === '') {
+
         setError(username, 'Nome obbligatorio');
-        return false;
+
     } else {
+
         setSuccess(username);
     }
 
     if(surnameValue === '') {
+
         setError(surname, 'Cognome obbligatorio');
-        return false;
+
     } else {
+
         setSuccess(surname);
     }
 
     if(emailValue === '') {
+
         setError(email, 'Email obbligatoria');
-        return false;
+
     } else if (!isValidEmail(emailValue)) {
+
         setError(email, 'Inserire un\'email valida');
-        return false;
+
     } else {
+
         setSuccess(email);
     }
 
@@ -77,30 +84,43 @@ const validateInputs = () => {
     //Validate birth date some time before today's date and
     //within 120 years
     if(dateBirth == null || (now.getFullYear() - year > 120) || (now.getFullYear() - year < 18) ){
+
         setError(date_birth, 'Data non valida');
-        return false;
+
     } else{
+
         setSuccess(date_birth);
     } 
 
     if(passwordValue === '') {
+
         setError(password, 'Password obbligatoria');
-        return false;
+
     } else if (passwordValue.length < 8 ) {
+
         setError(password, 'Password deve avere minimo 8 caratteri.')
-        return false;
+
     } else {
+
         setSuccess(password);
     }
 
     if(password2Value === '') {
+
         setError(password_confirm, 'Perfavore conferma la tua password');
-        return false;
+
     } else if (password2Value !== passwordValue) {
+
         setError(password_confirm, "Le password devono essere uguali");
-        return false;
+
     } else {
+
         setSuccess(password_confirm);
+        
+    }
+    const errorDisplay = document.getElementsByClassName('success');
+    if(errorDisplay.length != 6){
+        return false
     }
     return true;
 };

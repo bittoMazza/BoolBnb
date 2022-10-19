@@ -126,7 +126,7 @@
         <input class="form-check-input border border-light border-2 fs-5" type="checkbox" id="flexSwitchCheckDefault"
             placeholder="L'APPARTAMENTO E' DISPONIBILE?" value="{{ old('is_visible', $apartment->is_visible) }}"
             {{ $apartment->is_visible ? 'checked' : '' }} name="is_visible">
-        <label class="form-check-label text-black-50 fw-bold ms-1 align-middle" for="flexSwitchCheckDefault">Rendi
+        <label class="form-check-label text-white fw-bold ms-1 align-middle" for="flexSwitchCheckDefault">Rendi
             l'appartamento
             disponibile</label>
     </div>
@@ -156,4 +156,5 @@
     @endforeach
 </div>
 <button type="submit" value="save" class="btn btn-success my-3 text-white text-center fw-bold">Salva
-    l'appartamento</button>
+    l'appartamento
+</button>
