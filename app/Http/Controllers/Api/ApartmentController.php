@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class ApartmentController extends Controller
 {
@@ -13,9 +14,20 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $filteredApartments = [];
+
+        dd($request);
         $apartments = Apartment::all();
+
+        // foreach ($apartments as $apartment) {
+        //     $distance = sqrt(pow($lat - $apartment['latitude'], 2) + pow($lon - $apartment['longitude'], 2)) * 100;
+        //     if ($distance <= $radius) {
+        //         $filteredApartments = $apartment;
+        //     }
+        // }
+
         return response()->json([
           "response" => true,
           "results" => $apartments,

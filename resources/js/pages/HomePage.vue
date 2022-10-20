@@ -26,14 +26,9 @@
         <nav class="navbar bg-light mb-4">
           <div class="container-fluid">
             <form class="d-flex w-100" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento"
-                aria-label="Search"
-              />
+              <input class="form-control me-2" type="search" placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento" aria-label="Search" v-model="filter"/>
             </form>
-            <button class="btn btn-primary text-white" @click="getPosts()">
+            <button class="btn btn-primary text-white" @click="getSomething()">
               Cerca
             </button>
           </div>
@@ -306,7 +301,13 @@
     </div>
   </main>
 </template>
+<!-- $filter = $request->input("filter");
 
+$radius = $request->input("radius");
+
+$coordinate = Http::get('https://api.tomtom.com/search/2/search/.json?key=Z4C8r6rK8x69JksEOmCX43MGffYO83xu&query=' . $filter . '&countrySet=IT' . '&limit=1');
+    $lat = $coordinate["results"][0]["position"]["lat"];
+    $lon = $coordinate["results"][0]["position"]["lon"]; -->
 <script>
 import axios from 'axios';
 export default {
@@ -314,18 +315,40 @@ export default {
   components: {},
   data: function () {
     return {
-      apartments: [],
+      filter: '',
+      long: '',
+      lat: '',
+      searchedCoordinates: {},
+      radius: 20,
     };
   },
   methods: {
-    getPosts() {
-      axios.get("/api/apartments", {}).then((response) => {
-        console.log(response.data.results);
-        this.apartments = response.data.results;
+    getFilteredApartment() {
+      axios.get('https://api.tomtom.com/search/2/search/.json?key=Z4C8r6rK8x69JksEOmCX43MGffYO83xu&query=' + this.filter +'&countrySet=IT' + '&limit=1').then((response) => {
+        console.log(response.data);
+        this.searchedCoordinates = response.data;
+        this.lat = this.searchedCoordinates["results"][0]["position"]["lat"];
+        this.long = this.searchedCoordinates["results"][0]["position"]["lon"];
+        console.log(this.lat);
+        console.log(this.long);
       }).catch((error) => {
         console.warn(error);
       });
     },
+
+    getSomething(){
+      this.getFilteredApartment();
+      axios.get('/api/apartments', {params: {lat: this.lat ,long: this.long, radius: this.radius,}
+      })
+      .then((response) => {
+        console.log(response);
+      }).catch((error) => {
+        console.log(error);
+      })
+    }
+  },
+  created() {
+
   }
 };
 
