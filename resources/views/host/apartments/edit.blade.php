@@ -31,8 +31,19 @@
 
                         @if (count($apartment->images) > 1)
                             <button class="btn btn-sm btn-danger">
-                                cancella
-                            </button>   
+                                Cancella
+                            </button> 
+                        @else
+                            <span class="text-white"></span>
+                        @endif
+                    </form>
+                    <form action="{{ route('host.apartments.changeCover', $image->id,$apartment->id) }}" method="POST" enctype="multipart/form-data" class="d-inline">
+                        @method('PUT')
+                        @csrf
+                        @if (count($apartment->images) > 1)
+                            <button class="btn btn-sm btn-danger">
+                                Rendi Cover
+                            </button> 
                         @else
                             <span class="text-white"></span>
                         @endif

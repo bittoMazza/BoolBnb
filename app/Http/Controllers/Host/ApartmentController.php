@@ -253,4 +253,6 @@ class ApartmentController extends Controller
 
         return back();
     }
+
+    
 }
