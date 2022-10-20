@@ -698,7 +698,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".content img[data-v-04c29797] {\n  height: 500px;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.tag[data-v-04c29797] {\n  padding: 6px 8px;\n  background-color: #19bab3;\n  color: white;\n}\n.in_evidence[data-v-04c29797] {\n  border: 2px solid #19bab3;\n}", ""]);
+exports.push([module.i, ".content[data-v-04c29797] {\n  width: 100%;\n  height: 55vh;\n  max-height: 55vh;\n  background-image: url(\"https://wallpaperaccess.com/full/3434829.jpg\");\n  background-repeat: no-repeat;\n  background-clip: border-box;\n  background-size: cover;\n}\n.typewriter-jumbo[data-v-04c29797] {\n  float: left;\n  margin-top: 10rem;\n  margin-left: 12rem;\n}\n.home-title[data-v-04c29797] {\n  font-size: 4em;\n  text-shadow: 0.5px 0.5px #333;\n}\n.typewrite[data-v-04c29797] {\n  color: #3490dc;\n  font-size: 2em;\n  margin-left: 7rem;\n  text-shadow: 0.5px 0.5px #333;\n}\n.tag[data-v-04c29797] {\n  padding: 6px 8px;\n  background-color: #19bab3;\n  color: white;\n}\n.in_evidence[data-v-04c29797] {\n  border: 2px solid #19bab3;\n}", ""]);
 
 // exports
 

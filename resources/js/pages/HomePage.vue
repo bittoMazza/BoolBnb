@@ -376,11 +376,33 @@ window.onload = function () {
 
 <style lang="scss" scoped>
 .content {
-  img {
-    height: 500px;
-    width: 100%;
-    object-fit: cover;
-  }
+  width: 100%;
+  height: 55vh;
+  max-height: 55vh;
+  background-image: url("https://wallpaperaccess.com/full/3434829.jpg");
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  background-size: cover;
+}
+
+// Jumbo-text
+
+.typewriter-jumbo {
+  float: left;
+  margin-top: 10rem;
+  margin-left: 12rem;
+}
+
+.home-title {
+  font-size: 4em;
+  text-shadow: 0.5px 0.5px #333;
+}
+
+.typewrite {
+  color: #3490dc;
+  font-size: 2em;
+  margin-left: 7rem;
+  text-shadow: 0.5px 0.5px #333;
 }
 
 .tag {
