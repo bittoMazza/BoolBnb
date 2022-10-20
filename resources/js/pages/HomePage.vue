@@ -402,7 +402,7 @@ window.onload = function () {
   color: #3490dc;
   font-size: 2em;
   margin-left: 7rem;
-  text-shadow: 0.5px 0.5px #333;
+  text-shadow: 0.5px 0.5px #fff;
 }
 
 .tag {
