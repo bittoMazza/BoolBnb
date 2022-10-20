@@ -68,19 +68,23 @@
                                     <div class="col-6 d-flex flex-wrap justify-content-between px-1">
                                         @forelse ($apartments as $apartment)
                                             <div class="card w-50 mb-2">
-                                                @if (filter_var($apartment->images[0]->image, FILTER_VALIDATE_URL))
-                                                <a href="{{ route('host.apartments.show', $apartment->id) }}">
-                                                    <img src="{{ $apartment->images[0]->image }}" alt="{{ $apartment->title }}"
-                                                        class="index_image card-img-top rounded-start" />
-                                                    {{-- url --}}
-                                                </a>
-                                                @else
-                                                <a href="{{ route('host.apartments.show', $apartment->id) }}">
-                                                    <img src="{{ asset('storage/' . $apartment->images[0]->image) }}"
-                                                        alt="{{ $apartment->title }}" class="index_image card-img-top rounded-start" />
-                                                    {{-- file --}}
-                                                </a>
-                                                @endif
+                                                @foreach ($apartment->images as $image)
+                                                    @if ($image->is_cover == true)
+                                                        @if (filter_var($image->image, FILTER_VALIDATE_URL))
+                                                        <a href="{{ route('host.apartments.show', $apartment->id) }}">
+                                                            <img src="{{ $image->image }}" alt="{{ $apartment->title }}"
+                                                                class="index_image card-img-top rounded-start" />
+                                                            {{-- url --}}
+                                                        </a>
+                                                        @else
+                                                        <a href="{{ route('host.apartments.show', $apartment->id) }}">
+                                                            <img src="{{ asset('storage/' . $image->image) }}"
+                                                                alt="{{ $apartment->title }}" class="index_image card-img-top rounded-start" />
+                                                            {{-- file --}}
+                                                        </a>
+                                                        @endif
+                                                    @endif
+                                                @endforeach
 
                                                 <div class="card-body card-body-cascade pb-0">
                                                     <h5 class="card-title"><strong>

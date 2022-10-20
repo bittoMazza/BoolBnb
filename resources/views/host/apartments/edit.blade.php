@@ -30,9 +30,20 @@
                         @csrf
 
                         @if (count($apartment->images) > 1)
-                            <button class="btn btn-sm btn-danger">
-                                cancella
-                            </button>   
+                        <div class="d-flex">
+                            <button class="btn btn-sm btn-danger me-2">
+                                Cancella
+                            </button>
+                            @if ($image->is_cover == false)
+                                <a href="{{ route('host.apartments.changeCoverApartment', ["apartmentId" =>$apartment->id, "imageId" => $image->id]) }}" class="btn btn-sm btn-primary">
+                                    Imposta come copertina
+                                </a>  
+                            @else
+                                <a class="btn btn-sm btn-success">
+                                    E la copertina
+                                </a>
+                            @endif
+                        </div>
                         @else
                             <span class="text-white"></span>
                         @endif

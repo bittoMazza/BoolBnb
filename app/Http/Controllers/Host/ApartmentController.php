@@ -253,4 +253,18 @@ class ApartmentController extends Controller
 
         return back();
     }
+
+    public function changeCoverApartment($apartment_id, $id)
+    {
+        $apartment = Apartment::findOrFail($apartment_id);
+        foreach ($apartment->images as $image) {
+            $image->is_cover = false;
+            $image->save();
+        }
+        $imagesId = Image::findOrFail($id);
+        $imagesId->is_cover = true;
+        $imagesId->save();
+
+        return back();
+    }
 }
