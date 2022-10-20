@@ -110,10 +110,70 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "HomePage",
   components: {}
 });
+var txtType = /*#__PURE__*/function () {
+  function txtType(el, toRotate, period) {
+    _classCallCheck(this, txtType);
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = "";
+    this.tick();
+    this.isDeleting = false;
+  }
+  _createClass(txtType, [{
+    key: "tick",
+    value: function tick() {
+      var i = this.loopNum % this.toRotate.length;
+      var fullTxt = this.toRotate[i];
+      if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
+      this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
+      var that = this;
+      var delta = 200 - Math.random() * 100;
+      if (this.isDeleting) {
+        delta /= 2;
+      }
+      if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.txt === "") {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+      }
+      setTimeout(function () {
+        that.tick();
+      }, delta);
+    }
+  }]);
+  return txtType;
+}();
+window.onload = function () {
+  var elements = document.getElementsByClassName("typewrite");
+  for (var i = 0; i < elements.length; i++) {
+    var toRotate = elements[i].getAttribute("data-type");
+    var period = elements[i].getAttribute("data-period");
+    if (toRotate) {
+      new txtType(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #3490dc}";
+  document.body.appendChild(css);
+};
 
 /***/ }),
 
@@ -256,20 +316,23 @@ var staticRenderFns = [function () {
     staticClass: "col-12"
   }, [_c("div", {
     staticClass: "content py-3"
-  }, [_c("h2", {
-    staticClass: "fw-bold text-center py-3"
-  }, [_c("span", [_vm._v("Scopri una casa ")]), _c("span", {
-    staticClass: "text-primary"
-  }, [_vm._v("dove amerai vivere")])]), _vm._v(" "), _c("img", {
+  }, [_c("div", {
+    staticClass: "typewriter-jumbo text-center"
+  }, [_c("h1", {
+    staticClass: "home-title fw-bold"
+  }, [_vm._v("Scopri un posto ")]), _vm._v(" "), _c("h3", {
+    staticClass: "typewrite fw-bold text-highlight-warning",
     attrs: {
-      src: "https://wallpaperaccess.com/full/3434829.jpg",
-      alt: "jumbo"
+      "data-period": "2000",
+      "data-type": '[ "dove amerai vivere.", "da sogno."]'
     }
-  })]), _vm._v(" "), _c("h3", {
+  }, [_c("span", {
+    staticClass: "wrap"
+  })])])]), _vm._v(" "), _c("h3", {
     staticClass: "fw-bold text-center mt-3 mb-1"
   }, [_c("span", {
     staticClass: "text-primary"
-  }, [_vm._v("Cerca")]), _vm._v(" un appartamento")]), _vm._v(" "), _c("nav", {
+  }, [_vm._v("Cerca")]), _vm._v(" un appartamento\n      ")]), _vm._v(" "), _c("nav", {
     staticClass: "navbar bg-light mb-4"
   }, [_c("div", {
     staticClass: "container-fluid"
@@ -290,7 +353,7 @@ var staticRenderFns = [function () {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Cerca")])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n              Cerca\n            ")])])])]), _vm._v(" "), _c("div", {
     staticClass: "py-4 container"
   }, [_c("div", {
     staticClass: "text-center mb-4"
@@ -320,7 +383,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col"
@@ -344,7 +407,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col"
@@ -368,7 +431,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col"
@@ -392,7 +455,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "p-4 container"
@@ -424,7 +487,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col mb-4"
@@ -448,7 +511,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col mb-4"
@@ -472,7 +535,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col mb-4"
@@ -496,7 +559,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col mb-4"
@@ -520,7 +583,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col mb-4"
@@ -544,7 +607,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col mb-4"
@@ -568,7 +631,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col mb-4"
@@ -592,7 +655,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("\n                          Titolo Appartamento                                                       \n                      ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])])])])])])]);
 }];
@@ -16897,7 +16960,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\vince\Desktop\Boolean\Esercizi\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
+module.exports = __webpack_require__(/*! F:\Dev\FULLSTACK\JOBS\FInal_project\Progetto Finale\FInal_project\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
 
 
 /***/ })
