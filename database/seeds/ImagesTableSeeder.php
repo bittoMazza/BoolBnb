@@ -44,25 +44,22 @@ class ImagesTableSeeder extends Seeder
         ];
 
         $apartments = Apartment::all();
-
+        
         foreach ($apartments as $apartment) {
+            $isFirst = true;
             $randomItems = Arr::random($images, 5);
-            for ($i=0; $i < count($randomItems); $i++) { 
+            foreach ($randomItems as $randomItem => $value) {
                 $newImage = new Image();
-                $newImage->image = $randomItems[$i];
+                $newImage->image = $value;
                 $newImage->apartment_id = $apartment->id;
-                if ($i = 0) {
+                if ($isFirst) {
                     $newImage->is_cover = true;
+                } else {
+                    $newImage->is_cover = false;
                 }
+                $isFirst = false;
                 $newImage->save();
             }
         }
     }
 }
-
-// foreach ($randomItems as $randomItem) {
-//     $newImage = new Image();
-//     $newImage->image = $randomItem;
-//     $newImage->apartment_id = $apartment->id;
-//     $newImage->save();
-// }
