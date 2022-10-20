@@ -15,7 +15,7 @@ const router = new VueRouter({
         },
         {
             path: '*',
-            name: 'home',
+            name: 'error',
             component: HomePage,
         }
     ],

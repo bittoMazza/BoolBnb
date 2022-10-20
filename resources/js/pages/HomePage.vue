@@ -32,10 +32,10 @@
                 placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento"
                 aria-label="Search"
               />
-              <button class="btn btn-primary text-white" type="submit">
-                Cerca
-              </button>
             </form>
+            <button class="btn btn-primary text-white" @click="getPosts()">
+              Cerca
+            </button>
           </div>
         </nav>
 
@@ -308,9 +308,25 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: "HomePage",
   components: {},
+  data: function () {
+    return {
+      apartments: [],
+    };
+  },
+  methods: {
+    getPosts() {
+      axios.get("/api/apartments", {}).then((response) => {
+        console.log(response.data.results);
+        this.apartments = response.data.results;
+      }).catch((error) => {
+        console.warn(error);
+      });
+    },
+  }
 };
 
 class txtType {
