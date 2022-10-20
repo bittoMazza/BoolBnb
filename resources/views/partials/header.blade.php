@@ -14,15 +14,15 @@
                 @guest
                 @else
                     <li>
-                        <a class="pe-3 nav-link {{ request()->routeIs('host.apartments.index') ? 'text-primary fw-bold' : '' }}"
+                        <a class="pe-3 nav-link fw-bold {{ request()->routeIs('host.apartments.index') ? 'text-primary fw-bold' : '' }}"
                             href="{{ route('host.apartments.index') }}">I Miei Appartamenti</a>
                     </li>
                     <li>
-                        <a class="pe-4 nav-link {{ request()->routeIs('host.apartments.deletedApartments') ? 'text-primary fw-bold' : '' }}"
+                        <a class="pe-4 nav-link fw-bold {{ request()->routeIs('host.apartments.deletedApartments') ? 'text-primary fw-bold' : '' }}"
                             href="{{ route('host.apartments.deletedApartments') }}">Cestino</a>
                     </li>
                     <li>
-                        <a class="btn btn-sm btn-outline-success px-3 {{ request()->routeIs('host.apartments.create') ? 'active' : '' }}"
+                        <a class="btn btn-sm btn-outline-success px-3 fw-bold {{ request()->routeIs('host.apartments.create') ? 'active' : '' }}"
                             href="{{ route('host.apartments.create') }}">Aggiungi Appartamento</a>
                     </li>
                 @endguest
@@ -41,10 +41,10 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown fw-bold">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            <span><i class="bi bi-person-circle align-middle me-1"></i> {{ Auth::user()->name }}</span>
+                            <span><i class="bi bi-person-circle align-middle fs-4 me-1"></i> {{ Auth::user()->name }}</span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
