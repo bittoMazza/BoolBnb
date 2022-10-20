@@ -119,9 +119,9 @@
     <span class="form-text text-white-50">il file deve essere non piu grande di 1 MB</span>
 </div>
 
+@if (Route::is('host.apartments.edit'))
 <div class="form-group py-2">
     <label class="text-light">&#200; DISPONIBILE*</label>
-    {{-- <input type="text" class="form-control" value="{{ old('is_visible',$apartment->is_visible) }}" name="is_visible" placeholder="L'APPARTAMENTO E' DISPONIBILE?" required> --}}
     <div class="form-check form-switch ms-2">
         <input class="form-check-input border border-light border-2 fs-5" type="checkbox" id="flexSwitchCheckDefault"
             placeholder="L'APPARTAMENTO E' DISPONIBILE?" value="{{ old('is_visible', $apartment->is_visible) }}"
@@ -136,6 +136,8 @@
         </div>
     @enderror
 </div>
+@endif
+
 
 
 <div>

@@ -69,12 +69,12 @@ class ApartmentController extends Controller
         $validatedData = $request->validate($this->validationRules);
 
         $data['user_id'] = Auth::id();
-        if (isset($data['is_visible'])) {
-            $data['is_visible'] = true;
-        } else {
-            $data['is_visible'] = false;
-        }
+        
         $apartment = new Apartment();
+        
+        //Default 
+        $apartment->is_visible = false;
+
         $apartment->fill($data);
         
         $apartment->save($data);

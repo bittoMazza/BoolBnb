@@ -15,7 +15,7 @@
                 @endif
 
                 <h1 class="card-title my-4 fw-bold"><i class="bi bi-house me-1"></i> {{ $apartment->title }}</h1>
-                <h3 class="card-title my-4 fw-bold"><i class="bi bi-circle-fill {{ $apartment->is_visible ? 'text-success':'text-danger' }}"></i> {{ $apartment->is_visible ? 'Appartamento disponibile':'Appartamento non disponibile' }}</h3>
+                <h3 class="card-title my-4 fw-bold"><i class="bi bi-circle-fill {{ $apartment->is_visible ? 'text-success':'text-danger' }}"></i> {{ $apartment->is_visible ? 'Appartamento disponibile':'Appartamento non disponibile, clicca su "Modifica" per renderlo disponibile' }}</h3>
                 <h5 class="card-title my-4 fst-italic">Indirizzo: <span class="fw-semibold">{{ $apartment->address }}</span> -
                     {{ $apartment->lat }}, {{ $apartment->long }}</h5>
                 <div class="row">
