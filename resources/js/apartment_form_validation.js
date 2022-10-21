@@ -138,9 +138,21 @@ const validateInputs = () => {
     //     setSuccess(file);
     // }
     // // validazione se file image è vuoto
-    
+    const btnDropDown = document.getElementById('btn-drop-id');
+
+    console.log(btnDropDown);
+
+    if (btnDropDown == null) {
+        let fileValue = file.files.length;
+        if (fileValue == 0) {
+            setError(file, 'Seleziona un file')
+        } else {
+            setSuccess(file);
+        }
+    }
+
     const errorDisplay = document.getElementsByClassName('success');
-    if(errorDisplay.length != 6){
+    if(errorDisplay.length != 7 && errorDisplay.length != 6){
         return false
     }
 

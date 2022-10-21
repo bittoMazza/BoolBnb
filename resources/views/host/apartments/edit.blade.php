@@ -9,7 +9,7 @@
             @include('host.apartments.forms.form')
         </form>
         
-        <button class="btn btn-outline-primary text-white ms_pos_btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-outline-primary text-white ms_pos_btn dropdown-toggle" id="btn-drop-id" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Immagini Presenti
         </button>
         <div class="dropdown-menu dropdown-menu-bottom bg-dark p-3 dropdown-menu-images">

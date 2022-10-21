@@ -163,3 +163,72 @@
 <button type="submit" value="save" class="btn btn-success my-3 text-white text-center fw-bold" >
     Salva l'appartamento
 </button>
+
+{{-- <script>
+    const file = document.getElementById("file");
+    file.addEventListener('change', e => {
+        if (!validateInput()) {
+            e.preventDefault();
+            console.log('false');
+        } else {
+            console.log('true');
+            return true;
+        }
+    });
+
+        // messaggi d'errore e di successo
+        const setError = (element, message) => {
+            const inputControl = element.parentElement;
+            const errorDisplay = inputControl.querySelector('.error');
+
+            errorDisplay.innerText = message;
+            inputControl.classList.add('error');
+            inputControl.classList.remove('success')
+        };
+
+        const setSuccess = element => {
+            const inputControl = element.parentElement;
+            const errorDisplay = inputControl.querySelector('.error');
+
+            errorDisplay.innerText = '';
+            inputControl.classList.add('success');
+            inputControl.classList.remove('error');
+        };
+        // messaggi d'errore e di successo
+
+        // validazione se file image è vuoto
+        const validateInput = () => {
+            const fileValue = file.files.length;
+            console.log(file.value);
+            if (fileValue == 0) {
+                setError(file, 'Seleziona un file');
+                console.log('falso');
+                return false;
+            } else {
+                setSuccess(file);
+                console.log('vero');
+            }
+        };
+        // validazione se file image è vuoto
+
+    function deRequire(elClass) {
+        el = document.getElementsByClassName(elClass);
+
+        let atLeastOneChecked = false; //at least one cb is checked
+        for (i = 0; i < el.length; i++) {
+            if (el[i].checked === true) {
+            atLeastOneChecked = true;
+            }
+        }
+
+        if (atLeastOneChecked === true) {
+            for (i = 0; i < el.length; i++) {
+            el[i].required = false;
+            }
+        } else {
+            for (i = 0; i < el.length; i++) {
+            el[i].required = true;
+            }
+        }
+    }
+</script> --}}
