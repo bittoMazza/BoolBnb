@@ -141,7 +141,7 @@
 
 
 <div>
-    <label class="text-light">SELEZIONA I SERVIZI*</label>
+    <label class="text-light">SELEZIONA I SERVIZI</label>
     @foreach ($amenities as $amenity)
         <div class="form-check text-white">
             <label class="form-check-label" for="exampleRadios1">

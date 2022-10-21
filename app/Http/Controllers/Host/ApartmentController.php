@@ -88,9 +88,12 @@ class ApartmentController extends Controller
         }
         
         if (isset($data['image'])) {
-            
             foreach ($data['image'] as $image) {
                 $newImage = new Image();
+                $newImage->is_cover = false;
+                if($image == $data['image'][0]){
+                    $newImage->is_cover = true;
+                }
                 $image = Storage::put('uploads',$image);
                 $newImage->image = $image;
                 $apartment_id = (Apartment::orderBy('id','desc')->first()->id);
@@ -178,7 +181,7 @@ class ApartmentController extends Controller
                 $image = Storage::put('uploads',$image);
                 $newImage->image = $image;
                 $newImage->apartment_id = $id;
-                
+                $newImage->is_cover = false;
                 $newImage->save();
             }
         }
