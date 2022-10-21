@@ -54,14 +54,18 @@
                                     {{ $apartment->address }}
                                 </td>
                                 <td>
-                                    @if (filter_var($apartment->images['0']->image, FILTER_VALIDATE_URL))
-                                        <img src="{{ $apartment->images['0']->image }}" alt="{{ $apartment->title }}"
-                                            class="img-fluid rounded-start" />
-                                        {{-- url --}}
+                                    @if (isset($apartment->images['0']->image))
+                                        @if (filter_var($apartment->images['0']->image, FILTER_VALIDATE_URL))
+                                            <img src="{{ $apartment->images['0']->image }}" alt="{{ $apartment->title }}"
+                                                class="img-fluid rounded-start" />
+                                            {{-- url --}}
+                                        @else
+                                            <img src="{{ asset('storage/' . $apartment->images['0']->image) }}"
+                                                alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
+                                            {{-- file --}}
+                                        @endif
                                     @else
-                                        <img src="{{ asset('storage/' . $apartment->images['0']->image) }}"
-                                            alt="{{ $apartment->title }}" class="img-fluid rounded-start" />
-                                        {{-- file --}}
+                                        <div>nessuna immagine presente</div>
                                     @endif
                                 </td>
                                 <td>
