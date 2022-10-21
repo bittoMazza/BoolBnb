@@ -32,11 +32,9 @@
                         @if (count($apartment->images) > 1)
                         <div class="d-flex">
                             @if ($image->is_cover == false)
-                            <button class="btn btn-sm btn-danger me-2">
-                                Cancella
-                            </button>
-                            @endif
-                            @if ($image->is_cover == false)
+                                <button class="btn btn-sm btn-danger me-2">
+                                    Cancella
+                                </button>
                                 <a href="{{ route('host.apartments.changeCoverApartment', ["apartmentId" =>$apartment->id, "imageId" => $image->id]) }}" class="btn btn-sm btn-primary">
                                     Imposta come copertina
                                 </a>  
