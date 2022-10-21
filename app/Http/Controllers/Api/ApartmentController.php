@@ -16,21 +16,23 @@ class ApartmentController extends Controller
      */
     public function index(Request $request)
     {
+        $data = $request->all();
+        $radius = $data['radius'];
+        $lat = $data['lat'];
+        $long = $data['long'];
         $filteredApartments = [];
-
-        dd($request);
         $apartments = Apartment::all();
 
-        // foreach ($apartments as $apartment) {
-        //     $distance = sqrt(pow($lat - $apartment['latitude'], 2) + pow($lon - $apartment['longitude'], 2)) * 100;
-        //     if ($distance <= $radius) {
-        //         $filteredApartments = $apartment;
-        //     }
-        // }
+        foreach ($apartments as $apartment) {
+             $distance = sqrt(pow($lat - $apartment->lat, 2) + pow($long - $apartment->long, 2)) * 100;
+             if ($distance <= $radius) {
+                 $filteredApartments[] = $apartment;
+             }
+         }
 
         return response()->json([
           "response" => true,
-          "results" => $apartments,
+          "results" => $filteredApartments,
         ]);
     }
 

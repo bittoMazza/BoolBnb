@@ -26,7 +26,7 @@
         <nav class="navbar bg-light mb-4">
           <div class="container-fluid">
             <form class="d-flex w-100" role="search">
-              <input class="form-control me-2" type="search" placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento" aria-label="Search" v-model="filter"/>
+              <input @keyup="getFilteredApartment()" class="form-control me-2" type="search" placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento" aria-label="Search" v-model="filter"/>
             </form>
             <button class="btn btn-primary text-white" @click="getSomething()">
               Cerca
@@ -337,8 +337,10 @@ export default {
     },
 
     getSomething(){
-      this.getFilteredApartment();
-      axios.get('/api/apartments', {params: {lat: this.lat ,long: this.long, radius: this.radius,}
+      axios.get('/api/apartments', {params:{
+        lat: this.lat ,
+        long: this.long, 
+        radius: this.radius,}      
       })
       .then((response) => {
         console.log(response);
