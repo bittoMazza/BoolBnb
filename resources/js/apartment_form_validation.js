@@ -45,7 +45,8 @@ const validateInputs = () => {
     const bathroomsValue = bathrooms.value;
     const squareMetersValue = square_meters.value.trim();
     const geoAddressValue = geoAddress.value.trim();
-    // const fileValue = file.files.length;
+    const URLpath = window.location.href;
+    const fileValue = file.files.length;
     // console.log(fileValue);
 
     // validazioni titolo
@@ -131,28 +132,24 @@ const validateInputs = () => {
     }
     // validazione indirizzo geoAddressValue
 
-    // // validazione se file image è vuoto
-    // if (fileValue == 0) {
-    //     setError(file, 'Seleziona un file');
-    // } else {
-    //     setSuccess(file);
-    // }
-    // // validazione se file image è vuoto
-    const btnDropDown = document.getElementById('btn-drop-id');
-
-    console.log(btnDropDown);
-
-    if (btnDropDown == null) {
-        let fileValue = file.files.length;
-        if (fileValue == 0) {
-            setError(file, 'Seleziona un file')
-        } else {
+    // validazione se file image è vuoto
+    if(!URLpath.includes('edit')){
+        if(fileValue === 0){
+            setError(file, 'inserisci un immagine');
+        }else{
             setSuccess(file);
         }
+        const errorDisplay = document.getElementsByClassName('success');
+        if(errorDisplay.length != 7 ){
+            return false
+        }
+    
+        return true;
     }
+    // validazione se file image è vuoto
 
     const errorDisplay = document.getElementsByClassName('success');
-    if(errorDisplay.length != 7 && errorDisplay.length != 6){
+    if(errorDisplay.length != 6){
         return false
     }
 
