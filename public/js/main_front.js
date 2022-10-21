@@ -1934,20 +1934,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   components: {},
   data: function data() {
     return {
-      apartments: []
+      filter: '',
+      "long": '',
+      lat: '',
+      searchedCoordinates: {},
+      radius: 20
     };
   },
   methods: {
-    getPosts: function getPosts() {
+    getFilteredApartment: function getFilteredApartment() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/apartments", {}).then(function (response) {
-        console.log(response.data.results);
-        _this.apartments = response.data.results;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('https://api.tomtom.com/search/2/search/.json?key=Z4C8r6rK8x69JksEOmCX43MGffYO83xu&query=' + this.filter + '&countrySet=IT' + '&limit=1').then(function (response) {
+        console.log(response.data);
+        _this.searchedCoordinates = response.data;
+        _this.lat = _this.searchedCoordinates["results"][0]["position"]["lat"];
+        _this["long"] = _this.searchedCoordinates["results"][0]["position"]["lon"];
+        console.log(_this.lat);
+        console.log(_this["long"]);
       })["catch"](function (error) {
         console.warn(error);
       });
+    },
+    getSomething: function getSomething() {
+      this.getFilteredApartment();
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/apartments', {
+        params: {
+          lat: this.lat,
+          "long": this["long"],
+          radius: this.radius
+        }
+      }).then(function (response) {
+        console.log(response);
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
-  }
+  },
+  created: function created() {}
 });
 var txtType = /*#__PURE__*/function () {
   function txtType(el, toRotate, period) {
@@ -2145,14 +2168,41 @@ var render = function render() {
     staticClass: "navbar bg-light mb-4"
   }, [_c("div", {
     staticClass: "container-fluid"
-  }, [_vm._m(2), _vm._v(" "), _c("button", {
+  }, [_c("form", {
+    staticClass: "d-flex w-100",
+    attrs: {
+      role: "search"
+    }
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.filter,
+      expression: "filter"
+    }],
+    staticClass: "form-control me-2",
+    attrs: {
+      type: "search",
+      placeholder: "Inserisci il luogo in cui vuoi trovare l'appartamento",
+      "aria-label": "Search"
+    },
+    domProps: {
+      value: _vm.filter
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.filter = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-primary text-white",
     on: {
       click: function click($event) {
-        return _vm.getPosts();
+        return _vm.getSomething();
       }
     }
-  }, [_vm._v("\n            Cerca\n          ")])])]), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)])])]);
+  }, [_vm._v("\n            Cerca\n          ")])])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2180,22 +2230,6 @@ var staticRenderFns = [function () {
   }, [_c("span", {
     staticClass: "text-primary"
   }, [_vm._v("Cerca")]), _vm._v(" un appartamento\n      ")]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("form", {
-    staticClass: "d-flex w-100",
-    attrs: {
-      role: "search"
-    }
-  }, [_c("input", {
-    staticClass: "form-control me-2",
-    attrs: {
-      type: "search",
-      placeholder: "Inserisci il luogo in cui vuoi trovare l'appartamento",
-      "aria-label": "Search"
-    }
-  })]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
