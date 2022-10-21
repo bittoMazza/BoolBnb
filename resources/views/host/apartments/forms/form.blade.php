@@ -148,11 +148,11 @@
                 {{ $amenity->name }}
             </label>
             @if ($errors->any())
-                <input type="checkbox" name="amenity[]" id="exampleRadios1" class="form-check-input"
-                    value="{{ $amenity->id }}" {{ in_array($amenity->id, old('amenity', [])) ? 'checked' : '' }}>
+                <input type="checkbox" name="amenity[]" id="exampleRadios1" class="form-check-input check_require"
+                    value="{{ $amenity->id }}" {{ in_array($amenity->id, old('amenity', [])) ? 'checked' : '' }} onclick='deRequire("check_require")' required>
             @else
-                <input class="form-check-input bg-secondary border" type="checkbox" value="{{ $amenity->id }}" name="amenity[]"
-                    id="exampleRadios1" {{ $apartment->amenities->contains($amenity) ? 'checked' : '' }}>
+                <input class="form-check-input bg-secondary border check_require" type="checkbox" value="{{ $amenity->id }}" name="amenity[]"
+                    id="exampleRadios1" {{ $apartment->amenities->contains($amenity) ? 'checked' : '' }} onclick='deRequire("check_require")' required>
             @endif
         </div>
     @endforeach
@@ -160,3 +160,26 @@
 <button type="submit" value="save" class="btn btn-success my-3 text-white text-center fw-bold">Salva
     l'appartamento
 </button>
+
+<script>
+function deRequire(elClass) {
+  el = document.getElementsByClassName(elClass);
+
+  let atLeastOneChecked = false; //at least one cb is checked
+  for (i = 0; i < el.length; i++) {
+    if (el[i].checked === true) {
+      atLeastOneChecked = true;
+    }
+  }
+
+  if (atLeastOneChecked === true) {
+    for (i = 0; i < el.length; i++) {
+      el[i].required = false;
+    }
+  } else {
+    for (i = 0; i < el.length; i++) {
+      el[i].required = true;
+    }
+  }
+}
+</script>
