@@ -1934,6 +1934,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   components: {},
   data: function data() {
     return {
+      apartments: [],
       filter: '',
       "long": '',
       lat: '',
@@ -1955,8 +1956,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         console.warn(error);
       });
     },
+    getCover: function getCover(images) {
+      for (var i = 0; i < images.length; i++) {
+        if (images[i].is_cover == true) {
+          return images[i].image;
+        }
+      }
+    },
     getSomething: function getSomething() {
-      this.getFilteredApartment();
+      var _this2 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/apartments', {
         params: {
           lat: this.lat,
@@ -1965,6 +1973,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }).then(function (response) {
         console.log(response);
+        _this2.apartments = response.data.results;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2190,6 +2199,9 @@ var render = function render() {
       value: _vm.filter
     },
     on: {
+      keyup: function keyup($event) {
+        return _vm.getFilteredApartment();
+      },
       input: function input($event) {
         if ($event.target.composing) return;
         _vm.filter = $event.target.value;
@@ -2202,7 +2214,38 @@ var render = function render() {
         return _vm.getSomething();
       }
     }
-  }, [_vm._v("\n            Cerca\n          ")])])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)])])]);
+  }, [_vm._v("\n            Cerca\n          ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "py-4 container"
+  }, [_vm._m(2), _vm._v(" "), _c("div", {
+    staticClass: "in_evidence p-5 row row-cols-4 gx-4"
+  }, _vm._l(_vm.apartments, function (apartment) {
+    return _c("div", {
+      key: apartment.id,
+      staticClass: "col"
+    }, [_c("div", {
+      staticClass: "card px-0 shadow-sm"
+    }, [_c("a", {
+      attrs: {
+        href: ""
+      }
+    }, [_c("img", {
+      staticClass: "card-img-top",
+      attrs: {
+        src: _vm.getCover(apartment.images),
+        alt: "title"
+      }
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "card-body card-body-cascade pb-0"
+    }, [_c("h5", {
+      staticClass: "card-title"
+    }, [_c("strong", [_c("a", {
+      attrs: {
+        href: "#"
+      }
+    }, [_vm._v(" " + _vm._s(apartment.title) + " ")])])]), _vm._v(" "), _c("p", {
+      staticClass: "fst-italic pb-1"
+    }, [_vm._v(_vm._s(apartment.address))])])])]);
+  }), 0)]), _vm._v(" "), _vm._m(3)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2234,110 +2277,10 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "py-4 container"
-  }, [_c("div", {
     staticClass: "text-center mb-4"
   }, [_c("span", {
     staticClass: "tag fs-5"
-  }, [_vm._v("IN EVIDENZA")])]), _vm._v(" "), _c("div", {
-    staticClass: "in_evidence p-5 row row-cols-4 gx-4"
-  }, [_c("div", {
-    staticClass: "col"
-  }, [_c("div", {
-    staticClass: "card px-0 shadow-sm"
-  }, [_c("a", {
-    attrs: {
-      href: ""
-    }
-  }, [_c("img", {
-    staticClass: "card-img-top",
-    attrs: {
-      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
-      alt: "title"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "card-body card-body-cascade pb-0"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_c("strong", [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
-    staticClass: "fst-italic pb-1"
-  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col"
-  }, [_c("div", {
-    staticClass: "card px-0 shadow-sm"
-  }, [_c("a", {
-    attrs: {
-      href: ""
-    }
-  }, [_c("img", {
-    staticClass: "card-img-top",
-    attrs: {
-      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
-      alt: "title"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "card-body card-body-cascade pb-0"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_c("strong", [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
-    staticClass: "fst-italic pb-1"
-  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col"
-  }, [_c("div", {
-    staticClass: "card px-0 shadow-sm"
-  }, [_c("a", {
-    attrs: {
-      href: ""
-    }
-  }, [_c("img", {
-    staticClass: "card-img-top",
-    attrs: {
-      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
-      alt: "title"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "card-body card-body-cascade pb-0"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_c("strong", [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
-    staticClass: "fst-italic pb-1"
-  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col"
-  }, [_c("div", {
-    staticClass: "card px-0 shadow-sm"
-  }, [_c("a", {
-    attrs: {
-      href: ""
-    }
-  }, [_c("img", {
-    staticClass: "card-img-top",
-    attrs: {
-      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
-      alt: "title"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "card-body card-body-cascade pb-0"
-  }, [_c("h5", {
-    staticClass: "card-title"
-  }, [_c("strong", [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
-    staticClass: "fst-italic pb-1"
-  }, [_vm._v("Indirizzo")])])])])])]);
+  }, [_vm._v("IN EVIDENZA")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -18844,7 +18787,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\haksn\Desktop\BoolBnb\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
+module.exports = __webpack_require__(/*! C:\Users\vince\Desktop\Boolean\Esercizi\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
 
 
 /***/ })
