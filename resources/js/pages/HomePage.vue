@@ -42,7 +42,7 @@
 
           <div class="in_evidence p-5 row row-cols-4 gx-4">
             <!-- CARD -->
-            <div class="col">
+            <div class="col" v-for="apartment in apartments" :key="apartment.id">
               <div class="card px-0 shadow-sm">
                 <a href="">
                   <img
@@ -54,71 +54,10 @@
                 <div class="card-body card-body-cascade pb-0">
                   <h5 class="card-title">
                     <strong>
-                      <a href="#"> Titolo Appartamento </a>
+                      <a href="#"> {{ apartment.title }} </a>
                     </strong>
                   </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- INIZIO CARD DUPLICATE -->
-            <div class="col">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
+                  <p class="fst-italic pb-1">{{ apartment.address }}</p>
                 </div>
               </div>
             </div>
@@ -315,6 +254,7 @@ export default {
   components: {},
   data: function () {
     return {
+      apartments: [],
       filter: '',
       long: '',
       lat: '',
@@ -344,6 +284,7 @@ export default {
       })
       .then((response) => {
         console.log(response);
+        this.apartments = response.data.results;
       }).catch((error) => {
         console.log(error);
       })

@@ -22,8 +22,8 @@ class ApartmentsTableSeeder extends Seeder
                 'square_meters' => 25,
                 'address' => 'Via Salita Castello 13, 80079 Procida, Italia',
                 'is_visible' => true,
-                'long' => '40.76199237334906',
-                'lat' => '14.031702205442677',
+                'lat' => '40.76199237334906',
+                'long' => '14.031702205442677',
             ],
             [
                 'user_id' => 2,
@@ -34,8 +34,8 @@ class ApartmentsTableSeeder extends Seeder
                 'square_meters' => 50,
                 'address' => '284 Via Vittorio Emanuele 284, 80079 Procida, Italia',
                 'is_visible' => true,
-                'long' => '40.7577703070356',
-                'lat' => '14.019365200587943',
+                'lat' => '40.7577703070356',
+                'long' => '14.019365200587943',
             ],
             [
                 'user_id' => 2,
@@ -46,8 +46,8 @@ class ApartmentsTableSeeder extends Seeder
                 'square_meters' => 35,
                 'address' => '2 Via Perugia, 97100 Marina di Ragusa, Italia',
                 'is_visible' => true,
-                'long' => '36.781475462893944',
-                'lat' => '14.530960987775696',
+                'lat' => '36.781475462893944',
+                'long' => '14.530960987775696',
             ],
         ];
 
