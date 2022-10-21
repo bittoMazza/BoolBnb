@@ -104,13 +104,21 @@
 <div class="form-group my-3">
     @if (Route::is('host.apartments.create'))
         <label class="text-light">IMMAGINE APPARTAMENTO*</label>
+        <div class="input-control">
+            <div class="input-group">
+                <input type="file" id="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine"
+                multiple>
+            </div>
+            <div class="error fs-6"></div>
+        </div>
     @else
         <label class="text-light">IMMAGINE APPARTAMENTO</label>
-    @endif
-    <div class="input-group">
-        <input type="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine"
+        <div class="input-group">
+            <input type="file" id="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine"
             multiple>
-    </div>
+        </div>
+    @endif
+
     @error('image')
         <div class="alert alert-danger">
             {{ $message }}
@@ -128,7 +136,8 @@
             {{ $apartment->is_visible ? 'checked' : '' }} name="is_visible">
         <label class="form-check-label text-white fw-bold ms-1 align-middle" for="flexSwitchCheckDefault">Rendi
             l'appartamento
-            disponibile</label>
+            disponibile
+        </label>
     </div>
     @error('is_visible')
         <div class="alert alert-danger">
@@ -157,6 +166,6 @@
         </div>
     @endforeach
 </div>
-<button type="submit" value="save" class="btn btn-success my-3 text-white text-center fw-bold">Salva
-    l'appartamento
+<button type="submit" value="save" class="btn btn-success my-3 text-white text-center fw-bold">
+    Salva l'appartamento
 </button>

@@ -7,6 +7,7 @@ const beds = document.getElementById('beds');
 const bathrooms = document.getElementById('bathrooms');
 const square_meters = document.getElementById('square_meters');
 const geoAddress = document.getElementById('geoAddress');
+const file = document.getElementById("file");
 
 form.addEventListener('submit', e => {
     validateInputs();
@@ -19,7 +20,7 @@ form.addEventListener('submit', e => {
 // messaggi d'errore e di successo
 const setError = (element, message) => {
     const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
+    const errorDisplay = inputControl.getElementsByClassName('error');
 
     errorDisplay.innerText = message;
     inputControl.classList.add('error');
@@ -28,7 +29,7 @@ const setError = (element, message) => {
 
 const setSuccess = element => {
     const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
+    const errorDisplay = inputControl.getElementsByClassName('error');
 
     errorDisplay.innerText = '';
     inputControl.classList.add('success');
@@ -44,6 +45,9 @@ const validateInputs = () => {
     const bathroomsValue = bathrooms.value;
     const squareMetersValue = square_meters.value.trim();
     const geoAddressValue = geoAddress.value.trim();
+    const fileValue = file.files.length;
+    console.log(fileValue);
+    console.log(errorDisplay);
 
     // validazioni titolo
     if(titleValue === '') {
@@ -126,15 +130,19 @@ const validateInputs = () => {
     } else {
         setSuccess(geoAddress);
     }
+    // validazione indirizzo geoAddressValue
+
+    // validazione se file image è vuoto
+    if (fileValue == 0) {
+        setError(file, 'Seleziona un file');
+    } else {
+        setSuccess(file);
+    }
+    // validazione se file image è vuoto
+    
     const errorDisplay = document.getElementsByClassName('success');
     if(errorDisplay.length != 6){
         return false
     }
     return true;
-    // else if (geoAddressValue <= 0 || geoAddressValue >= 500) {
-    
-    //     setError(geoAddress, 'l appartamento deve essere grande tra 1mq e 500mq');
-    //     return false;}
-
-    // validazione indirizzo geoAddressValue
 }
