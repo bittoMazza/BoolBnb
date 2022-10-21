@@ -45,8 +45,8 @@
             <div class="col" v-for="apartment in apartments" :key="apartment.id">
               <div class="card px-0 shadow-sm">
                 <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
+                  <img 
+                    :src="getCover(apartment.images)"
                     alt="title"
                     class="card-img-top"
                   />
@@ -275,7 +275,13 @@ export default {
         console.warn(error);
       });
     },
-
+    getCover(images){
+      for(let i=0;i<images.length;i++){
+        if(images[i].is_cover == true){
+          return images[i].image;
+        }
+      }
+    },
     getSomething(){
       axios.get('/api/apartments', {params:{
         lat: this.lat ,
@@ -354,6 +360,7 @@ window.onload = function () {
   css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #3490dc}";
   document.body.appendChild(css);
 };
+
 </script>
 
 <style lang="scss" scoped>
