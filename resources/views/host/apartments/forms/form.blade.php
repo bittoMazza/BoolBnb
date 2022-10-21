@@ -149,10 +149,10 @@
             </label>
             @if ($errors->any())
                 <input type="checkbox" name="amenity[]" id="exampleRadios1" class="form-check-input check_require"
-                    value="{{ $amenity->id }}" {{ in_array($amenity->id, old('amenity', [])) ? 'checked' : '' }} onclick='deRequire("check_require")' required>
+                    value="{{ $amenity->id }}" {{ in_array($amenity->id, old('amenity', [])) ? 'checked' : '' }} onclick='deRequire("check_require")'>
             @else
                 <input class="form-check-input bg-secondary border check_require" type="checkbox" value="{{ $amenity->id }}" name="amenity[]"
-                    id="exampleRadios1" {{ $apartment->amenities->contains($amenity) ? 'checked' : '' }} onclick='deRequire("check_require")' required>
+                    id="exampleRadios1" {{ $apartment->amenities->contains($amenity) ? 'checked' : '' }} onclick='deRequire("check_require")'>
             @endif
         </div>
     @endforeach
