@@ -1,12 +1,10 @@
-const { set } = require("lodash");
-
 const form = document.getElementById('form_apartment');
 const title = document.getElementById('title');
 const rooms = document.getElementById('rooms');
 const beds = document.getElementById('beds');
 const bathrooms = document.getElementById('bathrooms');
 const square_meters = document.getElementById('square_meters');
-const geoAddress = document.getElementById('geoAddress');
+const address = document.getElementById('geoAddress');
 
 form.addEventListener('submit', e => {
     validateInputs();
@@ -19,7 +17,7 @@ form.addEventListener('submit', e => {
 // messaggi d'errore e di successo
 const setError = (element, message) => {
     const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
+    const errorDisplay = inputControl.querySelector('.error_message');
 
     errorDisplay.innerText = message;
     inputControl.classList.add('error');
@@ -28,7 +26,7 @@ const setError = (element, message) => {
 
 const setSuccess = element => {
     const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
+    const errorDisplay = inputControl.querySelector('.error_message');
 
     errorDisplay.innerText = '';
     inputControl.classList.add('success');
@@ -43,7 +41,7 @@ const validateInputs = () => {
     const bedsValue = beds.value.trim();
     const bathroomsValue = bathrooms.value;
     const squareMetersValue = square_meters.value.trim();
-    const geoAddressValue = geoAddress.value.trim();
+    const addressValue = address.value.trim();
 
     // validazioni titolo
     if(titleValue === '') {
@@ -118,23 +116,17 @@ const validateInputs = () => {
     }
     // validazione metri quadrati 
 
-    // validazione indirizzo geoAddressValue
-    if(geoAddressValue === '') {
+    // validazione indirizzo addressValue
+    if(addressValue === '') {
 
-        setError(geoAddress, 'inserisci un indirizzo');
+        setError(address, 'inserisci un indirizzo');
 
     } else {
-        setSuccess(geoAddress);
+        setSuccess(address);
     }
-    const errorDisplay = document.getElementsByClassName('success');
-    if(errorDisplay.length != 6){
+    const errorDisplay = document.getElementsByClassName('input-control error');
+    if(errorDisplay.length > 0){
         return false
     }
     return true;
-    // else if (geoAddressValue <= 0 || geoAddressValue >= 500) {
-    
-    //     setError(geoAddress, 'l appartamento deve essere grande tra 1mq e 500mq');
-    //     return false;}
-
-    // validazione indirizzo geoAddressValue
 }

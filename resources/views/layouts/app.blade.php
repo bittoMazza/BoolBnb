@@ -13,6 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/register_form_validation.js') }}" defer></script>
     <script src="{{ asset('js/apartment_form_validation.js') }}" defer></script>
+    <script src="{{ asset('js/tomtom_coordinates.js') }}" defer></script>
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.5.0/services/services-web.min.js"></script>
 
 
@@ -31,7 +32,5 @@
         </main>
         @include('partials.footer')
     </div>
-
-    <script src="{{ asset('js/tomtom_coordinates.js') }}"></script>
 </body>
 </html>
