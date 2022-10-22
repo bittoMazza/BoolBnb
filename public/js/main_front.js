@@ -1908,11 +1908,11 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ApartmentCards"
+  name: "ApartmentCards",
+  props: {
+    apartment: Object
+  }
 });
 
 /***/ }),
@@ -2134,15 +2134,33 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", [_c("div", {
-    staticClass: "col-12"
-  }, [_c("h1", [_vm._v("hello world")])])]);
-}];
+    staticClass: "col"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: _vm.apartment.images,
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" " + _vm._s(_vm.apartment.title) + " ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v(_vm._s(_vm.apartment.address))])])])])]);
+};
+var staticRenderFns = [];
 render._withStripped = true;
 
 

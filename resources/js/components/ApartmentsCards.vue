@@ -1,16 +1,33 @@
 <template>
   <div>
-        <div class="col-12">
-          <h1>hello world</h1>
+    <div class="col">
+      <div class="card px-0 shadow-sm">
+        <a href="">
+          <img
+            :src="apartment.images"
+            alt="title"
+            class="card-img-top"
+          />
+        </a>
+        <div class="card-body card-body-cascade pb-0">
+          <h5 class="card-title">
+            <strong>
+              <a href="#"> {{ apartment.title }} </a>
+            </strong>
+          </h5>
+          <p class="fst-italic pb-1">{{ apartment.address }}</p>
         </div>
       </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
-    name: "ApartmentCards",
+  name: "ApartmentCards",
+  props: {
+    apartment: Object,
+  },
 };
 </script>
 
