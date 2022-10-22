@@ -7,9 +7,11 @@
 
 <script>
 import HeaderWeb from "../components/HeaderWeb.vue";
+import ApartmentShow from "../components/ApartmentShow.vue";
 export default {
   components: {
     HeaderWeb,
+    ApartmentShow,
   },
 };
 </script>
