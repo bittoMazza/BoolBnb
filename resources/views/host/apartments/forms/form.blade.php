@@ -114,7 +114,7 @@
         <div class="input-group">
             <input type="file" id="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine"
             multiple {{ Route::is('host.apartments.create') ? 'required' : '' }} onclick="">
-            <div class="error fs-6"></div>
+            <div class="error_message fs-6"></div>
         </div>
     </div>
     @error('image')
@@ -146,7 +146,7 @@
 
 
 
-<div>
+<div id="checkbox-container" class="input-control">
     <label class="text-light">SELEZIONA I SERVIZI</label>
     @foreach ($amenities as $amenity)
         <div class="form-check text-white">
@@ -154,38 +154,17 @@
                 {{ $amenity->name }}
             </label>
             @if ($errors->any())
-                <input type="checkbox" name="amenity[]" id="exampleRadios1" class="form-check-input check_require"
-                    value="{{ $amenity->id }}" {{ in_array($amenity->id, old('amenity', [])) ? 'checked' : '' }} onclick='deRequire("check_require")' required>
+                <input type="checkbox" name="amenity[]" class="form-check-input check_require"
+                    value="{{ $amenity->id }}" {{ in_array($amenity->id, old('amenity', [])) ? 'checked' : '' }}>
             @else
                 <input class="form-check-input bg-secondary border check_require" type="checkbox" value="{{ $amenity->id }}" name="amenity[]"
-                    id="exampleRadios1" {{ $apartment->amenities->contains($amenity) ? 'checked' : '' }} onclick='deRequire("check_require")' required>
+                    {{ $apartment->amenities->contains($amenity) ? 'checked' : '' }}  >
             @endif
         </div>
     @endforeach
+    <div class="error_message fs-6"></div>
 </div>
 <button type="submit" value="save" class="btn btn-success my-3 text-white text-center fw-bold" >
     Salva l'appartamento
 </button>
 
-<script>
-function deRequire(elClass) {
-  el = document.getElementsByClassName(elClass);
-
-  let atLeastOneChecked = false; //at least one cb is checked
-  for (i = 0; i < el.length; i++) {
-    if (el[i].checked === true) {
-      atLeastOneChecked = true;
-    }
-  }
-
-  if (atLeastOneChecked === true) {
-    for (i = 0; i < el.length; i++) {
-      el[i].required = false;
-    }
-  } else {
-    for (i = 0; i < el.length; i++) {
-      el[i].required = true;
-    }
-  }
-}
-</script>

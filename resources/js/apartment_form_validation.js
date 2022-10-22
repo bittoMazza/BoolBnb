@@ -5,6 +5,9 @@ const beds = document.getElementById('beds');
 const bathrooms = document.getElementById('bathrooms');
 const square_meters = document.getElementById('square_meters');
 const file = document.getElementById('file');
+let el = document.getElementsByClassName("check_require");
+let elParent = document.getElementById('checkbox-container');
+ //at least one cb is checked
 
 form.addEventListener('submit', e => {
     if(!validateInputs()) {
@@ -13,8 +16,10 @@ form.addEventListener('submit', e => {
     } 
     else{
         return true;
-    }
+    } 
 });
+
+
 
 // messaggi d'errore e di successo
 const setError = (element, message) => {
@@ -37,6 +42,7 @@ const setSuccess = element => {
 // messaggi d'errore e di successo
 
 // validazioni lato client
+
 const validateInputs = () => {
     const titleValue = title.value.trim();
     const roomsValue = rooms.value.trim();
@@ -45,6 +51,7 @@ const validateInputs = () => {
     const squareMetersValue = square_meters.value.trim();
     const fileValue = file.files.length;
     const URLpath = window.location.href;
+    let atLeastOneChecked = false;
 
     // validazioni titolo
     if(titleValue === '') {
@@ -76,6 +83,24 @@ const validateInputs = () => {
     }
     // validazioni camere
 
+
+    for (i = 0; i < el.length; i++) {
+      if (el[i].checked === true) {
+        atLeastOneChecked = true;
+      }
+    }
+    if(atLeastOneChecked){
+        console.log('success');
+        elParent.classList.remove('error');
+        elParent.classList.add('success');
+    }
+    else{
+        console.log('error');
+        elParent.classList.remove('success');
+        elParent.classList.add('error');
+        const errorDisplay = elParent.querySelector('.error_message');
+        errorDisplay.innerText = 'Seleziona almeno un servizio';
+    }
 
     // validazioni letti
     if(bedsValue === '') {
