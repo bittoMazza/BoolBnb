@@ -1941,7 +1941,30 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ApartmentShow",
+  components: {},
+  data: function data() {
+    return {
+      apartments: []
+    };
+  },
+  methods: {
+    getApartments: function getApartments() {
+      var _this = this;
+      var id = this.$route.params.id;
+      axios.get("/api/aartmentss/".concat(id)).then(function (response) {
+        console.log(response.data.results);
+        _this.apartments = response.data.results;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  },
+  created: function created() {
+    this.getApartments();
+  }
+});
 
 /***/ }),
 
@@ -2117,12 +2140,8 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
     staticClass: "col-12"
-  }, [_c("h1", [_vm._v("hello world")])])])])]);
+  }, [_c("h1", [_vm._v("hello world")])])]);
 }];
 render._withStripped = true;
 
