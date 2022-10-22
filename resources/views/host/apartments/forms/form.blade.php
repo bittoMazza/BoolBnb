@@ -113,6 +113,7 @@
     <div class="input-group">
         <input type="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine"
             multiple>
+            <div class="error fs-6"></div>
     </div>
     @error('image')
         <div class="alert alert-danger">
