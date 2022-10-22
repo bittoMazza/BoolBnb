@@ -124,6 +124,21 @@ const validateInputs = () => {
     } else {
         setSuccess(address);
     }
+
+    if(!URLpath.includes('edit')){
+        if(fileValue === 0){
+            setError(file, 'inserisci un immagine');
+        }else{
+            setSuccess(file);
+        }
+        const errorDisplay = document.getElementsByClassName('success');
+        if(errorDisplay.length != 7 ){
+            return false
+        }
+    
+        return true;
+    }
+
     const errorDisplay = document.getElementsByClassName('input-control error');
     if(errorDisplay.length > 0){
         return false
