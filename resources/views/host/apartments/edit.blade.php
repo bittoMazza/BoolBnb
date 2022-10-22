@@ -9,7 +9,7 @@
             @include('host.apartments.forms.form')
         </form>
         
-        <button class="btn btn-outline-primary text-white ms_pos_btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-outline-primary text-white ms_pos_btn dropdown-toggle" id="btn-drop-id" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Immagini Presenti
         </button>
         <div class="dropdown-menu dropdown-menu-bottom bg-dark p-3 dropdown-menu-images">
@@ -32,11 +32,9 @@
                         @if (count($apartment->images) > 1)
                         <div class="d-flex">
                             @if ($image->is_cover == false)
-                            <button class="btn btn-sm btn-danger me-2">
-                                Cancella
-                            </button>
-                            @endif
-                            @if ($image->is_cover == false)
+                                <button class="btn btn-sm btn-danger me-2">
+                                    Cancella
+                                </button>
                                 <a href="{{ route('host.apartments.changeCoverApartment', ["apartmentId" =>$apartment->id, "imageId" => $image->id]) }}" class="btn btn-sm btn-primary">
                                     Imposta come copertina
                                 </a>  
