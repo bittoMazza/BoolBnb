@@ -10,11 +10,14 @@ const geoAddress = document.getElementById('geoAddress');
 const file = document.getElementById("file");
 
 form.addEventListener('submit', e => {
-    validateInputs();
+    // validateInputs();
     if(!validateInputs()) {
+        console.log('entro qui');
         e.preventDefault();
+    } else {
+        console.log('entro nel true qui');
+        return true;  
     }
-    return true;  
 });
 
 // messaggi d'errore e di successo
@@ -140,18 +143,23 @@ const validateInputs = () => {
             setSuccess(file);
         }
         const errorDisplay = document.getElementsByClassName('success');
-        if(errorDisplay.length != 7 ){
-            return false
+        if(errorDisplay.length != 7){
+            console.log(errorDisplay);
+            console.log('sono false qui');
+            return false;
         }
-    
+        console.log('sono true qui');
         return true;
     }
     // validazione se file image è vuoto
 
     const errorDisplay = document.getElementsByClassName('success');
+    console.log(errorDisplay);
     if(errorDisplay.length != 6){
-        return false
+        console.log(errorDisplay);
+        console.log('sono false qui');
+        return false;
     }
-
+    console.log('sono true qui');
     return true;
 }
