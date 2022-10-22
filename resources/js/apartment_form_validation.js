@@ -1,29 +1,25 @@
-const { set } = require("lodash");
-
 const form = document.getElementById('form_apartment');
 const title = document.getElementById('title');
 const rooms = document.getElementById('rooms');
 const beds = document.getElementById('beds');
 const bathrooms = document.getElementById('bathrooms');
 const square_meters = document.getElementById('square_meters');
-const geoAddress = document.getElementById('geoAddress');
-const file = document.getElementById("file");
+const file = document.getElementById('file');
 
 form.addEventListener('submit', e => {
-    // validateInputs();
     if(!validateInputs()) {
-        console.log('entro qui');
+        console.log('sei nel prevent')
         e.preventDefault();
-    } else {
-        console.log('entro nel true qui');
-        return true;  
+    } 
+    else{
+        return true;
     }
 });
 
 // messaggi d'errore e di successo
 const setError = (element, message) => {
     const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
+    const errorDisplay = inputControl.querySelector('.error_message');
 
     errorDisplay.innerText = message;
     inputControl.classList.add('error');
@@ -32,7 +28,7 @@ const setError = (element, message) => {
 
 const setSuccess = element => {
     const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
+    const errorDisplay = inputControl.querySelector('.error_message');
 
     errorDisplay.innerText = '';
     inputControl.classList.add('success');
@@ -47,10 +43,8 @@ const validateInputs = () => {
     const bedsValue = beds.value.trim();
     const bathroomsValue = bathrooms.value;
     const squareMetersValue = square_meters.value.trim();
-    const geoAddressValue = geoAddress.value.trim();
-    const URLpath = window.location.href;
     const fileValue = file.files.length;
-    // console.log(fileValue);
+    const URLpath = window.location.href;
 
     // validazioni titolo
     if(titleValue === '') {
@@ -125,41 +119,20 @@ const validateInputs = () => {
     }
     // validazione metri quadrati 
 
-    // validazione indirizzo geoAddressValue
-    if(geoAddressValue === '') {
-
-        setError(geoAddress, 'inserisci un indirizzo');
-
-    } else {
-        setSuccess(geoAddress);
-    }
-    // validazione indirizzo geoAddressValue
-
-    // validazione se file image è vuoto
     if(!URLpath.includes('edit')){
         if(fileValue === 0){
             setError(file, 'inserisci un immagine');
         }else{
             setSuccess(file);
         }
-        const errorDisplay = document.getElementsByClassName('success');
-        if(errorDisplay.length != 7){
-            console.log(errorDisplay);
-            console.log('sono false qui');
-            return false;
-        }
-        console.log('sono true qui');
-        return true;
     }
-    // validazione se file image è vuoto
 
-    const errorDisplay = document.getElementsByClassName('success');
+    const errorDisplay = document.getElementsByClassName('input-control error');
     console.log(errorDisplay);
-    if(errorDisplay.length != 6){
-        console.log(errorDisplay);
-        console.log('sono false qui');
+    if(errorDisplay.length > 0){
         return false;
     }
-    console.log('sono true qui');
-    return true;
+    else{
+        return true;
+    }
 }
