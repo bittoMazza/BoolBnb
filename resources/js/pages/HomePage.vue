@@ -249,9 +249,13 @@ $coordinate = Http::get('https://api.tomtom.com/search/2/search/.json?key=Z4C8r6
     $lon = $coordinate["results"][0]["position"]["lon"]; -->
 <script>
 import axios from 'axios';
+import ApartmentShow from "../components/ApartmentShow.vue"
+
 export default {
   name: "HomePage",
-  components: {},
+  components: {
+    ApartmentShow,
+  },
   data: function () {
     return {
       apartments: [],
