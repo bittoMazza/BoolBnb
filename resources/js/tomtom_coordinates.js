@@ -27,7 +27,8 @@ function searchAddress() {
                 addressAutocomplete.value = result.address.freeformAddress + ", " + result.address.countrySubdivision;
                 addressAutocomplete.innerHTML = result.address.freeformAddress + ", " + result.address.countrySubdivision;
                 addressAutocomplete.addEventListener("click", function(){
-                    setSuccess(address);
+                    address.parentElement.classList.remove("error");
+                    address.parentElement.classList.add("success");
                     lat.value = addressesResult[index].position.lat;
                     lon.value = addressesResult[index].position.lon;
                     address.value = result.address.freeformAddress + ", " + result.address.countrySubdivision;
@@ -44,18 +45,11 @@ let search;
 address.addEventListener("keyup", function(){
     lat.value = '';
     lon.value = '';
-    setError(address);
+    address.parentElement.classList.remove('success');
+    address.parentElement.classList.add('error');
     isTimeoutCompleted = false;
     clearTimeout(search);
     if(address.value.length != 0) {
         search = setTimeout(searchAddress,500);
     }
 })
-function setError(input){
-    input.classList.remove('success');
-    input.classList.add('error');
-}
-function setSuccess(input){
-    input.classList.remove('error');
-    input.classList.add('success');
-}

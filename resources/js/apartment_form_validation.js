@@ -4,14 +4,16 @@ const rooms = document.getElementById('rooms');
 const beds = document.getElementById('beds');
 const bathrooms = document.getElementById('bathrooms');
 const square_meters = document.getElementById('square_meters');
-const address = document.getElementById('geoAddress');
+const file = document.getElementById('file');
 
 form.addEventListener('submit', e => {
-    validateInputs();
     if(!validateInputs()) {
+        console.log('sei nel prevent')
         e.preventDefault();
     }
-    return true;  
+    else{
+        return true;
+    }
 });
 
 // messaggi d'errore e di successo
@@ -41,7 +43,8 @@ const validateInputs = () => {
     const bedsValue = beds.value.trim();
     const bathroomsValue = bathrooms.value;
     const squareMetersValue = square_meters.value.trim();
-    const addressValue = address.value.trim();
+    const fileValue = file.files.length;
+    const URLpath = window.location.href;
 
     // validazioni titolo
     if(titleValue === '') {
@@ -116,32 +119,20 @@ const validateInputs = () => {
     }
     // validazione metri quadrati 
 
-    // validazione indirizzo addressValue
-    if(addressValue === '') {
-
-        setError(address, 'inserisci un indirizzo');
-
-    } else {
-        setSuccess(address);
-    }
-
     if(!URLpath.includes('edit')){
         if(fileValue === 0){
             setError(file, 'inserisci un immagine');
         }else{
             setSuccess(file);
         }
-        const errorDisplay = document.getElementsByClassName('success');
-        if(errorDisplay.length != 7 ){
-            return false
-        }
-    
-        return true;
     }
 
     const errorDisplay = document.getElementsByClassName('input-control error');
+    console.log(errorDisplay);
     if(errorDisplay.length > 0){
-        return false
+        return false;
     }
-    return true;
+    else{
+        return true;
+    }
 }

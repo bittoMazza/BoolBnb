@@ -110,8 +110,8 @@
     @else
         <label class="text-light">IMMAGINE APPARTAMENTO</label>
     @endif
-    <div class="input-group">
-        <input type="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine"
+    <div class="input-control">
+        <input type="file" id="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine"
             multiple>
             <div class="error_message fs-6"></div>
     </div>
