@@ -1953,7 +1953,7 @@ __webpack_require__.r(__webpack_exports__);
     getApartments: function getApartments() {
       var _this = this;
       var id = this.$route.params.id;
-      axios.get("/api/aartmentss/".concat(id)).then(function (response) {
+      axios.get("/api/apartments/".concat(id)).then(function (response) {
         console.log(response.data.results);
         _this.apartments = response.data.results;
       })["catch"](function (error) {

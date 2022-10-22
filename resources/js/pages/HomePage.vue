@@ -82,8 +82,12 @@
       <!-- Lista Appartamenti -->
       <div class="col-12">
         <div class="row">
-            <ApartmentsCards />
+            <ApartmentsCards
+              v-for="apartment in apartments"
+              :key="apartment.id"
+              :apartment="apartment" />
         </div>
+      
       
   </main>
 </template>
