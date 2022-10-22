@@ -26,7 +26,14 @@
         <nav class="navbar bg-light mb-4">
           <div class="container-fluid">
             <form class="d-flex w-100" role="search">
-              <input @keyup="getFilteredApartment()" class="form-control me-2" type="search" placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento" aria-label="Search" v-model="filter"/>
+              <input
+                @keyup="getFilteredApartment()"
+                class="form-control me-2"
+                type="search"
+                placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento"
+                aria-label="Search"
+                v-model="filter"
+              />
             </form>
             <button class="btn btn-primary text-white" @click="getSomething()">
               Cerca
@@ -42,10 +49,14 @@
 
           <div class="in_evidence p-5 row row-cols-4 gx-4">
             <!-- CARD -->
-            <div class="col" v-for="apartment in apartments" :key="apartment.id">
+            <div
+              class="col"
+              v-for="apartment in apartments"
+              :key="apartment.id"
+            >
               <div class="card px-0 shadow-sm">
                 <a href="">
-                  <img 
+                  <img
                     :src="getCover(apartment.images)"
                     alt="title"
                     class="card-img-top"
@@ -64,180 +75,18 @@
             <!-- FINE CARD DUPLICATE -->
           </div>
         </div>
+      </div>
 
-        <!-- Lista Appartamenti -->
-        <div class="p-4 container">
-          <div class="text-center mb-4">
-            <h4 class="fw-bold">APPARTAMENTI</h4>
-          </div>
 
-          <div class="p-5 row row-cols-4 gx-4">
-            <!-- CARD -->
-            <div class="col mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
 
-            <!-- INIZIO CARD DUPLICATE -->
-            <div class="col mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-            <!-- FINE CARD DUPLICATE -->
+      <!-- Lista Appartamenti -->
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12">
+            <ApartmentsCards />
           </div>
         </div>
-      </div>
-    </div>
+      
   </main>
 </template>
 <!-- $filter = $request->input("filter");
@@ -248,61 +97,73 @@ $coordinate = Http::get('https://api.tomtom.com/search/2/search/.json?key=Z4C8r6
     $lat = $coordinate["results"][0]["position"]["lat"];
     $lon = $coordinate["results"][0]["position"]["lon"]; -->
 <script>
-import axios from 'axios';
-import ApartmentShow from "../components/ApartmentShow.vue"
+import axios from "axios";
+import ApartmentCards from "../components/ApartmentsCards.vue";
 
 export default {
   name: "HomePage",
   components: {
-    ApartmentShow,
+    ApartmentCards,
   },
   data: function () {
     return {
       apartments: [],
-      filter: '',
-      long: '',
-      lat: '',
+      filter: "",
+      long: "",
+      lat: "",
       searchedCoordinates: {},
       radius: 20,
     };
   },
   methods: {
     getFilteredApartment() {
-      axios.get('https://api.tomtom.com/search/2/search/.json?key=Z4C8r6rK8x69JksEOmCX43MGffYO83xu&query=' + this.filter +'&countrySet=IT' + '&limit=1').then((response) => {
-        console.log(response.data);
-        this.searchedCoordinates = response.data;
-        this.lat = this.searchedCoordinates["results"][0]["position"]["lat"];
-        this.long = this.searchedCoordinates["results"][0]["position"]["lon"];
-        console.log(this.lat);
-        console.log(this.long);
-      }).catch((error) => {
-        console.warn(error);
-      });
+      axios
+        .get(
+          "https://api.tomtom.com/search/2/search/.json?key=Z4C8r6rK8x69JksEOmCX43MGffYO83xu&query=" +
+            this.filter +
+            "&countrySet=IT" +
+            "&limit=1"
+        )
+        .then((response) => {
+          console.log(response.data);
+          this.searchedCoordinates = response.data;
+          this.lat = this.searchedCoordinates["results"][0]["position"]["lat"];
+          this.long = this.searchedCoordinates["results"][0]["position"]["lon"];
+          console.log(this.lat);
+          console.log(this.long);
+        })
+        .catch((error) => {
+          console.warn(error);
+        });
     },
-    getCover(images){
-      for(let i=0;i<images.length;i++){
-        if(images[i].is_cover == true){
+    getCover(images) {
+      for (let i = 0; i < images.length; i++) {
+        if (images[i].is_cover == true) {
           return images[i].image;
         }
       }
     },
-    getSomething(){
-      axios.get('/api/apartments', {params:{
-        lat: this.lat ,
-        long: this.long, 
-        radius: this.radius,}      
-      })
-      .then((response) => {
-        console.log(response);
-        this.apartments = response.data.results;
-      }).catch((error) => {
-        console.log(error);
-      })
-    }
+    getSomething() {
+      axios
+        .get("/api/apartments", {
+          params: {
+            lat: this.lat,
+            long: this.long,
+            radius: this.radius,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          this.apartments = response.data.results;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
   created() {
-
-  }
+    this.getSomething();
+  },
 };
 
 class txtType {
@@ -364,7 +225,6 @@ window.onload = function () {
   css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #3490dc}";
   document.body.appendChild(css);
 };
-
 </script>
 
 <style lang="scss" scoped>

@@ -11,8 +11,10 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-    name: "ApartmentShow",
+    name: "ApartmentCards",
 };
 </script>
 

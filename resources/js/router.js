@@ -4,7 +4,8 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter)
 
 import HomePage from './pages/HomePage';
-import ApartmentShow from './components/ApartmentShow';
+import ApartmentShow from './pages/ApartmentShow';
+import ApartmentCards from './components/ApartmentCards';
 
 const router = new VueRouter({
     mode: 'history',
@@ -18,6 +19,12 @@ const router = new VueRouter({
             path: '*',
             name: 'error',
             component: HomePage,
+        },
+        {
+            path: '/apartments/',
+            name: 'apartmentsCards',
+            component: ApartmentCards,
+            
         },
         {
             path: '/apartment/:id',
