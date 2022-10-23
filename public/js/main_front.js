@@ -1941,6 +1941,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ApartmentShow",
   components: {},
@@ -1952,8 +1955,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getApartments: function getApartments() {
       var _this = this;
-      var id = this.$route.params.id;
-      axios.get("/api/apartments/".concat(id)).then(function (response) {
+      var id = this.route.params.id;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/apartments/".concat(id)).then(function (response) {
         console.log(response.data.results);
         _this.apartments = response.data.results;
       })["catch"](function (error) {
@@ -2281,11 +2284,11 @@ var render = function render() {
     staticClass: "card-title my-4 fw-bold"
   }, [_c("i", {
     staticClass: "bi bi-house me-1"
-  }), _vm._v(" " + _vm._s(_vm.$apartment.title) + "\n        ")]), _vm._v(" "), _c("h5", {
+  }), _vm._v(" " + _vm._s(_vm.apartment.title) + "\n        ")]), _vm._v(" "), _c("h5", {
     staticClass: "card-title my-4 fst-italic"
   }, [_vm._v("\n          Indirizzo:\n          "), _c("span", {
     staticClass: "fw-semibold"
-  }, [_vm._v(_vm._s(_vm.$apartment.address))]), _vm._v(" -\n          " + _vm._s(_vm.$apartment.lat) + ", " + _vm._s(_vm.$apartment["long"]) + "\n        ")])])]), _vm._v(" "), _c("div", [_c("img", {
+  }, [_vm._v(_vm._s(_vm.apartment.address))]), _vm._v(" -\n          " + _vm._s(_vm.apartment.lat) + ", " + _vm._s(_vm.apartment["long"]) + "\n        ")])])]), _vm._v(" "), _c("div", [_c("img", {
     attrs: {
       src: _vm.apartment.images,
       alt: "apartment.title"
@@ -2298,19 +2301,19 @@ var render = function render() {
     staticClass: "list-group-item py-2"
   }, [_c("i", {
     staticClass: "bi bi-house-door-fill me-2"
-  }), _vm._v(" Stanze:\n        " + _vm._s(_vm.$apartment.rooms) + "\n      ")]), _vm._v(" "), _c("li", {
+  }), _vm._v(" Stanze:\n        " + _vm._s(_vm.apartment.rooms) + "\n      ")]), _vm._v(" "), _c("li", {
     staticClass: "list-group-item py-2"
   }, [_c("i", {
     staticClass: "bi bi-hdd-fill me-2"
-  }), _vm._v(" Letti: " + _vm._s(_vm.$apartment.beds) + "\n      ")]), _vm._v(" "), _c("li", {
+  }), _vm._v(" Letti: " + _vm._s(_vm.apartment.beds) + "\n      ")]), _vm._v(" "), _c("li", {
     staticClass: "list-group-item py-2"
   }, [_c("i", {
     staticClass: "bi bi-door-closed-fill me-2"
-  }), _vm._v(" Bagni:\n        " + _vm._s(_vm.$apartment.bathrooms) + "\n      ")]), _vm._v(" "), _c("li", {
+  }), _vm._v(" Bagni:\n        " + _vm._s(_vm.apartment.bathrooms) + "\n      ")]), _vm._v(" "), _c("li", {
     staticClass: "list-group-item py-2"
   }, [_c("i", {
     staticClass: "bi bi-fullscreen me-2"
-  }), _vm._v(" Metri quadrati:\n        " + _vm._s(_vm.$apartment.square_meters) + "m²\n      ")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("li", _vm._l(_vm.amenity.apartments, function (apartment) {
+  }), _vm._v(" Metri quadrati:\n        " + _vm._s(_vm.apartment.square_meters) + "m²\n      ")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("li", _vm._l(_vm.amenity.apartments, function (apartment) {
     return _c("ul", {
       key: apartment.id,
       attrs: {
@@ -2318,7 +2321,7 @@ var render = function render() {
       }
     }, [_c("li", {
       staticClass: "list-group-item py-1"
-    }, [_vm._v("\n            " + _vm._s(_vm.$amenity.name) + "\n          ")])]);
+    }, [_vm._v("\n            " + _vm._s(_vm.amenity.name) + "\n          ")])]);
   }), 0)])])]);
 };
 var staticRenderFns = [function () {
@@ -18841,7 +18844,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'apartmentsCards',
     component: _components_ApartmentsCards__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
-    path: '/apartment/:id',
+    path: '/apartments/:id',
     name: 'apartmentShow',
     component: _pages_ApartmentShow__WEBPACK_IMPORTED_MODULE_3__["default"]
   }]

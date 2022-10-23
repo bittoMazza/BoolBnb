@@ -4,12 +4,12 @@
       <div class="row bg-light">
         <div class="col-12">
           <h1 class="card-title my-4 fw-bold">
-            <i class="bi bi-house me-1"></i> {{ $apartment.title }}
+            <i class="bi bi-house me-1"></i> {{ apartment.title }}
           </h1>
           <h5 class="card-title my-4 fst-italic">
             Indirizzo:
-            <span class="fw-semibold">{{ $apartment.address }}</span> -
-            {{ $apartment.lat }}, {{ $apartment.long }}
+            <span class="fw-semibold">{{ apartment.address }}</span> -
+            {{ apartment.lat }}, {{ apartment.long }}
           </h5>
         </div>
       </div>
@@ -18,18 +18,18 @@
       <ul class="fs-5">
         <li class="list-group-item py-2">
           <i class="bi bi-house-door-fill me-2"></i> Stanze:
-          {{ $apartment.rooms }}
+          {{ apartment.rooms }}
         </li>
         <li class="list-group-item py-2">
-          <i class="bi bi-hdd-fill me-2"></i> Letti: {{ $apartment.beds }}
+          <i class="bi bi-hdd-fill me-2"></i> Letti: {{ apartment.beds }}
         </li>
         <li class="list-group-item py-2">
           <i class="bi bi-door-closed-fill me-2"></i> Bagni:
-          {{ $apartment.bathrooms }}
+          {{ apartment.bathrooms }}
         </li>
         <li class="list-group-item py-2">
           <i class="bi bi-fullscreen me-2"></i> Metri quadrati:
-          {{ $apartment.square_meters }}m²
+          {{ apartment.square_meters }}m²
         </li>
         <li class="list-group-item py-2">
           <i class="bi bi-info-square-fill me-2"></i> Servizi :
@@ -41,7 +41,7 @@
             :apartment="apartment"
           >
             <li class="list-group-item py-1">
-              {{ $amenity.name }}
+              {{ amenity.name }}
             </li>
           </ul>
         </li>
@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "ApartmentShow",
   components: {},
@@ -63,7 +64,7 @@ export default {
 
   methods: {
     getApartments() {
-      const id = this.$route.params.id;
+      const id = this.route.params.id;
       axios
         .get(`/api/apartments/${id}`)
         .then((response) => {
