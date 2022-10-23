@@ -2303,7 +2303,7 @@ var render = function render() {
     staticClass: "bi bi-fullscreen me-2"
   }), _vm._v(" Metri quadrati:\n        " + _vm._s(_vm.apartment.square_meters) + "m²\n      ")])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
     staticClass: "container"
-  }, [_c("div", {
+  }, [_c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col"
@@ -2350,19 +2350,69 @@ var staticRenderFns = [function () {
     staticClass: "fw-bold"
   }, [_c("i", {
     staticClass: "bi bi-house-heart claim-icons"
-  }), _vm._v("Animali domestici\n        ")]), _vm._v(" "), _c("p", [_vm._v("Porta in vacanza con te i tuoi animali domestici.")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr")])])]);
+  }), _vm._v("Animali domestici\n        ")]), _vm._v(" "), _c("p", [_vm._v("Porta in vacanza con te i tuoi animali domestici.")]), _vm._v(" "), _c("br")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container"
+    staticClass: "container d-flex justify-content-between"
   }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col"
   }, [_c("br"), _vm._v(" "), _c("h3", {
     staticClass: "fw-bold"
-  }, [_vm._v("Cosa troverai:")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Servizi")]), _vm._v(" "), _c("li", [_vm._v("Servizi")]), _vm._v(" "), _c("li", [_vm._v("Servizi")]), _vm._v(" "), _c("li", [_vm._v("Servizi")])]), _vm._v(" "), _c("br")])]), _vm._v(" "), _c("hr")]);
+  }, [_vm._v("Cosa troverai:")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Servizi")]), _vm._v(" "), _c("li", [_vm._v("Servizi")]), _vm._v(" "), _c("li", [_vm._v("Servizi")]), _vm._v(" "), _c("li", [_vm._v("Servizi")])]), _vm._v(" "), _c("br")])]), _vm._v(" "), _c("div", {
+    staticClass: "row form-border"
+  }, [_c("div", {
+    staticClass: "col"
+  }, [_c("form", [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("h3", [_vm._v("Scrivi un messaggio al proprietario")]), _vm._v(" "), _c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "nome"
+    }
+  }, [_vm._v("Nome")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "email",
+      id: "exampleInputEmail1",
+      "aria-describedby": "emailHelp"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "exampleInputEmail1"
+    }
+  }, [_vm._v("Indirizzo email")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "email",
+      id: "exampleInputEmail1",
+      "aria-describedby": "emailHelp"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "exampleFormControlTextarea1"
+    }
+  }, [_vm._v("Messaggio")]), _vm._v(" "), _c("textarea", {
+    staticClass: "form-control",
+    attrs: {
+      id: "exampleFormControlTextarea1",
+      rows: "3"
+    }
+  })]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary text-white fw-bold",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("\n            Invia\n          ")])])])])]);
 }];
 render._withStripped = true;
 
@@ -2548,7 +2598,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".claim-icons[data-v-53532716] {\n  margin-right: 1rem;\n  font-size: 1.3em;\n  font-weight: bold;\n}\np[data-v-53532716] {\n  font-size: 1.2em;\n  margin-left: 2.8rem;\n}\n.list-group-item[data-v-53532716] {\n  background-color: #3066bd;\n}", ""]);
+exports.push([module.i, ".claim-icons[data-v-53532716] {\n  margin-right: 1rem;\n  font-size: 1.3em;\n  font-weight: bold;\n}\np[data-v-53532716] {\n  font-size: 1.2em;\n  margin-left: 2.8rem;\n}\n.list-group-item[data-v-53532716] {\n  background-color: #3066bd;\n}\n.form-border[data-v-53532716] {\n  border: 3px solid #19bab3;\n  border-radius: 5px;\n  padding: 1rem;\n}", ""]);
 
 // exports
 

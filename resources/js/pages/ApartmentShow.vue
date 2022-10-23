@@ -68,11 +68,10 @@
           </h3>
           <p>Porta in vacanza con te i tuoi animali domestici.</p>
           <br />
-          <hr />
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container d-flex justify-content-between">
       <div class="row">
         <div class="col">
           <br />
@@ -86,10 +85,52 @@
           <br />
         </div>
       </div>
-      <hr />
+      <div class="row form-border">
+        <div class="col">
+          <form>
+            <div class="mb-3">
+              <h3>Scrivi un messaggio al proprietario</h3>
+              <label for="nome" class="form-label">Nome</label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Indirizzo email</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label"
+                >Messaggio</label
+              >
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary text-white fw-bold">
+              Invia
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
 
     <div class="container">
+      <br>
+      <hr />
       <div class="row">
         <div class="col">
           <h3 class="fw-bold">Dove ti troverai</h3>
@@ -124,8 +165,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
 .claim-icons {
   margin-right: 1rem;
   font-size: 1.3em;
@@ -138,5 +177,11 @@ p {
 
 .list-group-item {
   background-color: #3066bd;
+}
+
+.form-border {
+  border: 3px solid #19bab3;
+  border-radius: 5px;
+  padding: 1rem;
 }
 </style>
