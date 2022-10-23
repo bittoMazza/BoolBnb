@@ -2271,9 +2271,65 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div");
+  return _c("div", [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row bg-light"
+  }, [_c("div", {
+    staticClass: "col-12"
+  }, [_c("h1", {
+    staticClass: "card-title my-4 fw-bold"
+  }, [_c("i", {
+    staticClass: "bi bi-house me-1"
+  }), _vm._v(" " + _vm._s(_vm.$apartment.title) + "\n        ")]), _vm._v(" "), _c("h5", {
+    staticClass: "card-title my-4 fst-italic"
+  }, [_vm._v("\n          Indirizzo:\n          "), _c("span", {
+    staticClass: "fw-semibold"
+  }, [_vm._v(_vm._s(_vm.$apartment.address))]), _vm._v(" -\n          " + _vm._s(_vm.$apartment.lat) + ", " + _vm._s(_vm.$apartment["long"]) + "\n        ")])])]), _vm._v(" "), _c("div", [_c("img", {
+    attrs: {
+      src: _vm.apartment.images,
+      alt: "apartment.title"
+    }
+  })]), _vm._v(" "), _c("h3", {
+    staticClass: "fw-bold"
+  }, [_vm._v("Cosa troverai:")]), _vm._v(" "), _c("ul", {
+    staticClass: "fs-5"
+  }, [_c("li", {
+    staticClass: "list-group-item py-2"
+  }, [_c("i", {
+    staticClass: "bi bi-house-door-fill me-2"
+  }), _vm._v(" Stanze:\n        " + _vm._s(_vm.$apartment.rooms) + "\n      ")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item py-2"
+  }, [_c("i", {
+    staticClass: "bi bi-hdd-fill me-2"
+  }), _vm._v(" Letti: " + _vm._s(_vm.$apartment.beds) + "\n      ")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item py-2"
+  }, [_c("i", {
+    staticClass: "bi bi-door-closed-fill me-2"
+  }), _vm._v(" Bagni:\n        " + _vm._s(_vm.$apartment.bathrooms) + "\n      ")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item py-2"
+  }, [_c("i", {
+    staticClass: "bi bi-fullscreen me-2"
+  }), _vm._v(" Metri quadrati:\n        " + _vm._s(_vm.$apartment.square_meters) + "m²\n      ")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("li", _vm._l(_vm.amenity.apartments, function (apartment) {
+    return _c("ul", {
+      key: apartment.id,
+      attrs: {
+        apartment: apartment
+      }
+    }, [_c("li", {
+      staticClass: "list-group-item py-1"
+    }, [_vm._v("\n            " + _vm._s(_vm.$amenity.name) + "\n          ")])]);
+  }), 0)])])]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("li", {
+    staticClass: "list-group-item py-2"
+  }, [_c("i", {
+    staticClass: "bi bi-info-square-fill me-2"
+  }), _vm._v(" Servizi :\n      ")]);
+}];
 render._withStripped = true;
 
 
