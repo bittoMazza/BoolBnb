@@ -2,35 +2,43 @@
   <div>
     <div class="container">
       <div class="row bg-light">
-        <div class="col-12">
+        <div class="col">
           <h1 class="card-title my-4 fw-bold">
             <i class="bi bi-house me-1"></i> {{ apartment.title }}
           </h1>
           <h5 class="card-title my-4 fst-italic">
-            Indirizzo:
             <span class="fw-semibold">{{ apartment.address }}</span> -
             {{ apartment.lat }}, {{ apartment.long }}
           </h5>
         </div>
       </div>
 
-      <div v-for="image in images" :key="image.id">
-        <img :src="image" alt="" />
+      <div class="container mb-3">
+        <div class="row">
+          <div class="col">
+            <img
+              class="rounded-3 img-fluid"
+              src="https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/50434f11-d7bd-4986-a78a-fac692d0e062?im_w=1440"
+              alt="image-1"
+            />
+          </div>
+        </div>
       </div>
 
       <ul class="fs-5 list-group list-group-horizontal">
-        <li class="list-group-item py-2">
+        <li class="list-group-item py-2 text-white">
           <i class="bi bi-house-door-fill me-2"></i> Stanze:
           {{ apartment.rooms }}
         </li>
-        <li class="list-group-item py-2">
-          <i class="bi bi-hdd-fill me-2"></i> Letti: {{ apartment.beds }}
+        <li class="list-group-item py-2 text-white">
+          <i class="bi bi-hdd-fill me-2"></i> Letti:
+          {{ apartment.beds }}
         </li>
-        <li class="list-group-item py-2">
-          <i class="bi bi-door-closed-fill me-2"></i> Bagni:
+        <li class="list-group-item py-2 text-white">
+          <i class="bi bi-door-closed-fill me-2"></i>Bagni:
           {{ apartment.bathrooms }}
         </li>
-        <li class="list-group-item py-2">
+        <li class="list-group-item py-2 text-white">
           <i class="bi bi-fullscreen me-2"></i> Metri quadrati:
           {{ apartment.square_meters }}m²
         </li>
@@ -41,23 +49,23 @@
         <div class="col">
           <hr />
           <br />
-          <h4 class="fw-bold">
+          <h3 class="fw-bold">
             <i class="bi bi-geo-alt claim-icons"></i>Ottima posizione
-          </h4>
+          </h3>
           <p>
             Il 100% degli ospiti ha valutato la posizione come:
             <strong>ottima</strong>.
           </p>
-          <h4 class="fw-bold">
+          <h3 class="fw-bold">
             <i class="bi bi-key claim-icons"></i>Ottima esperienza di check-in
-          </h4>
+          </h3>
           <p>
             Il 98% degli ospiti ha valutato l'eperienza di check-in come:
             <strong>ottima</strong>.
           </p>
-          <h4 class="fw-bold">
+          <h3 class="fw-bold">
             <i class="bi bi-house-heart claim-icons"></i>Animali domestici
-          </h4>
+          </h3>
           <p>Porta in vacanza con te i tuoi animali domestici.</p>
           <br />
           <hr />
@@ -116,12 +124,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 .claim-icons {
   margin-right: 1rem;
   font-size: 1.3em;
   font-weight: bold;
 }
 p {
+  font-size: 1.2em;
   margin-left: 2.8rem;
+}
+
+.list-group-item {
+  background-color: #3066bd;
 }
 </style>
