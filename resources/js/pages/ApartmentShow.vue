@@ -64,20 +64,13 @@ export default {
       axios
         .get("/api/apartments/" + this.$route.params.id)
         .then((response) => {
-          this.apartment = response.data;
-        });
-    },
-    getAmenity() {
-      axios
-        .get("/api/amenities/" + this.$route.params.id)
-        .then((response) => {
-          this.amenity = response.data;
+          this.apartment = response.data.results.data;
         });
     },
   },
   mounted() {
     this.getApartment();
-    this.getAmenity();
+   
   },
 };
 

@@ -1955,19 +1955,12 @@ __webpack_require__.r(__webpack_exports__);
     getApartment: function getApartment() {
       var _this = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/apartments/" + this.$route.params.id).then(function (response) {
-        _this.apartment = response.data;
-      });
-    },
-    getAmenity: function getAmenity() {
-      var _this2 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/amenities/" + this.$route.params.id).then(function (response) {
-        _this2.amenity = response.data;
+        _this.apartment = response.data.results.data;
       });
     }
   },
   mounted: function mounted() {
     this.getApartment();
-    this.getAmenity();
   }
 });
 
