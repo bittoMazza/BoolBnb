@@ -1945,27 +1945,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ApartmentShow",
-  components: {},
   data: function data() {
     return {
-      apartments: {}
+      apartment: {},
+      amenity: {}
     };
   },
   methods: {
-    getApartments: function getApartments() {
+    getApartment: function getApartment() {
       var _this = this;
-      var id = this.route.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/apartments/".concat(id)).then(function (response) {
-        console.log(response.data.results);
-        _this.apartments = response.data.results;
-      })["catch"](function (error) {
-        console.log(error);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/apartments/" + this.$route.params.id).then(function (response) {
+        _this.apartment = response.data;
+      });
+    },
+    getAmenity: function getAmenity() {
+      var _this2 = this;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/amenities/" + this.$route.params.id).then(function (response) {
+        _this2.amenity = response.data;
       });
     }
   },
-  created: function created() {
-    this.getApartments();
+  mounted: function mounted() {
+    this.getApartment();
+    this.getAmenity();
   }
 });
 

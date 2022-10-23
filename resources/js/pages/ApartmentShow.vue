@@ -53,33 +53,34 @@
 <script>
 import axios from "axios";
 export default {
-  name: "ApartmentShow",
-  components: {},
-
-  data: function () {
+  data() {
     return {
-      apartments: {},
+      apartment: {},
+      amenity: {},
     };
   },
-
   methods: {
-    getApartments() {
-      const id = this.route.params.id;
+    getApartment() {
       axios
-        .get(`/api/apartments/${id}`)
+        .get("/api/apartments/" + this.$route.params.id)
         .then((response) => {
-          console.log(response.data.results);
-          this.apartments = response.data.results;
-        })
-        .catch((error) => {
-          console.log(error);
+          this.apartment = response.data;
+        });
+    },
+    getAmenity() {
+      axios
+        .get("/api/amenities/" + this.$route.params.id)
+        .then((response) => {
+          this.amenity = response.data;
         });
     },
   },
-  created() {
-    this.getApartments();
+  mounted() {
+    this.getApartment();
+    this.getAmenity();
   },
 };
+
 </script>
 
 <style>
