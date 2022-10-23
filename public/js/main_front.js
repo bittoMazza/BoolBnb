@@ -2037,9 +2037,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       });
     }
   },
-  created: function created() {
-    this.getSomething();
-  }
+  created: function created() {}
 });
 var txtType = /*#__PURE__*/function () {
   function txtType(el, toRotate, period) {
@@ -2138,9 +2136,9 @@ var render = function render() {
     staticClass: "col-12"
   }, [_c("div", {
     staticClass: "card px-0 shadow-sm"
-  }, [_c("a", {
+  }, [_c("router-link", {
     attrs: {
-      href: ""
+      to: "apartments/" + _vm.apartment.id
     }
   }, [_c("img", {
     staticClass: "card-img-top",
@@ -2158,7 +2156,7 @@ var render = function render() {
     }
   }, [_vm._v(" " + _vm._s(_vm.apartment.title) + " ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
-  }, [_vm._v(_vm._s(_vm.apartment.address))])])])])]);
+  }, [_vm._v(_vm._s(_vm.apartment.address))])])], 1)])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
