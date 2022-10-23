@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="col">
+    <div class="col-12">
       <div class="card px-0 shadow-sm">
         <a href="">
           <img

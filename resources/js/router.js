@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 import HomePage from './pages/HomePage';
 import ApartmentShow from './pages/ApartmentShow';
-import ApartmentCards from './components/ApartmentCards';
+import ApartmentsCards from './components/ApartmentsCards';
 
 const router = new VueRouter({
     mode: 'history',
@@ -23,7 +23,7 @@ const router = new VueRouter({
         {
             path: '/apartments/',
             name: 'apartmentsCards',
-            component: ApartmentCards,
+            component: ApartmentsCards,
             
         },
         {

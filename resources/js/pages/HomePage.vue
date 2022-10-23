@@ -77,18 +77,18 @@
         </div>
       </div>
 
-
-
       <!-- Lista Appartamenti -->
-      <div class="col-12">
+      <div class="container">
         <div class="row">
-            <ApartmentsCards
-              v-for="apartment in apartments"
-              :key="apartment.id"
-              :apartment="apartment" />
+          <ApartmentsCards
+            v-for="apartment in apartments"
+            :key="apartment.id"
+            :apartment="apartment"
+          />
+          <h1>hello</h1>
         </div>
-      
-      
+      </div>
+    </div>
   </main>
 </template>
 <!-- $filter = $request->input("filter");

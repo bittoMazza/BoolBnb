@@ -1946,7 +1946,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   data: function data() {
     return {
-      apartments: []
+      apartments: {}
     };
   },
   methods: {
@@ -2135,7 +2135,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", [_c("div", {
-    staticClass: "col"
+    staticClass: "col-12"
   }, [_c("div", {
     staticClass: "card px-0 shadow-sm"
   }, [_c("a", {
@@ -2292,8 +2292,136 @@ render._withStripped = true;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function render() {};
-var staticRenderFns = [];
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("main", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-12"
+  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("nav", {
+    staticClass: "navbar bg-light mb-4"
+  }, [_c("div", {
+    staticClass: "container-fluid"
+  }, [_c("form", {
+    staticClass: "d-flex w-100",
+    attrs: {
+      role: "search"
+    }
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.filter,
+      expression: "filter"
+    }],
+    staticClass: "form-control me-2",
+    attrs: {
+      type: "search",
+      placeholder: "Inserisci il luogo in cui vuoi trovare l'appartamento",
+      "aria-label": "Search"
+    },
+    domProps: {
+      value: _vm.filter
+    },
+    on: {
+      keyup: function keyup($event) {
+        return _vm.getFilteredApartment();
+      },
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.filter = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary text-white",
+    on: {
+      click: function click($event) {
+        return _vm.getSomething();
+      }
+    }
+  }, [_vm._v("\n            Cerca\n          ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "py-4 container"
+  }, [_vm._m(2), _vm._v(" "), _c("div", {
+    staticClass: "in_evidence p-5 row row-cols-4 gx-4"
+  }, _vm._l(_vm.apartments, function (apartment) {
+    return _c("div", {
+      key: apartment.id,
+      staticClass: "col"
+    }, [_c("div", {
+      staticClass: "card px-0 shadow-sm"
+    }, [_c("a", {
+      attrs: {
+        href: ""
+      }
+    }, [_c("img", {
+      staticClass: "card-img-top",
+      attrs: {
+        src: _vm.getCover(apartment.images),
+        alt: "title"
+      }
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "card-body card-body-cascade pb-0"
+    }, [_c("h5", {
+      staticClass: "card-title"
+    }, [_c("strong", [_c("a", {
+      attrs: {
+        href: "#"
+      }
+    }, [_vm._v(" " + _vm._s(apartment.title) + " ")])])]), _vm._v(" "), _c("p", {
+      staticClass: "fst-italic pb-1"
+    }, [_vm._v(_vm._s(apartment.address))])])])]);
+  }), 0)])]), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_vm._l(_vm.apartments, function (apartment) {
+    return _c("ApartmentsCards", {
+      key: apartment.id,
+      attrs: {
+        apartment: apartment
+      }
+    });
+  }), _vm._v(" "), _c("h1", [_vm._v("hello")])], 2)])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "content py-3"
+  }, [_c("div", {
+    staticClass: "typewriter-jumbo text-center"
+  }, [_c("h1", {
+    staticClass: "home-title fw-bold"
+  }, [_vm._v("Scopri un posto ")]), _vm._v(" "), _c("h3", {
+    staticClass: "typewrite fw-bold text-highlight-warning",
+    attrs: {
+      "data-period": "2000",
+      "data-type": '[ "dove amerai vivere.", "da sogno."]'
+    }
+  }, [_c("span", {
+    staticClass: "wrap"
+  })])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h3", {
+    staticClass: "fw-bold text-center mt-3 mb-1"
+  }, [_c("span", {
+    staticClass: "text-primary"
+  }, [_vm._v("Cerca")]), _vm._v(" un appartamento\n      ")]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "text-center mb-4"
+  }, [_c("span", {
+    staticClass: "tag fs-5"
+  }, [_vm._v("IN EVIDENZA")])]);
+}];
+render._withStripped = true;
 
 
 /***/ }),
@@ -18637,7 +18765,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _pages_HomePage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/HomePage */ "./resources/js/pages/HomePage.vue");
 /* harmony import */ var _pages_ApartmentShow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/ApartmentShow */ "./resources/js/pages/ApartmentShow.vue");
-!(function webpackMissingModule() { var e = new Error("Cannot find module './components/ApartmentCards'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _components_ApartmentsCards__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ApartmentsCards */ "./resources/js/components/ApartmentsCards.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
@@ -18657,7 +18785,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/apartments/',
     name: 'apartmentsCards',
-    component: !(function webpackMissingModule() { var e = new Error("Cannot find module './components/ApartmentCards'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+    component: _components_ApartmentsCards__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
     path: '/apartment/:id',
     name: 'apartmentShow',
