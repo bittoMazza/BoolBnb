@@ -2276,34 +2276,36 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "col"
   }, [_c("h1", {
-    staticClass: "card-title my-4 fw-bold"
+    staticClass: "card-title my-4 fw-bold ms-4"
   }, [_c("i", {
     staticClass: "bi bi-house me-1"
   }), _vm._v(" " + _vm._s(_vm.apartment.title) + "\n        ")]), _vm._v(" "), _c("h5", {
-    staticClass: "card-title my-4 fst-italic"
+    staticClass: "card-title my-4 fst-italic ms-4"
   }, [_c("span", {
     staticClass: "fw-semibold"
-  }, [_vm._v(_vm._s(_vm.apartment.address))]), _vm._v(" -\n          " + _vm._s(_vm.apartment.lat) + ", " + _vm._s(_vm.apartment["long"]) + "\n        ")])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("ul", {
-    staticClass: "fs-5 list-group list-group-horizontal"
+  }, [_vm._v(_vm._s(_vm.apartment.address))]), _vm._v(" -\n          " + _vm._s(_vm.apartment.lat) + ", " + _vm._s(_vm.apartment["long"]) + "\n        ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "container mb-3"
+  }, [_vm._m(0), _vm._v(" "), _c("ul", {
+    staticClass: "fs-5 list-group list-group-horizontal mt-4"
   }, [_c("li", {
     staticClass: "list-group-item py-2 text-white"
   }, [_c("i", {
     staticClass: "bi bi-house-door-fill me-2"
-  }), _vm._v(" Stanze:\n        " + _vm._s(_vm.apartment.rooms) + "\n      ")]), _vm._v(" "), _c("li", {
+  }), _vm._v(" Stanze:\n          " + _vm._s(_vm.apartment.rooms) + "\n        ")]), _vm._v(" "), _c("li", {
     staticClass: "list-group-item py-2 text-white"
   }, [_c("i", {
     staticClass: "bi bi-hdd-fill me-2"
-  }), _vm._v(" Letti:\n        " + _vm._s(_vm.apartment.beds) + "\n      ")]), _vm._v(" "), _c("li", {
+  }), _vm._v(" Letti:\n          " + _vm._s(_vm.apartment.beds) + "\n        ")]), _vm._v(" "), _c("li", {
     staticClass: "list-group-item py-2 text-white"
   }, [_c("i", {
     staticClass: "bi bi-door-closed-fill me-2"
-  }), _vm._v("Bagni:\n        " + _vm._s(_vm.apartment.bathrooms) + "\n      ")]), _vm._v(" "), _c("li", {
+  }), _vm._v("Bagni:\n          " + _vm._s(_vm.apartment.bathrooms) + "\n        ")]), _vm._v(" "), _c("li", {
     staticClass: "list-group-item py-2 text-white"
   }, [_c("i", {
     staticClass: "bi bi-fullscreen me-2"
-  }), _vm._v(" Metri quadrati:\n        " + _vm._s(_vm.apartment.square_meters) + "m²\n      ")])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
+  }), _vm._v(" Metri quadrati:\n          " + _vm._s(_vm.apartment.square_meters) + "m²\n        ")])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
     staticClass: "container"
-  }, [_c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
+  }, [_c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col"
@@ -2311,24 +2313,52 @@ var render = function render() {
     staticClass: "fw-bold"
   }, [_vm._v("Dove ti troverai")]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(_vm.apartment.address))]), _vm._v(" "), _c("h1", {
     staticClass: "text-center"
-  }, [_vm._v("MAPPA")])])])])]);
+  }, [_vm._v("MAPPA")])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container mb-3"
-  }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col"
+    staticClass: "col d-flex"
   }, [_c("img", {
-    staticClass: "rounded-3 img-fluid",
+    staticClass: "w-100",
     attrs: {
       src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/50434f11-d7bd-4986-a78a-fac692d0e062?im_w=1440",
-      alt: "image-1"
+      alt: ""
     }
-  })])])]);
+  }), _vm._v(" "), _c("div", {
+    staticClass: "col-4"
+  }, [_c("div", {
+    staticClass: "upper-images"
+  }, [_c("img", {
+    staticClass: "w-75",
+    attrs: {
+      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/08155438-9751-401c-b0d7-fa31be950053?im_w=1440",
+      alt: ""
+    }
+  }), _vm._v(" "), _c("img", {
+    staticClass: "w-75",
+    attrs: {
+      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/d15bc9d6-7fed-44f4-8762-9a4c94658a50?im_w=1440",
+      alt: ""
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "bottom-images"
+  }, [_c("img", {
+    staticClass: "w-75",
+    attrs: {
+      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/f5787391-ca20-4a9e-a1b4-263914fc5612?im_w=1440",
+      alt: ""
+    }
+  }), _vm._v(" "), _c("img", {
+    staticClass: "w-75",
+    attrs: {
+      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/5971b9c9-172c-409e-8d8a-759023c48615?im_w=1440",
+      alt: ""
+    }
+  })])])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -2338,19 +2368,23 @@ var staticRenderFns = [function () {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col"
-  }, [_c("hr"), _vm._v(" "), _c("br"), _vm._v(" "), _c("h3", {
+  }, [_c("hr", {
+    staticStyle: {
+      width: "60%"
+    }
+  }), _vm._v(" "), _c("br"), _vm._v(" "), _c("h3", {
     staticClass: "fw-bold"
   }, [_c("i", {
     staticClass: "bi bi-geo-alt claim-icons"
-  }), _vm._v("Ottima posizione\n        ")]), _vm._v(" "), _c("p", [_vm._v("\n          Il 100% degli ospiti ha valutato la posizione come:\n          "), _c("strong", [_vm._v("ottima")]), _vm._v(".\n        ")]), _vm._v(" "), _c("h3", {
+  }), _vm._v("Ottima posizione\n          ")]), _vm._v(" "), _c("p", [_vm._v("\n            Il 100% degli ospiti ha valutato la posizione come:\n            "), _c("strong", [_vm._v("ottima")]), _vm._v(".\n          ")]), _vm._v(" "), _c("h3", {
     staticClass: "fw-bold"
   }, [_c("i", {
     staticClass: "bi bi-key claim-icons"
-  }), _vm._v("Ottima esperienza di check-in\n        ")]), _vm._v(" "), _c("p", [_vm._v("\n          Il 98% degli ospiti ha valutato l'eperienza di check-in come:\n          "), _c("strong", [_vm._v("ottima")]), _vm._v(".\n        ")]), _vm._v(" "), _c("h3", {
+  }), _vm._v("Ottima esperienza di check-in\n          ")]), _vm._v(" "), _c("p", [_vm._v("\n            Il 98% degli ospiti ha valutato l'eperienza di check-in come:\n            "), _c("strong", [_vm._v("ottima")]), _vm._v(".\n          ")]), _vm._v(" "), _c("h3", {
     staticClass: "fw-bold"
   }, [_c("i", {
     staticClass: "bi bi-house-heart claim-icons"
-  }), _vm._v("Animali domestici\n        ")]), _vm._v(" "), _c("p", [_vm._v("Porta in vacanza con te i tuoi animali domestici.")]), _vm._v(" "), _c("br")])])]);
+  }), _vm._v("Animali domestici\n          ")]), _vm._v(" "), _c("p", [_vm._v("Porta in vacanza con te i tuoi animali domestici.")]), _vm._v(" "), _c("br")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -2363,7 +2397,7 @@ var staticRenderFns = [function () {
   }, [_c("br"), _vm._v(" "), _c("h3", {
     staticClass: "fw-bold"
   }, [_vm._v("Cosa troverai:")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Servizi")]), _vm._v(" "), _c("li", [_vm._v("Servizi")]), _vm._v(" "), _c("li", [_vm._v("Servizi")]), _vm._v(" "), _c("li", [_vm._v("Servizi")])]), _vm._v(" "), _c("br")])]), _vm._v(" "), _c("div", {
-    staticClass: "row form-border"
+    staticClass: "row form-border me-4"
   }, [_c("div", {
     staticClass: "col"
   }, [_c("form", [_c("div", {
@@ -2408,11 +2442,11 @@ var staticRenderFns = [function () {
       rows: "3"
     }
   })]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-primary text-white fw-bold",
+    staticClass: "btn btn-blue text-white fw-bold",
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("\n            Invia\n          ")])])])])]);
+  }, [_vm._v("\n              Invia\n            ")])])])])]);
 }];
 render._withStripped = true;
 
@@ -2598,7 +2632,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".claim-icons[data-v-53532716] {\n  margin-right: 1rem;\n  font-size: 1.3em;\n  font-weight: bold;\n}\np[data-v-53532716] {\n  font-size: 1.2em;\n  margin-left: 2.8rem;\n}\n.list-group-item[data-v-53532716] {\n  background-color: #3066bd;\n}\n.form-border[data-v-53532716] {\n  border: 3px solid #19bab3;\n  border-radius: 5px;\n  padding: 1rem;\n}", ""]);
+exports.push([module.i, "/* General Image Styling */\nimg[data-v-53532716] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  padding: 0.2rem;\n}\n.claim-icons[data-v-53532716] {\n  margin-right: 1rem;\n  font-size: 1.3em;\n  font-weight: bold;\n}\np[data-v-53532716] {\n  font-size: 1.2em;\n  margin-left: 2.8rem;\n}\n.list-group-item[data-v-53532716] {\n  background-color: #3066bd;\n}\n.form-border[data-v-53532716] {\n  border: 3px solid #19bab3;\n  border-radius: 5px;\n  padding: 1rem;\n}\n.btn-blue[data-v-53532716] {\n  background-color: #3066bd;\n}", ""]);
 
 // exports
 
