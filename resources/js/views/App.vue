@@ -2,6 +2,7 @@
   <section>
     <HeaderWeb />
     <router-view></router-view>
+ 
   </section>
 </template>
 
@@ -12,6 +13,7 @@ export default {
     HeaderWeb,
   },
 };
+
 </script>
 
 <style>
