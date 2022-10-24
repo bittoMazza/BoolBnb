@@ -70,3 +70,36 @@ ul{
 }
 
 // ! EDIT ! \\
+
+
+// ? MEDIAQUERY ? \\
+
+// MOBILE \\
+@media all and (min-width: 576px){
+    // INDEX APARTMENT \\
+    .sm_none{
+        display: none;
+    }
+
+    .title_sm{
+        text-align: center;
+        margin: 15px 0;
+    }
+    // INDEX APARTMENT \\
+}
+// MOBILE \\
+
+// TABLET \\
+@media all and (min-width: 768px){
+    // INDEX APARTMENT \\
+    .sm_none{
+        display: block;
+    }
+
+    .title_sm{
+        text-align: left;
+        margin: 0;
+    }
+    // INDEX APARTMENT \\
+}
+// TABLET \\

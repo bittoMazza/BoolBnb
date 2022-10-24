@@ -24,7 +24,7 @@
                     {{-- DASHBOARD DESIGN --}}
                     <div class="row my-4">
 
-                        <div class="col-3">
+                        <div class="col-md-3 col-sm-12">
                             <div class="index_user_panel w-100 bg-light p-3 shadow-sm rounded">
 
                                 @forelse ($users as $user)
@@ -60,12 +60,12 @@
                             </div>
                         </div>
 
-                        <div class="col-9">
+                        <div class="col-md-9 col-sm-12">
                             <div class="index_user_management">
-                                <h2 class="fw-bold">I miei Appartamenti</h2>
+                                <h2 class="fw-bold title_sm">I miei Appartamenti</h2>
 
                                 <div class="row justify-content-around">
-                                    <div class="col-6 d-flex flex-wrap justify-content-between px-1">
+                                    <div class="col-md-6 col-sm-12 d-flex flex-wrap justify-content-between px-1">
                                         @forelse ($apartments as $apartment)
                                             <div class="card w-50 mb-2">
                                                 @foreach ($apartment->images as $image)
@@ -99,7 +99,7 @@
                                             <div>Non hai appartamenti.</div>
                                         @endforelse
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6 sm_none">
                                         <span class="fw-bold bg-primary text-white p-1">
                                             Gestione rapida degli Appartamenti:
                                         </span>
@@ -107,10 +107,10 @@
                                             @forelse ($apartments as $apartment)
                                                 <li class="mb-3">
                                                     <div class="row">
-                                                        <div class="col-8">
+                                                        <div class="col-lg-6">
                                                             <strong>{{ $apartment->title }} - </strong><span class="fst-italic">{{ $apartment->address }}</span>
                                                         </div>
-                                                        <div class="col-2">
+                                                        <div class="col-lg-6">
                                                             <div class="d-flex">
                                                                 <a href="{{ route('host.apartments.edit', $apartment->id) }}"
                                                                     class="btn btn-sm btn-success mr-2 text-white">
