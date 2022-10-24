@@ -26,8 +26,13 @@
         <nav class="navbar bg-light mb-4">
           <div class="container-fluid">
             <form class="d-flex w-100" role="search">
-              <input @keyup="getFilteredApartment()" class="form-control me-2" type="search" placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento" aria-label="Search" v-model="filter"/>
+              <input @keyup="getFilteredApartment()" class="form-control me-2" type="search" placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento" aria-label="Search"  v-model="filter"/>
             </form>
+            <ul id="addresses">
+              <li role="button" @click="setCurrentAddress(address)" v-for=" (address, index) in searchedAddresses" :key="index" class="list-group-item py-1list-group-item-action searched_address">
+                {{ address.address.freeformAddress + ", " + address.address.countrySubdivision}}
+              </li>
+            </ul>
             <button class="btn btn-primary text-white" @click="getSomething()">
               Cerca
             </button>
@@ -240,13 +245,6 @@
     </div>
   </main>
 </template>
-<!-- $filter = $request->input("filter");
-
-$radius = $request->input("radius");
-
-$coordinate = Http::get('https://api.tomtom.com/search/2/search/.json?key=Z4C8r6rK8x69JksEOmCX43MGffYO83xu&query=' . $filter . '&countrySet=IT' . '&limit=1');
-    $lat = $coordinate["results"][0]["position"]["lat"];
-    $lon = $coordinate["results"][0]["position"]["lon"]; -->
 <script>
 import axios from 'axios';
 export default {
@@ -258,23 +256,31 @@ export default {
       filter: '',
       long: '',
       lat: '',
+      searchedAddresses:[],
       searchedCoordinates: {},
       radius: 20,
     };
   },
   methods: {
     getFilteredApartment() {
-      axios.get('https://api.tomtom.com/search/2/search/.json?key=Z4C8r6rK8x69JksEOmCX43MGffYO83xu&query=' + this.filter +'&countrySet=IT' + '&limit=1').then((response) => {
-        console.log(response.data);
-        this.searchedCoordinates = response.data;
-        this.lat = this.searchedCoordinates["results"][0]["position"]["lat"];
-        this.long = this.searchedCoordinates["results"][0]["position"]["lon"];
-        console.log(this.lat);
-        console.log(this.long);
+      axios.get(`https://api.tomtom.com/search/2/search/${this.filter}.json?key=Y3utdtjiBc6ObgcZs8bNzOGza3HV7trG&countrySet=IT&typeahead=true&limit=5`)
+      .then((response) => {
+        console.log(response);
+        this.searchedAddresses = '';
+        this.searchedAddresses = response.data.results;
+        this.lat = this.searchedAddresses[0].position.lat;
+        this.long = this.searchedAddresses[0].position.lon;
       }).catch((error) => {
         console.warn(error);
       });
     },
+    setCurrentAddress(a){
+      this.lat = a.position.lat;
+      this.long = a.position.lon;
+      this.filter = a.address.freeformAddress + ", " + a.address.countrySubdivision;
+      this.searchedAddresses = '';
+    },
+
     getCover(images){
       for(let i=0;i<images.length;i++){
         if(images[i].is_cover == true){
@@ -283,10 +289,10 @@ export default {
       }
     },
     getSomething(){
-      axios.get('/api/apartments', {params:{
-        lat: this.lat ,
-        long: this.long, 
-        radius: this.radius,}      
+      axios.get('/api/apartments',{params:{
+        lat:this.lat,
+        long:this.long, 
+        radius:this.radius,}      
       })
       .then((response) => {
         console.log(response);
@@ -296,9 +302,6 @@ export default {
       })
     }
   },
-  created() {
-
-  }
 };
 
 class txtType {
