@@ -10939,10 +10939,8 @@ textarea.form-control-lg {
   border-color: #ff3860;
 }
 
-.input-control .error {
+.input-control .error_message {
   color: #ff3860;
-  font-size: 9px;
-  height: 18px;
 }
 
 ul {

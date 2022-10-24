@@ -20,10 +20,11 @@
         </div>
 
         <!-- Search bar avanzata -->
-        <h3 class="fw-bold text-center mt-3 mb-1">
+        <h3 class="fw-bold text-center mt-3 mb-0">
           <span class="text-primary">Cerca</span> un appartamento
         </h3>
         <nav class="navbar bg-light mb-4">
+          
           <div class="container-fluid">
             <form class="d-flex w-100" role="search">
               <input @keyup="getFilteredApartment()" class="form-control me-2" type="search" placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento" aria-label="Search" v-model="filter"/>
@@ -33,6 +34,76 @@
             </button>
           </div>
         </nav>
+
+        <!-- Advanced Search bar -->
+        <div class="row">
+            <div class="col" v-for="amenity in amenities" :key="amenity.id">
+                <input type="checkbox" :value="amenity.id" :name="amenity.name + '_check'" :id="amenity.name + '-check'" v-model="apartmentAmenities">
+                <label :for="amenity.name + '-check'">{{ amenity.name }}</label>
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center">
+            <div class="col">
+              <label for="room-no">Numero camere</label>
+              <select name="room_no" id="room-no" v-model="roomNo">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <label for="bed-no">Posti letto</label>
+              <select name="bed_no" id="bed-no" v-model="bedNo">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <label for="room-no">Numero bagni</label>
+              <select name="bath_no" id="bath-no" v-model="bathNo">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <label for="search-range">Raggio di ricerca</label>
+              <div class="d-flex align-items-center">
+                  <input type="range" name="search_range" id="search-range" default="20" min="10" max="1000" step="10" oninput="this.nextElementSibling.value = this.value" v-model="searchRange">
+                  <output class="ms-1">20 </output> <span class="ms-1"> km</span>
+              </div>
+            </div>
+        </div>
+        
+        <div class="d-flex justify-content-center p-3">
+            <button class="btn btn-lt btn-primary text-white mx-2" @click="sendFiltersData()">Applica filtri</button>
+        </div>
 
         <!-- Appartamenti in evidenza -->
         <div class="py-4 container">
