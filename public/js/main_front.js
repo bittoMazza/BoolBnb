@@ -1947,9 +1947,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      apartment: {},
-      image: {},
-      amenity: {}
+      apartment: {}
     };
   },
   methods: {
@@ -1962,22 +1960,31 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    // let mapScriptCss = document.createElement("link");
+    // mapScriptCss.src =
+    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css";
+    // document.head.appendChild(mapScriptCss);
+
+    // let mapScriptJS = document.createElement("script");
+    // mapScriptJS.src =
+    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js";
+    // document.head.appendChild(mapScriptJS);
+
+    // let searchBoxCss = document.createElement("link");
+    // searchBoxCss.src =
+    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css";
+    // document.head.appendChild(searchBoxCss);
+
+    // let searchBox = document.createElement("script");
+    // searchBox.src =
+    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js";
+    // document.head.appendChild(searchBox);
+
+    // let servicesBox = document.createElement("script");
+    // servicesBox.src =
+    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
+    // document.head.appendChild(servicesBox);
     this.getApartment();
-    var mapScriptCss = document.createElement('link');
-    mapScriptCss.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css";
-    document.head.appendChild(mapScriptCss);
-    var mapScriptJS = document.createElement('script');
-    mapScriptJS.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js";
-    document.head.appendChild(mapScriptJS);
-    var searchBoxCss = document.createElement('link');
-    searchBoxCss.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css";
-    document.head.appendChild(searchBoxCss);
-    var searchBox = document.createElement('script');
-    searchBox.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js";
-    document.head.appendChild(searchBox);
-    var servicesBox = document.createElement('script');
-    servicesBox.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
-    document.head.appendChild(servicesBox);
   }
 });
 
@@ -2283,8 +2290,198 @@ render._withStripped = true;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function render() {};
-var staticRenderFns = [];
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row bg-light"
+  }, [_c("div", {
+    staticClass: "col"
+  }, [_c("h1", {
+    staticClass: "card-title my-4 fw-bold ms-4"
+  }, [_c("i", {
+    staticClass: "bi bi-house me-1"
+  }), _vm._v(" " + _vm._s(_vm.apartment.title) + "\n        ")]), _vm._v(" "), _c("h5", {
+    staticClass: "card-title my-4 fst-italic ms-4"
+  }, [_c("span", {
+    staticClass: "fw-semibold"
+  }, [_vm._v(_vm._s(_vm.apartment.address))]), _vm._v(" -\n          " + _vm._s(_vm.apartment.lat) + ", " + _vm._s(_vm.apartment["long"]) + "\n        ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "container mb-3"
+  }, [_vm._m(0), _vm._v(" "), _c("ul", {
+    staticClass: "fs-5 list-group list-group-horizontal mt-4"
+  }, [_c("li", {
+    staticClass: "list-group-item py-2 text-white"
+  }, [_c("i", {
+    staticClass: "bi bi-house-door-fill me-2"
+  }), _vm._v(" Stanze:\n          " + _vm._s(_vm.apartment.rooms) + "\n        ")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item py-2 text-white"
+  }, [_c("i", {
+    staticClass: "bi bi-hdd-fill me-2"
+  }), _vm._v(" Letti:\n          " + _vm._s(_vm.apartment.beds) + "\n        ")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item py-2 text-white"
+  }, [_c("i", {
+    staticClass: "bi bi-door-closed-fill me-2"
+  }), _vm._v("Bagni:\n          " + _vm._s(_vm.apartment.bathrooms) + "\n        ")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item py-2 text-white"
+  }, [_c("i", {
+    staticClass: "bi bi-fullscreen me-2"
+  }), _vm._v(" Metri quadrati:\n          " + _vm._s(_vm.apartment.square_meters) + "m²\n        ")])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col"
+  }, [_c("h3", {
+    staticClass: "fw-bold"
+  }, [_vm._v("Dove ti troverai")]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(_vm.apartment.address))]), _vm._v(" "), _c("h1", {
+    staticClass: "text-center"
+  }, [_vm._v("MAPPA")]), _vm._v(" "), _c("div", {
+    attrs: {
+      id: "map-div"
+    }
+  })])])])]), _vm._v(" "), _c("script", {
+    attrs: {
+      type: "application/javascript",
+      src: "./js/map.js"
+    }
+  })]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col d-flex"
+  }, [_c("img", {
+    staticClass: "w-100 rounded-start",
+    attrs: {
+      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/50434f11-d7bd-4986-a78a-fac692d0e062?im_w=1440",
+      alt: ""
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "col-4"
+  }, [_c("div", {
+    staticClass: "upper-images"
+  }, [_c("img", {
+    staticClass: "w-75 rounded-end",
+    attrs: {
+      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/08155438-9751-401c-b0d7-fa31be950053?im_w=1440",
+      alt: ""
+    }
+  }), _vm._v(" "), _c("img", {
+    staticClass: "w-75",
+    attrs: {
+      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/d15bc9d6-7fed-44f4-8762-9a4c94658a50?im_w=1440",
+      alt: ""
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "bottom-images"
+  }, [_c("img", {
+    staticClass: "w-75",
+    attrs: {
+      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/f5787391-ca20-4a9e-a1b4-263914fc5612?im_w=1440",
+      alt: ""
+    }
+  }), _vm._v(" "), _c("img", {
+    staticClass: "w-75 rounded-end",
+    attrs: {
+      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/5971b9c9-172c-409e-8d8a-759023c48615?im_w=1440",
+      alt: ""
+    }
+  })])])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col"
+  }, [_c("hr", {
+    staticStyle: {
+      width: "60%"
+    }
+  }), _vm._v(" "), _c("br"), _vm._v(" "), _c("h3", {
+    staticClass: "fw-bold"
+  }, [_c("i", {
+    staticClass: "bi bi-geo-alt claim-icons"
+  }), _vm._v("Ottima posizione\n          ")]), _vm._v(" "), _c("p", [_vm._v("\n            Il 100% degli ospiti ha valutato la posizione come:\n            "), _c("strong", [_vm._v("ottima")]), _vm._v(".\n          ")]), _vm._v(" "), _c("h3", {
+    staticClass: "fw-bold"
+  }, [_c("i", {
+    staticClass: "bi bi-key claim-icons"
+  }), _vm._v("Ottima esperienza di check-in\n          ")]), _vm._v(" "), _c("p", [_vm._v("\n            Il 98% degli ospiti ha valutato l'eperienza di check-in come:\n            "), _c("strong", [_vm._v("ottima")]), _vm._v(".\n          ")]), _vm._v(" "), _c("h3", {
+    staticClass: "fw-bold"
+  }, [_c("i", {
+    staticClass: "bi bi-house-heart claim-icons"
+  }), _vm._v("Animali domestici\n          ")]), _vm._v(" "), _c("p", [_vm._v("Porta in vacanza con te i tuoi animali domestici.")]), _vm._v(" "), _c("br")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "container d-flex justify-content-between"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col"
+  }, [_c("br"), _vm._v(" "), _c("h3", {
+    staticClass: "fw-bold"
+  }, [_vm._v("Cosa troverai:")]), _vm._v(" "), _c("ul"), _vm._v(" "), _c("br")])]), _vm._v(" "), _c("div", {
+    staticClass: "row form-border me-4"
+  }, [_c("div", {
+    staticClass: "col"
+  }, [_c("form", [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("h3", [_vm._v("Scrivi un messaggio al proprietario")]), _vm._v(" "), _c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "nome"
+    }
+  }, [_vm._v("Nome")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "email",
+      id: "exampleInputEmail1",
+      "aria-describedby": "emailHelp"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "exampleInputEmail1"
+    }
+  }, [_vm._v("Indirizzo email")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "email",
+      id: "exampleInputEmail1",
+      "aria-describedby": "emailHelp"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "exampleFormControlTextarea1"
+    }
+  }, [_vm._v("Messaggio")]), _vm._v(" "), _c("textarea", {
+    staticClass: "form-control",
+    attrs: {
+      id: "exampleFormControlTextarea1",
+      rows: "3"
+    }
+  })]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-blue text-white fw-bold",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("\n              Invia\n            ")])])])])]);
+}];
+render._withStripped = true;
 
 
 /***/ }),

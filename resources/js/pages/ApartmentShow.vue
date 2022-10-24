@@ -159,13 +159,12 @@
             <h3 class="fw-bold">Dove ti troverai</h3>
             <h5>{{ apartment.address }}</h5>
             <h1 class="text-center">MAPPA</h1>
-            <div id="map-div">
-                </div>
+            <div id="map-div"></div>
           </div>
         </div>
       </div>
     </div>
-    <script src="js/maps.js"></script>
+    <script type="application/javascript" src="./js/map.js"></script>
   </div>
 </template>
 
@@ -175,8 +174,6 @@ export default {
   data() {
     return {
       apartment: {},
-      image: {},
-      amenity: {},
     };
   },
   methods: {
@@ -186,29 +183,33 @@ export default {
         this.apartment = response.data.results.data;
       });
     },
-
   },
   mounted() {
+    // let mapScriptCss = document.createElement("link");
+    // mapScriptCss.src =
+    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css";
+    // document.head.appendChild(mapScriptCss);
+
+    // let mapScriptJS = document.createElement("script");
+    // mapScriptJS.src =
+    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js";
+    // document.head.appendChild(mapScriptJS);
+
+    // let searchBoxCss = document.createElement("link");
+    // searchBoxCss.src =
+    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css";
+    // document.head.appendChild(searchBoxCss);
+
+    // let searchBox = document.createElement("script");
+    // searchBox.src =
+    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js";
+    // document.head.appendChild(searchBox);
+
+    // let servicesBox = document.createElement("script");
+    // servicesBox.src =
+    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
+    // document.head.appendChild(servicesBox);
     this.getApartment();
-    let mapScriptCss= document.createElement('link');
-mapScriptCss.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css";
-document.head.appendChild(mapScriptCss);
-
-let mapScriptJS = document.createElement('script');
-mapScriptJS.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js";
-document.head.appendChild(mapScriptJS);
-
-let searchBoxCss = document.createElement('link');
-searchBoxCss.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css";
-document.head.appendChild(searchBoxCss);
-
-let searchBox = document.createElement('script');
-searchBox.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js";
-document.head.appendChild(searchBox);
-
-let servicesBox = document.createElement('script');
-servicesBox.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
-document.head.appendChild(servicesBox);
   },
 };
 </script>
@@ -246,21 +247,19 @@ p {
   background-color: #3066bd;
 }
 
-// Map style 
+// Map style
 #map-div {
-    width: 90vw;
-    height: 90vh;
+  width: 90vw;
+  height: 90vh;
 }
 
 #marker {
+  background-image: url("https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png");
 
-    background-image: url('https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png');
+  background-size: cover;
 
-    background-size: cover;
+  width: 40px;
 
-    width: 40px;
-
-    height: 50px;
-
+  height: 50px;
 }
 </style>
