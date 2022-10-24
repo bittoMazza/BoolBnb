@@ -1964,6 +1964,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
     },
     getSomething: function getSomething() {
+      var _this2 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/apartments', {
         params: {
           lat: this.lat,
@@ -2198,6 +2199,9 @@ var render = function render() {
       value: _vm.filter
     },
     on: {
+      keyup: function keyup($event) {
+        return _vm.getFilteredApartment();
+      },
       input: function input($event) {
         if ($event.target.composing) return;
         _vm.filter = $event.target.value;
