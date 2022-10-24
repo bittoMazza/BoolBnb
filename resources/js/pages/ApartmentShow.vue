@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col d-flex">
             <img
-              class="w-100"
+              class="w-100 rounded-start"
               src="https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/50434f11-d7bd-4986-a78a-fac692d0e062?im_w=1440"
               alt=""
             />
@@ -25,7 +25,7 @@
             <div class="col-4">
               <div class="upper-images">
                 <img
-                  class="w-75"
+                  class="w-75 rounded-end"
                   src="https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/08155438-9751-401c-b0d7-fa31be950053?im_w=1440"
                   alt=""
                 />
@@ -43,7 +43,7 @@
                   alt=""
                 />
                 <img
-                  class="w-75"
+                  class="w-75 rounded-end"
                   src="https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/5971b9c9-172c-409e-8d8a-759023c48615?im_w=1440"
                   alt=""
                 />
@@ -103,12 +103,7 @@
           <div class="col">
             <br />
             <h3 class="fw-bold">Cosa troverai:</h3>
-            <ul>
-              <li>Servizi</li>
-              <li>Servizi</li>
-              <li>Servizi</li>
-              <li>Servizi</li>
-            </ul>
+            <ul></ul>
             <br />
           </div>
         </div>
@@ -164,10 +159,13 @@
             <h3 class="fw-bold">Dove ti troverai</h3>
             <h5>{{ apartment.address }}</h5>
             <h1 class="text-center">MAPPA</h1>
+            <div id="map-div">
+                </div>
           </div>
         </div>
       </div>
     </div>
+    <script src="js/maps.js"></script>
   </div>
 </template>
 
@@ -177,6 +175,8 @@ export default {
   data() {
     return {
       apartment: {},
+      image: {},
+      amenity: {},
     };
   },
   methods: {
@@ -186,6 +186,7 @@ export default {
         this.apartment = response.data.results.data;
       });
     },
+
   },
   mounted() {
     this.getApartment();
@@ -209,7 +210,7 @@ img {
 
 p {
   font-size: 1.2em;
-  margin-left: 2.8rem;
+  margin-left: 3rem;
 }
 
 .list-group-item {
@@ -224,5 +225,23 @@ p {
 
 .btn-blue {
   background-color: #3066bd;
+}
+
+// Map style 
+#map-div {
+    width: 90vw;
+    height: 90vh;
+}
+
+#marker {
+
+    background-image: url('https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png');
+
+    background-size: cover;
+
+    width: 40px;
+
+    height: 50px;
+
 }
 </style>

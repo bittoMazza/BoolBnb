@@ -1947,7 +1947,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      apartment: {}
+      apartment: {},
+      image: {},
+      amenity: {}
     };
   },
   methods: {
@@ -2113,6 +2115,21 @@ __webpack_require__.r(__webpack_exports__);
     HeaderWeb: _components_HeaderWeb_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
+var mapScriptCss = document.createElement('link');
+mapScriptCss.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css";
+document.head.appendChild(mapScriptCss);
+var mapScriptJS = document.createElement('script');
+mapScriptJS.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js";
+document.head.appendChild(mapScriptJS);
+var searchBoxCss = document.createElement('link');
+searchBoxCss.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css";
+document.head.appendChild(searchBoxCss);
+var searchBox = document.createElement('script');
+searchBox.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js";
+document.head.appendChild(searchBox);
+var servicesBox = document.createElement('script');
+servicesBox.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
+document.head.appendChild(servicesBox);
 
 /***/ }),
 
@@ -2266,189 +2283,8 @@ render._withStripped = true;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function render() {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "row bg-light"
-  }, [_c("div", {
-    staticClass: "col"
-  }, [_c("h1", {
-    staticClass: "card-title my-4 fw-bold ms-4"
-  }, [_c("i", {
-    staticClass: "bi bi-house me-1"
-  }), _vm._v(" " + _vm._s(_vm.apartment.title) + "\n        ")]), _vm._v(" "), _c("h5", {
-    staticClass: "card-title my-4 fst-italic ms-4"
-  }, [_c("span", {
-    staticClass: "fw-semibold"
-  }, [_vm._v(_vm._s(_vm.apartment.address))]), _vm._v(" -\n          " + _vm._s(_vm.apartment.lat) + ", " + _vm._s(_vm.apartment["long"]) + "\n        ")])])]), _vm._v(" "), _c("div", {
-    staticClass: "container mb-3"
-  }, [_vm._m(0), _vm._v(" "), _c("ul", {
-    staticClass: "fs-5 list-group list-group-horizontal mt-4"
-  }, [_c("li", {
-    staticClass: "list-group-item py-2 text-white"
-  }, [_c("i", {
-    staticClass: "bi bi-house-door-fill me-2"
-  }), _vm._v(" Stanze:\n          " + _vm._s(_vm.apartment.rooms) + "\n        ")]), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item py-2 text-white"
-  }, [_c("i", {
-    staticClass: "bi bi-hdd-fill me-2"
-  }), _vm._v(" Letti:\n          " + _vm._s(_vm.apartment.beds) + "\n        ")]), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item py-2 text-white"
-  }, [_c("i", {
-    staticClass: "bi bi-door-closed-fill me-2"
-  }), _vm._v("Bagni:\n          " + _vm._s(_vm.apartment.bathrooms) + "\n        ")]), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item py-2 text-white"
-  }, [_c("i", {
-    staticClass: "bi bi-fullscreen me-2"
-  }), _vm._v(" Metri quadrati:\n          " + _vm._s(_vm.apartment.square_meters) + "m²\n        ")])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
-    staticClass: "container"
-  }, [_c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col"
-  }, [_c("h3", {
-    staticClass: "fw-bold"
-  }, [_vm._v("Dove ti troverai")]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(_vm.apartment.address))]), _vm._v(" "), _c("h1", {
-    staticClass: "text-center"
-  }, [_vm._v("MAPPA")])])])])])]);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col d-flex"
-  }, [_c("img", {
-    staticClass: "w-100",
-    attrs: {
-      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/50434f11-d7bd-4986-a78a-fac692d0e062?im_w=1440",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "col-4"
-  }, [_c("div", {
-    staticClass: "upper-images"
-  }, [_c("img", {
-    staticClass: "w-75",
-    attrs: {
-      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/08155438-9751-401c-b0d7-fa31be950053?im_w=1440",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("img", {
-    staticClass: "w-75",
-    attrs: {
-      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/d15bc9d6-7fed-44f4-8762-9a4c94658a50?im_w=1440",
-      alt: ""
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "bottom-images"
-  }, [_c("img", {
-    staticClass: "w-75",
-    attrs: {
-      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/f5787391-ca20-4a9e-a1b4-263914fc5612?im_w=1440",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("img", {
-    staticClass: "w-75",
-    attrs: {
-      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/5971b9c9-172c-409e-8d8a-759023c48615?im_w=1440",
-      alt: ""
-    }
-  })])])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col"
-  }, [_c("hr", {
-    staticStyle: {
-      width: "60%"
-    }
-  }), _vm._v(" "), _c("br"), _vm._v(" "), _c("h3", {
-    staticClass: "fw-bold"
-  }, [_c("i", {
-    staticClass: "bi bi-geo-alt claim-icons"
-  }), _vm._v("Ottima posizione\n          ")]), _vm._v(" "), _c("p", [_vm._v("\n            Il 100% degli ospiti ha valutato la posizione come:\n            "), _c("strong", [_vm._v("ottima")]), _vm._v(".\n          ")]), _vm._v(" "), _c("h3", {
-    staticClass: "fw-bold"
-  }, [_c("i", {
-    staticClass: "bi bi-key claim-icons"
-  }), _vm._v("Ottima esperienza di check-in\n          ")]), _vm._v(" "), _c("p", [_vm._v("\n            Il 98% degli ospiti ha valutato l'eperienza di check-in come:\n            "), _c("strong", [_vm._v("ottima")]), _vm._v(".\n          ")]), _vm._v(" "), _c("h3", {
-    staticClass: "fw-bold"
-  }, [_c("i", {
-    staticClass: "bi bi-house-heart claim-icons"
-  }), _vm._v("Animali domestici\n          ")]), _vm._v(" "), _c("p", [_vm._v("Porta in vacanza con te i tuoi animali domestici.")]), _vm._v(" "), _c("br")])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "container d-flex justify-content-between"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col"
-  }, [_c("br"), _vm._v(" "), _c("h3", {
-    staticClass: "fw-bold"
-  }, [_vm._v("Cosa troverai:")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Servizi")]), _vm._v(" "), _c("li", [_vm._v("Servizi")]), _vm._v(" "), _c("li", [_vm._v("Servizi")]), _vm._v(" "), _c("li", [_vm._v("Servizi")])]), _vm._v(" "), _c("br")])]), _vm._v(" "), _c("div", {
-    staticClass: "row form-border me-4"
-  }, [_c("div", {
-    staticClass: "col"
-  }, [_c("form", [_c("div", {
-    staticClass: "mb-3"
-  }, [_c("h3", [_vm._v("Scrivi un messaggio al proprietario")]), _vm._v(" "), _c("label", {
-    staticClass: "form-label",
-    attrs: {
-      "for": "nome"
-    }
-  }, [_vm._v("Nome")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
-    attrs: {
-      type: "email",
-      id: "exampleInputEmail1",
-      "aria-describedby": "emailHelp"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "mb-3"
-  }, [_c("label", {
-    staticClass: "form-label",
-    attrs: {
-      "for": "exampleInputEmail1"
-    }
-  }, [_vm._v("Indirizzo email")]), _vm._v(" "), _c("input", {
-    staticClass: "form-control",
-    attrs: {
-      type: "email",
-      id: "exampleInputEmail1",
-      "aria-describedby": "emailHelp"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "mb-3"
-  }, [_c("label", {
-    staticClass: "form-label",
-    attrs: {
-      "for": "exampleFormControlTextarea1"
-    }
-  }, [_vm._v("Messaggio")]), _vm._v(" "), _c("textarea", {
-    staticClass: "form-control",
-    attrs: {
-      id: "exampleFormControlTextarea1",
-      rows: "3"
-    }
-  })]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-blue text-white fw-bold",
-    attrs: {
-      type: "submit"
-    }
-  }, [_vm._v("\n              Invia\n            ")])])])])]);
-}];
-render._withStripped = true;
+var render = function render() {};
+var staticRenderFns = [];
 
 
 /***/ }),
@@ -2632,7 +2468,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* General Image Styling */\nimg[data-v-53532716] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  padding: 0.2rem;\n}\n.claim-icons[data-v-53532716] {\n  margin-right: 1rem;\n  font-size: 1.3em;\n  font-weight: bold;\n}\np[data-v-53532716] {\n  font-size: 1.2em;\n  margin-left: 2.8rem;\n}\n.list-group-item[data-v-53532716] {\n  background-color: #3066bd;\n}\n.form-border[data-v-53532716] {\n  border: 3px solid #19bab3;\n  border-radius: 5px;\n  padding: 1rem;\n}\n.btn-blue[data-v-53532716] {\n  background-color: #3066bd;\n}", ""]);
+exports.push([module.i, "/* General Image Styling */\nimg[data-v-53532716] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  padding: 0.2rem;\n}\n.claim-icons[data-v-53532716] {\n  margin-right: 1rem;\n  font-size: 1.3em;\n  font-weight: bold;\n}\np[data-v-53532716] {\n  font-size: 1.2em;\n  margin-left: 3rem;\n}\n.list-group-item[data-v-53532716] {\n  background-color: #3066bd;\n}\n.form-border[data-v-53532716] {\n  border: 3px solid #19bab3;\n  border-radius: 5px;\n  padding: 1rem;\n}\n.btn-blue[data-v-53532716] {\n  background-color: #3066bd;\n}\n#map-div[data-v-53532716] {\n  width: 90vw;\n  height: 90vh;\n}\n#marker[data-v-53532716] {\n  background-image: url(\"https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png\");\n  background-size: cover;\n  width: 40px;\n  height: 50px;\n}", ""]);
 
 // exports
 
