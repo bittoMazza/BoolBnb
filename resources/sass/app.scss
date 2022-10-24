@@ -45,6 +45,12 @@
 
 ul{
     list-style:none;
+    padding: 0;
+}
+
+.searched_address:hover{
+    background-color: #3066bd;
+    color: white;
 }
 
 .show_image{

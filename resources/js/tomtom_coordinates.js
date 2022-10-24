@@ -22,7 +22,7 @@ function searchAddress() {
         addresses.innerHTML = "";
         addressesResult.forEach((result, index) => {
                 addressAutocomplete = document.createElement("li");
-                addressAutocomplete.classList.add("list-group-item", "list-group-item-actionm", "text-white");
+                addressAutocomplete.classList.add("list-group-item", "list-group-item-action","searched_address","py-1","text-white");
                 addressAutocomplete.setAttribute('role','button');
                 addressAutocomplete.value = result.address.freeformAddress + ", " + result.address.countrySubdivision;
                 addressAutocomplete.innerHTML = result.address.freeformAddress + ", " + result.address.countrySubdivision;
