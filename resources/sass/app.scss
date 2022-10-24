@@ -48,9 +48,19 @@ ul{
     padding: 0;
 }
 
+.addresses_container{
+    width: 100%;
+}
+
 .searched_address:hover{
     background-color: #3066bd;
+    border-radius: 5px;
     color: white;
+}
+
+.user_search_message{
+    color: #19bab3;
+    font-weight: bold;
 }
 
 .show_image{
