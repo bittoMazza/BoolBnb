@@ -1963,6 +1963,21 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getApartment();
+    var mapScriptCss = document.createElement('link');
+    mapScriptCss.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css";
+    document.head.appendChild(mapScriptCss);
+    var mapScriptJS = document.createElement('script');
+    mapScriptJS.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js";
+    document.head.appendChild(mapScriptJS);
+    var searchBoxCss = document.createElement('link');
+    searchBoxCss.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css";
+    document.head.appendChild(searchBoxCss);
+    var searchBox = document.createElement('script');
+    searchBox.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js";
+    document.head.appendChild(searchBox);
+    var servicesBox = document.createElement('script');
+    servicesBox.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
+    document.head.appendChild(servicesBox);
   }
 });
 
@@ -2115,21 +2130,6 @@ __webpack_require__.r(__webpack_exports__);
     HeaderWeb: _components_HeaderWeb_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
-var mapScriptCss = document.createElement('link');
-mapScriptCss.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css";
-document.head.appendChild(mapScriptCss);
-var mapScriptJS = document.createElement('script');
-mapScriptJS.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js";
-document.head.appendChild(mapScriptJS);
-var searchBoxCss = document.createElement('link');
-searchBoxCss.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css";
-document.head.appendChild(searchBoxCss);
-var searchBox = document.createElement('script');
-searchBox.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js";
-document.head.appendChild(searchBox);
-var servicesBox = document.createElement('script');
-servicesBox.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
-document.head.appendChild(servicesBox);
 
 /***/ }),
 
@@ -18875,14 +18875,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!************************************!*\
   !*** ./resources/js/views/App.vue ***!
   \************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue_vue_type_template_id_91ac6b5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=91ac6b5c& */ "./resources/js/views/App.vue?vue&type=template&id=91ac6b5c&");
 /* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ "./resources/js/views/App.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -18912,7 +18913,7 @@ component.options.__file = "resources/js/views/App.vue"
 /*!*************************************************************!*\
   !*** ./resources/js/views/App.vue?vue&type=script&lang=js& ***!
   \*************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
