@@ -19,25 +19,8 @@
           </div>
         </div>
 
-        <!-- Search bar avanzata -->
-        <h3 class="fw-bold text-center mt-3 mb-1">
-          <span class="text-primary">Cerca</span> un appartamento
-        </h3>
-        <nav class="navbar bg-light mb-4">
-          <div class="container-fluid">
-            <div class="d-flex w-100" role="search">
-              <input @keyup="getFilteredApartment()" class="form-control me-2" type="search" placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento" aria-label="Search"  v-model="filter"/>
-              <button class="btn btn-primary text-white" @click="getSomething()">
-              Cerca
-            </button>
-            </div>
-            <ul id="addresses" class="addresses_container">
-              <li role="button" @click="setCurrentAddress(address)" v-for=" (address, index) in searchedAddresses" :key="index" class="list-group-item py-1 px-2 my-1 list-group-item-action searched_address">
-                {{ address.address.freeformAddress + ", " + address.address.countrySubdivision}}
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <!-- Search bar -->
+        <SearchBar />
 
         <!-- Appartamenti in evidenza -->
         <div class="py-4 container">
@@ -95,11 +78,13 @@
 <script>
 import axios from "axios";
 import ApartmentCards from "../components/ApartmentsCards.vue";
+import SearchBar from '../pages/SearchBar.vue'
 
 export default {
   name: "HomePage",
   components: {
     ApartmentCards,
+    SearchBar,
   },
   data: function () {
     return {
@@ -159,8 +144,19 @@ export default {
       }).catch((error) => {
         console.log(error);
       })
-    }
+    },
+
+    getAmenities() {
+      axios.get("http://127.0.0.1:8000/api/amenities")
+      .then((response) => {
+          console.log(response.data.results);
+          this.amenities = response.data.results;
+      })
+    },
   },
+  created() {
+
+  }
 };
 
 class txtType {
