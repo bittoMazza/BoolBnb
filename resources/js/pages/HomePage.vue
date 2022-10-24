@@ -19,7 +19,7 @@
           </div>
         </div>
 
-        <!-- Search bar avanzata -->
+        <!-- Search bar -->
         <h3 class="fw-bold text-center mt-3 mb-0">
           <span class="text-primary">Cerca</span> un appartamento
         </h3>
@@ -36,17 +36,20 @@
         </nav>
 
         <!-- Advanced Search bar -->
-        <div class="row">
+        <div class="row container-fluid justify-content-between">
+          <div class="text-center mb-4">
+            <span class="tag fs-6 bg-primary">seleziona i servizi aggiuntivi che cerchi:</span>
+          </div>
             <div class="col" v-for="amenity in amenities" :key="amenity.id">
                 <input type="checkbox" :value="amenity.id" :name="amenity.name + '_check'" :id="amenity.name + '-check'" v-model="apartmentAmenities">
                 <label :for="amenity.name + '-check'">{{ amenity.name }}</label>
             </div>
         </div>
 
-        <div class="d-flex align-items-center">
-            <div class="col">
-              <label for="room-no">Numero camere</label>
-              <select name="room_no" id="room-no" v-model="roomNo">
+        <div class="d-flex align-items-center text-center mt-3">
+              <div class="col">
+                <label for="room-no">Numero camere</label>
+                <select name="room_no" id="room-no" v-model="roomNo">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -57,8 +60,8 @@
                   <option value="8">8</option>
                   <option value="9">9</option>
                   <option value="10">10</option>
-              </select>
-            </div>
+                </select>
+              </div>
 
             <div class="col">
               <label for="bed-no">Posti letto</label>
@@ -331,6 +334,7 @@ export default {
       lat: '',
       searchedCoordinates: {},
       radius: 20,
+      amenities: [],
     };
   },
   methods: {
@@ -365,10 +369,18 @@ export default {
       }).catch((error) => {
         console.log(error);
       })
-    }
+    },
+
+    getAmenities() {
+      axios.get("http://127.0.0.1:8000/api/amenities")
+      .then((response) => {
+          console.log(response.data.results);
+          this.amenities = response.data.results;
+      })
+    },
   },
   created() {
-
+    this.getAmenities();
   }
 };
 
