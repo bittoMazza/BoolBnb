@@ -21,7 +21,7 @@ class ApartmentController extends Controller
         $lat = $data['lat'];
         $long = $data['long'];
         $filteredApartments = [];
-        $apartments = Apartment::with('images')->paginate(10);
+        $apartments = Apartment::with('images', 'amenities')->paginate(10);
 
         foreach ($apartments as $apartment) {
              $distance = sqrt(pow($lat - $apartment->lat, 2) + pow($long - $apartment->long, 2)) * 100;
