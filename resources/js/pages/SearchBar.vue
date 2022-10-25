@@ -5,13 +5,18 @@
         </h3>
         <nav class="navbar bg-light mb-4">
           
-          <div class="container-fluid d-flex">
-            <form class="d-flex w-100" role="search">
-              <input @keyup="getFilteredApartment()" class="form-control me-2" type="search" placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento" aria-label="Search" v-model="filter"/>
-              <button class="btn btn-primary text-white" @click="getSomething()">
-                Cerca
-              </button>
-            </form>
+          <div class="container-fluid">
+            <div class="d-flex w-100" role="search">
+              <input @keyup="getFilteredApartment()" class="form-control me-2" type="search" placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento" aria-label="Search"  v-model="filter"/>
+              <button class="btn btn-primary text-white" @click="$emit('sendApartments',getSomething())">
+              Cerca
+            </button>
+            </div>
+            <ul id="addresses" class="addresses_container">
+              <li role="button" @click="setCurrentAddress(address)" v-for=" (address, index) in searchedAddresses" :key="index" class="list-group-item py-1 px-2 my-1 list-group-item-action searched_address">
+                {{ address.address.freeformAddress + ", " + address.address.countrySubdivision}}
+              </li>
+            </ul>
           </div>
         </nav>
 
@@ -104,7 +109,7 @@ export default {
       long: '',
       lat: '',
       searchedCoordinates: {},
-      radius: 20,
+      searchedAddresses : [],
       amenities: [],
       bathNo: 0,
       roomNo: 0,
@@ -116,33 +121,38 @@ export default {
   },
   methods: {
     getFilteredApartment() {
-      axios.get('https://api.tomtom.com/search/2/search/.json?key=Z4C8r6rK8x69JksEOmCX43MGffYO83xu&query=' + this.filter +'&countrySet=IT' + '&limit=1').then((response) => {
-        console.log(response.data);
-        this.searchedCoordinates = response.data;
-        this.lat = this.searchedCoordinates["results"][0]["position"]["lat"];
-        this.long = this.searchedCoordinates["results"][0]["position"]["lon"];
-        console.log(this.lat);
-        console.log(this.long);
+      axios.get(`https://api.tomtom.com/search/2/search/${this.filter}.json?key=Y3utdtjiBc6ObgcZs8bNzOGza3HV7trG&countrySet=IT&typeahead=true&limit=5`)
+      .then((response) => {
+        console.log(response);
+        this.searchedAddresses = '';
+        this.searchedAddresses = response.data.results;
+        this.lat = this.searchedAddresses[0].position.lat;
+        this.long = this.searchedAddresses[0].position.lon;
       }).catch((error) => {
         console.warn(error);
       });
     },
-    getCover(images){
-      for(let i=0;i<images.length;i++){
-        if(images[i].is_cover == true){
-          return images[i].image;
-        }
-      }
+    setCurrentAddress(a){
+      this.lat = a.position.lat;
+      this.long = a.position.lon;
+      this.filter = a.address.freeformAddress + ", " + a.address.countrySubdivision;
+      this.searchedAddresses = '';
     },
     getSomething(){
-      axios.get('/api/apartments', {params:{
-        lat: this.lat ,
-        long: this.long, 
-        radius: this.radius,}      
+      this.apartments = '';
+      this.searchedAddresses = '';
+      axios.get('/api/apartments',{params:{
+        lat:this.lat,
+        long:this.long, 
+        radius:this.searchRange,}      
       })
       .then((response) => {
-        console.log(response);
+        this.lat = '';
+        this.long = '';
         this.apartments = response.data.results;
+        this.$emit("sendApartments", {
+                apartment : this.apartments,
+            })
       }).catch((error) => {
         console.log(error);
       })
@@ -151,7 +161,6 @@ export default {
     getAmenities() {
       axios.get("http://127.0.0.1:8000/api/amenities")
       .then((response) => {
-          console.log(response.data.results);
           this.amenities = response.data.results;
       })
     },

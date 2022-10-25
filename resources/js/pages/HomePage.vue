@@ -20,104 +20,49 @@
         </div>
 
         <!-- Search bar -->
-        <SearchBar />
+        <SearchBar @sendApartments = "SearchedApartments" />
 
         <!-- Appartamenti in evidenza -->
         <div class="py-4 container">
           <div class="text-center mb-4">
-            <span class="tag fs-5">IN EVIDENZA</span>
+            <span class="tag fs-5">RISULTATI RICERCA</span>
           </div>
-
           <div class="in_evidence p-5">
-            <!-- CARD -->
             <div v-if="apartments != ''" class=" row row-cols-4 gx-4">
               <div class="col" v-for="apartment in apartments" :key="apartment.id">
-                <div class="card px-0 shadow-sm">
-                  <a href="">
-                    <img 
-                      :src="getCover(apartment.images)"
-                      alt="title"
-                      class="card-img-top"
-                    />
-                  </a>
-                  <div class="card-body card-body-cascade pb-0">
-                    <h5 class="card-title">
-                      <strong>
-                        <a href="#"> {{ apartment.title }} </a>
-                      </strong>
-                    </h5>
-                    <p class="fst-italic pb-1">{{ apartment.address }}</p>
-                  </div>
-                </div>
+                      <ApartmentsCards
+                        :apartment="apartment"
+                      />
               </div>
             </div>
-           
             <!-- FINE CARD DUPLICATE -->
             <div v-else class="text-center fs-4 user_search_message">
               {{ userMessage }}
             </div>
           </div>
+        </div>
          
         </div>
       </div>
-
-      <!-- Lista Appartamenti -->
-      <div class="container">
-        <div class="row">
-          <ApartmentsCards
-            v-for="apartment in apartments"
-            :key="apartment.id"
-            :apartment="apartment"
-          />
-          <h1>hello</h1>
-        </div>
-      </div>
-    </div>
   </main>
 </template>
 <script>
-import axios from "axios";
-import ApartmentCards from "../components/ApartmentsCards.vue";
+import ApartmentsCards from "../components/ApartmentsCards.vue";
 import SearchBar from '../pages/SearchBar.vue'
 
 export default {
   name: "HomePage",
   components: {
-    ApartmentCards,
+    ApartmentsCards,
     SearchBar,
   },
   data: function () {
     return {
       apartments: [],
-      filter: '',
-      long: '',
-      lat: '',
-      searchedAddresses:[],
-      searchedCoordinates: {},
-      radius: 20,
       userMessage: 'Qui vedrai gli appartmenti che rispettano i tuoi criteri'
     };
   },
   methods: {
-    getFilteredApartment() {
-      axios.get(`https://api.tomtom.com/search/2/search/${this.filter}.json?key=Y3utdtjiBc6ObgcZs8bNzOGza3HV7trG&countrySet=IT&typeahead=true&limit=5`)
-      .then((response) => {
-        console.log(response);
-        this.searchedAddresses = '';
-        this.searchedAddresses = response.data.results;
-        this.lat = this.searchedAddresses[0].position.lat;
-        this.long = this.searchedAddresses[0].position.lon;
-      }).catch((error) => {
-        console.warn(error);
-      });
-    },
-    setCurrentAddress(a){
-      this.lat = a.position.lat;
-      this.long = a.position.lon;
-      this.filter = a.address.freeformAddress + ", " + a.address.countrySubdivision;
-      this.searchedAddresses = '';
-    },
-
     getCover(images){
       for(let i=0;i<images.length;i++){
         if(images[i].is_cover == true){
@@ -125,34 +70,12 @@ export default {
         }
       }
     },
-    getSomething(){
-      this.apartments = '';
-      this.searchedAddresses = '';
-      axios.get('/api/apartments',{params:{
-        lat:this.lat,
-        long:this.long, 
-        radius:this.radius,}      
-      })
-      .then((response) => {
-        this.lat = '';
-        this.long = '';
-        console.log(response);
-        this.apartments = response.data.results;
-        if(this.apartments == ''){
+    SearchedApartments(a){
+      this.apartments = a.apartment;
+      if(this.apartments == ''){
           this.userMessage = 'OPS!! Non sono stati trovati appartamenti,prova con uno dei nostri indirizzi consigliati'
         }
-      }).catch((error) => {
-        console.log(error);
-      })
-    },
-
-    getAmenities() {
-      axios.get("http://127.0.0.1:8000/api/amenities")
-      .then((response) => {
-          console.log(response.data.results);
-          this.amenities = response.data.results;
-      })
-    },
+    }
   },
   created() {
 

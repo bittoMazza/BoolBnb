@@ -164,7 +164,6 @@
         </div>
       </div>
     </div>
-    <script type="application/javascript" src="./js/map.js"></script>
   </div>
 </template>
 
@@ -177,12 +176,17 @@ export default {
     };
   },
   methods: {
-    getApartment() {
-      const id = this.$route.params.id;
-      axios.get(`/api/apartments/${id}`).then((response) => {
-        this.apartment = response.data.results.data;
-      });
-    },
+    getApartment(){
+            const id = this.$route.params.id;
+            /* Facciamo una chiamata al metodo show dell'api*/
+            axios.get(`/api/apartments/${id}`,{
+            }).then((response) => {
+                console.log(response.data.results);
+                this.apartment = response.data.results.data;
+            }).catch((error) => {
+                console.error(error);
+            })
+        }
   },
   mounted() {
     // let mapScriptCss = document.createElement("link");
@@ -209,8 +213,10 @@ export default {
     // servicesBox.src =
     //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
     // document.head.appendChild(servicesBox);
-    this.getApartment();
   },
+  created(){
+   this.getApartment();
+  }
 };
 </script>
 

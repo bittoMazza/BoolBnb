@@ -1,19 +1,20 @@
 <template>
-  <div>
-    <div class="col-12">
-      <div class="card px-0 shadow-sm">
-        <router-link :to="'apartments/' + apartment.id">
-          <img :src="apartment.images" alt="title" class="card-img-top" />
-        </router-link>
-
-        <div class="card-body card-body-cascade pb-0">
-          <h5 class="card-title">
-            <strong>
-              <a href="#"> {{ apartment.title }} </a>
-            </strong>
-          </h5>
-          <p class="fst-italic pb-1">{{ apartment.address }}</p>
-        </div>
+  <div class="card px-0 shadow-sm">
+    <div >
+      <router-link  class="nav-link" :to="'/apartments/'+ apartment.id" >
+        <img 
+          :src="getCover(apartment.images)"
+          alt="title"
+          class="card-img-top"
+        />
+      </router-link>
+      <div class="card-body card-body-cascade pb-0">
+        <h5 class="card-title">
+          <strong>
+            <router-link :to="'/apartments/'+ apartment.id" class="nav-link">{{ apartment.title }}</router-link>
+          </strong>
+        </h5>
+        <p class="fst-italic pb-1">{{ apartment.address }}</p>
       </div>
     </div>
   </div>
@@ -25,6 +26,15 @@ export default {
   props: {
     apartment: Object,
   },
+  methods:{
+    getCover(images){
+      for(let i=0;i<images.length;i++){
+        if(images[i].is_cover == true){
+          return images[i].image;
+        }
+      }
+    },
+  }
 };
 </script>
 
