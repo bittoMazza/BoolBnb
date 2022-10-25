@@ -2764,9 +2764,9 @@ var render = function render() {
   return _c("section", [_c("fieldset", {
     staticClass: "border border-4 p-3 mt-5"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "d-flex align-items-center text-center py-3"
+    staticClass: "row g-4 align-items-center text-center py-3"
   }, [_c("div", {
-    staticClass: "col"
+    staticClass: "col-12 col-md-6 col-lg-4"
   }, [_c("label", {
     staticClass: "fw-bold",
     attrs: {
@@ -2835,7 +2835,7 @@ var render = function render() {
       value: "10"
     }
   }, [_vm._v("10")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col"
+    staticClass: "col-12 col-md-6 col-lg-4"
   }, [_c("label", {
     staticClass: "fw-bold",
     attrs: {
@@ -2904,7 +2904,7 @@ var render = function render() {
       value: "10"
     }
   }, [_vm._v("10")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col"
+    staticClass: "col-12 col-lg-4"
   }, [_c("label", {
     staticClass: "fw-bold",
     attrs: {
