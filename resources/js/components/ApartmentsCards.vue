@@ -2,11 +2,16 @@
   <div class="card px-0 shadow-sm">
     <div >
       <router-link  class="nav-link" :to="'/apartments/'+ apartment.id" >
-        <img 
-          :src="getCover(apartment.images)"
-          alt="title"
-          class="card-img-top"
-        />
+        <img v-if="getCover(apartment.images).includes('uploads')"
+              class="card-img-top"
+              :src="'/storage/'+getCover(apartment.images)"
+              alt=""
+            />
+            <img v-else
+              class="card-img-top"
+              :src="getCover(apartment.images)"
+              alt=""
+            />
       </router-link>
       <div class="card-body card-body-cascade pb-0">
         <h5 class="card-title">

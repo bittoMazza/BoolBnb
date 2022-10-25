@@ -16,23 +16,23 @@
       <div class="container mb-3">
         <div class="row">
           <div class="col d-flex">
-            <img
+            <img v-if="getMainImage(apartment.images).includes('uploads')"
+              class="w-75 rounded-start"
+              :src="'/storage/'+getMainImage(apartment.images)"
+              alt=""
+            />
+            <img v-else
               class="w-75 rounded-start"
               :src="getMainImage(apartment.images)"
               alt=""
             />
 
-            <div class="col-4">
-              <div v-for="images in apartment.images" :key="images.id">
-                
-                <img v-if="images.is_cover == false"
-                  class="w-75 rounded-end"
-                  :src="images.image"
-                  alt=""
-                />
-                <div v-else>
 
-                </div>
+            <div class="col-4">
+              <div v-for="images in apartment.images" :key="images.id">               
+                <img v-if="images.is_cover == false && images.image.includes('uploads')" class="w-75 rounded-end" :src="'/storage/'+images.image" alt=""/>
+                <img v-else-if="images.is_cover == false && images.image.includes('https')" class="w-75 rounded-end" :src="images.image"/>
+                <img v-else src="" alt="">
               </div>
             </div>
           </div>

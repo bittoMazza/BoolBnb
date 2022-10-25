@@ -34,7 +34,7 @@ class ApartmentController extends Controller
         }
 
         foreach($filteredApartments as $apartment){
-            if($apartment->beds >= $beds &&  $apartment->rooms >= $rooms ){ 
+            if($apartment->beds >= $beds &&  $apartment->rooms >= $rooms && $apartment->is_visible == true){ 
                 $fapartements[] = $apartment;
             }
         }
