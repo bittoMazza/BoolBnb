@@ -22,198 +22,22 @@
         <!-- Search bar -->
         <SearchBar @sendApartments="SearchedApartments" />
 
-        <!-- Appartamenti in evidenza -->
+        <!-- Risultati di ricerca Appartamenti -->
         <div class="py-4 container">
-          <fieldset class="border border-4 p-3">
+          <fieldset class="border border-4 p-3 mb-5">
             <legend class="float-none w-auto px-3">
               <span class="brand-color-2"> RISULTATI DI RICERCA</span>
             </legend>
             <div v-if="apartments != ''" class="row row-cols-4 gx-4">
-              <div
-                class="col"
-                v-for="apartment in apartments"
-                :key="apartment.id"
-              >
+              <div class="col" v-for="apartment in apartments" :key="apartment.id">
                 <ApartmentsCards :apartment="apartment" />
               </div>
             </div>
-            <!-- FINE CARD DUPLICATE -->
-            <div v-else class="text-center fs-4 user_search_message">
+
+            <div v-else class="text-center fs-5 user_search_message">
               {{ userMessage }}
             </div>
           </fieldset>
-          </div>
-        </div>
-
-        <!-- Lista Appartamenti -->
-        <div class="p-4 container">
-          <div class="text-center mb-4">
-            <h4 class="fw-bold">APPARTAMENTI</h4>
-          </div>
-
-          <div class="p-5 row row-cols-4 gx-4">
-            <!-- CARD -->
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- INIZIO CARD DUPLICATE -->
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 mb-4">
-              <div class="card px-0 shadow-sm">
-                <a href="">
-                  <img
-                    src="https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg"
-                    alt="title"
-                    class="card-img-top"
-                  />
-                </a>
-                <div class="card-body card-body-cascade pb-0">
-                  <h5 class="card-title">
-                    <strong>
-                      <a href="#"> Titolo Appartamento </a>
-                    </strong>
-                  </h5>
-                  <p class="fst-italic pb-1">Indirizzo</p>
-                </div>
-              </div>
-            </div>
-            <!-- FINE CARD DUPLICATE -->
           </div>
         </div>
       </div>
@@ -232,7 +56,7 @@ export default {
   data: function () {
     return {
       apartments: [],
-      userMessage: "Qui vedrai gli appartmenti che rispettano i tuoi criteri",
+      userMessage: "Qui vedrai gli appartamenti che rispettano i tuoi criteri di ricerca",
     };
   },
   methods: {
@@ -247,7 +71,7 @@ export default {
       this.apartments = a.apartment;
       if (this.apartments == "") {
         this.userMessage =
-          "OPS!! Non sono stati trovati appartamenti , prova con un altro indirizzo";
+          "OPS!! Non sono stati trovati appartamenti, prova con un altro indirizzo";
       }
     },
   },
