@@ -118,35 +118,43 @@
                 <h3>Scrivi un messaggio al proprietario</h3>
                 <label for="nome" class="form-label">Nome</label>
                 <input
-                  type="email"
+                  type="text"
                   class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
+                  v-model="name"
                 />
               </div>
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
+                <label class="form-label"
+                  >Cognome</label
+                >
+                <input
+                  type="text"
+                  v-model = "surname"
+                  class="form-control"/>
+              </div>
+              <div class="mb-3">
+                <label class="form-label"
                   >Indirizzo email</label
                 >
                 <input
                   type="email"
+                  v-model = "email"
                   class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
                 />
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label"
                   >Messaggio</label
                 >
-                <textarea
+                <input
+                  type="text"
+                  v-model = "content"
                   class="form-control"
                   id="exampleFormControlTextarea1"
-                  rows="3"
-                ></textarea>
+                >
               </div>
 
-              <button type="submit" class="btn btn-blue text-white fw-bold">
+              <button type="submit" @click="sendMessage()" class="btn btn-blue text-white fw-bold">
                 Invia
               </button>
             </form>
@@ -177,6 +185,10 @@ export default {
   data() {
     return {
       apartment: {},
+      name : '',
+      surname:'',
+      email:'',
+      content:'',
     };
   },
   methods: {
@@ -190,7 +202,25 @@ export default {
             }).catch((error) => {
                 console.error(error);
             })
-        }
+        },
+    sendMessage(){
+      event.preventDefault();
+      const id = this.$route.params.id
+      axios.post(`/api/apartments/${id}/messages`,{params:{
+        name:this.name,
+        surname:this.surname,
+        email:this.email,
+        content:this.content,
+        apartment_id:id,
+        }      
+      })
+      .then((response) => {
+        console.log(response)
+      }).catch((error) => {
+        console.log(error);
+      })
+    }
+    
   },
   mounted() {
     // let mapScriptCss = document.createElement("link");

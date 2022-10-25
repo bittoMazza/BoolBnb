@@ -38,15 +38,18 @@ class MessageController extends Controller
     {
         $data = $request->validate([
             "name" => "nullable|string",
-            'lastname' => "required|string",
+            'surname' => "required|string",
             "email" => "required|email",
             "content" => "required|string",
             'apartment_id' => 'required'
         ]);
 
+        $data = $request->all();
+
         $newMessage = new Message();
         $newMessage->fill($data);
         $newMessage->save();
+        return back();
     }
 
     /**

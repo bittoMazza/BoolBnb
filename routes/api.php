@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\ApartmentController;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::namespace('api')->group(function(){
     Route::get('/apartments', 'ApartmentController@index');
     Route::get('/apartments/{id}', 'ApartmentController@show');
+    Route::post('/apartments/{id}/messages', 'MessageController@store');
     Route::get('/amenities', 'AmenityController@index');
 });
 
