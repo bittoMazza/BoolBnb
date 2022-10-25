@@ -20,34 +20,36 @@
         </div>
 
         <!-- Search bar -->
-        <SearchBar @sendApartments = "SearchedApartments" />
+        <SearchBar @sendApartments="SearchedApartments" />
 
         <!-- Appartamenti in evidenza -->
         <div class="py-4 container">
-          <div class="text-center mb-4">
-            <span class="fs-5">RISULTATI RICERCA</span>
-          </div>
-          <div class="in_evidence p-5">
-            <div v-if="apartments != ''" class=" row row-cols-4 gx-4">
-              <div class="col" v-for="apartment in apartments" :key="apartment.id">
-                      <ApartmentsCards
-                        :apartment="apartment"
-                      />
+          <fieldset class="border border-4 p-3">
+            <legend class="float-none w-auto px-3">
+              <span class="brand-color-2"> RISULTATI DI RICERCA</span>
+            </legend>
+            <div v-if="apartments != ''" class="row row-cols-4 gx-4">
+              <div
+                class="col"
+                v-for="apartment in apartments"
+                :key="apartment.id"
+              >
+                <ApartmentsCards :apartment="apartment" />
               </div>
             </div>
             <!-- FINE CARD DUPLICATE -->
             <div v-else class="text-center fs-4 user_search_message">
               {{ userMessage }}
             </div>
-          </div>
-        </div>        
+          </fieldset>
         </div>
       </div>
+    </div>
   </main>
 </template>
 <script>
 import ApartmentsCards from "../components/ApartmentsCards.vue";
-import SearchBar from '../pages/SearchBar.vue'
+import SearchBar from "../pages/SearchBar.vue";
 
 export default {
   name: "HomePage",
@@ -58,23 +60,24 @@ export default {
   data: function () {
     return {
       apartments: [],
-      userMessage: 'Qui vedrai gli appartmenti che rispettano i tuoi criteri'
+      userMessage: "Qui vedrai gli appartmenti che rispettano i tuoi criteri",
     };
   },
   methods: {
-    getCover(images){
-      for(let i=0;i<images.length;i++){
-        if(images[i].is_cover == true){
+    getCover(images) {
+      for (let i = 0; i < images.length; i++) {
+        if (images[i].is_cover == true) {
           return images[i].image;
         }
       }
     },
-    SearchedApartments(a){
+    SearchedApartments(a) {
       this.apartments = a.apartment;
-      if(this.apartments == ''){
-          this.userMessage = 'OPS!! Non sono stati trovati appartamenti , prova con un altro indirizzo'
-        }
-    }
+      if (this.apartments == "") {
+        this.userMessage =
+          "OPS!! Non sono stati trovati appartamenti , prova con un altro indirizzo";
+      }
+    },
   },
 };
 
@@ -176,7 +179,13 @@ window.onload = function () {
   color: white;
 }
 
-.in_evidence {
-  border: 2px solid #19bab3;
+// Fieldset border
+
+.brand-color-2 {
+  color: #19bab3;
+}
+
+fieldset {
+  border-color: #19bab3 !important;
 }
 </style>

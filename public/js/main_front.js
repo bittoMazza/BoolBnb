@@ -2030,7 +2030,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   data: function data() {
     return {
       apartments: [],
-      userMessage: 'Qui vedrai gli appartmenti che rispettano i tuoi criteri'
+      userMessage: "Qui vedrai gli appartmenti che rispettano i tuoi criteri"
     };
   },
   methods: {
@@ -2043,8 +2043,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     },
     SearchedApartments: function SearchedApartments(a) {
       this.apartments = a.apartment;
-      if (this.apartments == '') {
-        this.userMessage = 'OPS!! Non sono stati trovati appartamenti , prova con un altro indirizzo';
+      if (this.apartments == "") {
+        this.userMessage = "OPS!! Non sono stati trovati appartamenti , prova con un altro indirizzo";
       }
     }
   }
@@ -2127,9 +2127,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       apartments: [],
-      filter: '',
-      "long": '',
-      lat: '',
+      filter: "",
+      "long": "",
+      lat: "",
       searchedCoordinates: {},
       searchedAddresses: [],
       amenities: [],
@@ -2143,7 +2143,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/search/".concat(this.filter, ".json?key=Y3utdtjiBc6ObgcZs8bNzOGza3HV7trG&countrySet=IT&typeahead=true&limit=5")).then(function (response) {
         console.log(response);
-        _this.searchedAddresses = '';
+        _this.searchedAddresses = "";
         _this.searchedAddresses = response.data.results;
         _this.lat = _this.searchedAddresses[0].position.lat;
         _this["long"] = _this.searchedAddresses[0].position.lon;
@@ -2155,13 +2155,13 @@ __webpack_require__.r(__webpack_exports__);
       this.lat = a.position.lat;
       this["long"] = a.position.lon;
       this.filter = a.address.freeformAddress + ", " + a.address.countrySubdivision;
-      this.searchedAddresses = '';
+      this.searchedAddresses = "";
     },
     getSomething: function getSomething() {
       var _this2 = this;
-      this.apartments = '';
-      this.searchedAddresses = '';
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/apartments', {
+      this.apartments = "";
+      this.searchedAddresses = "";
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/apartments", {
         params: {
           lat: this.lat,
           "long": this["long"],
@@ -2584,9 +2584,9 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "py-4 container"
-  }, [_vm._m(1), _vm._v(" "), _c("div", {
-    staticClass: "in_evidence p-5"
-  }, [_vm.apartments != "" ? _c("div", {
+  }, [_c("fieldset", {
+    staticClass: "border border-4 p-3"
+  }, [_vm._m(1), _vm._v(" "), _vm.apartments != "" ? _c("div", {
     staticClass: "row row-cols-4 gx-4"
   }, _vm._l(_vm.apartments, function (apartment) {
     return _c("div", {
@@ -2622,11 +2622,11 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "text-center mb-4"
+  return _c("legend", {
+    staticClass: "float-none w-auto px-3"
   }, [_c("span", {
-    staticClass: "fs-5"
-  }, [_vm._v("RISULTATI RICERCA")])]);
+    staticClass: "brand-color-2"
+  }, [_vm._v(" RISULTATI DI RICERCA")])]);
 }];
 render._withStripped = true;
 
@@ -2647,11 +2647,9 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("section", [_c("div", {
-    staticClass: "ms_search-box mb-4 mt-5"
-  }, [_c("h3", {
-    staticClass: "text-center"
-  }, [_vm._v("Applica filtri alla tua ricerca")]), _vm._v(" "), _c("div", {
+  return _c("section", [_c("fieldset", {
+    staticClass: "border border-4 p-3 mt-5"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "d-flex align-items-center text-center py-3"
   }, [_c("div", {
     staticClass: "col"
@@ -2660,7 +2658,7 @@ var render = function render() {
     attrs: {
       "for": "room-no"
     }
-  }, [_vm._v("Numero camere")]), _vm._v(" "), _c("select", {
+  }, [_vm._v("Numero di camere")]), _vm._v(" "), _c("select", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2838,7 +2836,7 @@ var render = function render() {
         return _vm.resetFilters();
       }
     }
-  }, [_vm._v("Cancella filtri")])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("nav", {
+  }, [_vm._v("\n        Cancella filtri\n      ")])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("nav", {
     staticClass: "navbar bg-light mb-4"
   }, [_c("div", {
     staticClass: "container-fluid"
@@ -2879,12 +2877,12 @@ var render = function render() {
         _vm.$emit("sendApartments", _vm.getSomething());
       }
     }
-  }, [_vm._v("\n                Cerca\n              ")])]) : _c("div", [_c("button", {
+  }, [_vm._v("\n            Cerca\n          ")])]) : _c("div", [_c("button", {
     staticClass: "btn btn-primary text-white",
     attrs: {
       disabled: ""
     }
-  }, [_vm._v("\n                Cerca\n              ")])])]), _vm._v(" "), _c("ul", {
+  }, [_vm._v("Cerca")])])]), _vm._v(" "), _c("ul", {
     staticClass: "addresses_container",
     attrs: {
       id: "addresses"
@@ -2901,17 +2899,25 @@ var render = function render() {
           return _vm.setCurrentAddress(address);
         }
       }
-    }, [_vm._v("\n              " + _vm._s(address.address.freeformAddress + ", " + address.address.countrySubdivision) + "\n            ")]);
+    }, [_vm._v("\n          " + _vm._s(address.address.freeformAddress + ", " + address.address.countrySubdivision) + "\n        ")]);
   }), 0)])])]);
 };
 var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("legend", {
+    staticClass: "float-none w-auto px-3"
+  }, [_c("span", {
+    staticClass: "brand-color-2"
+  }, [_vm._v(" APPLICA FILTRO DI RICERCA")])]);
+}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("h3", {
     staticClass: "fw-bold text-center mt-3 mb-0"
   }, [_c("span", {
     staticClass: "text-primary"
-  }, [_vm._v("Cerca")]), _vm._v(" un appartamento\n      ")]);
+  }, [_vm._v("Cerca")]), _vm._v(" un appartamento\n  ")]);
 }];
 render._withStripped = true;
 
@@ -2971,7 +2977,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".content[data-v-04c29797] {\n  width: 100%;\n  height: 55vh;\n  max-height: 55vh;\n  background-image: url(\"https://wallpaperaccess.com/full/3434829.jpg\");\n  background-repeat: no-repeat;\n  background-clip: border-box;\n  background-size: cover;\n}\n.typewriter-jumbo[data-v-04c29797] {\n  float: left;\n  margin-top: 10rem;\n  margin-left: 12rem;\n}\n.home-title[data-v-04c29797] {\n  font-size: 4em;\n  text-shadow: 0.5px 0.5px #333;\n}\n.typewrite[data-v-04c29797] {\n  color: #3490dc;\n  font-size: 2em;\n  margin-left: 7rem;\n  text-shadow: 0.5px 0.5px #fff;\n}\n.tag[data-v-04c29797] {\n  padding: 6px 8px;\n  background-color: #19bab3;\n  color: white;\n}\n.in_evidence[data-v-04c29797] {\n  border: 2px solid #19bab3;\n}", ""]);
+exports.push([module.i, ".content[data-v-04c29797] {\n  width: 100%;\n  height: 55vh;\n  max-height: 55vh;\n  background-image: url(\"https://wallpaperaccess.com/full/3434829.jpg\");\n  background-repeat: no-repeat;\n  background-clip: border-box;\n  background-size: cover;\n}\n.typewriter-jumbo[data-v-04c29797] {\n  float: left;\n  margin-top: 10rem;\n  margin-left: 12rem;\n}\n.home-title[data-v-04c29797] {\n  font-size: 4em;\n  text-shadow: 0.5px 0.5px #333;\n}\n.typewrite[data-v-04c29797] {\n  color: #3490dc;\n  font-size: 2em;\n  margin-left: 7rem;\n  text-shadow: 0.5px 0.5px #fff;\n}\n.tag[data-v-04c29797] {\n  padding: 6px 8px;\n  background-color: #19bab3;\n  color: white;\n}\n.brand-color-2[data-v-04c29797] {\n  color: #19bab3;\n}\nfieldset[data-v-04c29797] {\n  border-color: #19bab3 !important;\n}", ""]);
 
 // exports
 
@@ -2990,7 +2996,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".ms_search-box[data-v-23039892] {\n  border: solid 5px #3490dc;\n  padding: 20px;\n}", ""]);
+exports.push([module.i, ".ms_search-box[data-v-23039892] {\n  padding: 20px;\n}\n.brand-color-2[data-v-23039892] {\n  color: #3490dc;\n}\nfieldset[data-v-23039892] {\n  border-color: #3490dc !important;\n}", ""]);
 
 // exports
 
