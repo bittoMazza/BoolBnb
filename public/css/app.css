@@ -10969,7 +10969,7 @@ ul {
   padding: 5px 20px;
 }
 
-@media all and (min-width: 576px) {
+@media all and (min-width: 500px) {
   .sm_none {
     display: none;
   }
