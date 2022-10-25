@@ -1,6 +1,5 @@
 <template>
   <div class="card px-0 shadow-sm">
-    <div >
       <router-link  class="nav-link" :to="'/apartments/'+ apartment.id" >
         <img v-if="getCover(apartment.images).includes('uploads')"
               class="card_img"
@@ -21,7 +20,6 @@
         </h5>
         <p class="fst-italic pb-1">{{ apartment.address }}</p>
       </div>
-    </div>
   </div>
 </template>
 
@@ -44,6 +42,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .card_img{
   height: 200px;
   width: 100%;
