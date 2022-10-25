@@ -2700,8 +2700,270 @@ render._withStripped = true;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function render() {};
-var staticRenderFns = [];
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("main", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-12"
+  }, [_vm._m(0), _vm._v(" "), _c("SearchBar", {
+    on: {
+      sendApartments: _vm.SearchedApartments
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "py-4 container"
+  }, [_c("fieldset", {
+    staticClass: "border border-4 p-3"
+  }, [_vm._m(1), _vm._v(" "), _vm.apartments != "" ? _c("div", {
+    staticClass: "row row-cols-4 gx-4"
+  }, _vm._l(_vm.apartments, function (apartment) {
+    return _c("div", {
+      key: apartment.id,
+      staticClass: "col"
+    }, [_c("ApartmentsCards", {
+      attrs: {
+        apartment: apartment
+      }
+    })], 1);
+  }), 0) : _c("div", {
+    staticClass: "text-center fs-4 user_search_message"
+  }, [_vm._v("\n            " + _vm._s(_vm.userMessage) + "\n          ")])])])], 1), _vm._v(" "), _vm._m(2)])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "content py-3"
+  }, [_c("div", {
+    staticClass: "typewriter-jumbo text-center"
+  }, [_c("h1", {
+    staticClass: "home-title fw-bold"
+  }, [_vm._v("Scopri un posto ")]), _vm._v(" "), _c("h3", {
+    staticClass: "typewrite fw-bold text-highlight-warning",
+    attrs: {
+      "data-period": "2000",
+      "data-type": '[ "dove amerai vivere.", "da sogno."]'
+    }
+  }, [_c("span", {
+    staticClass: "wrap"
+  })])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("legend", {
+    staticClass: "float-none w-auto px-3"
+  }, [_c("span", {
+    staticClass: "brand-color-2"
+  }, [_vm._v(" RISULTATI DI RICERCA")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "p-4 container"
+  }, [_c("div", {
+    staticClass: "text-center mb-4"
+  }, [_c("h4", {
+    staticClass: "fw-bold"
+  }, [_vm._v("APPARTAMENTI")])]), _vm._v(" "), _c("div", {
+    staticClass: "p-5 row row-cols-4 gx-4"
+  }, [_c("div", {
+    staticClass: "col-md-4 col-sm-6 mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4 col-sm-6 mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4 col-sm-6 mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4 col-sm-6 mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4 col-sm-6 mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4 col-sm-6 mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4 col-sm-6 mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4 col-sm-6 mb-4"
+  }, [_c("div", {
+    staticClass: "card px-0 shadow-sm"
+  }, [_c("a", {
+    attrs: {
+      href: ""
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://www.italiapartment.com/images/camere-home/ok_FRI5524_00025.jpg",
+      alt: "title"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body card-body-cascade pb-0"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_c("strong", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
+    staticClass: "fst-italic pb-1"
+  }, [_vm._v("Indirizzo")])])])])])]);
+}];
+render._withStripped = true;
 
 
 /***/ }),
@@ -3088,7 +3350,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nfooter {\r\n  height: 60px;\r\n  position: fixed;\r\n  bottom: 0;\r\n  width: 100%;\r\n  background-color: #3490dc;\n}\nli {\r\n    padding-left: 1rem;\r\n    font-size: 1.2rem;\n}\n.bi-circle-fill {\r\n  color: white;\r\n  font-size: 0.2em;\r\n  padding-left: 1rem;\n}\n.bi-c-circle {\r\n  font-size: 0.8em;\r\n  margin-right: 0.3rem;\n}\r\n", ""]);
+exports.push([module.i, "\nfooter {\r\n  height: 60px;\r\n  width: 100%;\r\n  background-color: #3066bd;\n}\nli {\r\n    padding-left: 1rem;\r\n    font-size: 1.2rem;\n}\n.bi-circle-fill {\r\n  color: white;\r\n  font-size: 0.2em;\r\n  padding-left: 1rem;\n}\n.bi-c-circle {\r\n  font-size: 0.8em;\r\n  margin-right: 0.3rem;\n}\r\n", ""]);
 
 // exports
 

@@ -27,10 +27,8 @@ export default {};
 <style>
 footer {
   height: 60px;
-  position: fixed;
-  bottom: 0;
   width: 100%;
-  background-color: #3490dc;
+  background-color: #3066bd;
 }
 
   li {
