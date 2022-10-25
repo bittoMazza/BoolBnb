@@ -18,35 +18,21 @@
           <div class="col d-flex">
             <img
               class="w-75 rounded-start"
-              src="https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/50434f11-d7bd-4986-a78a-fac692d0e062?im_w=1440"
+              :src="getMainImage(apartment.images)"
               alt=""
             />
 
             <div class="col-4">
-              <div class="upper-images">
-                <img
+              <div v-for="images in apartment.images" :key="images.id">
+                
+                <img v-if="images.is_cover == false"
                   class="w-75 rounded-end"
-                  src="https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/08155438-9751-401c-b0d7-fa31be950053?im_w=1440"
+                  :src="images.image"
                   alt=""
                 />
-                <img
-                  class="w-75"
-                  src="https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/d15bc9d6-7fed-44f4-8762-9a4c94658a50?im_w=1440"
-                  alt=""
-                />
-              </div>
+                <div v-else>
 
-              <div class="bottom-images">
-                <img
-                  class="w-75"
-                  src="https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/f5787391-ca20-4a9e-a1b4-263914fc5612?im_w=1440"
-                  alt=""
-                />
-                <img
-                  class="w-75 rounded-end"
-                  src="https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/5971b9c9-172c-409e-8d8a-759023c48615?im_w=1440"
-                  alt=""
-                />
+                </div>
               </div>
             </div>
           </div>
@@ -173,6 +159,7 @@ export default {
   data() {
     return {
       apartment:{},
+      secondaryImages:[],
       name :'',
       surname:'',
       email:'',
@@ -204,34 +191,17 @@ export default {
       }).catch((error) => {
         console.log(error);
       })
-    }
-    
-  },
-  mounted() {
-    // let mapScriptCss = document.createElement("link");
-    // mapScriptCss.src =
-    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css";
-    // document.head.appendChild(mapScriptCss);
-
-    // let mapScriptJS = document.createElement("script");
-    // mapScriptJS.src =
-    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js";
-    // document.head.appendChild(mapScriptJS);
-
-    // let searchBoxCss = document.createElement("link");
-    // searchBoxCss.src =
-    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css";
-    // document.head.appendChild(searchBoxCss);
-
-    // let searchBox = document.createElement("script");
-    // searchBox.src =
-    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js";
-    // document.head.appendChild(searchBox);
-
-    // let servicesBox = document.createElement("script");
-    // servicesBox.src =
-    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
-    // document.head.appendChild(servicesBox);
+    },
+    getMainImage(images){
+      let cover;
+      images.forEach(image => {
+        if(image.is_cover == true){
+          cover = image.image;
+        }
+      }
+      )
+      return cover; 
+    },    
   },
   created(){
    this.getApartment();
