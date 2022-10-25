@@ -2414,8 +2414,7 @@ var render = function render() {
     staticClass: "fw-bold"
   }, [_vm._v("Cosa troverai:")]), _vm._v(" "), _c("ul", _vm._l(_vm.apartment.amenities, function (amenity) {
     return _c("li", {
-      key: amenity.id,
-      staticClass: "fs-3"
+      key: amenity.id
     }, [_vm._v("\n              " + _vm._s(amenity.name) + "\n            ")]);
   }), 0), _vm._v(" "), _c("br")])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
     staticClass: "container"
@@ -2648,72 +2647,8 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("section", [_vm._m(0), _vm._v(" "), _c("nav", {
-    staticClass: "navbar bg-light mb-4"
-  }, [_c("div", {
-    staticClass: "container-fluid"
-  }, [_c("div", {
-    staticClass: "d-flex w-100",
-    attrs: {
-      role: "search"
-    }
-  }, [_c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.filter,
-      expression: "filter"
-    }],
-    staticClass: "form-control me-2",
-    attrs: {
-      type: "search",
-      placeholder: "Inserisci il luogo in cui vuoi trovare l'appartamento",
-      "aria-label": "Search"
-    },
-    domProps: {
-      value: _vm.filter
-    },
-    on: {
-      keyup: function keyup($event) {
-        return _vm.getFilteredApartment();
-      },
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.filter = $event.target.value;
-      }
-    }
-  }), _vm._v(" "), _vm.filter != "" ? _c("div", [_c("button", {
-    staticClass: "btn btn-primary text-white",
-    on: {
-      click: function click($event) {
-        _vm.$emit("sendApartments", _vm.getSomething());
-      }
-    }
-  }, [_vm._v("\n                Cerca\n              ")])]) : _c("div", [_c("button", {
-    staticClass: "btn btn-primary text-white",
-    attrs: {
-      disabled: ""
-    }
-  }, [_vm._v("\n                Cerca\n              ")])])]), _vm._v(" "), _c("ul", {
-    staticClass: "addresses_container",
-    attrs: {
-      id: "addresses"
-    }
-  }, _vm._l(_vm.searchedAddresses, function (address, index) {
-    return _c("li", {
-      key: index,
-      staticClass: "list-group-item py-1 px-2 my-1 list-group-item-action searched_address",
-      attrs: {
-        role: "button"
-      },
-      on: {
-        click: function click($event) {
-          return _vm.setCurrentAddress(address);
-        }
-      }
-    }, [_vm._v("\n              " + _vm._s(address.address.freeformAddress + ", " + address.address.countrySubdivision) + "\n            ")]);
-  }), 0)])]), _vm._v(" "), _c("div", {
-    staticClass: "ms_search-box mb-4"
+  return _c("section", [_c("div", {
+    staticClass: "ms_search-box mb-4 mt-5"
   }, [_c("h3", {
     staticClass: "text-center"
   }, [_vm._v("Applica filtri alla tua ricerca")]), _vm._v(" "), _c("div", {
@@ -2903,7 +2838,71 @@ var render = function render() {
         return _vm.resetFilters();
       }
     }
-  }, [_vm._v("Cancella filtri")])])])]);
+  }, [_vm._v("Cancella filtri")])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("nav", {
+    staticClass: "navbar bg-light mb-4"
+  }, [_c("div", {
+    staticClass: "container-fluid"
+  }, [_c("div", {
+    staticClass: "d-flex w-100",
+    attrs: {
+      role: "search"
+    }
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.filter,
+      expression: "filter"
+    }],
+    staticClass: "form-control me-2",
+    attrs: {
+      type: "search",
+      placeholder: "Inserisci il luogo in cui vuoi trovare l'appartamento",
+      "aria-label": "Search"
+    },
+    domProps: {
+      value: _vm.filter
+    },
+    on: {
+      keyup: function keyup($event) {
+        return _vm.getFilteredApartment();
+      },
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.filter = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _vm.filter != "" ? _c("div", [_c("button", {
+    staticClass: "btn btn-primary text-white",
+    on: {
+      click: function click($event) {
+        _vm.$emit("sendApartments", _vm.getSomething());
+      }
+    }
+  }, [_vm._v("\n                Cerca\n              ")])]) : _c("div", [_c("button", {
+    staticClass: "btn btn-primary text-white",
+    attrs: {
+      disabled: ""
+    }
+  }, [_vm._v("\n                Cerca\n              ")])])]), _vm._v(" "), _c("ul", {
+    staticClass: "addresses_container",
+    attrs: {
+      id: "addresses"
+    }
+  }, _vm._l(_vm.searchedAddresses, function (address, index) {
+    return _c("li", {
+      key: index,
+      staticClass: "list-group-item py-1 px-2 my-1 list-group-item-action searched_address",
+      attrs: {
+        role: "button"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.setCurrentAddress(address);
+        }
+      }
+    }, [_vm._v("\n              " + _vm._s(address.address.freeformAddress + ", " + address.address.countrySubdivision) + "\n            ")]);
+  }), 0)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
