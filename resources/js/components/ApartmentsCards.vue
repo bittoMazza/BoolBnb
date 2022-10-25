@@ -5,7 +5,7 @@
         <img 
           :src="getCover(apartment.images)"
           alt="title"
-          class="card-img-top"
+          class="card_img"
         />
       </router-link>
       <div class="card-body card-body-cascade pb-0">
@@ -39,4 +39,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card_img{
+  height: 200px;
+  width: 100%;
+}
 </style>
