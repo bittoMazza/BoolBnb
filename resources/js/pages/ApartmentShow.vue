@@ -30,9 +30,9 @@
 
             <div class="col-4">
               <div v-for="images in apartment.images" :key="images.id">               
-                <img v-if="images.is_cover == false && images.image.includes('uploads')" class="w-75 rounded-end" :src="'/storage/'+images.image" alt=""/>
-                <img v-else-if="images.is_cover == false && images.image.includes('https')" class="w-75 rounded-end" :src="images.image"/>
-                <img v-else src="" alt="">
+                <img v-if="images.is_cover == false && images.image.includes('uploads')" class="w-75 rounded-end secondary-img" :src="'/storage/'+images.image" alt=""/>
+                <img v-else-if="images.is_cover == false && images.image.includes('https')" class="w-75 rounded-end secondary-img" :src="images.image"/>
+                <div v-else></div>
               </div>
             </div>
           </div>
@@ -240,6 +240,9 @@ p {
   background-color: #3066bd;
 }
 
+.secondary-img{
+  height: 180px;
+}
 // Map style
 #map-div {
   width: 90vw;
