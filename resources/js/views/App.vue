@@ -1,13 +1,13 @@
 <template>
-<div>
   <section>
     <HeaderWeb />
 
-    <router-view></router-view>
+    <router-view>
+
+    </router-view>
     
+    <FooterWeb />
   </section>
-  <FooterWeb />
-  </div>
 </template>
 
 <script>
@@ -22,9 +22,6 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 
-body {
-  margin-bottom: 20rem;
-}
 </style>
