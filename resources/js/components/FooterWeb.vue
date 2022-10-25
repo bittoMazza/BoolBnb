@@ -24,7 +24,7 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss" scoped>
 footer {
   height: 60px;
   width: 100%;
