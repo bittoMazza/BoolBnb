@@ -10987,3 +10987,6 @@ ul {
     margin: 0;
   }
 }
+.deleted_image {
+  height: 200px;
+}
