@@ -156,14 +156,16 @@ window.onload = function () {
   background-repeat: no-repeat;
   background-clip: border-box;
   background-size: cover;
+  background-position: center;
+  clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 90%, 0% 50%);
 }
 
 // Jumbo-text
 
 .typewriter-jumbo {
   float: left;
-  margin-top: 10rem;
-  margin-left: 12rem;
+  margin-top: 5rem;
+  margin-left: 2rem;
 }
 
 .home-title {
