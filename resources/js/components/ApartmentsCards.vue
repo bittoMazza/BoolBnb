@@ -3,12 +3,12 @@
     <div >
       <router-link  class="nav-link" :to="'/apartments/'+ apartment.id" >
         <img v-if="getCover(apartment.images).includes('uploads')"
-              class="card-img-top"
+              class="card_img"
               :src="'/storage/'+getCover(apartment.images)"
               alt=""
             />
             <img v-else
-              class="card-img-top"
+              class="card_img"
               :src="getCover(apartment.images)"
               alt=""
             />
