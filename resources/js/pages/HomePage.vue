@@ -19,6 +19,8 @@
           </div>
         </div>
 
+        <div class="fw-bold fst-italic text-center mt-4 fs-5">Per iniziare a cercare il tuo appartamento inserisci l'indirizzo di dove vorresti alloggiare, <span class="text-primary">puoi anche aggiungere dei filtri alla tua ricerca!</span></div>
+
         <!-- Search bar -->
         <SearchBar @sendApartments="SearchedApartments" />
 
