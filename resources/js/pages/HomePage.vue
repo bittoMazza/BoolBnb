@@ -25,10 +25,10 @@
         </h3>
         <nav class="navbar bg-light mb-4">
           <div class="container-fluid">
-            <form class="d-flex w-100" role="search">
+            <form class="d-flex ms_width" role="search">
               <input @keyup="getFilteredApartment()" class="form-control me-2" type="search" placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento" aria-label="Search" v-model="filter"/>
             </form>
-            <button class="btn btn-primary text-white" @click="getSomething()">
+            <button class="btn btn-primary me-auto text-white" @click="getSomething()">
               Cerca
             </button>
           </div>
@@ -73,7 +73,7 @@
 
           <div class="p-5 row row-cols-4 gx-4">
             <!-- CARD -->
-            <div class="col mb-4">
+            <div class="col-md-4 col-sm-6 mb-4">
               <div class="card px-0 shadow-sm">
                 <a href="">
                   <img
@@ -94,7 +94,7 @@
             </div>
 
             <!-- INIZIO CARD DUPLICATE -->
-            <div class="col mb-4">
+            <div class="col-md-4 col-sm-6 mb-4">
               <div class="card px-0 shadow-sm">
                 <a href="">
                   <img
@@ -114,7 +114,7 @@
               </div>
             </div>
 
-            <div class="col mb-4">
+            <div class="col-md-4 col-sm-6 mb-4">
               <div class="card px-0 shadow-sm">
                 <a href="">
                   <img
@@ -134,7 +134,7 @@
               </div>
             </div>
 
-            <div class="col mb-4">
+            <div class="col-md-4 col-sm-6 mb-4">
               <div class="card px-0 shadow-sm">
                 <a href="">
                   <img
@@ -154,7 +154,7 @@
               </div>
             </div>
 
-            <div class="col mb-4">
+            <div class="col-md-4 col-sm-6 mb-4">
               <div class="card px-0 shadow-sm">
                 <a href="">
                   <img
@@ -174,7 +174,7 @@
               </div>
             </div>
 
-            <div class="col mb-4">
+            <div class="col-md-4 col-sm-6 mb-4">
               <div class="card px-0 shadow-sm">
                 <a href="">
                   <img
@@ -194,7 +194,7 @@
               </div>
             </div>
 
-            <div class="col mb-4">
+            <div class="col-md-4 col-sm-6 mb-4">
               <div class="card px-0 shadow-sm">
                 <a href="">
                   <img
@@ -214,7 +214,7 @@
               </div>
             </div>
 
-            <div class="col mb-4">
+            <div class="col-md-4 col-sm-6 mb-4">
               <div class="card px-0 shadow-sm">
                 <a href="">
                   <img
@@ -403,4 +403,18 @@ window.onload = function () {
 .in_evidence {
   border: 2px solid #19bab3;
 }
+
+// SEARCHBAR \\
+.ms_width{
+  width: 90%;
+}
+// SEARCHBAR \\
+
+// ! MEDIAQUERY ! \\
+@media all and (min-width: 500px){
+  .ms_width{
+    width: 87%;
+  }
+}
+// ! MEDIAQUERY ! \\
 </style>

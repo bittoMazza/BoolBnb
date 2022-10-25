@@ -2178,7 +2178,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "container-fluid"
   }, [_c("form", {
-    staticClass: "d-flex w-100",
+    staticClass: "d-flex ms_width",
     attrs: {
       role: "search"
     }
@@ -2208,7 +2208,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-primary text-white",
+    staticClass: "btn btn-primary me-auto text-white",
     on: {
       click: function click($event) {
         return _vm.getSomething();
@@ -2293,7 +2293,7 @@ var staticRenderFns = [function () {
   }, [_vm._v("APPARTAMENTI")])]), _vm._v(" "), _c("div", {
     staticClass: "p-5 row row-cols-4 gx-4"
   }, [_c("div", {
-    staticClass: "col mb-4"
+    staticClass: "col-md-4 col-sm-6 mb-4"
   }, [_c("div", {
     staticClass: "card px-0 shadow-sm"
   }, [_c("a", {
@@ -2317,7 +2317,7 @@ var staticRenderFns = [function () {
   }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col mb-4"
+    staticClass: "col-md-4 col-sm-6 mb-4"
   }, [_c("div", {
     staticClass: "card px-0 shadow-sm"
   }, [_c("a", {
@@ -2341,7 +2341,7 @@ var staticRenderFns = [function () {
   }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col mb-4"
+    staticClass: "col-md-4 col-sm-6 mb-4"
   }, [_c("div", {
     staticClass: "card px-0 shadow-sm"
   }, [_c("a", {
@@ -2365,7 +2365,7 @@ var staticRenderFns = [function () {
   }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col mb-4"
+    staticClass: "col-md-4 col-sm-6 mb-4"
   }, [_c("div", {
     staticClass: "card px-0 shadow-sm"
   }, [_c("a", {
@@ -2389,7 +2389,7 @@ var staticRenderFns = [function () {
   }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col mb-4"
+    staticClass: "col-md-4 col-sm-6 mb-4"
   }, [_c("div", {
     staticClass: "card px-0 shadow-sm"
   }, [_c("a", {
@@ -2413,7 +2413,7 @@ var staticRenderFns = [function () {
   }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col mb-4"
+    staticClass: "col-md-4 col-sm-6 mb-4"
   }, [_c("div", {
     staticClass: "card px-0 shadow-sm"
   }, [_c("a", {
@@ -2437,7 +2437,7 @@ var staticRenderFns = [function () {
   }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col mb-4"
+    staticClass: "col-md-4 col-sm-6 mb-4"
   }, [_c("div", {
     staticClass: "card px-0 shadow-sm"
   }, [_c("a", {
@@ -2461,7 +2461,7 @@ var staticRenderFns = [function () {
   }, [_vm._v(" Titolo Appartamento ")])])]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
   }, [_vm._v("Indirizzo")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col mb-4"
+    staticClass: "col-md-4 col-sm-6 mb-4"
   }, [_c("div", {
     staticClass: "card px-0 shadow-sm"
   }, [_c("a", {
@@ -2525,7 +2525,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".content[data-v-04c29797] {\n  width: 100%;\n  height: 55vh;\n  max-height: 55vh;\n  background-image: url(\"https://wallpaperaccess.com/full/3434829.jpg\");\n  background-repeat: no-repeat;\n  background-clip: border-box;\n  background-size: cover;\n}\n.typewriter-jumbo[data-v-04c29797] {\n  float: left;\n  margin-top: 10rem;\n  margin-left: 12rem;\n}\n.home-title[data-v-04c29797] {\n  font-size: 4em;\n  text-shadow: 0.5px 0.5px #333;\n}\n.typewrite[data-v-04c29797] {\n  color: #3490dc;\n  font-size: 2em;\n  margin-left: 7rem;\n  text-shadow: 0.5px 0.5px #fff;\n}\n.tag[data-v-04c29797] {\n  padding: 6px 8px;\n  background-color: #19bab3;\n  color: white;\n}\n.in_evidence[data-v-04c29797] {\n  border: 2px solid #19bab3;\n}", ""]);
+exports.push([module.i, ".content[data-v-04c29797] {\n  width: 100%;\n  height: 55vh;\n  max-height: 55vh;\n  background-image: url(\"https://wallpaperaccess.com/full/3434829.jpg\");\n  background-repeat: no-repeat;\n  background-clip: border-box;\n  background-size: cover;\n}\n.typewriter-jumbo[data-v-04c29797] {\n  float: left;\n  margin-top: 10rem;\n  margin-left: 12rem;\n}\n.home-title[data-v-04c29797] {\n  font-size: 4em;\n  text-shadow: 0.5px 0.5px #333;\n}\n.typewrite[data-v-04c29797] {\n  color: #3490dc;\n  font-size: 2em;\n  margin-left: 7rem;\n  text-shadow: 0.5px 0.5px #fff;\n}\n.tag[data-v-04c29797] {\n  padding: 6px 8px;\n  background-color: #19bab3;\n  color: white;\n}\n.in_evidence[data-v-04c29797] {\n  border: 2px solid #19bab3;\n}\n.ms_width[data-v-04c29797] {\n  width: 90%;\n}\n@media all and (min-width: 500px) {\n.ms_width[data-v-04c29797] {\n    width: 87%;\n}\n}", ""]);
 
 // exports
 
