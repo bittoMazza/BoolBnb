@@ -143,6 +143,10 @@ window.onload = function () {
 </script>
 
 <style lang="scss" scoped>
+
+.margin-for-fixed{
+  margin-top:20rem;
+}
 .content {
   width: 100%;
   height: 55vh;
