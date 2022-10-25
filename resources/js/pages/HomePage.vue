@@ -79,6 +79,9 @@ export default {
       }
     },
   },
+  created() {
+
+  }
 };
 
 class txtType {

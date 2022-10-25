@@ -118,52 +118,48 @@
                 <h3>Scrivi un messaggio al proprietario</h3>
                 <label for="nome" class="form-label">Nome</label>
                 <input
-                  type="email"
+                  type="text"
                   class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
+                  v-model="name"
+                  required
                 />
               </div>
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
+                <label class="form-label"
+                  >Cognome</label
+                >
+                <input
+                  type="text"
+                  v-model = "surname"
+                  class="form-control"
+                  required
+                  />
+              </div>
+              <div class="mb-3">
+                <label class="form-label"
                   >Indirizzo email</label
                 >
                 <input
                   type="email"
+                  v-model = "email"
                   class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
+                  required
                 />
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label"
                   >Messaggio</label
                 >
-                <textarea
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                ></textarea>
+                <textarea type="text" class="form-control" rows="3" id="exampleFormControlTextarea1" v-model="content" required>
+                </textarea>
               </div>
 
-              <button type="submit" class="btn btn-blue text-white fw-bold">
+              <button type="submit" @click="sendMessage(apartment.id)" class="btn btn-blue text-white fw-bold">
                 Invia
               </button>
-            </form>
-          </div>
-        </div>
-      </div>
 
-      <div class="container">
-        <br />
-        <hr />
-        <br />
-        <div class="row">
-          <div class="col">
-            <h3 class="fw-bold">Dove ti troverai</h3>
-            <h5>{{ apartment.address }}</h5>
-            <h1 class="text-center">MAPPA</h1>
-            <!-- <div id="map-div"></div> -->
+              <h6 class="text-center fw-bold form-message">{{ messageForm }}</h6>
+            </form>
           </div>
         </div>
       </div>
@@ -176,7 +172,12 @@ import axios from "axios";
 export default {
   data() {
     return {
-      apartment: {},
+      apartment:{},
+      name :'',
+      surname:'',
+      email:'',
+      content:'',
+      messageForm:'',
     };
   },
   methods: {
@@ -190,7 +191,21 @@ export default {
             }).catch((error) => {
                 console.error(error);
             })
-        }
+        },
+    sendMessage(id){
+      event.preventDefault();
+      axios.post(`/api/messages?apartment_id=${id}&name=${this.name}&surname=${this.surname}&email=${this.email}&content=${this.content}`)
+      .then((response) => {
+        this.name = "";
+        this.surname = "";
+        this.email = "";
+        this.content = "";
+        this.messageForm = "Messaggio inviato correttamente!"
+      }).catch((error) => {
+        console.log(error);
+      })
+    }
+    
   },
   mounted() {
     // let mapScriptCss = document.createElement("link");
@@ -251,6 +266,10 @@ p {
   border: 3px solid #19bab3;
   border-radius: 5px;
   padding: 1rem;
+}
+
+.form-message{
+  color:#19bab3;
 }
 
 .btn-blue {
