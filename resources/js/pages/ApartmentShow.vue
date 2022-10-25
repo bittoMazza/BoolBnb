@@ -58,8 +58,8 @@
         </ul>
       </div>
       <div class="container">
-        <div class="row pb-5">
-          <div class="col-6">
+        <div class="row justify-content-between pb-5">
+          <div class="col">
             <hr style="width: 60%" />
             <br />
             <h3 class="fw-bold">
@@ -86,14 +86,14 @@
               <h3 class="fw-bold">Cosa troverai:</h3>
               <ul>
                 <li class="fs-3" v-for="amenity in apartment.amenities" :key="amenity.id">
-                  {{ amenity.name }}
+                  - {{ amenity.name }}
                 </li>
               </ul>
               <br />
             </div>
           </div>
-          <div class="col-5 form-border">
-            <form>
+          <div class="col">
+            <form class="form-border mt-5">
               <div class="mb-3">
                 <h3>Scrivi un messaggio al proprietario</h3>
                 <label for="nome" class="form-label">Nome</label>

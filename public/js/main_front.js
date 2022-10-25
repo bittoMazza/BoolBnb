@@ -2482,9 +2482,9 @@ var render = function render() {
   }), _vm._v(" Metri quadrati:\n          " + _vm._s(_vm.apartment.square_meters) + "m²\n        ")])])]), _vm._v(" "), _c("div", {
     staticClass: "container"
   }, [_c("div", {
-    staticClass: "row pb-5"
+    staticClass: "row justify-content-between pb-5"
   }, [_c("div", {
-    staticClass: "col-6"
+    staticClass: "col"
   }, [_c("hr", {
     staticStyle: {
       width: "60%"
@@ -2497,10 +2497,12 @@ var render = function render() {
     return _c("li", {
       key: amenity.id,
       staticClass: "fs-3"
-    }, [_vm._v("\n                " + _vm._s(amenity.name) + "\n              ")]);
+    }, [_vm._v("\n                - " + _vm._s(amenity.name) + "\n              ")]);
   }), 0), _vm._v(" "), _c("br")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-5 form-border"
-  }, [_c("form", [_c("div", {
+    staticClass: "col"
+  }, [_c("form", {
+    staticClass: "form-border mt-5"
+  }, [_c("div", {
     staticClass: "mb-3"
   }, [_c("h3", [_vm._v("Scrivi un messaggio al proprietario")]), _vm._v(" "), _c("label", {
     staticClass: "form-label",
