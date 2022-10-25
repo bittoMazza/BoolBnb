@@ -65,13 +65,11 @@ class ApartmentController extends Controller
      */
     public function show($id)
     {
-        $apartment = Apartment::find($id);
+        $apartment = Apartment::with('amenities','images')->where('id',$id)->get();
         if($apartment) {
             return response()->json([
                 "response" => true,
-                "results" => [
-                    'data' => $apartment
-                ]
+                "results" => $apartment,
               ]);
         }
         /* Ritorna un 404 nel caso con trovasse l'id */

@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col d-flex">
             <img
-              class="w-100 rounded-start"
+              class="w-75 rounded-start"
               src="https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/50434f11-d7bd-4986-a78a-fac692d0e062?im_w=1440"
               alt=""
             />
@@ -103,7 +103,11 @@
           <div class="col">
             <br />
             <h3 class="fw-bold">Cosa troverai:</h3>
-            <ul></ul>
+            <ul>
+              <li v-for="amenity in apartment.amenities" :key="amenity.id" class="fs-3">
+                {{ amenity.name }}
+              </li>
+            </ul>
             <br />
           </div>
         </div>
@@ -159,7 +163,7 @@
             <h3 class="fw-bold">Dove ti troverai</h3>
             <h5>{{ apartment.address }}</h5>
             <h1 class="text-center">MAPPA</h1>
-            <div id="map-div"></div>
+            <!-- <div id="map-div"></div> -->
           </div>
         </div>
       </div>
@@ -181,8 +185,8 @@ export default {
             /* Facciamo una chiamata al metodo show dell'api*/
             axios.get(`/api/apartments/${id}`,{
             }).then((response) => {
-                console.log(response.data.results);
-                this.apartment = response.data.results.data;
+                console.log(response);
+                this.apartment = response.data.results[0];
             }).catch((error) => {
                 console.error(error);
             })

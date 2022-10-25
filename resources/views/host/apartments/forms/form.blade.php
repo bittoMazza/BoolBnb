@@ -111,11 +111,9 @@
         <label class="text-light">IMMAGINE APPARTAMENTO</label>
     @endif
     <div class="input-control">
-        <div class="input-group">
-            <input type="file" id="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine"
-            multiple {{ Route::is('host.apartments.create') ? 'required' : '' }} onclick="">
-            <div class="error_message fs-6"></div>
-        </div>
+        <input type="file" id="file" class="form-control" value="" name="image[]" placeholder="Inserire immagine"
+        multiple {{ Route::is('host.apartments.create') ? 'required' : '' }} onclick="">
+        <div class="error_message fs-6"></div>
     </div>
     @error('image')
         <div class="alert alert-danger">
