@@ -44,4 +44,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card_img{
+  height: 200px;
+  width: 100%;
+}
 </style>
