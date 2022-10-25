@@ -1970,6 +1970,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       apartment: {},
+      secondaryImages: [],
       name: '',
       surname: '',
       email: '',
@@ -2001,33 +2002,16 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    getMainImage: function getMainImage(images) {
+      var cover;
+      images.forEach(function (image) {
+        if (image.is_cover == true) {
+          cover = image.image;
+        }
+      });
+      return cover;
     }
-  },
-  mounted: function mounted() {
-    // let mapScriptCss = document.createElement("link");
-    // mapScriptCss.src =
-    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css";
-    // document.head.appendChild(mapScriptCss);
-
-    // let mapScriptJS = document.createElement("script");
-    // mapScriptJS.src =
-    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js";
-    // document.head.appendChild(mapScriptJS);
-
-    // let searchBoxCss = document.createElement("link");
-    // searchBoxCss.src =
-    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css";
-    // document.head.appendChild(searchBoxCss);
-
-    // let searchBox = document.createElement("script");
-    // searchBox.src =
-    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js";
-    // document.head.appendChild(searchBox);
-
-    // let servicesBox = document.createElement("script");
-    // servicesBox.src =
-    //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
-    // document.head.appendChild(servicesBox);
   },
   created: function created() {
     this.getApartment();
@@ -2273,11 +2257,17 @@ var render = function render() {
     attrs: {
       to: "/apartments/" + _vm.apartment.id
     }
-  }, [_c("img", {
+  }, [_vm.getCover(_vm.apartment.images).includes("uploads") ? _c("img", {
+    staticClass: "card_img",
+    attrs: {
+      src: "/storage/" + _vm.getCover(_vm.apartment.images),
+      alt: ""
+    }
+  }) : _c("img", {
     staticClass: "card_img",
     attrs: {
       src: _vm.getCover(_vm.apartment.images),
-      alt: "title"
+      alt: ""
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "card-body card-body-cascade pb-0"
@@ -2317,13 +2307,7 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("footer", [_c("img", {
-    staticClass: "img_footer",
-    attrs: {
-      src: "https://tinypic.host/images/2022/10/25/screenshot-cdn.home-designing.com-2022.10.25-22_13_27.png",
-      alt: "footer"
-    }
-  }), _vm._v(" "), _c("ul", {
+  return _c("footer", [_c("ul", {
     staticClass: "d-flex justify-content-center align-items-center text-white pt-3 m-0"
   }, [_c("li", [_c("i", {
     staticClass: "bi bi-c-circle"
@@ -2444,7 +2428,40 @@ var render = function render() {
     staticClass: "fw-semibold"
   }, [_vm._v(_vm._s(_vm.apartment.address))]), _vm._v(" -\n          " + _vm._s(_vm.apartment.lat) + ", " + _vm._s(_vm.apartment["long"]) + "\n        ")])])]), _vm._v(" "), _c("div", {
     staticClass: "container mb-3"
-  }, [_vm._m(0), _vm._v(" "), _c("ul", {
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col d-flex"
+  }, [_vm.getMainImage(_vm.apartment.images).includes("uploads") ? _c("img", {
+    staticClass: "w-75 rounded-start",
+    attrs: {
+      src: "/storage/" + _vm.getMainImage(_vm.apartment.images),
+      alt: ""
+    }
+  }) : _c("img", {
+    staticClass: "w-75 rounded-start",
+    attrs: {
+      src: _vm.getMainImage(_vm.apartment.images),
+      alt: ""
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "col-4"
+  }, _vm._l(_vm.apartment.images, function (images) {
+    return _c("div", {
+      key: images.id
+    }, [images.is_cover == false && images.image.includes("uploads") ? _c("img", {
+      staticClass: "w-75 rounded-end secondary-img",
+      attrs: {
+        src: "/storage/" + images.image,
+        alt: ""
+      }
+    }) : images.is_cover == false && images.image.includes("https") ? _c("img", {
+      staticClass: "w-75 rounded-end secondary-img",
+      attrs: {
+        src: images.image
+      }
+    }) : _c("div")]);
+  }), 0)])]), _vm._v(" "), _c("ul", {
     staticClass: "fs-5 list-group list-group-horizontal mt-4"
   }, [_c("li", {
     staticClass: "list-group-item py-2 text-white"
@@ -2462,23 +2479,30 @@ var render = function render() {
     staticClass: "list-group-item py-2 text-white"
   }, [_c("i", {
     staticClass: "bi bi-fullscreen me-2"
-  }), _vm._v(" Metri quadrati:\n          " + _vm._s(_vm.apartment.square_meters) + "m²\n        ")])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
-    staticClass: "container d-flex justify-content-between"
+  }), _vm._v(" Metri quadrati:\n          " + _vm._s(_vm.apartment.square_meters) + "m²\n        ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "container"
   }, [_c("div", {
-    staticClass: "row"
+    staticClass: "row justify-content-between pb-5"
   }, [_c("div", {
+    staticClass: "col"
+  }, [_c("hr", {
+    staticStyle: {
+      width: "60%"
+    }
+  }), _vm._v(" "), _c("br"), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("p", [_vm._v("Porta in vacanza con te i tuoi animali domestici.")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
     staticClass: "col"
   }, [_c("br"), _vm._v(" "), _c("h3", {
     staticClass: "fw-bold"
   }, [_vm._v("Cosa troverai:")]), _vm._v(" "), _c("ul", _vm._l(_vm.apartment.amenities, function (amenity) {
     return _c("li", {
-      key: amenity.id
-    }, [_vm._v("\n              " + _vm._s(amenity.name) + "\n            ")]);
+      key: amenity.id,
+      staticClass: "fs-3"
+    }, [_vm._v("\n                - " + _vm._s(amenity.name) + "\n              ")]);
   }), 0), _vm._v(" "), _c("br")])]), _vm._v(" "), _c("div", {
-    staticClass: "row form-border me-4"
-  }, [_c("div", {
     staticClass: "col"
-  }, [_c("form", [_c("div", {
+  }, [_c("form", {
+    staticClass: "form-border mt-5"
+  }, [_c("div", {
     staticClass: "mb-3"
   }, [_c("h3", [_vm._v("Scrivi un messaggio al proprietario")]), _vm._v(" "), _c("label", {
     staticClass: "form-label",
@@ -2596,80 +2620,42 @@ var render = function render() {
         return _vm.sendMessage(_vm.apartment.id);
       }
     }
-  }, [_vm._v("\n              Invia\n            ")]), _vm._v(" "), _c("h6", {
+  }, [_vm._v("\n              Invia\n            ")]), _vm._v(" "), _c("h4", {
     staticClass: "text-center fw-bold form-message"
   }, [_vm._v(_vm._s(_vm.messageForm))])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col d-flex"
-  }, [_c("img", {
-    staticClass: "w-75 rounded-start",
-    attrs: {
-      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/50434f11-d7bd-4986-a78a-fac692d0e062?im_w=1440",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "col-4"
-  }, [_c("div", {
-    staticClass: "upper-images"
-  }, [_c("img", {
-    staticClass: "w-75 rounded-end",
-    attrs: {
-      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/08155438-9751-401c-b0d7-fa31be950053?im_w=1440",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("img", {
-    staticClass: "w-75",
-    attrs: {
-      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/d15bc9d6-7fed-44f4-8762-9a4c94658a50?im_w=1440",
-      alt: ""
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "bottom-images"
-  }, [_c("img", {
-    staticClass: "w-75",
-    attrs: {
-      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/f5787391-ca20-4a9e-a1b4-263914fc5612?im_w=1440",
-      alt: ""
-    }
-  }), _vm._v(" "), _c("img", {
-    staticClass: "w-75 rounded-end",
-    attrs: {
-      src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/5971b9c9-172c-409e-8d8a-759023c48615?im_w=1440",
-      alt: ""
-    }
-  })])])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col"
-  }, [_c("hr", {
-    staticStyle: {
-      width: "60%"
-    }
-  }), _vm._v(" "), _c("br"), _vm._v(" "), _c("h3", {
+  return _c("h3", {
     staticClass: "fw-bold"
   }, [_c("i", {
     staticClass: "bi bi-geo-alt claim-icons"
-  }), _vm._v("Ottima posizione\n          ")]), _vm._v(" "), _c("p", [_vm._v("\n            Il 100% degli ospiti ha valutato la posizione come:\n            "), _c("strong", [_vm._v("ottima")]), _vm._v(".\n          ")]), _vm._v(" "), _c("h3", {
+  }), _vm._v("Ottima posizione\n          ")]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("p", [_vm._v("\n            Il 100% degli ospiti ha valutato la posizione come:\n            "), _c("strong", [_vm._v("ottima")]), _vm._v(".\n          ")]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h3", {
     staticClass: "fw-bold"
   }, [_c("i", {
     staticClass: "bi bi-key claim-icons"
-  }), _vm._v("Ottima esperienza di check-in\n          ")]), _vm._v(" "), _c("p", [_vm._v("\n            Il 98% degli ospiti ha valutato l'eperienza di check-in come:\n            "), _c("strong", [_vm._v("ottima")]), _vm._v(".\n          ")]), _vm._v(" "), _c("h3", {
+  }), _vm._v("Ottima esperienza di check-in\n          ")]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("p", [_vm._v("\n            Il 98% degli ospiti ha valutato l'eperienza di check-in come:\n            "), _c("strong", [_vm._v("ottima")]), _vm._v(".\n          ")]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("h3", {
     staticClass: "fw-bold"
   }, [_c("i", {
     staticClass: "bi bi-house-heart claim-icons"
-  }), _vm._v("Animali domestici\n          ")]), _vm._v(" "), _c("p", [_vm._v("Porta in vacanza con te i tuoi animali domestici.")]), _vm._v(" "), _c("br")])])]);
+  }), _vm._v("Animali domestici\n          ")]);
 }];
 render._withStripped = true;
 
@@ -3103,7 +3089,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "footer[data-v-39d1195e] {\n  height: 180px;\n  width: 100%;\n  background-color: #3066bd;\n}\n.img_footer[data-v-39d1195e] {\n  width: 100%;\n  height: 120px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\nli[data-v-39d1195e] {\n  padding-left: 1rem;\n  font-size: 1.2rem;\n}\n.bi-circle-fill[data-v-39d1195e] {\n  color: white;\n  font-size: 0.2em;\n  padding-left: 1rem;\n}\n.bi-c-circle[data-v-39d1195e] {\n  font-size: 0.8em;\n  margin-right: 0.3rem;\n}", ""]);
+exports.push([module.i, "footer[data-v-39d1195e] {\n  height: 60px;\n  width: 100%;\n  background-color: #3066bd;\n}\nli[data-v-39d1195e] {\n  padding-left: 1rem;\n  font-size: 1.2rem;\n}\n.bi-circle-fill[data-v-39d1195e] {\n  color: white;\n  font-size: 0.2em;\n  padding-left: 1rem;\n}\n.bi-c-circle[data-v-39d1195e] {\n  font-size: 0.8em;\n  margin-right: 0.3rem;\n}", ""]);
 
 // exports
 
@@ -3122,7 +3108,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* General Image Styling */\nimg[data-v-53532716] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  padding: 0.2rem;\n}\n.claim-icons[data-v-53532716] {\n  margin-right: 1rem;\n  font-size: 1.3em;\n  font-weight: bold;\n}\np[data-v-53532716] {\n  font-size: 1.2em;\n  margin-left: 3rem;\n}\n.list-group-item[data-v-53532716] {\n  background-color: #3066bd;\n}\n.form-border[data-v-53532716] {\n  border: 3px solid #19bab3;\n  border-radius: 5px;\n  padding: 1rem;\n}\n.form-message[data-v-53532716] {\n  color: #19bab3;\n}\n.btn-blue[data-v-53532716] {\n  background-color: #3066bd;\n}\n#map-div[data-v-53532716] {\n  width: 90vw;\n  height: 90vh;\n}\n#marker[data-v-53532716] {\n  background-image: url(\"https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png\");\n  background-size: cover;\n  width: 40px;\n  height: 50px;\n}", ""]);
+exports.push([module.i, "/* General Image Styling */\nimg[data-v-53532716] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  padding: 0.2rem;\n}\n.claim-icons[data-v-53532716] {\n  margin-right: 1rem;\n  font-size: 1.3em;\n  font-weight: bold;\n}\np[data-v-53532716] {\n  font-size: 1.2em;\n  margin-left: 3rem;\n}\n.list-group-item[data-v-53532716] {\n  background-color: #3066bd;\n}\n.form-border[data-v-53532716] {\n  border: 3px solid #19bab3;\n  border-radius: 5px;\n  padding: 1rem;\n}\n.form-message[data-v-53532716] {\n  color: #19bab3;\n}\n.btn-blue[data-v-53532716] {\n  background-color: #3066bd;\n}\n.secondary-img[data-v-53532716] {\n  height: 180px;\n}\n#map-div[data-v-53532716] {\n  width: 90vw;\n  height: 90vh;\n}\n#marker[data-v-53532716] {\n  background-image: url(\"https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png\");\n  background-size: cover;\n  width: 40px;\n  height: 50px;\n}", ""]);
 
 // exports
 
