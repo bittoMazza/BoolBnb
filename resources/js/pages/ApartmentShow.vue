@@ -58,8 +58,8 @@
         </ul>
       </div>
       <div class="container">
-        <div class="row">
-          <div class="col">
+        <div class="row pb-5">
+          <div class="col-6">
             <hr style="width: 60%" />
             <br />
             <h3 class="fw-bold">
@@ -81,24 +81,18 @@
             </h3>
             <p>Porta in vacanza con te i tuoi animali domestici.</p>
             <br />
-          </div>
-        </div>
-      </div>
-      <div class="container d-flex justify-content-between">
-        <div class="row">
-          <div class="col">
+            <div class="col">
             <br />
-            <h3 class="fw-bold">Cosa troverai:</h3>
-            <ul>
-              <li class="fs-3" v-for="amenity in apartment.amenities" :key="amenity.id">
-                {{ amenity.name }}
-              </li>
-            </ul>
-            <br />
+              <h3 class="fw-bold">Cosa troverai:</h3>
+              <ul>
+                <li class="fs-3" v-for="amenity in apartment.amenities" :key="amenity.id">
+                  {{ amenity.name }}
+                </li>
+              </ul>
+              <br />
+            </div>
           </div>
-        </div>
-        <div class="row form-border me-4">
-          <div class="col">
+          <div class="col-5 form-border">
             <form>
               <div class="mb-3">
                 <h3>Scrivi un messaggio al proprietario</h3>
@@ -144,9 +138,9 @@
                 Invia
               </button>
 
-              <h6 class="text-center fw-bold form-message">{{ messageForm }}</h6>
+              <h4 class="text-center fw-bold form-message">{{ messageForm }}</h4>
             </form>
-          </div>
+        </div>
         </div>
       </div>
     </div>
