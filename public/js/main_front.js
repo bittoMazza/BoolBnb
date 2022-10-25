@@ -1912,6 +1912,15 @@ __webpack_require__.r(__webpack_exports__);
   name: "ApartmentCards",
   props: {
     apartment: Object
+  },
+  methods: {
+    getCover: function getCover(images) {
+      for (var i = 0; i < images.length; i++) {
+        if (images[i].is_cover == true) {
+          return images[i].image;
+        }
+      }
+    }
   }
 });
 
@@ -1954,8 +1963,12 @@ __webpack_require__.r(__webpack_exports__);
     getApartment: function getApartment() {
       var _this = this;
       var id = this.$route.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/apartments/".concat(id)).then(function (response) {
-        _this.apartment = response.data.results.data;
+      /* Facciamo una chiamata al metodo show dell'api*/
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/apartments/".concat(id), {}).then(function (response) {
+        console.log(response);
+        _this.apartment = response.data.results[0];
+      })["catch"](function (error) {
+        console.error(error);
       });
     }
   },
@@ -1984,6 +1997,8 @@ __webpack_require__.r(__webpack_exports__);
     // servicesBox.src =
     //   "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
     // document.head.appendChild(servicesBox);
+  },
+  created: function created() {
     this.getApartment();
   }
 });
@@ -1999,53 +2014,26 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_ApartmentsCards_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/ApartmentsCards.vue */ "./resources/js/components/ApartmentsCards.vue");
-/* harmony import */ var _pages_SearchBar_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/SearchBar.vue */ "./resources/js/pages/SearchBar.vue");
+/* harmony import */ var _components_ApartmentsCards_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/ApartmentsCards.vue */ "./resources/js/components/ApartmentsCards.vue");
+/* harmony import */ var _pages_SearchBar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/SearchBar.vue */ "./resources/js/pages/SearchBar.vue");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "HomePage",
   components: {
-    ApartmentCards: _components_ApartmentsCards_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    SearchBar: _pages_SearchBar_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ApartmentsCards: _components_ApartmentsCards_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    SearchBar: _pages_SearchBar_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
       apartments: [],
-      filter: '',
-      "long": '',
-      lat: '',
-      searchedAddresses: [],
-      searchedCoordinates: {},
-      radius: 20,
       userMessage: 'Qui vedrai gli appartmenti che rispettano i tuoi criteri'
     };
   },
   methods: {
-    getFilteredApartment: function getFilteredApartment() {
-      var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/search/".concat(this.filter, ".json?key=Y3utdtjiBc6ObgcZs8bNzOGza3HV7trG&countrySet=IT&typeahead=true&limit=5")).then(function (response) {
-        console.log(response);
-        _this.searchedAddresses = '';
-        _this.searchedAddresses = response.data.results;
-        _this.lat = _this.searchedAddresses[0].position.lat;
-        _this["long"] = _this.searchedAddresses[0].position.lon;
-      })["catch"](function (error) {
-        console.warn(error);
-      });
-    },
-    setCurrentAddress: function setCurrentAddress(a) {
-      this.lat = a.position.lat;
-      this["long"] = a.position.lon;
-      this.filter = a.address.freeformAddress + ", " + a.address.countrySubdivision;
-      this.searchedAddresses = '';
-    },
     getCover: function getCover(images) {
       for (var i = 0; i < images.length; i++) {
         if (images[i].is_cover == true) {
@@ -2053,37 +2041,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }
     },
-    getSomething: function getSomething() {
-      var _this2 = this;
-      this.apartments = '';
-      this.searchedAddresses = '';
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/apartments', {
-        params: {
-          lat: this.lat,
-          "long": this["long"],
-          radius: this.radius
-        }
-      }).then(function (response) {
-        _this2.lat = '';
-        _this2["long"] = '';
-        console.log(response);
-        _this2.apartments = response.data.results;
-        if (_this2.apartments == '') {
-          _this2.userMessage = 'OPS!! Non sono stati trovati appartamenti,prova con uno dei nostri indirizzi consigliati';
-        }
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    },
-    getAmenities: function getAmenities() {
-      var _this3 = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/amenities").then(function (response) {
-        console.log(response.data.results);
-        _this3.amenities = response.data.results;
-      });
+    SearchedApartments: function SearchedApartments(a) {
+      this.apartments = a.apartment;
+      if (this.apartments == '') {
+        this.userMessage = 'OPS!! Non sono stati trovati appartamenti , prova con un altro indirizzo';
+      }
     }
-  },
-  created: function created() {}
+  }
 });
 var txtType = /*#__PURE__*/function () {
   function txtType(el, toRotate, period) {
@@ -2167,48 +2131,50 @@ __webpack_require__.r(__webpack_exports__);
       "long": '',
       lat: '',
       searchedCoordinates: {},
-      radius: 20,
+      searchedAddresses: [],
       amenities: [],
-      bathNo: 0,
       roomNo: 0,
       bedNo: 0,
-      squareMeters: 0,
-      searchRange: 20,
-      apartmentAmenities: []
+      searchRange: 20
     };
   },
   methods: {
     getFilteredApartment: function getFilteredApartment() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('https://api.tomtom.com/search/2/search/.json?key=Z4C8r6rK8x69JksEOmCX43MGffYO83xu&query=' + this.filter + '&countrySet=IT' + '&limit=1').then(function (response) {
-        console.log(response.data);
-        _this.searchedCoordinates = response.data;
-        _this.lat = _this.searchedCoordinates["results"][0]["position"]["lat"];
-        _this["long"] = _this.searchedCoordinates["results"][0]["position"]["lon"];
-        console.log(_this.lat);
-        console.log(_this["long"]);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("https://api.tomtom.com/search/2/search/".concat(this.filter, ".json?key=Y3utdtjiBc6ObgcZs8bNzOGza3HV7trG&countrySet=IT&typeahead=true&limit=5")).then(function (response) {
+        console.log(response);
+        _this.searchedAddresses = '';
+        _this.searchedAddresses = response.data.results;
+        _this.lat = _this.searchedAddresses[0].position.lat;
+        _this["long"] = _this.searchedAddresses[0].position.lon;
       })["catch"](function (error) {
         console.warn(error);
       });
     },
-    getCover: function getCover(images) {
-      for (var i = 0; i < images.length; i++) {
-        if (images[i].is_cover == true) {
-          return images[i].image;
-        }
-      }
+    setCurrentAddress: function setCurrentAddress(a) {
+      this.lat = a.position.lat;
+      this["long"] = a.position.lon;
+      this.filter = a.address.freeformAddress + ", " + a.address.countrySubdivision;
+      this.searchedAddresses = '';
     },
     getSomething: function getSomething() {
       var _this2 = this;
+      this.apartments = '';
+      this.searchedAddresses = '';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/apartments', {
         params: {
           lat: this.lat,
           "long": this["long"],
-          radius: this.radius
+          radius: this.searchRange,
+          rooms: this.roomNo,
+          beds: this.bedNo
         }
       }).then(function (response) {
-        console.log(response);
         _this2.apartments = response.data.results;
+        console.log(_this2.apartments);
+        _this2.$emit("sendApartments", {
+          apartment: _this2.apartments
+        });
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2216,9 +2182,13 @@ __webpack_require__.r(__webpack_exports__);
     getAmenities: function getAmenities() {
       var _this3 = this;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/amenities").then(function (response) {
-        console.log(response.data.results);
         _this3.amenities = response.data.results;
       });
+    },
+    resetFilters: function resetFilters() {
+      this.roomNo = 0;
+      this.bedNo = 0;
+      this.searchRange = 20;
     }
   },
   created: function created() {
@@ -2261,31 +2231,31 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("div", {
-    staticClass: "col-12"
-  }, [_c("div", {
+  return _c("div", {
     staticClass: "card px-0 shadow-sm"
-  }, [_c("router-link", {
+  }, [_c("div", [_c("router-link", {
+    staticClass: "nav-link",
     attrs: {
-      to: "apartments/" + _vm.apartment.id
+      to: "/apartments/" + _vm.apartment.id
     }
   }, [_c("img", {
     staticClass: "card-img-top",
     attrs: {
-      src: _vm.apartment.images,
+      src: _vm.getCover(_vm.apartment.images),
       alt: "title"
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "card-body card-body-cascade pb-0"
   }, [_c("h5", {
     staticClass: "card-title"
-  }, [_c("strong", [_c("a", {
+  }, [_c("strong", [_c("router-link", {
+    staticClass: "nav-link",
     attrs: {
-      href: "#"
+      to: "/apartments/" + _vm.apartment.id
     }
-  }, [_vm._v(" " + _vm._s(_vm.apartment.title) + " ")])])]), _vm._v(" "), _c("p", {
+  }, [_vm._v(_vm._s(_vm.apartment.title))])], 1)]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
-  }, [_vm._v(_vm._s(_vm.apartment.address))])])], 1)])]);
+  }, [_vm._v(_vm._s(_vm.apartment.address))])])], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -2434,7 +2404,20 @@ var render = function render() {
     staticClass: "list-group-item py-2 text-white"
   }, [_c("i", {
     staticClass: "bi bi-fullscreen me-2"
-  }), _vm._v(" Metri quadrati:\n          " + _vm._s(_vm.apartment.square_meters) + "m²\n        ")])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
+  }), _vm._v(" Metri quadrati:\n          " + _vm._s(_vm.apartment.square_meters) + "m²\n        ")])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "container d-flex justify-content-between"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col"
+  }, [_c("br"), _vm._v(" "), _c("h3", {
+    staticClass: "fw-bold"
+  }, [_vm._v("Cosa troverai:")]), _vm._v(" "), _c("ul", _vm._l(_vm.apartment.amenities, function (amenity) {
+    return _c("li", {
+      key: amenity.id,
+      staticClass: "fs-3"
+    }, [_vm._v("\n              " + _vm._s(amenity.name) + "\n            ")]);
+  }), 0), _vm._v(" "), _c("br")])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
     staticClass: "container"
   }, [_c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
     staticClass: "row"
@@ -2444,16 +2427,7 @@ var render = function render() {
     staticClass: "fw-bold"
   }, [_vm._v("Dove ti troverai")]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(_vm.apartment.address))]), _vm._v(" "), _c("h1", {
     staticClass: "text-center"
-  }, [_vm._v("MAPPA")]), _vm._v(" "), _c("div", {
-    attrs: {
-      id: "map-div"
-    }
-  })])])])]), _vm._v(" "), _c("script", {
-    attrs: {
-      type: "application/javascript",
-      src: "./js/map.js"
-    }
-  })]);
+  }, [_vm._v("MAPPA")])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2463,7 +2437,7 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "col d-flex"
   }, [_c("img", {
-    staticClass: "w-100 rounded-start",
+    staticClass: "w-75 rounded-start",
     attrs: {
       src: "https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/50434f11-d7bd-4986-a78a-fac692d0e062?im_w=1440",
       alt: ""
@@ -2529,14 +2503,6 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container d-flex justify-content-between"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col"
-  }, [_c("br"), _vm._v(" "), _c("h3", {
-    staticClass: "fw-bold"
-  }, [_vm._v("Cosa troverai:")]), _vm._v(" "), _c("ul"), _vm._v(" "), _c("br")])]), _vm._v(" "), _c("div", {
     staticClass: "row form-border me-4"
   }, [_c("div", {
     staticClass: "col"
@@ -2586,7 +2552,7 @@ var staticRenderFns = [function () {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("\n              Invia\n            ")])])])])]);
+  }, [_vm._v("\n              Invia\n            ")])])])]);
 }];
 render._withStripped = true;
 
@@ -2613,7 +2579,11 @@ var render = function render() {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-12"
-  }, [_vm._m(0), _vm._v(" "), _c("SearchBar"), _vm._v(" "), _c("div", {
+  }, [_vm._m(0), _vm._v(" "), _c("SearchBar", {
+    on: {
+      sendApartments: _vm.SearchedApartments
+    }
+  }), _vm._v(" "), _c("div", {
     staticClass: "py-4 container"
   }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "in_evidence p-5"
@@ -2623,43 +2593,14 @@ var render = function render() {
     return _c("div", {
       key: apartment.id,
       staticClass: "col"
-    }, [_c("div", {
-      staticClass: "card px-0 shadow-sm"
-    }, [_c("a", {
-      attrs: {
-        href: ""
-      }
-    }, [_c("img", {
-      staticClass: "card-img-top",
-      attrs: {
-        src: _vm.getCover(apartment.images),
-        alt: "title"
-      }
-    })]), _vm._v(" "), _c("div", {
-      staticClass: "card-body card-body-cascade pb-0"
-    }, [_c("h5", {
-      staticClass: "card-title"
-    }, [_c("strong", [_c("a", {
-      attrs: {
-        href: "#"
-      }
-    }, [_vm._v(" " + _vm._s(apartment.title) + " ")])])]), _vm._v(" "), _c("p", {
-      staticClass: "fst-italic pb-1"
-    }, [_vm._v(_vm._s(apartment.address))])])])]);
-  }), 0) : _c("div", {
-    staticClass: "text-center fs-4 user_search_message"
-  }, [_vm._v("\n            " + _vm._s(_vm.userMessage) + "\n          ")])])])], 1), _vm._v(" "), _c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_vm._l(_vm.apartments, function (apartment) {
-    return _c("ApartmentsCards", {
-      key: apartment.id,
+    }, [_c("ApartmentsCards", {
       attrs: {
         apartment: apartment
       }
-    });
-  }), _vm._v(" "), _c("h1", [_vm._v("hello")])], 2)])])]);
+    })], 1);
+  }), 0) : _c("div", {
+    staticClass: "text-center fs-4 user_search_message"
+  }, [_vm._v("\n            " + _vm._s(_vm.userMessage) + "\n          ")])])])], 1)])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2685,8 +2626,8 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "text-center mb-4"
   }, [_c("span", {
-    staticClass: "tag fs-5"
-  }, [_vm._v("IN EVIDENZA")])]);
+    staticClass: "fs-5"
+  }, [_vm._v("RISULTATI RICERCA")])]);
 }];
 render._withStripped = true;
 
@@ -2710,8 +2651,8 @@ var render = function render() {
   return _c("section", [_vm._m(0), _vm._v(" "), _c("nav", {
     staticClass: "navbar bg-light mb-4"
   }, [_c("div", {
-    staticClass: "container-fluid d-flex"
-  }, [_c("form", {
+    staticClass: "container-fluid"
+  }, [_c("div", {
     staticClass: "d-flex w-100",
     attrs: {
       role: "search"
@@ -2741,64 +2682,42 @@ var render = function render() {
         _vm.filter = $event.target.value;
       }
     }
-  }), _vm._v(" "), _c("button", {
+  }), _vm._v(" "), _vm.filter != "" ? _c("div", [_c("button", {
     staticClass: "btn btn-primary text-white",
     on: {
       click: function click($event) {
-        return _vm.getSomething();
+        _vm.$emit("sendApartments", _vm.getSomething());
       }
     }
-  }, [_vm._v("\n              Cerca\n            ")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "ms_search-box mb-4"
-  }, [_c("div", {
-    staticClass: "row justify-content-around"
-  }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.amenities, function (amenity) {
-    return _c("div", {
-      key: amenity.id,
-      staticClass: "col-1 form-check form-switch"
-    }, [_c("input", {
-      directives: [{
-        name: "model",
-        rawName: "v-model",
-        value: _vm.apartmentAmenities,
-        expression: "apartmentAmenities"
-      }],
-      staticClass: "form-check-input",
+  }, [_vm._v("\n                Cerca\n              ")])]) : _c("div", [_c("button", {
+    staticClass: "btn btn-primary text-white",
+    attrs: {
+      disabled: ""
+    }
+  }, [_vm._v("\n                Cerca\n              ")])])]), _vm._v(" "), _c("ul", {
+    staticClass: "addresses_container",
+    attrs: {
+      id: "addresses"
+    }
+  }, _vm._l(_vm.searchedAddresses, function (address, index) {
+    return _c("li", {
+      key: index,
+      staticClass: "list-group-item py-1 px-2 my-1 list-group-item-action searched_address",
       attrs: {
-        type: "checkbox",
-        name: amenity.name + "_check",
-        id: amenity.name + "-check"
-      },
-      domProps: {
-        value: amenity.id,
-        checked: Array.isArray(_vm.apartmentAmenities) ? _vm._i(_vm.apartmentAmenities, amenity.id) > -1 : _vm.apartmentAmenities
+        role: "button"
       },
       on: {
-        change: function change($event) {
-          var $$a = _vm.apartmentAmenities,
-            $$el = $event.target,
-            $$c = $$el.checked ? true : false;
-          if (Array.isArray($$a)) {
-            var $$v = amenity.id,
-              $$i = _vm._i($$a, $$v);
-            if ($$el.checked) {
-              $$i < 0 && (_vm.apartmentAmenities = $$a.concat([$$v]));
-            } else {
-              $$i > -1 && (_vm.apartmentAmenities = $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
-            }
-          } else {
-            _vm.apartmentAmenities = $$c;
-          }
+        click: function click($event) {
+          return _vm.setCurrentAddress(address);
         }
       }
-    }), _vm._v(" "), _c("label", {
-      staticClass: "form-check-label",
-      attrs: {
-        "for": amenity.name + "-check"
-      }
-    }, [_vm._v(_vm._s(amenity.name))])]);
-  })], 2), _vm._v(" "), _c("div", {
-    staticClass: "d-flex align-items-center text-center mt-4"
+    }, [_vm._v("\n              " + _vm._s(address.address.freeformAddress + ", " + address.address.countrySubdivision) + "\n            ")]);
+  }), 0)])]), _vm._v(" "), _c("div", {
+    staticClass: "ms_search-box mb-4"
+  }, [_c("h3", {
+    staticClass: "text-center"
+  }, [_vm._v("Applica filtri alla tua ricerca")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex align-items-center text-center py-3"
   }, [_c("div", {
     staticClass: "col"
   }, [_c("label", {
@@ -2942,75 +2861,6 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "fw-bold",
     attrs: {
-      "for": "room-no"
-    }
-  }, [_vm._v("Numero bagni")]), _vm._v(" "), _c("select", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.bathNo,
-      expression: "bathNo"
-    }],
-    attrs: {
-      name: "bath_no",
-      id: "bath-no"
-    },
-    on: {
-      change: function change($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
-          return o.selected;
-        }).map(function (o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val;
-        });
-        _vm.bathNo = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
-      }
-    }
-  }, [_c("option", {
-    attrs: {
-      value: "1"
-    }
-  }, [_vm._v("1")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "2"
-    }
-  }, [_vm._v("2")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "3"
-    }
-  }, [_vm._v("3")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "4"
-    }
-  }, [_vm._v("4")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "5"
-    }
-  }, [_vm._v("5")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "6"
-    }
-  }, [_vm._v("6")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "7"
-    }
-  }, [_vm._v("7")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "8"
-    }
-  }, [_vm._v("8")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "9"
-    }
-  }, [_vm._v("9")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "10"
-    }
-  }, [_vm._v("10")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col"
-  }, [_c("label", {
-    staticClass: "fw-bold",
-    attrs: {
       "for": "search-range"
     }
   }, [_vm._v("Raggio di ricerca")]), _vm._v(" "), _c("div", {
@@ -3040,9 +2890,9 @@ var render = function render() {
         _vm.searchRange = $event.target.value;
       }
     }
-  }), _vm._v(" "), _c("output", {
+  }), _vm._v(" "), _c("span", {
     staticClass: "ms-1"
-  }, [_vm._v("20 ")]), _vm._v(" "), _c("span", {
+  }, [_vm._v(_vm._s(this.searchRange))]), _vm._v(" "), _c("span", {
     staticClass: "ms-1"
   }, [_vm._v(" km")])])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center p-3"
@@ -3050,10 +2900,10 @@ var render = function render() {
     staticClass: "btn btn-lt btn-primary text-white mx-2",
     on: {
       click: function click($event) {
-        return _vm.sendFiltersData();
+        return _vm.resetFilters();
       }
     }
-  }, [_vm._v("Applica filtri")])])])]);
+  }, [_vm._v("Cancella filtri")])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -3063,14 +2913,6 @@ var staticRenderFns = [function () {
   }, [_c("span", {
     staticClass: "text-primary"
   }, [_vm._v("Cerca")]), _vm._v(" un appartamento\n      ")]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "text-center mb-4"
-  }, [_c("span", {
-    staticClass: "fw-bold"
-  }, [_vm._v("Seleziona i servizi aggiuntivi che cerchi:")])]);
 }];
 render._withStripped = true;
 
@@ -19726,7 +19568,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\vince\Desktop\Boolean\Esercizi\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
+module.exports = __webpack_require__(/*! F:\Dev\FULLSTACK\JOBS\FInal_project\Progetto Finale\FInal_project\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
 
 
 /***/ })
