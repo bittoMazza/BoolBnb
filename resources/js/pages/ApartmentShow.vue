@@ -60,7 +60,7 @@
       <div class="container">
         <div class="row pb-5">
           <div class="col-6">
-            <hr style="width: 60%" />
+            <hr style="width: 95%" />
             <br />
             <h3 class="fw-bold">
               <i class="bi bi-geo-alt claim-icons"></i>Ottima posizione
@@ -85,7 +85,7 @@
             <br />
               <h3 class="fw-bold">Cosa troverai:</h3>
               <ul>
-                <li class="fs-3" v-for="amenity in apartment.amenities" :key="amenity.id">
+                <li class="fs-4" v-for="amenity in apartment.amenities" :key="amenity.id">
                   {{ amenity.name }}
                 </li>
               </ul>
