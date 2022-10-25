@@ -25,7 +25,7 @@
         <!-- Appartamenti in evidenza -->
         <div class="py-4 container">
           <div class="text-center mb-4">
-            <span class="tag fs-5">RISULTATI RICERCA</span>
+            <span class="fs-5">RISULTATI RICERCA</span>
           </div>
           <div class="in_evidence p-5">
             <div v-if="apartments != ''" class=" row row-cols-4 gx-4">
@@ -40,8 +40,7 @@
               {{ userMessage }}
             </div>
           </div>
-        </div>
-         
+        </div>        
         </div>
       </div>
   </main>
@@ -73,13 +72,10 @@ export default {
     SearchedApartments(a){
       this.apartments = a.apartment;
       if(this.apartments == ''){
-          this.userMessage = 'OPS!! Non sono stati trovati appartamenti,prova con uno dei nostri indirizzi consigliati'
+          this.userMessage = 'OPS!! Non sono stati trovati appartamenti , prova con un altro indirizzo'
         }
     }
   },
-  created() {
-
-  }
 };
 
 class txtType {

@@ -20,19 +20,29 @@ class ApartmentController extends Controller
         $radius = $data['radius'];
         $lat = $data['lat'];
         $long = $data['long'];
+        $rooms = $data['rooms'];
+        $beds = $data['beds'];
         $filteredApartments = [];
-        $apartments = Apartment::with('images')->paginate(10);
+        $fapartements = [];
+        $apartments = Apartment::with('images','amenities')->paginate(10);
 
         foreach ($apartments as $apartment) {
              $distance = sqrt(pow($lat - $apartment->lat, 2) + pow($long - $apartment->long, 2)) * 100;
              if ($distance <= $radius) {
                  $filteredApartments[] = $apartment;
              }
-         }
+        }
+
+        foreach($filteredApartments as $apartment){
+            if($apartment->beds >= $beds &&  $apartment->rooms >= $rooms ){ 
+                $fapartements[] = $apartment;
+            }
+        }
+
 
         return response()->json([
           "response" => true,
-          "results" => $filteredApartments,
+          "results" => $fapartements,
         ]);
     }
 
