@@ -5,60 +5,62 @@
         <div class="text-center fs-2 fw-bold my-4"><i class="bi bi-trash3-fill text-primary"></i>
             Appartamenti nel cestino
         </div>
-        <div class="row justify-content-between flex-wrap">
+        <div>
             @if (!$apartments->isEmpty())
-                <div class="col-12 d-flex justify-content-between flex-wrap">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 flex-wrap">
                     @forelse ($apartments as $apartment)
-                        <div class="card col-5 my-3">
-                            @if (isset($apartment->images['0']->image))
-                                @if (filter_var($apartment->images['0']->image, FILTER_VALIDATE_URL))
-                                    <img src="{{ $apartment->images['0']->image }}" alt="{{ $apartment->title }}"
-                                        class="card-img-top" />
+                        <div class="col">
+                            <div class="card my-3">
+                                @if (isset($apartment->images['0']->image))
+                                    @if (filter_var($apartment->images['0']->image, FILTER_VALIDATE_URL))
+                                        <img src="{{ $apartment->images['0']->image }}" alt="{{ $apartment->title }}"
+                                            class="deleted_image" />
+                                    @else
+                                        <img src="{{ asset('storage/' . $apartment->images['0']->image) }}"
+                                            alt="{{ $apartment->title }}" class="deleted_image" />
+                                    @endif
                                 @else
-                                    <img src="{{ asset('storage/' . $apartment->images['0']->image) }}"
-                                        alt="{{ $apartment->title }}" class="card-img-top" />
+                                    <div>nessuna immagine presente</div>
                                 @endif
-                            @else
-                                <div>nessuna immagine presente</div>
-                            @endif
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="{{ route('host.apartments.show', $apartment->id) }}">
-                                        {{ $apartment->title }}
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="{{ route('host.apartments.show', $apartment->id) }}">
+                                            {{ $apartment->title }}
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            Utente: {{ $apartment->user->name }}
+                                        </li>
+                                        <li class="list-group-item">
+                                            ID Appartamento: {{ $apartment->id }}
+                                        </li>
+                                        <li class="list-group-item">
+                                            Via: {{ $apartment->address }}
+                                        </li>
+                                        @forelse ($apartment->messages as $message)
+                                            <li class="list-group-item">
+                                                Messaggio di: {{ $message->name }}
+                                            </li>
+                                        @empty
+                                            <li class="list-group-item">
+                                                Non ci sono messaggi
+                                            </li>
+                                        @endforelse
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <a class="btn btn-sm btn-danger text-white mx-2 mt-3 px-2"
+                                        href="{{ route('host.apartments.deletePermanently', $apartment->id) }}">
+                                        Elimina definitivamente
                                     </a>
-                                </h5>
-                            </div>
-                            <div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        Utente: {{ $apartment->user->name }}
-                                    </li>
-                                    <li class="list-group-item">
-                                        ID Appartamento: {{ $apartment->id }}
-                                    </li>
-                                    <li class="list-group-item">
-                                        Via: {{ $apartment->address }}
-                                    </li>
-                                    @forelse ($apartment->messages as $message)
-                                        <li class="list-group-item">
-                                            Messaggio di: {{ $message->name }}
-                                        </li>
-                                    @empty
-                                        <li class="list-group-item">
-                                            Non ci sono messaggi
-                                        </li>
-                                    @endforelse
-                                </ul>
-                            </div>
-                            <div class="card-body">
-                                <a class="btn btn-sm btn-danger text-white mx-2 mt-3 px-2"
-                                    href="{{ route('host.apartments.deletePermanently', $apartment->id) }}">
-                                    Elimina definitivamente
-                                </a>
-                                <a class="btn btn-sm btn-success text-white mx-2 mt-3 px-1"
-                                    href="{{ route('host.apartments.restoreApartments', $apartment->id) }}">
-                                    Ripristina l'appartamento
-                                </a>
+                                    <a class="btn btn-sm btn-success text-white mx-2 mt-3 px-1"
+                                        href="{{ route('host.apartments.restoreApartments', $apartment->id) }}">
+                                        Ripristina l'appartamento
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     @empty
