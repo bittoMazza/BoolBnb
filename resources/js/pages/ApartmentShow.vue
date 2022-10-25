@@ -121,6 +121,7 @@
                   type="text"
                   class="form-control"
                   v-model="name"
+                  required
                 />
               </div>
               <div class="mb-3">
@@ -130,7 +131,9 @@
                 <input
                   type="text"
                   v-model = "surname"
-                  class="form-control"/>
+                  class="form-control"
+                  required
+                  />
               </div>
               <div class="mb-3">
                 <label class="form-label"
@@ -140,38 +143,23 @@
                   type="email"
                   v-model = "email"
                   class="form-control"
+                  required
                 />
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label"
                   >Messaggio</label
                 >
-                <input
-                  type="text"
-                  v-model = "content"
-                  class="form-control"
-                  id="exampleFormControlTextarea1"
-                >
+                <textarea type="text" class="form-control" rows="3" id="exampleFormControlTextarea1" v-model="content" required>
+                </textarea>
               </div>
 
-              <button type="submit" @click="sendMessage()" class="btn btn-blue text-white fw-bold">
+              <button type="submit" @click="sendMessage(apartment.id)" class="btn btn-blue text-white fw-bold">
                 Invia
               </button>
-            </form>
-          </div>
-        </div>
-      </div>
 
-      <div class="container">
-        <br />
-        <hr />
-        <br />
-        <div class="row">
-          <div class="col">
-            <h3 class="fw-bold">Dove ti troverai</h3>
-            <h5>{{ apartment.address }}</h5>
-            <h1 class="text-center">MAPPA</h1>
-            <!-- <div id="map-div"></div> -->
+              <h6 class="text-center fw-bold form-message">{{ messageForm }}</h6>
+            </form>
           </div>
         </div>
       </div>
@@ -184,11 +172,12 @@ import axios from "axios";
 export default {
   data() {
     return {
-      apartment: {},
-      name : '',
+      apartment:{},
+      name :'',
       surname:'',
       email:'',
       content:'',
+      messageForm:'',
     };
   },
   methods: {
@@ -203,19 +192,15 @@ export default {
                 console.error(error);
             })
         },
-    sendMessage(){
+    sendMessage(id){
       event.preventDefault();
-      const id = this.$route.params.id
-      axios.post(`/api/apartments/${id}/messages`,{params:{
-        name:this.name,
-        surname:this.surname,
-        email:this.email,
-        content:this.content,
-        apartment_id:id,
-        }      
-      })
+      axios.post(`/api/messages?apartment_id=${id}&name=${this.name}&surname=${this.surname}&email=${this.email}&content=${this.content}`)
       .then((response) => {
-        console.log(response)
+        this.name = "";
+        this.surname = "";
+        this.email = "";
+        this.content = "";
+        this.messageForm = "Messaggio inviato correttamente!"
       }).catch((error) => {
         console.log(error);
       })
@@ -281,6 +266,10 @@ p {
   border: 3px solid #19bab3;
   border-radius: 5px;
   padding: 1rem;
+}
+
+.form-message{
+  color:#19bab3;
 }
 
 .btn-blue {

@@ -36,20 +36,16 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
+       /*  $data = $request->validate([
             "name" => "nullable|string",
             'surname' => "required|string",
             "email" => "required|email",
             "content" => "required|string",
             'apartment_id' => 'required'
-        ]);
-
-        $data = $request->all();
-
+        ]); */
         $newMessage = new Message();
-        $newMessage->fill($data);
+        $newMessage->fill($request->all());
         $newMessage->save();
-        return back();
     }
 
     /**

@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::namespace('api')->group(function(){
     Route::get('/apartments', 'ApartmentController@index');
     Route::get('/apartments/{id}', 'ApartmentController@show');
-    Route::post('/apartments/{id}/messages', 'MessageController@store');
+    Route::post("/messages", "MessageController@store");
     Route::get('/amenities', 'AmenityController@index');
 });
 
