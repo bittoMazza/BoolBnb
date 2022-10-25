@@ -1,14 +1,6 @@
 <template>
   <footer>
-    <ul
-      class="
-        d-flex
-        justify-content-center
-        align-items-center
-        text-white
-        p-3
-      "
-    >
+    <ul class=" d-flex justify-content-center align-items-center text-white pt-3 m-0">
       <li><i class="bi bi-c-circle"></i>2022 Boolbnb, Inc</li>
       <i class="bi bi-circle-fill"></i>
       <li>Privacy</li>
@@ -24,7 +16,7 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss" scoped>
 footer {
   height: 60px;
   width: 100%;
