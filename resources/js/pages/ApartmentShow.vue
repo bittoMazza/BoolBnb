@@ -90,7 +90,7 @@
             <br />
             <h3 class="fw-bold">Cosa troverai:</h3>
             <ul>
-              <li v-for="amenity in apartment.amenities" :key="amenity.id">
+              <li class="fs-3" v-for="amenity in apartment.amenities" :key="amenity.id">
                 {{ amenity.name }}
               </li>
             </ul>
