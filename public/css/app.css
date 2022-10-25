@@ -10981,8 +10981,28 @@ ul {
   width: 300px;
 }
 
-.ms_pos_btn {
-  position: relative;
-  bottom: 53px;
-  left: 175px;
+.pad_edit_btn {
+  padding: 5px 20px;
+}
+
+@media all and (min-width: 500px) {
+  .sm_none {
+    display: none;
+  }
+  .title_sm {
+    text-align: center;
+    margin: 15px 0;
+  }
+}
+@media all and (min-width: 768px) {
+  .sm_none {
+    display: block;
+  }
+  .title_sm {
+    text-align: left;
+    margin: 0;
+  }
+}
+.deleted_image {
+  height: 200px;
 }

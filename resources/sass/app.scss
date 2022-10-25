@@ -84,10 +84,46 @@ ul{
     width: 300px;
 }
 
-.ms_pos_btn{
-    position: relative;
-    bottom: 53px;
-    left: 175px;
+.pad_edit_btn{
+    padding: 5px 20px;
 }
 
 // ! EDIT ! \\
+
+
+// ? MEDIAQUERY ? \\
+
+// MOBILE \\
+@media all and (min-width: 500px){
+    // INDEX APARTMENT \\
+    .sm_none{
+        display: none;
+    }
+
+    .title_sm{
+        text-align: center;
+        margin: 15px 0;
+    }
+    // INDEX APARTMENT \\
+}
+// MOBILE \\
+
+// TABLET \\
+@media all and (min-width: 768px){
+    // INDEX APARTMENT \\
+    .sm_none{
+        display: block;
+    }
+
+    .title_sm{
+        text-align: left;
+        margin: 0;
+    }
+    // INDEX APARTMENT \\
+}
+// TABLET \\
+
+// Images in deletedApartments
+.deleted_image{
+    height: 200px;
+}
