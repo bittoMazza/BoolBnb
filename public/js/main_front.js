@@ -2311,7 +2311,12 @@ var staticRenderFns = [function () {
     staticClass: "d-flex justify-content-center align-items-center text-white pt-3 m-0"
   }, [_c("li", [_c("i", {
     staticClass: "bi bi-c-circle"
-  }), _vm._v("2022 Boolbnb, Inc")]), _vm._v(" "), _c("i", {
+  }), _c("a", {
+    staticClass: "text-decoration-none text-white",
+    attrs: {
+      href: "https://github.com/bittoMazza/BoolBnb"
+    }
+  }, [_vm._v("2022 Boolbnb, Inc")])]), _vm._v(" "), _c("i", {
     staticClass: "bi bi-circle-fill"
   }), _vm._v(" "), _c("li", [_vm._v("Privacy")]), _vm._v(" "), _c("i", {
     staticClass: "bi bi-circle-fill"
@@ -19890,7 +19895,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\vince\Desktop\Boolean\Esercizi\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
+module.exports = __webpack_require__(/*! F:\Dev\FULLSTACK\JOBS\FInal_project\Progetto Finale\FInal_project\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
 
 
 /***/ })
