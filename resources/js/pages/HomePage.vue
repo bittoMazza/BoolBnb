@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-12">
         <!-- Contenuto principale in home -->
-        <div class="content py-3">
+        <div class="row content py-3">
           <!-- Typewriter text  -->
-
+          <div class="col">
           <div class="typewriter-jumbo text-center">
             <h1 class="home-title fw-bold">Scopri un posto&nbsp;</h1>
 
@@ -17,6 +17,7 @@
               <span class="wrap"></span>
             </h3>
           </div>
+          </div>
         </div>
 
         <div class="fw-bold fst-italic text-center mt-4 fs-5">Per iniziare a cercare il tuo appartamento inserisci l'indirizzo di dove vorresti alloggiare, <span class="text-primary">puoi anche aggiungere dei filtri alla tua ricerca!</span></div>
@@ -26,12 +27,12 @@
 
         <!-- Risultati di ricerca Appartamenti -->
         <div class="py-4 container">
-          <fieldset class="border border-4 p-3 mb-5">
+          <fieldset class="border border-4 p-4 mb-5">
             <legend class="float-none w-auto px-3">
               <span class="brand-color-2"> RISULTATI DI RICERCA</span>
             </legend>
-            <div v-if="apartments != ''" class="row row-cols-4 gx-4">
-              <div class="col" v-for="apartment in apartments" :key="apartment.id">
+            <div v-if="apartments != ''" class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3" v-for="apartment in apartments" :key="apartment.id">
                 <ApartmentsCards :apartment="apartment" />
               </div>
             </div>

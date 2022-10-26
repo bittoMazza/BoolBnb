@@ -2252,7 +2252,7 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "card px-0 shadow-sm"
-  }, [_c("div", [_c("router-link", {
+  }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
       to: "/apartments/" + _vm.apartment.id
@@ -2280,7 +2280,7 @@ var render = function render() {
     }
   }, [_vm._v(_vm._s(_vm.apartment.title))])], 1)]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
-  }, [_vm._v(_vm._s(_vm.apartment.address))])])], 1)]);
+  }, [_vm._v(_vm._s(_vm.apartment.address))])])], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -2689,13 +2689,13 @@ var render = function render() {
   }), _vm._v(" "), _c("div", {
     staticClass: "py-4 container"
   }, [_c("fieldset", {
-    staticClass: "border border-4 p-3 mb-5"
+    staticClass: "border border-4 p-4 mb-5"
   }, [_vm._m(2), _vm._v(" "), _vm.apartments != "" ? _c("div", {
-    staticClass: "row row-cols-4 gx-4"
+    staticClass: "row g-4"
   }, _vm._l(_vm.apartments, function (apartment) {
     return _c("div", {
       key: apartment.id,
-      staticClass: "col"
+      staticClass: "col-12 col-md-6 col-lg-4 col-xl-3"
     }, [_c("ApartmentsCards", {
       attrs: {
         apartment: apartment
@@ -2709,7 +2709,9 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "content py-3"
+    staticClass: "row content py-3"
+  }, [_c("div", {
+    staticClass: "col"
   }, [_c("div", {
     staticClass: "typewriter-jumbo text-center"
   }, [_c("h1", {
@@ -2722,7 +2724,7 @@ var staticRenderFns = [function () {
     }
   }, [_c("span", {
     staticClass: "wrap"
-  })])])]);
+  })])])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -2762,9 +2764,9 @@ var render = function render() {
   return _c("section", [_c("fieldset", {
     staticClass: "border border-4 p-3 mt-5"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "d-flex align-items-center text-center py-3"
+    staticClass: "row g-4 align-items-center text-center py-3"
   }, [_c("div", {
-    staticClass: "col"
+    staticClass: "col-12 col-md-6 col-lg-4"
   }, [_c("label", {
     staticClass: "fw-bold",
     attrs: {
@@ -2833,7 +2835,7 @@ var render = function render() {
       value: "10"
     }
   }, [_vm._v("10")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col"
+    staticClass: "col-12 col-md-6 col-lg-4"
   }, [_c("label", {
     staticClass: "fw-bold",
     attrs: {
@@ -2902,7 +2904,7 @@ var render = function render() {
       value: "10"
     }
   }, [_vm._v("10")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col"
+    staticClass: "col-12 col-lg-4"
   }, [_c("label", {
     staticClass: "fw-bold",
     attrs: {

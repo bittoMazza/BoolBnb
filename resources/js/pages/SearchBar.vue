@@ -5,8 +5,8 @@
       <legend class="float-none w-auto px-3">
         <span class="brand-color-2"> APPLICA FILTRO DI RICERCA</span>
       </legend>
-      <div class="d-flex align-items-center text-center py-3">
-        <div class="col">
+      <div class="row g-4 align-items-center text-center py-3">
+        <div class="col-12 col-md-6 col-lg-4">
           <label class="fw-bold" for="room-no">Numero di camere</label>
           <select name="room_no" id="room-no" v-model="roomNo">
             <option value="1">1</option>
@@ -22,7 +22,7 @@
           </select>
         </div>
 
-        <div class="col">
+        <div class="col-12 col-md-6 col-lg-4">
           <label class="fw-bold" for="bed-no">Posti letto</label>
           <select name="bed_no" id="bed-no" v-model="bedNo">
             <option value="1">1</option>
@@ -38,7 +38,7 @@
           </select>
         </div>
 
-        <div class="col">
+        <div class="col-12 col-lg-4">
           <label class="fw-bold" for="search-range">Raggio di ricerca</label>
           <div class="d-flex align-items-center justify-content-center">
             <input
