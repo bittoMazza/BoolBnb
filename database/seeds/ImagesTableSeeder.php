@@ -41,10 +41,21 @@ class ImagesTableSeeder extends Seeder
             'https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/8cf90014-7042-44f3-b7af-6da7cecd48af?im_w=1440',
             'https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/5bef30e7-660f-4f24-99d6-276e912b2793?im_w=1440',
             'https://a0.muscache.com/im/pictures/monet/Luxury-660649704045467259/original/5971b9c9-172c-409e-8d8a-759023c48615?im_w=1440',
+            'https://a0.muscache.com/im/pictures/prohost-api/Hosting-49359713/original/9e602b02-08db-4b63-bd27-b15eeb326169.jpeg?im_w=1200',
+            'https://a0.muscache.com/im/pictures/prohost-api/Hosting-49359713/original/efce3fef-fdce-4723-ac8a-4a1beb546c65.jpeg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/prohost-api/Hosting-49359713/original/2a01b563-425b-4d15-b1ef-cf91ababa8fc.jpeg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/prohost-api/Hosting-49359713/original/cdd69db6-b157-44b7-a3e0-2ae6bc79df14.jpeg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/prohost-api/Hosting-49359713/original/3bd9b736-240e-45d0-bb60-33f3c95e4762.jpeg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/72669850/fcadcb4a_original.jpg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/9bfe3f1f-7a8e-4875-897d-2157f326b52c.jpg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/72670009/a77ae020_original.jpg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/1b8fa944-2434-442d-ac01-0fcaf53e0c90.jpg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/459c989a-f9f6-43b4-8ac8-be24adab10f5.jpg?im_w=720'
+
         ];
 
         $apartments = Apartment::all();
-        
+
         foreach ($apartments as $apartment) {
             $isFirst = true;
             $randomItems = Arr::random($images, 5);
