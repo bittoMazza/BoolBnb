@@ -25,6 +25,7 @@ footer {
 
   li {
     padding-left: 1rem;
+    cursor: pointer;
   }
 
 
