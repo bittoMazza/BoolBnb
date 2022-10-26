@@ -2389,14 +2389,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "/host"
     }
-  }, [_vm._v(" LOGIN ")])]), _vm._v(" "), _c("li", {
-    staticClass: "nav-item fw-bold"
-  }, [_c("a", {
-    staticClass: "nav-link",
-    attrs: {
-      href: "/register"
-    }
-  }, [_vm._v(" REGISTRATI ")])])])])])])]);
+  }, [_vm._v(" Gestisci i tuoi appartamenti ")])])])])])])]);
 }];
 render._withStripped = true;
 
@@ -2450,7 +2443,7 @@ var render = function render() {
       alt: ""
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "col-5"
+    staticClass: "col-4"
   }, _vm._l(_vm.apartment.images, function (images) {
     return _c("div", {
       key: images.id
@@ -2809,18 +2802,15 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _vm.filter != "" ? _c("div", [_c("button", {
-    staticClass: "btn btn-primary text-white",
+    staticClass: "btn btn-primary text-white d-flex",
     on: {
       click: function click($event) {
         _vm.$emit("sendApartments", _vm.getSomething());
       }
     }
-  }, [_vm._v("\n            Cerca\n          ")])]) : _c("div", [_c("button", {
-    staticClass: "btn btn-primary text-white",
-    attrs: {
-      disabled: ""
-    }
-  }, [_vm._v("Cerca")])])]), _vm._v(" "), _c("ul", {
+  }, [_c("i", {
+    staticClass: "me-1 bi bi-search"
+  }), _vm._v(" Cerca \n          ")])]) : _c("div", [_vm._m(0)])]), _vm._v(" "), _c("ul", {
     staticClass: "addresses_container",
     attrs: {
       id: "addresses"
@@ -2840,7 +2830,7 @@ var render = function render() {
     }, [_vm._v("\n          " + _vm._s(address.address.freeformAddress + ", " + address.address.countrySubdivision) + "\n        ")]);
   }), 0)])]), _vm._v(" "), _c("fieldset", {
     staticClass: "border border-4 mt-1"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "row g-4 align-items-center text-center py-3"
   }, [_c("div", {
     staticClass: "col-12 col-md-6 col-lg-4"
@@ -3030,6 +3020,17 @@ var render = function render() {
   }, [_vm._v("\n        Cancella filtri\n      ")])])])]);
 };
 var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("button", {
+    staticClass: "btn btn-primary text-white d-flex",
+    attrs: {
+      disabled: ""
+    }
+  }, [_c("i", {
+    staticClass: "me-1 bi bi-search"
+  }), _vm._v(" Cerca")]);
+}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("legend", {
@@ -19895,7 +19896,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\Dev\FULLSTACK\JOBS\FInal_project\Progetto Finale\FInal_project\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
+module.exports = __webpack_require__(/*! C:\Users\vince\Desktop\Boolean\Esercizi\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
 
 
 /***/ })
