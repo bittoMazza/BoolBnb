@@ -169,7 +169,7 @@ window.onload = function () {
 .typewriter-jumbo {
   float: left;
   margin-top: 5rem;
-  margin-left: 2rem;
+  margin-left: 3rem;
 }
 
 .home-title {

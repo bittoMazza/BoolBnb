@@ -80,6 +80,14 @@ class ImagesTableSeeder extends Seeder
             'https://a0.muscache.com/im/pictures/72670009/a77ae020_original.jpg?im_w=1440',
             'https://a0.muscache.com/im/pictures/1b8fa944-2434-442d-ac01-0fcaf53e0c90.jpg?im_w=1440',
             'https://a0.muscache.com/im/pictures/459c989a-f9f6-43b4-8ac8-be24adab10f5.jpg?im_w=720',
+            'https://a0.muscache.com/im/pictures/miso/Hosting-745477211859171476/original/a0af15c4-74de-421f-9392-5abffdbbd01f.jpeg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/miso/Hosting-745477211859171476/original/abbdd398-40a4-4a85-91e3-c69949db09cd.jpeg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/389cb063-8216-4787-8c7d-6731ee604860.jpg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/422643d0-c539-4c76-805b-be920d4075df.jpg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/4d230de6-2aa3-4989-93c5-185c950dea2b.jpg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/miso/Hosting-36767861/original/ffcc6215-0b1c-4e8c-b2e0-473b3c801014.jpeg?im_w=1200',
+            'https://a0.muscache.com/im/pictures/b0a6016f-ca09-4b4e-a2a3-de9a4bb8faa7.jpg?im_w=1440',
+            'https://a0.muscache.com/im/pictures/0e76a2fb-37a0-4228-977b-b350d0eaa593.jpg?im_w=1440',
         ];
 
         $apartments = Apartment::all();
