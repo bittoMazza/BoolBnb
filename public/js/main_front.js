@@ -2433,19 +2433,19 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "col d-flex"
   }, [_vm.getMainImage(_vm.apartment.images).includes("uploads") ? _c("img", {
-    staticClass: "w-75 rounded-start",
+    staticClass: "w-75 rounded-start main_image",
     attrs: {
       src: "/storage/" + _vm.getMainImage(_vm.apartment.images),
       alt: ""
     }
   }) : _c("img", {
-    staticClass: "w-75 rounded-start",
+    staticClass: "w-75 rounded-start main_image",
     attrs: {
       src: _vm.getMainImage(_vm.apartment.images),
       alt: ""
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "col-4"
+    staticClass: "col-5"
   }, _vm._l(_vm.apartment.images, function (images) {
     return _c("div", {
       key: images.id
@@ -2484,7 +2484,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "row justify-content-between pb-5"
   }, [_c("div", {
-    staticClass: "col"
+    staticClass: "col-12 col-lg-6"
   }, [_c("hr", {
     staticStyle: {
       width: "60%"
@@ -2499,7 +2499,7 @@ var render = function render() {
       staticClass: "fs-3"
     }, [_vm._v("\n                - " + _vm._s(amenity.name) + "\n              ")]);
   }), 0), _vm._v(" "), _c("br")])]), _vm._v(" "), _c("div", {
-    staticClass: "col"
+    staticClass: "col-12 col-lg-5"
   }, [_c("form", {
     staticClass: "form-border mt-5"
   }, [_c("div", {
@@ -3091,7 +3091,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "footer[data-v-39d1195e] {\n  height: 60px;\n  width: 100%;\n  background-color: #3066bd;\n}\nli[data-v-39d1195e] {\n  padding-left: 1rem;\n}\n.bi-circle-fill[data-v-39d1195e] {\n  color: white;\n  font-size: 0.2em;\n  padding-left: 1rem;\n}\n.bi-c-circle[data-v-39d1195e] {\n  font-size: 0.8em;\n  margin-right: 0.3rem;\n}", ""]);
+exports.push([module.i, "footer[data-v-39d1195e] {\n  height: 60px;\n  width: 100%;\n  background-color: #3066bd;\n}\nli[data-v-39d1195e] {\n  padding-left: 1rem;\n  cursor: pointer;\n}\n.bi-circle-fill[data-v-39d1195e] {\n  color: white;\n  font-size: 0.2em;\n  padding-left: 1rem;\n}\n.bi-c-circle[data-v-39d1195e] {\n  font-size: 0.8em;\n  margin-right: 0.3rem;\n}", ""]);
 
 // exports
 
@@ -3110,7 +3110,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* General Image Styling */\nimg[data-v-53532716] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  padding: 0.2rem;\n}\n.claim-icons[data-v-53532716] {\n  margin-right: 1rem;\n  font-size: 1.3em;\n  font-weight: bold;\n}\np[data-v-53532716] {\n  font-size: 1.2em;\n  margin-left: 3rem;\n}\n.list-group-item[data-v-53532716] {\n  background-color: #3066bd;\n}\n.form-border[data-v-53532716] {\n  border: 3px solid #19bab3;\n  border-radius: 5px;\n  padding: 1rem;\n}\n.form-message[data-v-53532716] {\n  color: #19bab3;\n}\n.btn-blue[data-v-53532716] {\n  background-color: #3066bd;\n}\n.secondary-img[data-v-53532716] {\n  height: 180px;\n}\n#map-div[data-v-53532716] {\n  width: 90vw;\n  height: 90vh;\n}\n#marker[data-v-53532716] {\n  background-image: url(\"https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png\");\n  background-size: cover;\n  width: 40px;\n  height: 50px;\n}", ""]);
+exports.push([module.i, "/* General Image Styling */\nimg[data-v-53532716] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  padding: 0.2rem;\n}\n.main_image[data-v-53532716] {\n  height: 720px;\n}\n.claim-icons[data-v-53532716] {\n  margin-right: 1rem;\n  font-size: 1.3em;\n  font-weight: bold;\n}\np[data-v-53532716] {\n  font-size: 1.2em;\n  margin-left: 3rem;\n}\n.list-group-item[data-v-53532716] {\n  background-color: #3066bd;\n}\n.form-border[data-v-53532716] {\n  border: 3px solid #19bab3;\n  border-radius: 5px;\n  padding: 1rem;\n}\n.form-message[data-v-53532716] {\n  color: #19bab3;\n}\n.btn-blue[data-v-53532716] {\n  background-color: #3066bd;\n}\n.secondary-img[data-v-53532716] {\n  height: 180px;\n}\n#map-div[data-v-53532716] {\n  width: 90vw;\n  height: 90vh;\n}\n#marker[data-v-53532716] {\n  background-image: url(\"https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png\");\n  background-size: cover;\n  width: 40px;\n  height: 50px;\n}", ""]);
 
 // exports
 

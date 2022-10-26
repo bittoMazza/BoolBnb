@@ -24,7 +24,7 @@
                     {{-- DASHBOARD DESIGN --}}
                     <div class="row my-4">
 
-                        <div class="col-md-3 col-sm-12">
+                        <div class="col-12 col-lg-3">
                             <div class="index_user_panel w-100 bg-light p-3 shadow-sm rounded">
 
                                 @forelse ($users as $user)
@@ -60,12 +60,12 @@
                             </div>
                         </div>
 
-                        <div class="col-md-9 col-sm-12">
+                        <div class="col-12 col-lg-9 mt-3">
                             <div class="index_user_management">
                                 <h2 class="fw-bold title_sm">I miei Appartamenti</h2>
 
                                 <div class="row justify-content-around">
-                                    <div class="col-md-6 col-sm-12 d-flex flex-wrap justify-content-between px-1">
+                                    <div class="col-12 col-lg-6 my-2 d-flex flex-wrap justify-content-between px-1">
                                         @forelse ($apartments as $apartment)
                                             <div class="card w-50 mb-2">
                                                 @foreach ($apartment->images as $image)
@@ -99,7 +99,7 @@
                                             <div>Non hai appartamenti.</div>
                                         @endforelse
                                     </div>
-                                    <div class="col-6 sm_none">
+                                    <div class="col-12 col-lg-6 mt-3">
                                         <span class="fw-bold bg-primary text-white p-1">
                                             Gestione rapida degli Appartamenti:
                                         </span>
@@ -132,7 +132,7 @@
                                                 <div>Non hai appartamenti.</div>
                                             @endforelse
                                         </ul>
-                                        <div class="d-flex p-4">
+                                        <div class="d-flex">
                                             <img class="ms_icon_create_apartment mr-2" src="https://tinypic.host/images/2022/10/13/add.png" alt="create"> 
                                             <a class="ms-2" href="{{ route('host.apartments.create') }}"><p><strong>Aggiungi un nuovo appartamento</strong></p></a>
                                         </div>
