@@ -17,12 +17,12 @@
         <div class="row">
           <div class="col d-flex">
             <img v-if="getMainImage(apartment.images).includes('uploads')"
-              class="w-75 rounded-start"
+              class="w-75 rounded-start main_image"
               :src="'/storage/'+getMainImage(apartment.images)"
               alt=""
             />
             <img v-else
-              class="w-75 rounded-start"
+              class="w-75 rounded-start main_image"
               :src="getMainImage(apartment.images)"
               alt=""
             />
@@ -209,6 +209,10 @@ img {
   width: 100%;
   object-fit: cover;
   padding: 0.2rem;
+}
+
+.main_image{
+  height: 720px;
 }
 
 .claim-icons {
