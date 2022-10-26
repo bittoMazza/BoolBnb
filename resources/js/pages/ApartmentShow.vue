@@ -60,7 +60,7 @@
       <div class="container">
         <div class="row justify-content-between pb-5">
           <div class="col">
-            <hr style="width: 60%" />
+            <hr style="width: 95%" />
             <br />
             <h3 class="fw-bold">
               <i class="bi bi-geo-alt claim-icons"></i>Ottima posizione
