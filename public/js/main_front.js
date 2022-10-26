@@ -3091,7 +3091,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "footer[data-v-39d1195e] {\n  height: 60px;\n  width: 100%;\n  background-color: #3066bd;\n}\nli[data-v-39d1195e] {\n  padding-left: 1rem;\n  font-size: 1.2rem;\n}\n.bi-circle-fill[data-v-39d1195e] {\n  color: white;\n  font-size: 0.2em;\n  padding-left: 1rem;\n}\n.bi-c-circle[data-v-39d1195e] {\n  font-size: 0.8em;\n  margin-right: 0.3rem;\n}", ""]);
+exports.push([module.i, "footer[data-v-39d1195e] {\n  height: 60px;\n  width: 100%;\n  background-color: #3066bd;\n}\nli[data-v-39d1195e] {\n  padding-left: 1rem;\n}\n.bi-circle-fill[data-v-39d1195e] {\n  color: white;\n  font-size: 0.2em;\n  padding-left: 1rem;\n}\n.bi-c-circle[data-v-39d1195e] {\n  font-size: 0.8em;\n  margin-right: 0.3rem;\n}", ""]);
 
 // exports
 
@@ -19890,7 +19890,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\haksn\Desktop\BoolBnb\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
+module.exports = __webpack_require__(/*! C:\Users\vince\Desktop\Boolean\Esercizi\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
 
 
 /***/ })
