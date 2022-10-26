@@ -22,7 +22,7 @@ class MessageTableSeeder extends Seeder
             $message->name = $faker->firstName();
             $message->surname = $faker->lastName();
             $message->email = $faker->email();
-            $message->content = $faker->text();
+            $message->content = $faker->realText();
 
             $message->save();
         }

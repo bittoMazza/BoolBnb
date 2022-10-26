@@ -2738,7 +2738,7 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "fw-bold fst-italic text-center fs-5 mb-1"
-  }, [_vm._v("Per iniziare a cercare il tuo appartamento inserisci l'indirizzo di dove vorresti alloggiare, "), _c("span", {
+  }, [_vm._v("Per iniziare a cercare un appartamento inserisci l'indirizzo di dove vorresti alloggiare, "), _c("span", {
     staticClass: "text-primary"
   }, [_vm._v("puoi anche aggiungere dei filtri alla tua ricerca!")])]);
 }, function () {

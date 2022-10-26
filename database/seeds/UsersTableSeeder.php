@@ -29,5 +29,13 @@ class UsersTableSeeder extends Seeder
         $registeredUserApartment->surname = 'Gigiano';
         $registeredUserApartment->date_birth = '2000-09-28';
         $registeredUserApartment->save();
+
+        $registeredUserApartment = new User();
+        $registeredUserApartment->password = Hash::make('1234marta');
+        $registeredUserApartment->email = 'Marta@gmail.com';
+        $registeredUserApartment->name = 'Marta';
+        $registeredUserApartment->surname = 'Salieri';
+        $registeredUserApartment->date_birth = '1995-09-28';
+        $registeredUserApartment->save();
     }
 }

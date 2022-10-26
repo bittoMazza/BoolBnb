@@ -23,7 +23,7 @@
         <div class="fw-bold text-center fs-2 mb-1">
             <span class="text-primary">Cerca</span> un appartamento
         </div>
-        <div class="fw-bold fst-italic text-center fs-5 mb-1">Per iniziare a cercare il tuo appartamento inserisci l'indirizzo di dove vorresti alloggiare, <span class="text-primary">puoi anche aggiungere dei filtri alla tua ricerca!</span></div>
+        <div class="fw-bold fst-italic text-center fs-5 mb-1">Per iniziare a cercare un appartamento inserisci l'indirizzo di dove vorresti alloggiare, <span class="text-primary">puoi anche aggiungere dei filtri alla tua ricerca!</span></div>
 
         <!-- Search bar -->
         <SearchBar @sendApartments="SearchedApartments" />
