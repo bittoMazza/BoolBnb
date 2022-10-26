@@ -63,7 +63,7 @@ class ApartmentsTableSeeder extends Seeder
             ],
             [
                 'user_id' => 2,
-                'title' => 'Appartmaneto vicino a Rimini',
+                'title' => 'Appartamanto vicino a Rimini',
                 'rooms' => 8,
                 'beds' => 3,
                 'bathrooms' => 2,
@@ -75,7 +75,7 @@ class ApartmentsTableSeeder extends Seeder
             ],
             [
                 'user_id' => 2,
-                'title' => 'Appartmaneto in villetta bifamiliare',
+                'title' => 'Appartamento in villetta bifamiliare',
                 'rooms' => 5,
                 'beds' => 2,
                 'bathrooms' => 1,
