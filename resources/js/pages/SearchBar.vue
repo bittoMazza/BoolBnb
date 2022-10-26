@@ -1,7 +1,55 @@
 <template>
   <section>
+    <nav class="navbar bg-light mb-2">
+      <div class="container-fluid">
+        <div class="d-flex w-100" role="search">
+          <input
+            @keyup="getFilteredApartment()"
+            class="form-control me-2"
+            type="search"
+            placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento"
+            aria-label="Search"
+            v-model="filter"
+          />
+          <div v-if="filter != ''">
+            <button
+              class="btn btn-primary text-white"
+              @click="$emit('sendApartments', getSomething())"
+            >
+              Cerca
+            </button>
+          </div>
+          <div v-else>
+            <button class="btn btn-primary text-white" disabled>Cerca</button>
+          </div>
+        </div>
+        <ul id="addresses" class="addresses_container">
+          <li
+            role="button"
+            @click="setCurrentAddress(address)"
+            v-for="(address, index) in searchedAddresses"
+            :key="index"
+            class="
+              list-group-item
+              py-1
+              px-2
+              my-1
+              list-group-item-action
+              searched_address
+            "
+          >
+            {{
+              address.address.freeformAddress +
+              ", " +
+              address.address.countrySubdivision
+            }}
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
     <!-- Advanced Search bar -->
-    <fieldset class="border border-4 p-3 mt-5">
+    <fieldset class="border border-4 mt-1">
       <legend class="float-none w-auto px-3">
         <span class="brand-color-2"> APPLICA FILTRO DI RICERCA</span>
       </legend>
@@ -66,57 +114,6 @@
         </button>
       </div>
     </fieldset>
-
-    <h3 class="fw-bold text-center mt-3 mb-0">
-      <span class="text-primary">Cerca</span> un appartamento
-    </h3>
-    <nav class="navbar bg-light mb-4">
-      <div class="container-fluid">
-        <div class="d-flex w-100" role="search">
-          <input
-            @keyup="getFilteredApartment()"
-            class="form-control me-2"
-            type="search"
-            placeholder="Inserisci il luogo in cui vuoi trovare l'appartamento"
-            aria-label="Search"
-            v-model="filter"
-          />
-          <div v-if="filter != ''">
-            <button
-              class="btn btn-primary text-white"
-              @click="$emit('sendApartments', getSomething())"
-            >
-              Cerca
-            </button>
-          </div>
-          <div v-else>
-            <button class="btn btn-primary text-white" disabled>Cerca</button>
-          </div>
-        </div>
-        <ul id="addresses" class="addresses_container">
-          <li
-            role="button"
-            @click="setCurrentAddress(address)"
-            v-for="(address, index) in searchedAddresses"
-            :key="index"
-            class="
-              list-group-item
-              py-1
-              px-2
-              my-1
-              list-group-item-action
-              searched_address
-            "
-          >
-            {{
-              address.address.freeformAddress +
-              ", " +
-              address.address.countrySubdivision
-            }}
-          </li>
-        </ul>
-      </div>
-    </nav>
   </section>
 </template>
 

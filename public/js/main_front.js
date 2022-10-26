@@ -2682,15 +2682,15 @@ var render = function render() {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-12"
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("SearchBar", {
+  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("SearchBar", {
     on: {
       sendApartments: _vm.SearchedApartments
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "py-4 container"
+    staticClass: "py-5 container"
   }, [_c("fieldset", {
     staticClass: "border border-4 p-4 mb-5"
-  }, [_vm._m(2), _vm._v(" "), _vm.apartments != "" ? _c("div", {
+  }, [_vm._m(3), _vm._v(" "), _vm.apartments != "" ? _c("div", {
     staticClass: "row g-4"
   }, _vm._l(_vm.apartments, function (apartment) {
     return _c("div", {
@@ -2729,7 +2729,15 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "fw-bold fst-italic text-center mt-4 fs-5"
+    staticClass: "fw-bold text-center fs-2 mb-1"
+  }, [_c("span", {
+    staticClass: "text-primary"
+  }, [_vm._v("Cerca")]), _vm._v(" un appartamento\n      ")]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "fw-bold fst-italic text-center fs-5 mb-1"
   }, [_vm._v("Per iniziare a cercare il tuo appartamento inserisci l'indirizzo di dove vorresti alloggiare, "), _c("span", {
     staticClass: "text-primary"
   }, [_vm._v("puoi anche aggiungere dei filtri alla tua ricerca!")])]);
@@ -2761,8 +2769,72 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("section", [_c("fieldset", {
-    staticClass: "border border-4 p-3 mt-5"
+  return _c("section", [_c("nav", {
+    staticClass: "navbar bg-light mb-2"
+  }, [_c("div", {
+    staticClass: "container-fluid"
+  }, [_c("div", {
+    staticClass: "d-flex w-100",
+    attrs: {
+      role: "search"
+    }
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.filter,
+      expression: "filter"
+    }],
+    staticClass: "form-control me-2",
+    attrs: {
+      type: "search",
+      placeholder: "Inserisci il luogo in cui vuoi trovare l'appartamento",
+      "aria-label": "Search"
+    },
+    domProps: {
+      value: _vm.filter
+    },
+    on: {
+      keyup: function keyup($event) {
+        return _vm.getFilteredApartment();
+      },
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.filter = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _vm.filter != "" ? _c("div", [_c("button", {
+    staticClass: "btn btn-primary text-white",
+    on: {
+      click: function click($event) {
+        _vm.$emit("sendApartments", _vm.getSomething());
+      }
+    }
+  }, [_vm._v("\n            Cerca\n          ")])]) : _c("div", [_c("button", {
+    staticClass: "btn btn-primary text-white",
+    attrs: {
+      disabled: ""
+    }
+  }, [_vm._v("Cerca")])])]), _vm._v(" "), _c("ul", {
+    staticClass: "addresses_container",
+    attrs: {
+      id: "addresses"
+    }
+  }, _vm._l(_vm.searchedAddresses, function (address, index) {
+    return _c("li", {
+      key: index,
+      staticClass: "list-group-item py-1 px-2 my-1 list-group-item-action searched_address",
+      attrs: {
+        role: "button"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.setCurrentAddress(address);
+        }
+      }
+    }, [_vm._v("\n          " + _vm._s(address.address.freeformAddress + ", " + address.address.countrySubdivision) + "\n        ")]);
+  }), 0)])]), _vm._v(" "), _c("fieldset", {
+    staticClass: "border border-4 mt-1"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "row g-4 align-items-center text-center py-3"
   }, [_c("div", {
@@ -2950,71 +3022,7 @@ var render = function render() {
         return _vm.resetFilters();
       }
     }
-  }, [_vm._v("\n        Cancella filtri\n      ")])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("nav", {
-    staticClass: "navbar bg-light mb-4"
-  }, [_c("div", {
-    staticClass: "container-fluid"
-  }, [_c("div", {
-    staticClass: "d-flex w-100",
-    attrs: {
-      role: "search"
-    }
-  }, [_c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.filter,
-      expression: "filter"
-    }],
-    staticClass: "form-control me-2",
-    attrs: {
-      type: "search",
-      placeholder: "Inserisci il luogo in cui vuoi trovare l'appartamento",
-      "aria-label": "Search"
-    },
-    domProps: {
-      value: _vm.filter
-    },
-    on: {
-      keyup: function keyup($event) {
-        return _vm.getFilteredApartment();
-      },
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.filter = $event.target.value;
-      }
-    }
-  }), _vm._v(" "), _vm.filter != "" ? _c("div", [_c("button", {
-    staticClass: "btn btn-primary text-white",
-    on: {
-      click: function click($event) {
-        _vm.$emit("sendApartments", _vm.getSomething());
-      }
-    }
-  }, [_vm._v("\n            Cerca\n          ")])]) : _c("div", [_c("button", {
-    staticClass: "btn btn-primary text-white",
-    attrs: {
-      disabled: ""
-    }
-  }, [_vm._v("Cerca")])])]), _vm._v(" "), _c("ul", {
-    staticClass: "addresses_container",
-    attrs: {
-      id: "addresses"
-    }
-  }, _vm._l(_vm.searchedAddresses, function (address, index) {
-    return _c("li", {
-      key: index,
-      staticClass: "list-group-item py-1 px-2 my-1 list-group-item-action searched_address",
-      attrs: {
-        role: "button"
-      },
-      on: {
-        click: function click($event) {
-          return _vm.setCurrentAddress(address);
-        }
-      }
-    }, [_vm._v("\n          " + _vm._s(address.address.freeformAddress + ", " + address.address.countrySubdivision) + "\n        ")]);
-  }), 0)])])]);
+  }, [_vm._v("\n        Cancella filtri\n      ")])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -3024,14 +3032,6 @@ var staticRenderFns = [function () {
   }, [_c("span", {
     staticClass: "brand-color-2"
   }, [_vm._v(" APPLICA FILTRO DI RICERCA")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("h3", {
-    staticClass: "fw-bold text-center mt-3 mb-0"
-  }, [_c("span", {
-    staticClass: "text-primary"
-  }, [_vm._v("Cerca")]), _vm._v(" un appartamento\n  ")]);
 }];
 render._withStripped = true;
 
