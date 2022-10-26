@@ -3010,8 +3010,20 @@ var render = function render() {
     staticClass: "ms-1"
   }, [_vm._v(" km")])])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center p-3"
-  }, [_c("button", {
-    staticClass: "btn btn-lt btn-primary text-white mx-2",
+  }, [_vm.filter != "" ? _c("div", [_c("button", {
+    staticClass: "btn btn-primary text-white",
+    on: {
+      click: function click($event) {
+        _vm.$emit("sendApartments", _vm.getSomething());
+      }
+    }
+  }, [_vm._v("\n          Applica filtri\n        ")])]) : _c("div", [_c("button", {
+    staticClass: "btn btn-primary text-white",
+    attrs: {
+      disabled: ""
+    }
+  }, [_vm._v("Applica filtri")])]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-lt btn-danger text-white mx-2",
     on: {
       click: function click($event) {
         return _vm.resetFilters();

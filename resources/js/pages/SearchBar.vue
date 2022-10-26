@@ -103,10 +103,15 @@
         </div>
       </div>
       <div class="d-flex justify-content-center p-3">
-        <button
-          class="btn btn-lt btn-primary text-white mx-2"
-          @click="resetFilters()"
-        >
+        <div v-if="filter != ''">
+          <button class="btn btn-primary text-white" @click="$emit('sendApartments', getSomething())">
+            Applica filtri
+          </button>
+        </div>
+        <div v-else>
+          <button class="btn btn-primary text-white" disabled>Applica filtri</button>
+        </div>
+        <button class="btn btn-lt btn-danger text-white mx-2" @click="resetFilters()">
           Cancella filtri
         </button>
       </div>
