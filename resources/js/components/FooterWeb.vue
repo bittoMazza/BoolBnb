@@ -1,7 +1,7 @@
 <template>
   <footer>
     <ul class=" d-flex justify-content-center align-items-center text-white pt-3 m-0">
-      <li><i class="bi bi-c-circle"></i>2022 Boolbnb, Inc</li>
+      <li><i class="bi bi-c-circle"></i><a href="https://github.com/bittoMazza/BoolBnb" class="text-decoration-none text-white">2022 Boolbnb, Inc</a></li>
       <i class="bi bi-circle-fill"></i>
       <li>Privacy</li>
       <i class="bi bi-circle-fill"></i>
