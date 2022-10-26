@@ -2168,6 +2168,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     setCurrentAddress: function setCurrentAddress(a) {
+      console.log(a);
       this.lat = a.position.lat;
       this["long"] = a.position.lon;
       this.filter = a.address.freeformAddress + ", " + a.address.countrySubdivision;
@@ -2186,8 +2187,9 @@ __webpack_require__.r(__webpack_exports__);
           beds: this.bedNo
         }
       }).then(function (response) {
+        console.log(response);
         _this2.apartments = response.data.results;
-        console.log(_this2.apartments);
+        // console.log(this.apartments);
         _this2.$emit("sendApartments", {
           apartment: _this2.apartments
         });
@@ -19908,7 +19910,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\vince\Desktop\Boolean\Esercizi\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
+module.exports = __webpack_require__(/*! C:\Users\haksn\Desktop\BoolBnb\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
 
 
 /***/ })
