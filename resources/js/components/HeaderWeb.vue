@@ -12,10 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav w-100 d-flex justify-content-end align-middle mt-2">
             <li class="nav-item fw-bold">
-              <a href="/host" class="nav-link"> LOGIN </a>
-            </li>
-            <li class="nav-item fw-bold">
-              <a href="/register" class="nav-link"> REGISTRATI </a>
+              <a href="/host" class="nav-link"> Gestisci i tuoi appartamenti </a>
             </li>
           </ul>
         </div>

@@ -12,15 +12,12 @@
             v-model="filter"
           />
           <div v-if="filter != ''">
-            <button
-              class="btn btn-primary text-white"
-              @click="$emit('sendApartments', getSomething())"
-            >
-              Cerca
+            <button class="btn btn-primary text-white d-flex" @click="$emit('sendApartments', getSomething())">
+              <i class="me-1 bi bi-search"></i> Cerca 
             </button>
           </div>
           <div v-else>
-            <button class="btn btn-primary text-white" disabled>Cerca</button>
+            <button class="btn btn-primary text-white d-flex" disabled><i class="me-1 bi bi-search"></i> Cerca</button>
           </div>
         </div>
         <ul id="addresses" class="addresses_container">
