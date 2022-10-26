@@ -48,7 +48,7 @@
                     <ul>
                         @foreach ($apartment->amenities as $amenity)
                         <li class="list-group-item py-1">
-                            {{ $amenity->name }} 
+                            - {{ $amenity->name }} 
                         </li>       
                         @endforeach
                     </ul>  
