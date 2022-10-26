@@ -28,7 +28,7 @@
             />
 
 
-            <div class="col-4">
+            <div class="col-5">
               <div v-for="images in apartment.images" :key="images.id">               
                 <img v-if="images.is_cover == false && images.image.includes('uploads')" class="w-75 rounded-end secondary-img" :src="'/storage/'+images.image" alt=""/>
                 <img v-else-if="images.is_cover == false && images.image.includes('https')" class="w-75 rounded-end secondary-img" :src="images.image"/>
@@ -59,8 +59,8 @@
       </div>
       <div class="container">
         <div class="row justify-content-between pb-5">
-          <div class="col">
-            <hr style="width: 95%" />
+          <div class="col-12 col-lg-6">
+            <hr style="width: 60%" />
             <br />
             <h3 class="fw-bold">
               <i class="bi bi-geo-alt claim-icons"></i>Ottima posizione
@@ -92,7 +92,7 @@
               <br />
             </div>
           </div>
-          <div class="col">
+          <div class="col-12 col-lg-5">
             <form class="form-border mt-5">
               <div class="mb-3">
                 <h3>Scrivi un messaggio al proprietario</h3>
