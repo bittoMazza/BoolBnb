@@ -124,7 +124,7 @@
                                                         <div class="col-lg-6">
                                                             <div class="d-flex">
                                                                 <a href="{{ route('host.apartments.edit', $apartment->id) }}"
-                                                                    class="btn btn-sm btn-info mr-2 fw-bold">
+                                                                    class="btn btn-sm btn-primary text-white mr-2 fw-bold">
                                                                     Modifica
                                                                 </a>
                                                                 <form
