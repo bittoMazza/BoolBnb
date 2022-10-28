@@ -26,6 +26,7 @@ class CreateApartmentsTable extends Migration
             $table->boolean('is_visible');
             $table->decimal('long', 10, 7)->nullable();
             $table->decimal('lat', 10, 7)->nullable();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

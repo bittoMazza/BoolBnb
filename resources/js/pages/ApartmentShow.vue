@@ -96,7 +96,7 @@
             <form class="form-border mt-5">
               <div class="mb-3">
                 <h3>Scrivi un messaggio al proprietario</h3>
-                <label for="nome" class="form-label">Nome</label>
+                <label for="nome" class="form-label">Nome*</label>
                 <input
                   type="text"
                   class="form-control"
@@ -106,7 +106,7 @@
               </div>
               <div class="mb-3">
                 <label class="form-label"
-                  >Cognome</label
+                  >Cognome*</label
                 >
                 <input
                   type="text"
@@ -117,7 +117,7 @@
               </div>
               <div class="mb-3">
                 <label class="form-label"
-                  >Indirizzo email</label
+                  >Indirizzo email*</label
                 >
                 <input
                   type="email"
@@ -128,7 +128,7 @@
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label"
-                  >Messaggio</label
+                  >Messaggio*</label
                 >
                 <textarea type="text" class="form-control" rows="3" id="exampleFormControlTextarea1" v-model="content" required>
                 </textarea>
@@ -163,9 +163,9 @@ export default {
   },
   methods: {
     getApartment(){
-            const id = this.$route.params.id;
+            const slug = this.$route.params.slug;
             /* Facciamo una chiamata al metodo show dell'api*/
-            axios.get(`/api/apartments/${id}`,{
+            axios.get(`/api/apartments/${slug}`,{
             }).then((response) => {
                 console.log(response);
                 this.apartment = response.data.results[0];

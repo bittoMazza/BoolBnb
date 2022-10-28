@@ -20,6 +20,7 @@ class Apartment extends Model
         'is_visible',
         'long',
         'lat',
+        'slug'
     ];
 
     public function user(){

@@ -24,6 +24,7 @@ class ApartmentsTableSeeder extends Seeder
                 'is_visible' => true,
                 'lat' => '40.76199237334906',
                 'long' => '14.031702205442677',
+                'slug' => 'Casa-sul-mare-1',
             ],
             [
                 'user_id' => 2,
@@ -36,6 +37,7 @@ class ApartmentsTableSeeder extends Seeder
                 'is_visible' => true,
                 'lat' => '40.7577703070356',
                 'long' => '14.019365200587943',
+                'slug' => 'Corallo-Residence-2',
             ],
             [
                 'user_id' => 2,
@@ -48,6 +50,7 @@ class ApartmentsTableSeeder extends Seeder
                 'is_visible' => true,
                 'lat' => '36.781475462893944',
                 'long' => '14.530960987775696',
+                'slug' => 'IzzHome-Bella-Vista-3',
             ],
             [
                 'user_id' => 1,
@@ -60,6 +63,7 @@ class ApartmentsTableSeeder extends Seeder
                 'is_visible' => true,
                 'lat' => '44.21331410599949',
                 'long' => '12.383846649136192',
+                'slug' => 'Villetta-al-mare-4',
             ],
             [
                 'user_id' => 2,
@@ -72,6 +76,7 @@ class ApartmentsTableSeeder extends Seeder
                 'is_visible' => true,
                 'lat' => '44.047578422255526',
                 'long' => '12.554644359866689',
+                'slug' => 'Appartamanto-vicino-a-Rimini-5',
             ],
             [
                 'user_id' => 2,
@@ -84,6 +89,7 @@ class ApartmentsTableSeeder extends Seeder
                 'is_visible' => true,
                 'lat' => '44.049192712947914',
                 'long' => '12.565005640509895',
+                'slug' => 'Appartamento-in-villetta-bifamiliare-6',
             ],
             [
                 'user_id' => 2,
@@ -96,6 +102,7 @@ class ApartmentsTableSeeder extends Seeder
                 'is_visible' => true,              
                 'lat' => '41.9059015',
                 'long' => '12.477944',
+                'slug' => 'Appartamento-a-Roma-7',
             ],
             [
                 'user_id' => 1,
@@ -108,6 +115,7 @@ class ApartmentsTableSeeder extends Seeder
                 'is_visible' => true,              
                 'lat' => '45.464821',
                 'long' => '9.195207',
+                'slug' => 'Appartamento-a-Milano-8',
             ],
             [
                 'user_id' => 1,
@@ -120,6 +128,7 @@ class ApartmentsTableSeeder extends Seeder
                 'is_visible' => true,
                 'lat' => '45.07509451498085',
                 'long' => '7.675862182863356', 
+                'slug' => 'Appartamento-a-Torino-9',
             ],
             [
                 'user_id' => 2,
@@ -132,6 +141,7 @@ class ApartmentsTableSeeder extends Seeder
                 'is_visible' => true,
                 'lat' => '38.140066069551835', 
                 'long' => '13.348720293625824',
+                'slug' => 'Appartamento-a-Palermo-10',
             ],
         ];
 
@@ -147,6 +157,7 @@ class ApartmentsTableSeeder extends Seeder
             $apartment->is_visible = $apartments[$i]['is_visible'];
             $apartment->long = $apartments[$i]['long'];
             $apartment->lat = $apartments[$i]['lat'];
+            $apartment->slug = $apartments[$i]['slug'];
             $apartment->save();
         }
     }
