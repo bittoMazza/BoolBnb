@@ -51,12 +51,12 @@
                                         @endforelse
                                     </ul>
                                 </div>
-                                <div class="card-body">
-                                    <a class="btn btn-sm btn-danger text-white mx-2 mt-3 px-2"
+                                <div class="card-body text-center">
+                                    <a class="btn btn-sm btn-danger text-white mx-2 mt-3 px-2 fw-bold"
                                         href="{{ route('host.apartments.deletePermanently', $apartment->id) }}">
                                         Elimina definitivamente
                                     </a>
-                                    <a class="btn btn-sm btn-success text-white mx-2 mt-3 px-1"
+                                    <a class="btn btn-sm btn-success text-white mx-2 mt-3 px-1 fw-bold"
                                         href="{{ route('host.apartments.restoreApartments', $apartment->id) }}">
                                         Ripristina l'appartamento
                                     </a>

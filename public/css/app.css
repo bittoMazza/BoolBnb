@@ -10931,6 +10931,10 @@ textarea.form-control-lg {
   width: 120px;
 }
 
+.bin-wrap {
+  margin-left: 10rem;
+}
+
 .input-control.success input {
   border: 5px solid #09c372;
 }

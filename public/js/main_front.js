@@ -1981,9 +1981,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getApartment: function getApartment() {
       var _this = this;
-      var id = this.$route.params.id;
+      var slug = this.$route.params.slug;
       /* Facciamo una chiamata al metodo show dell'api*/
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/apartments/".concat(id), {}).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/apartments/".concat(slug), {}).then(function (response) {
         console.log(response);
         _this.apartment = response.data.results[0];
       })["catch"](function (error) {
@@ -2255,7 +2255,7 @@ var render = function render() {
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
-      to: "/apartments/" + _vm.apartment.id
+      to: "/apartments/" + _vm.apartment.slug
     }
   }, [_vm.getCover(_vm.apartment.images).includes("uploads") ? _c("img", {
     staticClass: "card_img",
@@ -2276,7 +2276,7 @@ var render = function render() {
   }, [_c("strong", [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
-      to: "/apartments/" + _vm.apartment.id
+      to: "/apartments/" + _vm.apartment.slug
     }
   }, [_vm._v(_vm._s(_vm.apartment.title))])], 1)]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
@@ -2507,7 +2507,7 @@ var render = function render() {
     attrs: {
       "for": "nome"
     }
-  }, [_vm._v("Nome")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Nome*")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2532,7 +2532,7 @@ var render = function render() {
     staticClass: "mb-3"
   }, [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Cognome")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Cognome*")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2557,7 +2557,7 @@ var render = function render() {
     staticClass: "mb-3"
   }, [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Indirizzo email")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Indirizzo email*")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2585,7 +2585,7 @@ var render = function render() {
     attrs: {
       "for": "exampleFormControlTextarea1"
     }
-  }, [_vm._v("Messaggio")]), _vm._v(" "), _c("textarea", {
+  }, [_vm._v("Messaggio*")]), _vm._v(" "), _c("textarea", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -19823,7 +19823,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'apartmentsCards',
     component: _components_ApartmentsCards__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
-    path: '/apartments/:id',
+    path: '/apartments/:slug',
     name: 'apartmentShow',
     component: _pages_ApartmentShow__WEBPACK_IMPORTED_MODULE_3__["default"]
   }]

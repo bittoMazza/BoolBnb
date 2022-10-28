@@ -6,17 +6,17 @@
             <div class="row">
                 <div class="col-12">
                     @if (session('deleted'))
-                        <div class="alert alert-danger my-2">
+                        <div class="alert alert-danger my-2 mt-3">
                             {{ session('deleted') }}
                         </div>
                     @elseif (session('restored'))
-                        <div class="alert alert-success my-2">
+                        <div class="alert alert-success my-2 mt-3">
                             {{ session('restored') }}
                         </div>
                     @endif
 
                     @if (session('not-allowed'))
-                        <div class="alert alert-warning my-2">
+                        <div class="alert alert-warning my-2 mt-3">
                             {{ session('not-allowed') }}
                         </div>
                     @endif
@@ -29,7 +29,9 @@
 
                                 @forelse ($users as $user)
                                     <div class="text-center">
-                                        <img class="rounded w-75" src="https://tinypic.host/images/2022/10/14/User-Profile-PNG-High-Quality-Image.png" alt="{{ $user->name }}">
+                                        <img class="rounded w-75"
+                                            src="https://tinypic.host/images/2022/10/14/User-Profile-PNG-High-Quality-Image.png"
+                                            alt="{{ $user->name }}">
                                         <h4 class="fw-bold mt-2 fs-3">{{ $user->name }}</h4>
                                         <div class="fw-light mb-2">Anno di nascita: {{ $user->date_birth }}</div>
                                     </div>
@@ -38,25 +40,26 @@
                                 @empty
                                     <div>Non ci sono informazioni disponibili</div>
                                 @endforelse
-                                    
-                
+
+
                                 @forelse($apartments as $apartment)
-                                <div class="mt-3 btn btn-sm btn-outline-primary active text-white"><strong>Messaggi: {{ $apartment->title }}</strong></div>
-                                <div class="user_panel_messages px-1">
-                                @forelse ($apartment->messages as $message)
-                                    <div class="my-3">
-                                        <div><span class="fw-bold">Autore:</span> {{ $message->name }}</div>
-                                        <div><span class="fw-bold">Mail:</span> {{ $message->email }}</div>
-                                        <p><span class="fw-bold">Contenuto:</span> {{ $message->content }}</p>
+                                    <div class="mt-3 btn btn-sm btn-outline-primary active text-white"><strong>Messaggi:
+                                            {{ $apartment->title }}</strong></div>
+                                    <div class="user_panel_messages px-1">
+                                        @forelse ($apartment->messages as $message)
+                                            <div class="my-3">
+                                                <div><span class="fw-bold">Autore:</span> {{ $message->name }}</div>
+                                                <div><span class="fw-bold">Mail:</span> {{ $message->email }}</div>
+                                                <p><span class="fw-bold">Contenuto:</span> {{ $message->content }}</p>
+                                            </div>
+                                        @empty
+                                            Non ci sono messaggi
+                                        @endforelse
                                     </div>
-                                    @empty
-                                    Non ci sono messaggi
-                                    @endforelse
-                                </div>
                                 @empty
                                     <div>Non ci sono informazioni disponibili.</div>
                                 @endforelse
-                                
+
                             </div>
                         </div>
 
@@ -71,27 +74,29 @@
                                                 @foreach ($apartment->images as $image)
                                                     @if ($image->is_cover == true)
                                                         @if (filter_var($image->image, FILTER_VALIDATE_URL))
-                                                        <a href="{{ route('host.apartments.show', $apartment->id) }}">
-                                                            <img src="{{ $image->image }}" alt="{{ $apartment->title }}"
-                                                                class="index_image card-img-top rounded-start" />
-                                                            {{-- url --}}
-                                                        </a>
+                                                            <a href="{{ route('host.apartments.show', $apartment->id) }}">
+                                                                <img src="{{ $image->image }}"
+                                                                    alt="{{ $apartment->title }}"
+                                                                    class="index_image card-img-top rounded-start" />
+                                                                {{-- url --}}
+                                                            </a>
                                                         @else
-                                                        <a href="{{ route('host.apartments.show', $apartment->id) }}">
-                                                            <img src="{{ asset('storage/' . $image->image) }}"
-                                                                alt="{{ $apartment->title }}" class="index_image card-img-top rounded-start" />
-                                                            {{-- file --}}
-                                                        </a>
+                                                            <a href="{{ route('host.apartments.show', $apartment->id) }}">
+                                                                <img src="{{ asset('storage/' . $image->image) }}"
+                                                                    alt="{{ $apartment->title }}"
+                                                                    class="index_image card-img-top rounded-start" />
+                                                                {{-- file --}}
+                                                            </a>
                                                         @endif
                                                     @endif
                                                 @endforeach
 
                                                 <div class="card-body card-body-cascade pb-0">
                                                     <h5 class="card-title"><strong>
-                                                        <a href="{{ route('host.apartments.show', $apartment->id) }}">
-                                                            {{ $apartment->title }}                                                        
-                                                        </a>
-                                                    </strong></h5>
+                                                            <a href="{{ route('host.apartments.show', $apartment->id) }}">
+                                                                {{ $apartment->title }}
+                                                            </a>
+                                                        </strong></h5>
                                                     <p class="fst-italic pb-1">{{ $apartment->address }}</p>
                                                 </div>
                                             </div>
@@ -108,19 +113,22 @@
                                                 <li class="mb-3">
                                                     <div class="row">
                                                         <div class="col-lg-6">
-                                                            <strong>{{ $apartment->title }} - </strong><span class="fst-italic">{{ $apartment->address }}</span>
+                                                            <strong>{{ $apartment->title }} - </strong><span
+                                                                class="fst-italic">{{ $apartment->address }}</span>
                                                         </div>
                                                         <div class="col-lg-6">
                                                             <div class="d-flex">
                                                                 <a href="{{ route('host.apartments.edit', $apartment->id) }}"
-                                                                    class="btn btn-sm btn-success mr-2 text-white">
+                                                                    class="btn btn-sm btn-success mr-2 text-white fw-bold">
                                                                     Modifica
                                                                 </a>
-                                                                <form action="{{ route('host.apartments.destroy', $apartment->id) }}"
+                                                                <form
+                                                                    action="{{ route('host.apartments.destroy', $apartment->id) }}"
                                                                     method="POST" class="d-inline">
                                                                     @method('DELETE')
                                                                     @csrf
-                                                                    <button type="submit" class="btn btn-sm btn-warning ms-2">
+                                                                    <button type="submit"
+                                                                        class="btn btn-sm btn-warning ms-2 fw-bold">
                                                                         Cestina
                                                                     </button>
                                                                 </form>
@@ -132,9 +140,13 @@
                                                 <div>Non hai appartamenti.</div>
                                             @endforelse
                                         </ul>
-                                        <div class="d-flex">
-                                            
-                                            <a class="ms-2 text-decoration-none" href="{{ route('host.apartments.deletedApartments') }}"><i class="bi bi-trash3-fill text-danger fs-1"></i><strong>CESTINO</strong></a>
+                                        <div class="bin-wrap">
+                                            <div class="ms-2">
+                                                <a class="ms-2 text-decoration-none"
+                                                    href="{{ route('host.apartments.deletedApartments') }}"><i
+                                                        class="bi bi-trash3-fill text-danger fs-1"></i></a>
+                                            </div>
+                                            <div><h5 class="fw-bold">CESTINO</h5></div>
                                         </div>
                                     </div>
                                 </div>
@@ -170,10 +182,10 @@
                                 <tr>
                                     <th scope="row">
                                         {{ $apartment->id }} --}}
-                                        {{-- <a href="{{ route('host.apartments.show') }}">
+                    {{-- <a href="{{ route('host.apartments.show') }}">
                                         {{ $apartment->id }}
                                     </a> --}}
-                                    {{-- </th>
+                    {{-- </th>
                                     <td>{{ $apartment->user->name }}</td>
                                     <td>
                                         <a href="{{ route('host.apartments.show', $apartment->id) }}">
@@ -199,12 +211,12 @@
                                         @if (filter_var($apartment->image, FILTER_VALIDATE_URL))
                                             <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}"
                                                 class="img-fluid rounded-start" /> --}}
-                                            {{-- url --}}
-                                        {{-- @else
+                    {{-- url --}}
+                    {{-- @else
                                             <img src="{{ asset('storage/' . $apartment->image) }}"
                                                 alt="{{ $apartment->title }}" class="img-fluid rounded-start" /> --}}
-                                            {{-- file --}}
-                                        {{-- @endif
+                    {{-- file --}}
+                    {{-- @endif
                                     </td>
                                     <td>
                                         {{ $apartment->is_visible }}

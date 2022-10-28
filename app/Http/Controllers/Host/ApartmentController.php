@@ -226,7 +226,7 @@ class ApartmentController extends Controller
         $apartment = Apartment::findOrFail($id);
         $apartment->delete();
 
-        return redirect()->route('host.apartments.index')->with('deleted', "Hai spostato l'appartamento ". $apartment->title. " nel cestino");
+        return redirect()->route('host.apartments.index')->with('deleted', "Hai spostato: " . $apartment->title. " nel CESTINO");
     }
 
     public function deletedApartments()
@@ -243,7 +243,7 @@ class ApartmentController extends Controller
         $apartment->restore();
 
         return redirect()->route('host.apartments.index')
-            ->with('restored', 'Hai ripristinato l appartamento '. $apartment->title);
+            ->with('restored', "Hai ripristinato: ". $apartment->title);
     }
 
     public function deletePermanently($id)
@@ -253,7 +253,7 @@ class ApartmentController extends Controller
         $apartments->forceDelete();
 
         return redirect()->route('host.apartments.index')
-            ->with('deleted', "Hai eliminato l'appartamento ". $apartments->title.  " dal cestino");
+            ->with('deleted', "Hai eliminato:". $apartments->title.  " dal cestino");
     }
 
     public function deletedApartmentImage($id)
