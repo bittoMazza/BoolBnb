@@ -65,7 +65,7 @@
 
                         <div class="col-12 col-lg-9 mt-3">
                             <div class="index_user_management">
-                                <h2 class="fw-bold title_sm">I miei Appartamenti</h2>
+                                <h2 class="fw-bold apartments-title title_sm ">I miei Appartamenti</h2>
 
                                 <div class="row justify-content-around">
                                     <div class="col-12 col-lg-6 my-2 d-flex flex-wrap justify-content-between px-1">
@@ -77,14 +77,14 @@
                                                             <a href="{{ route('host.apartments.show', $apartment->id) }}">
                                                                 <img src="{{ $image->image }}"
                                                                     alt="{{ $apartment->title }}"
-                                                                    class="index_image card-img-top rounded-start" />
+                                                                    class="index_image card-img-top rounded-3 p-1" />
                                                                 {{-- url --}}
                                                             </a>
                                                         @else
                                                             <a href="{{ route('host.apartments.show', $apartment->id) }}">
                                                                 <img src="{{ asset('storage/' . $image->image) }}"
                                                                     alt="{{ $apartment->title }}"
-                                                                    class="index_image card-img-top rounded-start" />
+                                                                    class="index_image card-img-top rounded-1" />
                                                                 {{-- file --}}
                                                             </a>
                                                         @endif
@@ -108,6 +108,10 @@
                                         <span class="fw-bold bg-primary rounded-1 text-white p-1">
                                             Gestione rapida degli Appartamenti:
                                         </span>
+                                        <div class="mt-4"><a
+                                                class="btn btn-sm btn-success px-3 fw-bold fs-6 {{ request()->routeIs('host.apartments.create') ? 'active' : '' }}"
+                                                href="{{ route('host.apartments.create') }}">+ Aggiungi Appartamento</a>
+                                        </div>
                                         <ul class="mt-3">
                                             @forelse ($apartments as $apartment)
                                                 <li class="mb-3">
@@ -134,28 +138,38 @@
                                                                 </form>
                                                             </div>
                                                         </div>
+
                                                     </div>
                                                 </li>
+
                                             @empty
                                                 <div>Non hai appartamenti.</div>
                                             @endforelse
+
                                         </ul>
-                                        <div class="bin-wrap">
-                                            <div class="ms-2">
-                                                <a class="ms-2 text-decoration-none"
-                                                    href="{{ route('host.apartments.deletedApartments') }}"><i
-                                                        class="bi bi-trash3-fill text-danger fs-1"></i></a>
+
+                                        <a class="text-decoration-none" href="{{ route('host.apartments.deletedApartments') }}">
+                                            <div class="recycle-bin">
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                    <i class="bi bi-trash3-fill text-light fs-2 mt-1"></i>
+                                                    
+                                                </div>
+                                                <h5 class="text-center text-white">Vai al cestino</h5>
                                             </div>
-                                            <div><h5 class="fw-bold">CESTINO</h5></div>
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
 
-                    {{-- TABLE DESIGN --}}
-                    {{-- <hr>
+
+        {{-- TABLE DESIGN --}}
+        {{-- <hr>
                     
                     <table class="table table-striped">
                         <thead>
@@ -182,15 +196,15 @@
                                 <tr>
                                     <th scope="row">
                                         {{ $apartment->id }} --}}
-                    {{-- <a href="{{ route('host.apartments.show') }}">
+        {{-- <a href="{{ route('host.apartments.show') }}">
                                         {{ $apartment->id }}
                                     </a> --}}
-                    {{-- </th>
+        {{-- </th>
                                     <td>{{ $apartment->user->name }}</td>
                                     <td>
                                         <a href="{{ route('host.apartments.show', $apartment->id) }}">
                                             {{ $apartment->title }}
-                                        </a>
+                                        </d>
                                     </td>
                                     <td>
                                         {{ $apartment->rooms }}
@@ -211,12 +225,12 @@
                                         @if (filter_var($apartment->image, FILTER_VALIDATE_URL))
                                             <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}"
                                                 class="img-fluid rounded-start" /> --}}
-                    {{-- url --}}
-                    {{-- @else
+        {{-- url --}}
+        {{-- @else
                                             <img src="{{ asset('storage/' . $apartment->image) }}"
                                                 alt="{{ $apartment->title }}" class="img-fluid rounded-start" /> --}}
-                    {{-- file --}}
-                    {{-- @endif
+        {{-- file --}}
+        {{-- @endif
                                     </td>
                                     <td>
                                         {{ $apartment->is_visible }}
@@ -259,9 +273,9 @@
                         </tbody>
                     </table> --}}
 
-                </div>
-            </div>
-        </div>
+    </div>
+    </div>
+    </div>
     </div>
 @endsection
 

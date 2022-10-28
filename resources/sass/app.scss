@@ -15,7 +15,6 @@
 
 
 
-
 .index_background{
     background-color: #ebeff2;
 }
@@ -34,11 +33,16 @@
     width: 120px;
 }
 
-// Recycle bin 
-.bin-wrap {
-    margin-left: 10rem;
+//* Recycle bin 
+
+.recycle-bin {
+    background-color: #3066bd;
+    width: 120px;
+    height: 90px;
+    border-radius: 10px;
 }
 
+// ! ******* FORM *******
 .input-control.success input {
     border: 5px solid #09c372;
 }
@@ -59,6 +63,8 @@ ul{
 .addresses_container{
     width: 100%;
 }
+
+// ? ******* SEARCH *******
 
 .searched_address:hover{
     background-color: #3066bd;

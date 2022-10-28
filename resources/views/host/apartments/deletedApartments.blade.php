@@ -65,14 +65,15 @@
                         </div>
                     @empty
                         <h3>
-                            <p>Non ci sono appartamenti disponibi.</p>
+                            <p>Non ci sono appartamenti disponibili.</p>
                         </h3>
                     @endforelse
                 </div>
             @else
-                <div class="text-center">
-                    <a href="{{ route('host.apartments.index') }}" class="btn btn-sm btn-outline-primary">
-                        Non hai cancellato nessuno appartamento, torna alla dashboard
+                <div class="text-center mt-5">
+                    <h2 class="mb-2">Non hai cancellato nessun appartamento</h2>
+                    <a href="{{ route('host.apartments.index') }}" class="btn btn-sm btn-primary text-white fw-bold mt-2">
+                        Torna alla DASHBOARD
                     </a>
                 </div>
             @endif
