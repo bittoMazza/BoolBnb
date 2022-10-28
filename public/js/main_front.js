@@ -2477,7 +2477,7 @@ var render = function render() {
     staticClass: "list-group-item py-2 text-white"
   }, [_c("i", {
     staticClass: "bi bi-fullscreen me-2"
-  }), _vm._v(" Metri quadrati:\n          " + _vm._s(_vm.apartment.square_meters) + "m²\n        ")])])]), _vm._v(" "), _c("div", {
+  }), _vm._v("\n          " + _vm._s(_vm.apartment.square_meters) + "m²\n        ")])])]), _vm._v(" "), _c("div", {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "row justify-content-between pb-5"
@@ -2495,7 +2495,9 @@ var render = function render() {
     return _c("li", {
       key: amenity.id,
       staticClass: "fs-3"
-    }, [_vm._v("\n                - " + _vm._s(amenity.name) + "\n              ")]);
+    }, [_c("i", {
+      staticClass: "bi bi-caret-right"
+    }), _vm._v(" " + _vm._s(amenity.name) + "\n              ")]);
   }), 0), _vm._v(" "), _c("br")])]), _vm._v(" "), _c("div", {
     staticClass: "col-12 col-lg-5"
   }, [_c("form", {

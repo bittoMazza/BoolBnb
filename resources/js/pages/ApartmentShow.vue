@@ -52,7 +52,7 @@
             {{ apartment.bathrooms }}
           </li>
           <li class="list-group-item py-2 text-white">
-            <i class="bi bi-fullscreen me-2"></i> Metri quadrati:
+            <i class="bi bi-fullscreen me-2"></i>
             {{ apartment.square_meters }}m²
           </li>
         </ul>
@@ -86,7 +86,7 @@
               <h3 class="fw-bold">Cosa troverai:</h3>
               <ul>
                 <li class="fs-3" v-for="amenity in apartment.amenities" :key="amenity.id">
-                  - {{ amenity.name }}
+                  <i class="bi bi-caret-right"></i> {{ amenity.name }}
                 </li>
               </ul>
               <br />
@@ -247,7 +247,12 @@ p {
 .secondary-img{
   height: 180px;
 }
-// Map style
+
+// *Hover images 
+
+
+
+//! Map style
 #map-div {
   width: 90vw;
   height: 90vh;
