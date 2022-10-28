@@ -3147,7 +3147,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".margin-for-fixed[data-v-04c29797] {\n  margin-top: 20rem;\n}\n.content[data-v-04c29797] {\n  width: 100%;\n  height: 55vh;\n  max-height: 55vh;\n  background-image: url(\"https://wallpaperaccess.com/full/3434829.jpg\");\n  background-repeat: no-repeat;\n  background-clip: border-box;\n  background-size: cover;\n  background-position: center;\n  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 90%, 0% 50%);\n          clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 90%, 0% 50%);\n}\n.typewriter-jumbo[data-v-04c29797] {\n  float: left;\n  margin-top: 5rem;\n  margin-left: 2rem;\n}\n.home-title[data-v-04c29797] {\n  font-size: 4em;\n  text-shadow: 0.5px 0.5px #333;\n}\n.typewrite[data-v-04c29797] {\n  color: #3490dc;\n  font-size: 2em;\n  margin-left: 7rem;\n  text-shadow: 0.5px 0.5px #fff;\n}\n.tag[data-v-04c29797] {\n  padding: 6px 8px;\n  background-color: #19bab3;\n  color: white;\n}\n.brand-color-2[data-v-04c29797] {\n  color: #19bab3;\n}\nfieldset[data-v-04c29797] {\n  border-color: #19bab3 !important;\n}\n.ms_width[data-v-04c29797] {\n  width: 90%;\n}\n@media all and (min-width: 500px) {\n.ms_width[data-v-04c29797] {\n    width: 87%;\n}\n}", ""]);
+exports.push([module.i, ".margin-for-fixed[data-v-04c29797] {\n  margin-top: 20rem;\n}\n.content[data-v-04c29797] {\n  width: 100%;\n  height: 55vh;\n  max-height: 55vh;\n  background-image: url(\"https://wallpaperaccess.com/full/3434829.jpg\");\n  background-repeat: no-repeat;\n  background-clip: border-box;\n  background-size: cover;\n  background-position: center;\n  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 90%, 0% 50%);\n          clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 90%, 0% 50%);\n}\n.typewriter-jumbo[data-v-04c29797] {\n  float: left;\n  margin-top: 5rem;\n  margin-left: 3rem;\n}\n.home-title[data-v-04c29797] {\n  font-size: 4em;\n  text-shadow: 0.5px 0.5px #333;\n}\n.typewrite[data-v-04c29797] {\n  color: #3490dc;\n  font-size: 2em;\n  margin-left: 7rem;\n  text-shadow: 0.5px 0.5px #fff;\n}\n.tag[data-v-04c29797] {\n  padding: 6px 8px;\n  background-color: #19bab3;\n  color: white;\n}\n.brand-color-2[data-v-04c29797] {\n  color: #19bab3;\n}\nfieldset[data-v-04c29797] {\n  border-color: #19bab3 !important;\n}\n.ms_width[data-v-04c29797] {\n  width: 90%;\n}\n@media all and (min-width: 500px) {\n.ms_width[data-v-04c29797] {\n    width: 87%;\n}\n}", ""]);
 
 // exports
 
@@ -19908,7 +19908,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\vince\Desktop\Boolean\Esercizi\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
+module.exports = __webpack_require__(/*! F:\Dev\FULLSTACK\JOBS\FInal_project\Progetto Finale\FInal_project\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
 
 
 /***/ })

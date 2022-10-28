@@ -18,10 +18,6 @@
                             href="{{ route('host.apartments.index') }}">I Miei Appartamenti</a>
                     </li>
                     <li>
-                        <a class="pe-4 nav-link fw-bold {{ request()->routeIs('host.apartments.deletedApartments') ? 'text-primary fw-bold' : '' }}"
-                            href="{{ route('host.apartments.deletedApartments') }}">Cestino</a>
-                    </li>
-                    <li>
                         <a class="btn btn-sm btn-outline-success px-3 fw-bold {{ request()->routeIs('host.apartments.create') ? 'active' : '' }}"
                             href="{{ route('host.apartments.create') }}">Aggiungi Appartamento</a>
                     </li>

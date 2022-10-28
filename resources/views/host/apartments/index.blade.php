@@ -100,7 +100,7 @@
                                         @endforelse
                                     </div>
                                     <div class="col-12 col-lg-6 mt-3">
-                                        <span class="fw-bold bg-primary text-white p-1">
+                                        <span class="fw-bold bg-primary rounded-1 text-white p-1">
                                             Gestione rapida degli Appartamenti:
                                         </span>
                                         <ul class="mt-3">
@@ -133,8 +133,8 @@
                                             @endforelse
                                         </ul>
                                         <div class="d-flex">
-                                            <img class="ms_icon_create_apartment mr-2" src="https://tinypic.host/images/2022/10/13/add.png" alt="create"> 
-                                            <a class="ms-2" href="{{ route('host.apartments.create') }}"><p><strong>Aggiungi un nuovo appartamento</strong></p></a>
+                                            
+                                            <a class="ms-2 text-decoration-none" href="{{ route('host.apartments.deletedApartments') }}"><i class="bi bi-trash3-fill text-danger fs-1"></i><strong>CESTINO</strong></a>
                                         </div>
                                     </div>
                                 </div>
