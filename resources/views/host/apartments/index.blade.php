@@ -43,7 +43,8 @@
 
 
                                 @forelse($apartments as $apartment)
-                                    <div class="mt-3 btn btn-sm btn-outline-primary rounded-0 active text-white"><strong>Messaggi:
+                                    <div class="mt-3 btn btn-sm btn-outline-primary rounded-0 active text-white">
+                                        <strong>Messaggi:
                                             {{ $apartment->title }}</strong></div>
                                     <div class="user_panel_messages px-1">
                                         @forelse ($apartment->messages as $message)
@@ -70,7 +71,7 @@
                                 <div class="row justify-content-around">
                                     <div class="col-12 col-lg-6 my-2 d-flex flex-wrap justify-content-between px-1">
                                         @forelse ($apartments as $apartment)
-                                            <div class="card w-50 mb-2">
+                                            <div class="card w-50 mb-2 ">
                                                 @foreach ($apartment->images as $image)
                                                     @if ($image->is_cover == true)
                                                         @if (filter_var($image->image, FILTER_VALIDATE_URL))
@@ -90,11 +91,12 @@
                                                         @endif
                                                     @endif
                                                 @endforeach
-                                                
+
                                                 <div class="card-body card-body-cascade pb-0">
-                                                    
+
                                                     <h5 class="card-title"><strong>
-                                                            <a class="text-decoration-none" href="{{ route('host.apartments.show', $apartment->id) }}">
+                                                            <a class="text-decoration-none"
+                                                                href="{{ route('host.apartments.show', $apartment->id) }}">
                                                                 {{ $apartment->title }}
                                                             </a>
                                                         </strong></h5>
@@ -149,11 +151,12 @@
 
                                         </ul>
 
-                                        <a class="text-decoration-none" href="{{ route('host.apartments.deletedApartments') }}">
+                                        <a class="text-decoration-none"
+                                            href="{{ route('host.apartments.deletedApartments') }}">
                                             <div class="recycle-bin">
                                                 <div class="d-flex justify-content-center align-items-center">
                                                     <i class="bi bi-trash3-fill text-light fs-2 mt-1"></i>
-                                                    
+
                                                 </div>
                                                 <h5 class="text-center text-white">Vai al cestino</h5>
                                             </div>
@@ -161,123 +164,14 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    
 
-
-        {{-- TABLE DESIGN --}}
-        {{-- <hr>
-                    
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">Apartment ID</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Rooms</th>
-                                <th scope="col">Beds</th>
-                                <th scope="col">Bathrooms</th>
-                                <th scope="col">Square_meters</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Is Visible</th>
-                                <th scope="col">Long</th>
-                                <th scope="col">Lat</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                                <th scope="col">Msg Name</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse ($apartments as $apartment)
-                                <tr>
-                                    <th scope="row">
-                                        {{ $apartment->id }} --}}
-        {{-- <a href="{{ route('host.apartments.show') }}">
-                                        {{ $apartment->id }}
-                                    </a> --}}
-        {{-- </th>
-                                    <td>{{ $apartment->user->name }}</td>
-                                    <td>
-                                        <a href="{{ route('host.apartments.show', $apartment->id) }}">
-                                            {{ $apartment->title }}
-                                        </d>
-                                    </td>
-                                    <td>
-                                        {{ $apartment->rooms }}
-                                    </td>
-                                    <td>
-                                        {{ $apartment->beds }}
-                                    </td>
-                                    <td>
-                                        {{ $apartment->bathrooms }}
-                                    </td>
-                                    <td>
-                                        {{ $apartment->square_meters }}
-                                    </td>
-                                    <td>
-                                        {{ $apartment->address }}
-                                    </td>
-                                    <td>
-                                        @if (filter_var($apartment->image, FILTER_VALIDATE_URL))
-                                            <img src="{{ $apartment->image }}" alt="{{ $apartment->title }}"
-                                                class="img-fluid rounded-start" /> --}}
-        {{-- url --}}
-        {{-- @else
-                                            <img src="{{ asset('storage/' . $apartment->image) }}"
-                                                alt="{{ $apartment->title }}" class="img-fluid rounded-start" /> --}}
-        {{-- file --}}
-        {{-- @endif
-                                    </td>
-                                    <td>
-                                        {{ $apartment->is_visible }}
-                                    </td>
-                                    <td>
-                                        {{ $apartment->long }}
-                                    </td>
-                                    <td>
-                                        {{ $apartment->lat }}
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('host.apartments.edit', $apartment->id) }}"
-                                            class="btn btn-sm btn-success">
-                                            Modifica
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <form action="{{ route('host.apartments.destroy', $apartment->id) }}"
-                                            method="POST" class="d-inline">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="btn btn-sm btn-warning">
-                                                Cestina
-                                            </button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        @forelse ($apartment->messages as $message)
-                                            {{ $message->name }}
-                                        @empty
-                                            Non ci sono messaggi
-                                        @endforelse
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="6">There are no apartments available.</td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table> --}}
-
-    </div>
-    </div>
-    </div>
-    </div>
 @endsection
 
 @section('footer-scripts')
