@@ -106,14 +106,14 @@
                                         @endforelse
                                     </div>
                                     <div class="col-12 g-5 col-lg-6 mt-3">
-                                        <span class="fw-bold bg-primary text-white p-1">
+                                        <span class="fw-bold fs-4">
                                             Gestione rapida degli Appartamenti:
                                         </span>
                                         <div class="mt-4"><a
-                                                class="btn btn-sm btn-success px-3 fw-bold fs-5 {{ request()->routeIs('host.apartments.create') ? 'active' : '' }}"
+                                                class="btn btn-sm btn-success text-white px-3 fw-bold fs-5 {{ request()->routeIs('host.apartments.create') ? 'active' : '' }}"
                                                 href="{{ route('host.apartments.create') }}"> + Aggiungi Appartamento</a>
                                         </div>
-                                        <ul class="mt-3">
+                                        <ul class="mt-4 mb-4">
                                             @forelse ($apartments as $apartment)
                                                 <li class="mb-3">
                                                     <div class="row">
@@ -124,7 +124,7 @@
                                                         <div class="col-lg-6">
                                                             <div class="d-flex">
                                                                 <a href="{{ route('host.apartments.edit', $apartment->id) }}"
-                                                                    class="btn btn-sm btn-success mr-2 text-white fw-bold">
+                                                                    class="btn btn-sm btn-info mr-2 fw-bold">
                                                                     Modifica
                                                                 </a>
                                                                 <form

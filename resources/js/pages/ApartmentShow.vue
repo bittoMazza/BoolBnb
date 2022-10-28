@@ -60,7 +60,7 @@
       <div class="container">
         <div class="row justify-content-between pb-5">
           <div class="col-12 col-lg-6">
-            <hr style="width: 60%" />
+            <hr style="width: 80%" />
             <br />
             <h3 class="fw-bold">
               <i class="bi bi-geo-alt claim-icons"></i>Ottima posizione
@@ -80,13 +80,16 @@
               <i class="bi bi-house-heart claim-icons"></i>Animali domestici
             </h3>
             <p>Porta in vacanza con te i tuoi animali domestici.</p>
+            
             <br />
+           
             <div class="col">
             <br />
+            
               <h3 class="fw-bold">Cosa troverai:</h3>
               <ul>
                 <li class="fs-3" v-for="amenity in apartment.amenities" :key="amenity.id">
-                  <i class="bi bi-caret-right"></i> {{ amenity.name }}
+                  <i class="bi bi-check-lg"></i> {{ amenity.name }}
                 </li>
               </ul>
               <br />
@@ -95,7 +98,7 @@
           <div class="col-12 col-lg-5">
             <form class="form-border mt-5">
               <div class="mb-3">
-                <h3>Scrivi un messaggio al proprietario</h3>
+                <h3 class="text-center mt-3">Scrivi un messaggio al proprietario</h3>
                 <label for="nome" class="form-label">Nome*</label>
                 <input
                   type="text"
@@ -134,7 +137,7 @@
                 </textarea>
               </div>
 
-              <button type="submit" @click="sendMessage(apartment.id)" class="btn btn-blue text-white fw-bold">
+              <button type="submit" @click="sendMessage(apartment.id)" class="btn btn-blue text-white fw-bold mb-2">
                 Invia
               </button>
 

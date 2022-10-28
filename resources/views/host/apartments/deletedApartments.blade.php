@@ -72,7 +72,7 @@
             @else
                 <div class="text-center mt-5">
                     <h2 class="mb-2">Non hai cancellato nessun appartamento</h2>
-                    <a href="{{ route('host.apartments.index') }}" class="btn btn-sm btn-primary text-white fw-bold mt-2">
+                    <a href="{{ route('host.apartments.index') }}" class="btn btn-sm btn-primary text-white mt-2">
                         Torna alla DASHBOARD
                     </a>
                 </div>

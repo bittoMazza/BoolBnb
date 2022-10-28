@@ -2485,7 +2485,7 @@ var render = function render() {
     staticClass: "col-12 col-lg-6"
   }, [_c("hr", {
     staticStyle: {
-      width: "60%"
+      width: "80%"
     }
   }), _vm._v(" "), _c("br"), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("p", [_vm._v("Porta in vacanza con te i tuoi animali domestici.")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
     staticClass: "col"
@@ -2496,7 +2496,7 @@ var render = function render() {
       key: amenity.id,
       staticClass: "fs-3"
     }, [_c("i", {
-      staticClass: "bi bi-caret-right"
+      staticClass: "bi bi-check-lg"
     }), _vm._v(" " + _vm._s(amenity.name) + "\n              ")]);
   }), 0), _vm._v(" "), _c("br")])]), _vm._v(" "), _c("div", {
     staticClass: "col-12 col-lg-5"
@@ -2504,7 +2504,9 @@ var render = function render() {
     staticClass: "form-border mt-5"
   }, [_c("div", {
     staticClass: "mb-3"
-  }, [_c("h3", [_vm._v("Scrivi un messaggio al proprietario")]), _vm._v(" "), _c("label", {
+  }, [_c("h3", {
+    staticClass: "text-center mt-3"
+  }, [_vm._v("Scrivi un messaggio al proprietario")]), _vm._v(" "), _c("label", {
     staticClass: "form-label",
     attrs: {
       "for": "nome"
@@ -2611,7 +2613,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-blue text-white fw-bold",
+    staticClass: "btn btn-blue text-white fw-bold mb-2",
     attrs: {
       type: "submit"
     },
