@@ -63,7 +63,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-lg-9 mt-3">
+                        <div class="col-12 g-5 col-lg-9 mt-3">
                             <div class="index_user_management">
                                 <h2 class="fw-bold apartments-title title_sm ">I miei Appartamenti</h2>
 
@@ -90,8 +90,9 @@
                                                         @endif
                                                     @endif
                                                 @endforeach
-
+                                                
                                                 <div class="card-body card-body-cascade pb-0">
+                                                    
                                                     <h5 class="card-title"><strong>
                                                             <a class="text-decoration-none" href="{{ route('host.apartments.show', $apartment->id) }}">
                                                                 {{ $apartment->title }}
@@ -104,7 +105,7 @@
                                             <div>Non hai appartamenti.</div>
                                         @endforelse
                                     </div>
-                                    <div class="col-12 col-lg-6 mt-3">
+                                    <div class="col-12 g-5 col-lg-6 mt-3">
                                         <span class="fw-bold bg-primary text-white p-1">
                                             Gestione rapida degli Appartamenti:
                                         </span>
