@@ -46,7 +46,7 @@
     </nav>
     
     <!-- Advanced Search bar -->
-    <fieldset class="border border-4 mt-1">
+    <fieldset class="border border-4 p-4 mt-1">
       <legend class="float-none w-auto px-3">
         <span class="brand-color-2"> APPLICA FILTRO DI RICERCA</span>
       </legend>

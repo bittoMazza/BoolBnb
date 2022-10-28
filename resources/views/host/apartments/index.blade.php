@@ -43,7 +43,7 @@
 
 
                                 @forelse($apartments as $apartment)
-                                    <div class="mt-3 btn btn-sm btn-outline-primary active text-white"><strong>Messaggi:
+                                    <div class="mt-3 btn btn-sm btn-outline-primary rounded-0 active text-white"><strong>Messaggi:
                                             {{ $apartment->title }}</strong></div>
                                     <div class="user_panel_messages px-1">
                                         @forelse ($apartment->messages as $message)
@@ -84,7 +84,7 @@
                                                             <a href="{{ route('host.apartments.show', $apartment->id) }}">
                                                                 <img src="{{ asset('storage/' . $image->image) }}"
                                                                     alt="{{ $apartment->title }}"
-                                                                    class="index_image card-img-top rounded-1" />
+                                                                    class="index_image card-img-top rounded-3" />
                                                                 {{-- file --}}
                                                             </a>
                                                         @endif
@@ -93,7 +93,7 @@
 
                                                 <div class="card-body card-body-cascade pb-0">
                                                     <h5 class="card-title"><strong>
-                                                            <a href="{{ route('host.apartments.show', $apartment->id) }}">
+                                                            <a class="text-decoration-none" href="{{ route('host.apartments.show', $apartment->id) }}">
                                                                 {{ $apartment->title }}
                                                             </a>
                                                         </strong></h5>
@@ -105,12 +105,12 @@
                                         @endforelse
                                     </div>
                                     <div class="col-12 col-lg-6 mt-3">
-                                        <span class="fw-bold bg-primary rounded-1 text-white p-1">
+                                        <span class="fw-bold bg-primary text-white p-1">
                                             Gestione rapida degli Appartamenti:
                                         </span>
                                         <div class="mt-4"><a
-                                                class="btn btn-sm btn-success px-3 fw-bold fs-6 {{ request()->routeIs('host.apartments.create') ? 'active' : '' }}"
-                                                href="{{ route('host.apartments.create') }}">+ Aggiungi Appartamento</a>
+                                                class="btn btn-sm btn-success px-3 fw-bold fs-5 {{ request()->routeIs('host.apartments.create') ? 'active' : '' }}"
+                                                href="{{ route('host.apartments.create') }}"> + Aggiungi Appartamento</a>
                                         </div>
                                         <ul class="mt-3">
                                             @forelse ($apartments as $apartment)

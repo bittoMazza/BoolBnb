@@ -2829,7 +2829,7 @@ var render = function render() {
       }
     }, [_vm._v("\n          " + _vm._s(address.address.freeformAddress + ", " + address.address.countrySubdivision) + "\n        ")]);
   }), 0)])]), _vm._v(" "), _c("fieldset", {
-    staticClass: "border border-4 mt-1"
+    staticClass: "border border-4 p-4 mt-1"
   }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "row g-4 align-items-center text-center py-3"
   }, [_c("div", {
