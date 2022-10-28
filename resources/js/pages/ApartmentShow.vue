@@ -163,9 +163,9 @@ export default {
   },
   methods: {
     getApartment(){
-            const id = this.$route.params.id;
+            const slug = this.$route.params.slug;
             /* Facciamo una chiamata al metodo show dell'api*/
-            axios.get(`/api/apartments/${id}`,{
+            axios.get(`/api/apartments/${slug}`,{
             }).then((response) => {
                 console.log(response);
                 this.apartment = response.data.results[0];

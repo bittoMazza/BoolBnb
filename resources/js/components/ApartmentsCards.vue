@@ -1,6 +1,6 @@
 <template>
   <div class="card px-0 shadow-sm">
-      <router-link  class="nav-link" :to="'/apartments/'+ apartment.id" >
+      <router-link  class="nav-link" :to="'/apartments/'+ apartment.slug" >
         <img v-if="getCover(apartment.images).includes('uploads')"
               class="card_img"
               :src="'/storage/'+getCover(apartment.images)"
@@ -15,7 +15,7 @@
       <div class="card-body card-body-cascade pb-0">
         <h5 class="card-title">
           <strong>
-            <router-link :to="'/apartments/'+ apartment.id" class="nav-link">{{ apartment.title }}</router-link>
+            <router-link :to="'/apartments/'+ apartment.slug" class="nav-link">{{ apartment.title }}</router-link>
           </strong>
         </h5>
         <p class="fst-italic pb-1">{{ apartment.address }}</p>

@@ -7,6 +7,7 @@ use App\Models\Amenity;
 use App\Models\Apartment;
 use App\Models\Image;
 use App\Models\View;
+use Illuminate\Support\Str;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -71,6 +72,10 @@ class ApartmentController extends Controller
         $data['user_id'] = Auth::id();
         
         $apartment = new Apartment();
+
+        $lastApartmentId = (Apartment::orderBy('id','desc')->first()->id)+1;
+
+        $data['slug'] = Str::slug($data['title'], '-')."-".$lastApartmentId;
         
         //Default 
         $apartment->is_visible = false;
@@ -173,6 +178,8 @@ class ApartmentController extends Controller
         $data = $request->all();
         
         $validatedData = $request->validate($validationRules);
+
+        $data['slug'] = Str::slug($data['title'], '-')."-".$id;
         
         if (isset($data['image'])) {
             
