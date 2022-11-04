@@ -67,7 +67,7 @@ class ApartmentsTableSeeder extends Seeder
             ],
             [
                 'user_id' => 2,
-                'title' => 'Appartamanto vicino a Rimini',
+                'title' => 'Appartamento vicino a Rimini',
                 'rooms' => 8,
                 'beds' => 3,
                 'bathrooms' => 2,
