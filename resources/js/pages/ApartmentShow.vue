@@ -52,7 +52,7 @@
             {{ apartment.bathrooms }}
           </li>
           <li class="list-group-item py-2 text-white">
-            <i class="bi bi-fullscreen me-2"></i> Metri quadrati:
+            <i class="bi bi-fullscreen me-2"></i>
             {{ apartment.square_meters }}m²
           </li>
         </ul>
@@ -60,7 +60,7 @@
       <div class="container">
         <div class="row justify-content-between pb-5">
           <div class="col-12 col-lg-6">
-            <hr style="width: 60%" />
+            <hr style="width: 80%" />
             <br />
             <h3 class="fw-bold">
               <i class="bi bi-geo-alt claim-icons"></i>Ottima posizione
@@ -80,13 +80,16 @@
               <i class="bi bi-house-heart claim-icons"></i>Animali domestici
             </h3>
             <p>Porta in vacanza con te i tuoi animali domestici.</p>
+            
             <br />
+           
             <div class="col">
             <br />
+            
               <h3 class="fw-bold">Cosa troverai:</h3>
               <ul>
                 <li class="fs-3" v-for="amenity in apartment.amenities" :key="amenity.id">
-                  - {{ amenity.name }}
+                  <i class="bi bi-check-lg"></i> {{ amenity.name }}
                 </li>
               </ul>
               <br />
@@ -95,8 +98,8 @@
           <div class="col-12 col-lg-5">
             <form class="form-border mt-5">
               <div class="mb-3">
-                <h3>Scrivi un messaggio al proprietario</h3>
-                <label for="nome" class="form-label">Nome</label>
+                <h3 class="text-center mt-3">Scrivi un messaggio al proprietario</h3>
+                <label for="nome" class="form-label">Nome*</label>
                 <input
                   type="text"
                   class="form-control"
@@ -106,7 +109,7 @@
               </div>
               <div class="mb-3">
                 <label class="form-label"
-                  >Cognome</label
+                  >Cognome*</label
                 >
                 <input
                   type="text"
@@ -117,7 +120,7 @@
               </div>
               <div class="mb-3">
                 <label class="form-label"
-                  >Indirizzo email</label
+                  >Indirizzo email*</label
                 >
                 <input
                   type="email"
@@ -128,13 +131,13 @@
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label"
-                  >Messaggio</label
+                  >Messaggio*</label
                 >
                 <textarea type="text" class="form-control" rows="3" id="exampleFormControlTextarea1" v-model="content" required>
                 </textarea>
               </div>
 
-              <button type="submit" @click="sendMessage(apartment.id)" class="btn btn-blue text-white fw-bold">
+              <button type="submit" @click="sendMessage(apartment.id)" class="btn btn-blue text-white fw-bold mb-2">
                 Invia
               </button>
 
@@ -163,9 +166,9 @@ export default {
   },
   methods: {
     getApartment(){
-            const id = this.$route.params.id;
+            const slug = this.$route.params.slug;
             /* Facciamo una chiamata al metodo show dell'api*/
-            axios.get(`/api/apartments/${id}`,{
+            axios.get(`/api/apartments/${slug}`,{
             }).then((response) => {
                 console.log(response);
                 this.apartment = response.data.results[0];
@@ -247,7 +250,12 @@ p {
 .secondary-img{
   height: 180px;
 }
-// Map style
+
+// *Hover images 
+
+
+
+//! Map style
 #map-div {
   width: 90vw;
   height: 90vh;

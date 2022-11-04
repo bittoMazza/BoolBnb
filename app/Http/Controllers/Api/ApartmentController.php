@@ -73,9 +73,9 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $apartment = Apartment::with('amenities','images')->where('id',$id)->get();
+        $apartment = Apartment::with('amenities','images')->where('slug',$slug)->get();
         if($apartment) {
             return response()->json([
                 "response" => true,

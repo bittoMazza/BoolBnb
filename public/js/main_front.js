@@ -1981,9 +1981,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getApartment: function getApartment() {
       var _this = this;
-      var id = this.$route.params.id;
+      var slug = this.$route.params.slug;
       /* Facciamo una chiamata al metodo show dell'api*/
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/apartments/".concat(id), {}).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/apartments/".concat(slug), {}).then(function (response) {
         console.log(response);
         _this.apartment = response.data.results[0];
       })["catch"](function (error) {
@@ -2168,7 +2168,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     setCurrentAddress: function setCurrentAddress(a) {
-      console.log(a);
       this.lat = a.position.lat;
       this["long"] = a.position.lon;
       this.filter = a.address.freeformAddress + ", " + a.address.countrySubdivision;
@@ -2187,9 +2186,8 @@ __webpack_require__.r(__webpack_exports__);
           beds: this.bedNo
         }
       }).then(function (response) {
-        console.log(response);
         _this2.apartments = response.data.results;
-        // console.log(this.apartments);
+        console.log(_this2.apartments);
         _this2.$emit("sendApartments", {
           apartment: _this2.apartments
         });
@@ -2257,7 +2255,7 @@ var render = function render() {
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
-      to: "/apartments/" + _vm.apartment.id
+      to: "/apartments/" + _vm.apartment.slug
     }
   }, [_vm.getCover(_vm.apartment.images).includes("uploads") ? _c("img", {
     staticClass: "card_img",
@@ -2278,7 +2276,7 @@ var render = function render() {
   }, [_c("strong", [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
-      to: "/apartments/" + _vm.apartment.id
+      to: "/apartments/" + _vm.apartment.slug
     }
   }, [_vm._v(_vm._s(_vm.apartment.title))])], 1)]), _vm._v(" "), _c("p", {
     staticClass: "fst-italic pb-1"
@@ -2479,7 +2477,7 @@ var render = function render() {
     staticClass: "list-group-item py-2 text-white"
   }, [_c("i", {
     staticClass: "bi bi-fullscreen me-2"
-  }), _vm._v(" Metri quadrati:\n          " + _vm._s(_vm.apartment.square_meters) + "m²\n        ")])])]), _vm._v(" "), _c("div", {
+  }), _vm._v("\n          " + _vm._s(_vm.apartment.square_meters) + "m²\n        ")])])]), _vm._v(" "), _c("div", {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "row justify-content-between pb-5"
@@ -2487,7 +2485,7 @@ var render = function render() {
     staticClass: "col-12 col-lg-6"
   }, [_c("hr", {
     staticStyle: {
-      width: "60%"
+      width: "80%"
     }
   }), _vm._v(" "), _c("br"), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("p", [_vm._v("Porta in vacanza con te i tuoi animali domestici.")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
     staticClass: "col"
@@ -2497,19 +2495,23 @@ var render = function render() {
     return _c("li", {
       key: amenity.id,
       staticClass: "fs-3"
-    }, [_vm._v("\n                - " + _vm._s(amenity.name) + "\n              ")]);
+    }, [_c("i", {
+      staticClass: "bi bi-check-lg"
+    }), _vm._v(" " + _vm._s(amenity.name) + "\n              ")]);
   }), 0), _vm._v(" "), _c("br")])]), _vm._v(" "), _c("div", {
     staticClass: "col-12 col-lg-5"
   }, [_c("form", {
     staticClass: "form-border mt-5"
   }, [_c("div", {
     staticClass: "mb-3"
-  }, [_c("h3", [_vm._v("Scrivi un messaggio al proprietario")]), _vm._v(" "), _c("label", {
+  }, [_c("h3", {
+    staticClass: "text-center mt-3"
+  }, [_vm._v("Scrivi un messaggio al proprietario")]), _vm._v(" "), _c("label", {
     staticClass: "form-label",
     attrs: {
       "for": "nome"
     }
-  }, [_vm._v("Nome")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Nome*")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2534,7 +2536,7 @@ var render = function render() {
     staticClass: "mb-3"
   }, [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Cognome")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Cognome*")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2559,7 +2561,7 @@ var render = function render() {
     staticClass: "mb-3"
   }, [_c("label", {
     staticClass: "form-label"
-  }, [_vm._v("Indirizzo email")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Indirizzo email*")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2587,7 +2589,7 @@ var render = function render() {
     attrs: {
       "for": "exampleFormControlTextarea1"
     }
-  }, [_vm._v("Messaggio")]), _vm._v(" "), _c("textarea", {
+  }, [_vm._v("Messaggio*")]), _vm._v(" "), _c("textarea", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2611,7 +2613,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-blue text-white fw-bold",
+    staticClass: "btn btn-blue text-white fw-bold mb-2",
     attrs: {
       type: "submit"
     },
@@ -2831,7 +2833,7 @@ var render = function render() {
       }
     }, [_vm._v("\n          " + _vm._s(address.address.freeformAddress + ", " + address.address.countrySubdivision) + "\n        ")]);
   }), 0)])]), _vm._v(" "), _c("fieldset", {
-    staticClass: "border border-4 mt-1"
+    staticClass: "border border-4 p-4 mt-1"
   }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "row g-4 align-items-center text-center py-3"
   }, [_c("div", {
@@ -3149,7 +3151,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".margin-for-fixed[data-v-04c29797] {\n  margin-top: 20rem;\n}\n.content[data-v-04c29797] {\n  width: 100%;\n  height: 55vh;\n  max-height: 55vh;\n  background-image: url(\"https://wallpaperaccess.com/full/3434829.jpg\");\n  background-repeat: no-repeat;\n  background-clip: border-box;\n  background-size: cover;\n  background-position: center;\n  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 90%, 0% 50%);\n          clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 90%, 0% 50%);\n}\n.typewriter-jumbo[data-v-04c29797] {\n  float: left;\n  margin-top: 5rem;\n  margin-left: 2rem;\n}\n.home-title[data-v-04c29797] {\n  font-size: 4em;\n  text-shadow: 0.5px 0.5px #333;\n}\n.typewrite[data-v-04c29797] {\n  color: #3490dc;\n  font-size: 2em;\n  margin-left: 7rem;\n  text-shadow: 0.5px 0.5px #fff;\n}\n.tag[data-v-04c29797] {\n  padding: 6px 8px;\n  background-color: #19bab3;\n  color: white;\n}\n.brand-color-2[data-v-04c29797] {\n  color: #19bab3;\n}\nfieldset[data-v-04c29797] {\n  border-color: #19bab3 !important;\n}\n.ms_width[data-v-04c29797] {\n  width: 90%;\n}\n@media all and (min-width: 500px) {\n.ms_width[data-v-04c29797] {\n    width: 87%;\n}\n}", ""]);
+exports.push([module.i, ".margin-for-fixed[data-v-04c29797] {\n  margin-top: 20rem;\n}\n.content[data-v-04c29797] {\n  width: 100%;\n  height: 55vh;\n  max-height: 55vh;\n  background-image: url(\"https://wallpaperaccess.com/full/3434829.jpg\");\n  background-repeat: no-repeat;\n  background-clip: border-box;\n  background-size: cover;\n  background-position: center;\n  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 90%, 0% 50%);\n          clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 90%, 0% 50%);\n}\n.typewriter-jumbo[data-v-04c29797] {\n  float: left;\n  margin-top: 5rem;\n  margin-left: 3rem;\n}\n.home-title[data-v-04c29797] {\n  font-size: 4em;\n  text-shadow: 0.5px 0.5px #333;\n}\n.typewrite[data-v-04c29797] {\n  color: #3490dc;\n  font-size: 2em;\n  margin-left: 7rem;\n  text-shadow: 0.5px 0.5px #fff;\n}\n.tag[data-v-04c29797] {\n  padding: 6px 8px;\n  background-color: #19bab3;\n  color: white;\n}\n.brand-color-2[data-v-04c29797] {\n  color: #19bab3;\n}\nfieldset[data-v-04c29797] {\n  border-color: #19bab3 !important;\n}\n.ms_width[data-v-04c29797] {\n  width: 90%;\n}\n@media all and (min-width: 500px) {\n.ms_width[data-v-04c29797] {\n    width: 87%;\n}\n}", ""]);
 
 // exports
 
@@ -19825,7 +19827,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'apartmentsCards',
     component: _components_ApartmentsCards__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
-    path: '/apartments/:id',
+    path: '/apartments/:slug',
     name: 'apartmentShow',
     component: _pages_ApartmentShow__WEBPACK_IMPORTED_MODULE_3__["default"]
   }]

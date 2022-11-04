@@ -10922,13 +10922,15 @@ textarea.form-control-lg {
   overflow: auto;
 }
 
-.ms_icon_create_apartment {
-  width: 27px;
-  height: 27px;
-}
-
 .header_img {
   width: 120px;
+}
+
+.recycle-bin {
+  background-color: #3066bd;
+  width: 120px;
+  height: 90px;
+  border-radius: 10px;
 }
 
 .input-control.success input {

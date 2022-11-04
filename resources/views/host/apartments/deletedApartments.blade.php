@@ -51,12 +51,12 @@
                                         @endforelse
                                     </ul>
                                 </div>
-                                <div class="card-body">
-                                    <a class="btn btn-sm btn-danger text-white mx-2 mt-3 px-2"
+                                <div class="card-body text-center">
+                                    <a class="btn btn-sm btn-danger text-white mx-2 mt-3 px-2 fw-bold"
                                         href="{{ route('host.apartments.deletePermanently', $apartment->id) }}">
                                         Elimina definitivamente
                                     </a>
-                                    <a class="btn btn-sm btn-success text-white mx-2 mt-3 px-1"
+                                    <a class="btn btn-sm btn-success text-white mx-2 mt-3 px-1 fw-bold"
                                         href="{{ route('host.apartments.restoreApartments', $apartment->id) }}">
                                         Ripristina l'appartamento
                                     </a>
@@ -65,14 +65,15 @@
                         </div>
                     @empty
                         <h3>
-                            <p>Non ci sono appartamenti disponibi.</p>
+                            <p>Non ci sono appartamenti disponibili.</p>
                         </h3>
                     @endforelse
                 </div>
             @else
-                <div class="text-center">
-                    <a href="{{ route('host.apartments.index') }}" class="btn btn-sm btn-outline-primary">
-                        Non hai cancellato nessuno appartamento, torna alla dashboard
+                <div class="text-center mt-5">
+                    <h2 class="mb-2">Non hai cancellato nessun appartamento</h2>
+                    <a href="{{ route('host.apartments.index') }}" class="btn btn-sm btn-primary text-white mt-2">
+                        Torna alla DASHBOARD
                     </a>
                 </div>
             @endif
