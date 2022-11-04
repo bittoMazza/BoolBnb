@@ -27,6 +27,7 @@ class CreateApartmentsTable extends Migration
             $table->decimal('long', 10, 7)->nullable();
             $table->decimal('lat', 10, 7)->nullable();
             $table->string('slug')->unique();
+            $table->boolean('isSponsored')->default(false);
             $table->timestamps();
         });
     }

@@ -86,6 +86,19 @@
                             Cestina
                         </button>
                     </form>
+
+                    <div>
+                        @forelse ($sponsorPlan as $sponsorship)
+                            <span>{{ $sponsorship->level }}</span>
+                            <span>{{ $sponsorship->name }}</span>
+                            <span>{{ $sponsorship->price }}</span>
+                            <span>{{ $sponsorship->duration }}</span>
+                            <button>Acquista Ora</button>
+                            <br>
+                        @empty
+                        
+                        @endforelse
+                    </div>
                 </div>
             </div>
         </div>

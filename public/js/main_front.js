@@ -2705,6 +2705,23 @@ var render = function render() {
     })], 1);
   }), 0) : _c("div", {
     staticClass: "text-center fs-5 user_search_message"
+  }, [_vm._v("\n            " + _vm._s(_vm.userMessage) + "\n          ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "py-5 container"
+  }, [_c("fieldset", {
+    staticClass: "border border-4 p-4 mb-5"
+  }, [_vm._m(4), _vm._v(" "), _vm.apartments != "" ? _c("div", {
+    staticClass: "row g-4"
+  }, _vm._l(_vm.apartments, function (apartment) {
+    return _c("div", {
+      key: apartment.id,
+      staticClass: "col-12 col-md-6 col-lg-4 col-xl-3"
+    }, [_c("ApartmentsCards", {
+      attrs: {
+        apartment: apartment
+      }
+    })], 1);
+  }), 0) : _c("div", {
+    staticClass: "text-center fs-5 user_search_message"
   }, [_vm._v("\n            " + _vm._s(_vm.userMessage) + "\n          ")])])])], 1)])]);
 };
 var staticRenderFns = [function () {
@@ -2743,6 +2760,14 @@ var staticRenderFns = [function () {
   }, [_vm._v("Per iniziare a cercare un appartamento inserisci l'indirizzo di dove vorresti alloggiare, "), _c("span", {
     staticClass: "text-primary"
   }, [_vm._v("puoi anche aggiungere dei filtri alla tua ricerca!")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("legend", {
+    staticClass: "float-none w-auto px-3"
+  }, [_c("span", {
+    staticClass: "brand-color-2"
+  }, [_vm._v(" APPARTAMENTI CONSIGLIATI")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;

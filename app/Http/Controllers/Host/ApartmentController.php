@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Amenity;
 use App\Models\Apartment;
 use App\Models\Image;
+use App\Models\Sponsorship;
 use App\Models\View;
 use Illuminate\Support\Str;
 use App\User;
@@ -121,10 +122,11 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::findOrFail($id);
         $apartments = User::where('id', Auth::id())->get();
+        $sponsorPlan = Sponsorship::all();
         $views = View::where('apartment_id', '=', $apartment->id)->count();
 
         if (Auth::id() === $apartment->user_id) {
-            return view('host.apartments.show', compact('apartment', 'views'));
+            return view('host.apartments.show', compact('apartment', 'views', 'sponsorPlan'));
         }
 
         else {
@@ -276,5 +278,11 @@ class ApartmentController extends Controller
         $imagesId->save();
 
         return back();
+    }
+
+    public function changeSponsorshipApartment($id)
+    {
+        $apartment = Apartment::findOrFail($id);
+        $apartment->isSponsored = true;
     }
 }

@@ -28,6 +28,26 @@
         <!-- Search bar -->
         <SearchBar @sendApartments="SearchedApartments" />
 
+
+        <!-- APPARTAMENTI CONSIGLIATI -->
+        <div class="py-5 container">
+          <fieldset class="border border-4 p-4 mb-5">
+            <legend class="float-none w-auto px-3">
+              <span class="brand-color-2"> APPARTAMENTI CONSIGLIATI</span>
+            </legend>
+            <div v-if="apartments != ''" class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3" v-for="apartment in apartments" :key="apartment.id">
+                <ApartmentsCards :apartment="apartment" />
+              </div>
+            </div>
+
+            <div v-else class="text-center fs-5 user_search_message">
+              {{ userMessage }}
+            </div>
+          </fieldset>
+        </div>
+
+
         <!-- Risultati di ricerca Appartamenti -->
         <div class="py-5 container">
           <fieldset class="border border-4 p-4 mb-5">
