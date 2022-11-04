@@ -283,6 +283,10 @@ class ApartmentController extends Controller
     public function changeSponsorshipApartment($id)
     {
         $apartment = Apartment::findOrFail($id);
+        // dump($apartment);
         $apartment->isSponsored = true;
+        $apartment->save();
+
+        return back()->with('sponsor', "Hai sponsorizzato: ". $apartment->title);
     }
 }

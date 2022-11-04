@@ -31,21 +31,16 @@
 
         <!-- APPARTAMENTI CONSIGLIATI -->
         <div class="py-5 container">
-          <fieldset class="border border-4 p-4 mb-5">
-            <legend class="float-none w-auto px-3">
-              <span class="brand-color-2"> APPARTAMENTI CONSIGLIATI</span>
-            </legend>
-            <div v-if="apartments != ''" class="row g-4">
-              <div class="col-12 col-md-6 col-lg-4 col-xl-3" v-for="apartment in apartments" :key="apartment.id">
+          <h3 class="text-center">APPARTAMENTI CONSIGLIATI</h3>
+          <div v-for="apartment in apartments" :key="apartment.id" class="row g-4">
+            <div v-if="apartment.isSponsored == true">
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                 <ApartmentsCards :apartment="apartment" />
               </div>
             </div>
-
-            <div v-else class="text-center fs-5 user_search_message">
-              {{ userMessage }}
-            </div>
-          </fieldset>
+          </div>
         </div>
+        <!-- APPARTAMENTI CONSIGLIATI -->
 
 
         <!-- Risultati di ricerca Appartamenti -->
@@ -72,6 +67,7 @@
 <script>
 import ApartmentsCards from "../components/ApartmentsCards.vue";
 import SearchBar from "../pages/SearchBar.vue";
+import axios from "axios";
 
 export default {
   name: "HomePage",
@@ -83,6 +79,7 @@ export default {
     return {
       apartments: [],
       userMessage: "Qui vedrai gli appartamenti che rispettano i tuoi criteri di ricerca",
+      sponsoredApartment: [],
     };
   },
   methods: {
@@ -100,9 +97,20 @@ export default {
           "OPS!! Non sono stati trovati appartamenti, prova con un altro indirizzo";
       }
     },
+    ApartmentSponsored(){
+      axios.get('/apartments/sponsor', {})
+        .then((response) => {
+          console.log(response);
+          this.sponsoredApartment = response.data.results;
+          console.log(this.sponsoredApartment);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   },
   created() {
-
+    this.ApartmentSponsored();
   }
 };
 

@@ -2031,9 +2031,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ApartmentsCards_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/ApartmentsCards.vue */ "./resources/js/components/ApartmentsCards.vue");
 /* harmony import */ var _pages_SearchBar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/SearchBar.vue */ "./resources/js/pages/SearchBar.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2045,7 +2048,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   data: function data() {
     return {
       apartments: [],
-      userMessage: "Qui vedrai gli appartamenti che rispettano i tuoi criteri di ricerca"
+      userMessage: "Qui vedrai gli appartamenti che rispettano i tuoi criteri di ricerca",
+      sponsoredApartment: []
     };
   },
   methods: {
@@ -2061,9 +2065,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       if (this.apartments == "") {
         this.userMessage = "OPS!! Non sono stati trovati appartamenti, prova con un altro indirizzo";
       }
+    },
+    ApartmentSponsored: function ApartmentSponsored() {
+      var _this = this;
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/apartments/sponsor', {}).then(function (response) {
+        console.log(response);
+        _this.sponsoredApartment = response.data.results;
+        console.log(_this.sponsoredApartment);
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   },
-  created: function created() {}
+  created: function created() {
+    this.ApartmentSponsored();
+  }
 });
 var txtType = /*#__PURE__*/function () {
   function txtType(el, toRotate, period) {
@@ -2690,26 +2706,24 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "py-5 container"
-  }, [_c("fieldset", {
-    staticClass: "border border-4 p-4 mb-5"
-  }, [_vm._m(3), _vm._v(" "), _vm.apartments != "" ? _c("div", {
-    staticClass: "row g-4"
-  }, _vm._l(_vm.apartments, function (apartment) {
+  }, [_c("h3", {
+    staticClass: "text-center"
+  }, [_vm._v("APPARTAMENTI CONSIGLIATI")]), _vm._v(" "), _vm._l(_vm.apartments, function (apartment) {
     return _c("div", {
       key: apartment.id,
+      staticClass: "row g-4"
+    }, [apartment.isSponsored == true ? _c("div", [_c("div", {
       staticClass: "col-12 col-md-6 col-lg-4 col-xl-3"
     }, [_c("ApartmentsCards", {
       attrs: {
         apartment: apartment
       }
-    })], 1);
-  }), 0) : _c("div", {
-    staticClass: "text-center fs-5 user_search_message"
-  }, [_vm._v("\n            " + _vm._s(_vm.userMessage) + "\n          ")])])]), _vm._v(" "), _c("div", {
+    })], 1)]) : _vm._e()]);
+  })], 2), _vm._v(" "), _c("div", {
     staticClass: "py-5 container"
   }, [_c("fieldset", {
     staticClass: "border border-4 p-4 mb-5"
-  }, [_vm._m(4), _vm._v(" "), _vm.apartments != "" ? _c("div", {
+  }, [_vm._m(3), _vm._v(" "), _vm.apartments != "" ? _c("div", {
     staticClass: "row g-4"
   }, _vm._l(_vm.apartments, function (apartment) {
     return _c("div", {
@@ -2760,14 +2774,6 @@ var staticRenderFns = [function () {
   }, [_vm._v("Per iniziare a cercare un appartamento inserisci l'indirizzo di dove vorresti alloggiare, "), _c("span", {
     staticClass: "text-primary"
   }, [_vm._v("puoi anche aggiungere dei filtri alla tua ricerca!")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("legend", {
-    staticClass: "float-none w-auto px-3"
-  }, [_c("span", {
-    staticClass: "brand-color-2"
-  }, [_vm._v(" APPARTAMENTI CONSIGLIATI")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
