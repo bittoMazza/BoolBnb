@@ -42,20 +42,23 @@
                                 @endforelse
 
 
+                                <h5 class="text-dark text-center my-3"> Messaggi:</h5>
                                 @forelse($apartments as $apartment)
-                                    <div class="mt-3 btn btn-sm btn-outline-primary rounded-0 active text-white">
-                                        <strong>Messaggi:
-                                            {{ $apartment->title }}</strong></div>
-                                    <div class="user_panel_messages px-1">
-                                        @forelse ($apartment->messages as $message)
-                                            <div class="my-3">
-                                                <div><span class="fw-bold">Autore:</span> {{ $message->name }}</div>
-                                                <div><span class="fw-bold">Mail:</span> {{ $message->email }}</div>
-                                                <p><span class="fw-bold">Contenuto:</span> {{ $message->content }}</p>
-                                            </div>
-                                        @empty
-                                            Non ci sono messaggi
-                                        @endforelse
+                                    <div class="mt-3 rounded-0 active text-white">
+                                        <button class="btn ms_dimensions_btn_messagges btn-sm btn-primary text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                           {{ $apartment->title }}
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-bottom user_panel_messages p-3">
+                                            @forelse ($apartment->messages as $message)
+                                                <div class="my-3">
+                                                    <div><span class="fw-bold">Autore:</span> {{ $message->name }}</div>
+                                                    <div><span class="fw-bold">Mail:</span> {{ $message->email }}</div>
+                                                    <p><span class="fw-bold">Contenuto:</span> {{ $message->content }}</p>
+                                                </div>
+                                            @empty
+                                                Non ci sono messaggi
+                                            @endforelse
+                                        </div>
                                     </div>
                                 @empty
                                     <div>Non ci sono informazioni disponibili.</div>

@@ -10919,7 +10919,13 @@ textarea.form-control-lg {
 
 .user_panel_messages {
   height: 150px;
+  width: 274px;
   overflow: auto;
+  overflow-x: hidden;
+}
+
+.ms_dimensions_btn_messagges {
+  width: 100%;
 }
 
 .header_img {
