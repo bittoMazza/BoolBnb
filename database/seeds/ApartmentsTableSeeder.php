@@ -25,6 +25,7 @@ class ApartmentsTableSeeder extends Seeder
                 'lat' => '40.76199237334906',
                 'long' => '14.031702205442677',
                 'slug' => 'Casa-sul-mare-1',
+                'isSponsored' => false,
             ],
             [
                 'user_id' => 2,
@@ -38,6 +39,7 @@ class ApartmentsTableSeeder extends Seeder
                 'lat' => '40.7577703070356',
                 'long' => '14.019365200587943',
                 'slug' => 'Corallo-Residence-2',
+                'isSponsored' => false,
             ],
             [
                 'user_id' => 2,
@@ -51,6 +53,7 @@ class ApartmentsTableSeeder extends Seeder
                 'lat' => '36.781475462893944',
                 'long' => '14.530960987775696',
                 'slug' => 'IzzHome-Bella-Vista-3',
+                'isSponsored' => false,
             ],
             [
                 'user_id' => 1,
@@ -64,6 +67,7 @@ class ApartmentsTableSeeder extends Seeder
                 'lat' => '44.21331410599949',
                 'long' => '12.383846649136192',
                 'slug' => 'Villetta-al-mare-4',
+                'isSponsored' => false,
             ],
             [
                 'user_id' => 2,
@@ -77,6 +81,7 @@ class ApartmentsTableSeeder extends Seeder
                 'lat' => '44.047578422255526',
                 'long' => '12.554644359866689',
                 'slug' => 'Appartamanto-vicino-a-Rimini-5',
+                'isSponsored' => false,
             ],
         ];
 

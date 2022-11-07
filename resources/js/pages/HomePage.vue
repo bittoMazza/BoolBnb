@@ -28,6 +28,21 @@
         <!-- Search bar -->
         <SearchBar @sendApartments="SearchedApartments" />
 
+
+        <!-- APPARTAMENTI CONSIGLIATI -->
+        <div class="py-5 container">
+          <h3 class="text-center">APPARTAMENTI CONSIGLIATI</h3>
+          <div v-for="apartment in sponsoredApartment" :key="apartment.id" class="row g-4">
+            <div v-if="apartment.isSponsored == true" class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <ApartmentsCards :apartment="apartment" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- APPARTAMENTI CONSIGLIATI -->
+
+
         <!-- Risultati di ricerca Appartamenti -->
         <div class="py-5 container">
           <fieldset class="border border-4 p-4 mb-5">
@@ -52,6 +67,7 @@
 <script>
 import ApartmentsCards from "../components/ApartmentsCards.vue";
 import SearchBar from "../pages/SearchBar.vue";
+import axios from "axios";
 
 export default {
   name: "HomePage",
@@ -63,6 +79,7 @@ export default {
     return {
       apartments: [],
       userMessage: "Qui vedrai gli appartamenti che rispettano i tuoi criteri di ricerca",
+      sponsoredApartment: [],
     };
   },
   methods: {
@@ -80,9 +97,20 @@ export default {
           "OPS!! Non sono stati trovati appartamenti, prova con un altro indirizzo";
       }
     },
+    ApartmentSponsored(){
+      axios.get('http://127.0.0.1:8000/api/apartments/sponsor', {})
+        .then((response) => {
+          // console.log(response.data.results);
+          this.sponsoredApartment = response.data.results;
+          // console.log(this.sponsoredApartment);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   },
   created() {
-
+    this.ApartmentSponsored();
   }
 };
 
