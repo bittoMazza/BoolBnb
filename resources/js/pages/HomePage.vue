@@ -31,11 +31,11 @@
 
         <!-- APPARTAMENTI CONSIGLIATI -->
         <div class="py-5 container">
-          <h3 class="text-center">APPARTAMENTI CONSIGLIATI</h3>
-          <div v-for="apartment in sponsoredApartment" :key="apartment.id" class="row g-4">
-            <div v-if="apartment.isSponsored == true" class="row g-4">
-              <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                <ApartmentsCards :apartment="apartment" />
+          <h3 class="text-center fw-bold mb-3 text-white bg-primary">APPARTAMENTI IN EVIDENZA</h3>
+          <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3" v-for="apartment in sponsoredApartment" :key="apartment.id">
+              <div v-if="apartment.isSponsored == true">
+                  <ApartmentsCards :apartment="apartment" />
               </div>
             </div>
           </div>

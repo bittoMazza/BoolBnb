@@ -2707,21 +2707,19 @@ var render = function render() {
   }), _vm._v(" "), _c("div", {
     staticClass: "py-5 container"
   }, [_c("h3", {
-    staticClass: "text-center"
-  }, [_vm._v("APPARTAMENTI CONSIGLIATI")]), _vm._v(" "), _vm._l(_vm.sponsoredApartment, function (apartment) {
+    staticClass: "text-center fw-bold mb-3 text-white bg-primary"
+  }, [_vm._v("APPARTAMENTI IN EVIDENZA")]), _vm._v(" "), _c("div", {
+    staticClass: "row g-4"
+  }, _vm._l(_vm.sponsoredApartment, function (apartment) {
     return _c("div", {
       key: apartment.id,
-      staticClass: "row g-4"
-    }, [apartment.isSponsored == true ? _c("div", {
-      staticClass: "row g-4"
-    }, [_c("div", {
       staticClass: "col-12 col-md-6 col-lg-4 col-xl-3"
-    }, [_c("ApartmentsCards", {
+    }, [apartment.isSponsored == true ? _c("div", [_c("ApartmentsCards", {
       attrs: {
         apartment: apartment
       }
-    })], 1)]) : _vm._e()]);
-  })], 2), _vm._v(" "), _c("div", {
+    })], 1) : _vm._e()]);
+  }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "py-5 container"
   }, [_c("fieldset", {
     staticClass: "border border-4 p-4 mb-5"
