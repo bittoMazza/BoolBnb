@@ -1959,81 +1959,9 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/ApartmentShow.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      apartment: {},
-      secondaryImages: [],
-      name: "",
-      surname: "",
-      email: "",
-      content: "",
-      messageForm: ""
-    };
-  },
-  methods: {
-    getApartment: function getApartment() {
-      var _this = this;
-      var slug = this.$route.params.slug;
-      /* Facciamo una chiamata al metodo show dell'api*/
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/apartments/".concat(slug), {}).then(function (response) {
-        console.log(response);
-        _this.apartment = response.data.results[0];
-      })["catch"](function (error) {
-        console.error(error);
-      });
-    },
-    sendMessage: function sendMessage(id) {
-      var _this2 = this;
-      event.preventDefault();
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/messages?apartment_id=".concat(id, "&name=").concat(this.name, "&surname=").concat(this.surname, "&email=").concat(this.email, "&content=").concat(this.content)).then(function (response) {
-        _this2.name = "";
-        _this2.surname = "";
-        _this2.email = "";
-        _this2.content = "";
-        _this2.messageForm = "Messaggio inviato correttamente!";
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    },
-    getMainImage: function getMainImage(images) {
-      var cover;
-      images.forEach(function (image) {
-        if (image.is_cover == true) {
-          cover = image.image;
-        }
-      });
-      return cover;
-    }
-  },
-  created: function created() {
-    this.getApartment();
-  },
-  mounted: function mounted() {
-    var mapScriptCss = document.createElement("link");
-    mapScriptCss.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css";
-    document.head.appendChild(mapScriptCss);
-    var mapScriptJS = document.createElement("script");
-    mapScriptJS.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js";
-    document.head.appendChild(mapScriptJS);
-    var searchBoxCss = document.createElement("link");
-    searchBoxCss.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css";
-    document.head.appendChild(searchBoxCss);
-    var searchBox = document.createElement("script");
-    searchBox.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js";
-    document.head.appendChild(searchBox);
-    var servicesBox = document.createElement("script");
-    servicesBox.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
-    document.head.appendChild(servicesBox);
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\resources\\js\\pages\\ApartmentShow.vue: Identifier 'servicesBox' has already been declared. (86:8)\n\n\u001b[0m \u001b[90m 84 |\u001b[39m       \u001b[32m\"https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 85 |\u001b[39m     document\u001b[33m.\u001b[39mhead\u001b[33m.\u001b[39mappendChild(servicesBox)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 86 |\u001b[39m     \u001b[36mlet\u001b[39m servicesBox \u001b[33m=\u001b[39m document\u001b[33m.\u001b[39mcreateElement(\u001b[32m\"script\"\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 87 |\u001b[39m     servicesBox\u001b[33m.\u001b[39msrc \u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 88 |\u001b[39m       \u001b[32m\"https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 89 |\u001b[39m     document\u001b[33m.\u001b[39mhead\u001b[33m.\u001b[39mappendChild(servicesBox)\u001b[33m;\u001b[39m\u001b[0m\n    at instantiate (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:72:32)\n    at constructor (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:367:12)\n    at Parser.raise (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:3706:19)\n    at ScopeHandler.checkRedeclarationInScope (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:1657:19)\n    at ScopeHandler.declareName (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:1623:12)\n    at Parser.declareNameFromIdentifier (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:12375:16)\n    at Parser.checkIdentifier (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:12370:12)\n    at Parser.checkLVal (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:12296:12)\n    at Parser.parseVarId (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:15642:10)\n    at Parser.parseVar (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:15616:12)\n    at Parser.parseVarStatement (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:15420:10)\n    at Parser.parseStatementContent (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:14946:21)\n    at Parser.parseStatement (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:14871:17)\n    at Parser.parseBlockOrModuleBlockBody (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:15531:25)\n    at Parser.parseBlockBody (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:15522:10)\n    at Parser.parseBlock (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:15505:10)\n    at Parser.parseFunctionBody (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:14175:24)\n    at Parser.parseFunctionBodyAndFinish (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:14159:10)\n    at Parser.parseMethod (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:14108:31)\n    at Parser.parseObjectMethod (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:13984:19)\n    at Parser.parseObjPropValue (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:14025:23)\n    at Parser.parsePropertyDefinition (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:13943:17)\n    at Parser.parseObjectLike (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:13833:21)\n    at Parser.parseExprAtom (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:13225:23)\n    at Parser.parseExprSubscripts (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:12875:23)\n    at Parser.parseUpdate (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:12854:21)\n    at Parser.parseMaybeUnary (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:12824:23)\n    at Parser.parseMaybeUnaryOrPrivate (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:12615:61)\n    at Parser.parseExprOps (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:12622:23)\n    at Parser.parseMaybeConditional (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:12592:23)\n    at Parser.parseMaybeAssign (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:12544:21)\n    at F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:12502:39\n    at Parser.allowInAnd (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:14570:16)\n    at Parser.parseMaybeAssignAllowIn (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:12502:17)\n    at Parser.parseExportDefaultExpression (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:16261:22)\n    at Parser.parseExport (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:16149:31)\n    at Parser.parseStatementContent (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:14987:27)\n    at Parser.parseStatement (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:14871:17)\n    at Parser.parseBlockOrModuleBlockBody (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:15531:25)\n    at Parser.parseBlockBody (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:15522:10)\n    at Parser.parseProgram (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:14785:10)\n    at Parser.parseTopLevel (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:14772:25)\n    at Parser.parse (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:16799:10)\n    at parse (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\parser\\lib\\index.js:16851:38)\n    at parser (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\core\\lib\\parser\\index.js:52:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:87:38)\n    at normalizeFile.next (<anonymous>)\n    at run (F:\\Dev\\FULLSTACK\\JOBS\\FInal_project\\Progetto Finale\\FInal_project\\BoolBnb\\node_modules\\@babel\\core\\lib\\transformation\\index.js:31:50)\n    at run.next (<anonymous>)");
 
 /***/ }),
 

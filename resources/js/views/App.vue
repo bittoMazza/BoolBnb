@@ -12,6 +12,7 @@
 import HeaderWeb from "../components/HeaderWeb.vue";
 import FooterWeb from "../components/FooterWeb.vue";
 
+
 export default {
   components: {
     HeaderWeb,
