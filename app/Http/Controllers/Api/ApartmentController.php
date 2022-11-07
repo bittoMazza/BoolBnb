@@ -122,11 +122,11 @@ class ApartmentController extends Controller
 
     public function sponsoredApartments()
     {
-        $sponsoredApartments = Apartment::where('isSponsored', true)->get();
+        $apartments = Apartment::with('images')->where('isSponsored', '=', true)->get();
 
         return response()->json([
             "response" => true,
-            "results" => $sponsoredApartments,
+            "results" => $apartments,
         ]);
     }
 }

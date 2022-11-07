@@ -32,8 +32,8 @@
         <!-- APPARTAMENTI CONSIGLIATI -->
         <div class="py-5 container">
           <h3 class="text-center">APPARTAMENTI CONSIGLIATI</h3>
-          <div v-for="apartment in apartments" :key="apartment.id" class="row g-4">
-            <div v-if="apartment.isSponsored == true">
+          <div v-for="apartment in sponsoredApartment" :key="apartment.id" class="row g-4">
+            <div v-if="apartment.isSponsored == true" class="row g-4">
               <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                 <ApartmentsCards :apartment="apartment" />
               </div>
@@ -98,11 +98,11 @@ export default {
       }
     },
     ApartmentSponsored(){
-      axios.get('/apartments/sponsor', {})
+      axios.get('http://127.0.0.1:8000/api/apartments/sponsor', {})
         .then((response) => {
-          console.log(response);
+          // console.log(response.data.results);
           this.sponsoredApartment = response.data.results;
-          console.log(this.sponsoredApartment);
+          // console.log(this.sponsoredApartment);
         })
         .catch((error) => {
           console.log(error);

@@ -2068,10 +2068,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     },
     ApartmentSponsored: function ApartmentSponsored() {
       var _this = this;
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('/apartments/sponsor', {}).then(function (response) {
-        console.log(response);
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get('http://127.0.0.1:8000/api/apartments/sponsor', {}).then(function (response) {
+        // console.log(response.data.results);
         _this.sponsoredApartment = response.data.results;
-        console.log(_this.sponsoredApartment);
+        // console.log(this.sponsoredApartment);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2708,11 +2708,13 @@ var render = function render() {
     staticClass: "py-5 container"
   }, [_c("h3", {
     staticClass: "text-center"
-  }, [_vm._v("APPARTAMENTI CONSIGLIATI")]), _vm._v(" "), _vm._l(_vm.apartments, function (apartment) {
+  }, [_vm._v("APPARTAMENTI CONSIGLIATI")]), _vm._v(" "), _vm._l(_vm.sponsoredApartment, function (apartment) {
     return _c("div", {
       key: apartment.id,
       staticClass: "row g-4"
-    }, [apartment.isSponsored == true ? _c("div", [_c("div", {
+    }, [apartment.isSponsored == true ? _c("div", {
+      staticClass: "row g-4"
+    }, [_c("div", {
       staticClass: "col-12 col-md-6 col-lg-4 col-xl-3"
     }, [_c("ApartmentsCards", {
       attrs: {
