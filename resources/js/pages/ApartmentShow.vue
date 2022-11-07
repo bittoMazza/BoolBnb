@@ -241,36 +241,7 @@ export default {
   created() {
     this.getApartment();
   },
-  mounted() {
-    let externalMapCss = document.createElement("link");
-    externalMapCss.src =
-      "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css";
-    document.head.appendChild(externalMapCss);
 
-    let externalMapJS = document.createElement("script");
-    externalMapJS.src =
-      "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js";
-    document.head.appendChild(externalMapJS);
-
-    let searchBoxCss = document.createElement("link");
-    searchBoxCss.src =
-      "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css";
-    document.head.appendChild(searchBoxCss);
-
-    let searchBox = document.createElement("script");
-    searchBox.src =
-      "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js";
-    document.head.appendChild(searchBox);
-
-    let servicesBox = document.createElement("script");
-    servicesBox.src =
-      "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
-    document.head.appendChild(servicesBox);
-    let servicesBox = document.createElement("script");
-    servicesBox.src =
-      "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
-    document.head.appendChild(servicesBox);
-  },
 };
 </script>
 
