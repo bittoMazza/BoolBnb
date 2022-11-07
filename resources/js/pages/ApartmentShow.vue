@@ -147,12 +147,18 @@
         </div>
       </div>
     </div>
+    <MapView />
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import MapView from "../components/MapView.vue";
+
 export default {
+  components: {
+    MapView,
+  },
   data() {
     return {
       apartment:{},
