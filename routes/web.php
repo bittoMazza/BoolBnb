@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Host\ApartmentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,7 @@ Route::middleware('auth')
         Route::get('apartments/deleted/{id}','ApartmentController@restoreApartments')->name('apartments.restoreApartments');
         Route::get('apartments/forceDeleted/{id}','ApartmentController@deletePermanently')->name('apartments.deletePermanently');
         Route::delete('apartments/deletedApartmentImage/{id}','ApartmentController@deletedApartmentImage')->name('apartments.deleteImage');
+        Route::get('apartments/changeSponsorshipApartment/{id}', 'ApartmentController@changeSponsorshipApartment')->name('sponsorshipApartment');
         Route::resource('/apartments', 'ApartmentController');
     });
 

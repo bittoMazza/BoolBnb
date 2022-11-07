@@ -12,6 +12,10 @@
                     <div class="alert alert-success">
                         {{ session('edited') }}
                     </div>
+                @elseif (session('sponsor'))
+                    <div class="alert alert-success">
+                        {{ session('sponsor') }}
+                    </div>
                 @endif
 
                 <h1 class="card-title my-4 fw-bold"><i class="bi bi-house me-1"></i> {{ $apartment->title }}</h1>
@@ -70,6 +74,20 @@
                         </li>
                     </ul>
                 @endforeach
+
+                <div>
+                    @forelse ($sponsorPlan as $sponsorship)
+                        <span>{{ $sponsorship->level }}</span>
+                        <span>{{ $sponsorship->name }}</span>
+                        <span>{{ $sponsorship->price }}</span>
+                        <span>{{ $sponsorship->duration }}</span>
+                        <a href="{{ route('host.sponsorshipApartment', $apartment->id) }}">
+                            Acquista Ora
+                        </a>
+                    @empty
+                    
+                    @endforelse
+                </div>
 
 
                 <div class="d-flex pb-4">
