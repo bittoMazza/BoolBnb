@@ -25,7 +25,7 @@
                     <div class="row my-4">
 
                         <div class="col-12 col-lg-3">
-                            <div class="index_user_panel w-100 bg-light p-3 shadow-sm rounded">
+                            <div class="index_user_panel w-100 h-100 bg-light p-3 shadow-sm rounded">
 
                                 @forelse ($users as $user)
                                     <div class="text-center">
@@ -69,12 +69,12 @@
 
                         <div class="col-12 g-5 col-lg-9 mt-3">
                             <div class="index_user_management">
-                                <h2 class="fw-bold apartments-title title_sm ">I miei Appartamenti</h2>
+                                <h2 class="fw-bold apartments-title title_sm">I miei Appartamenti</h2>
 
                                 <div class="row justify-content-around">
                                     <div class="col-12 col-lg-6 my-2 d-flex flex-wrap justify-content-between px-1">
                                         @forelse ($apartments as $apartment)
-                                            <div class="card w-50 mb-2 ">
+                                            <div class="card w-50 mb-2">
                                                 @foreach ($apartment->images as $image)
                                                     @if ($image->is_cover == true)
                                                         @if (filter_var($image->image, FILTER_VALIDATE_URL))
@@ -110,7 +110,7 @@
                                             <div>Non hai appartamenti.</div>
                                         @endforelse
                                     </div>
-                                    <div class="col-12 g-5 col-lg-6 mt-3">
+                                    <div class="col-12 g-5 col-lg-6 mt-4">
                                         <span class="fw-bold fs-4">
                                             Gestione rapida degli Appartamenti:
                                         </span>
