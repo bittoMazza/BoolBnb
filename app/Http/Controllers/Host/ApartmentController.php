@@ -10,6 +10,7 @@ use App\Models\Sponsorship;
 use App\Models\View;
 use Illuminate\Support\Str;
 use App\User;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -282,11 +283,25 @@ class ApartmentController extends Controller
 
     public function changeSponsorshipApartment($id)
     {
-        $apartment = Apartment::findOrFail($id);
-        // dump($apartment);
-        $apartment->isSponsored = true;
-        $apartment->save();
+        // $apartments = Apartment::find(1);
+        
+        // foreach ($apartments->sponsorships as $data) {
+        //     dd($data->pivot);   
+        // }
+        
+        $sponsorship = Sponsorship::findOrFail($id);
 
-        return back()->with('sponsor', "Hai sponsorizzato: ". $apartment->title);
+        $startSponsorApartment = Apartment::findOrFail($id)->sponsorships()->updateExistingPivot($sponsorship->id, ['start_sponsor' => now()]);
+
+        $endSponsorApartment = Apartment::findOrFail($id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now() + 24]);
+
+        $singleApartment = Apartment::findOrFail($id);
+        $singleApartment->isSponsored = true;
+
+            
+        $singleApartment->save();
+        $sponsorship->save();
+
+        return back()->with('sponsor', "Hai sponsorizzato: ". $singleApartment->title);
     }
 }
