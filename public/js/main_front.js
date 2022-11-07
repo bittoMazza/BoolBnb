@@ -2376,7 +2376,7 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "header_img ms-2",
     attrs: {
-      src: "https://tinypic.host/images/2022/10/14/Logo_sm.png",
+      src: "https://i.ibb.co/7b1zqYZ/Logo-sm.png",
       alt: "BoolBnB"
     }
   })]), _vm._v(" "), _c("button", {
@@ -19945,7 +19945,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\haksn\Desktop\BoolBnb\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
+module.exports = __webpack_require__(/*! C:\Users\vince\Desktop\Boolean\Esercizi\BoolBnb\resources\js\main_front.js */"./resources/js/main_front.js");
 
 
 /***/ })
