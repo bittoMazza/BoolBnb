@@ -16,22 +16,36 @@
       <div class="container mb-3">
         <div class="row">
           <div class="col d-flex">
-            <img v-if="getMainImage(apartment.images).includes('uploads')"
+            <img
+              v-if="getMainImage(apartment.images).includes('uploads')"
               class="w-75 rounded-start main_image"
-              :src="'/storage/'+getMainImage(apartment.images)"
+              :src="'/storage/' + getMainImage(apartment.images)"
               alt=""
             />
-            <img v-else
+            <img
+              v-else
               class="w-75 rounded-start main_image"
               :src="getMainImage(apartment.images)"
               alt=""
             />
 
-
             <div class="col-4">
-              <div v-for="images in apartment.images" :key="images.id">               
-                <img v-if="images.is_cover == false && images.image.includes('uploads')" class="w-75 rounded-end secondary-img" :src="'/storage/'+images.image" alt=""/>
-                <img v-else-if="images.is_cover == false && images.image.includes('https')" class="w-75 rounded-end secondary-img" :src="images.image"/>
+              <div v-for="images in apartment.images" :key="images.id">
+                <img
+                  v-if="
+                    images.is_cover == false && images.image.includes('uploads')
+                  "
+                  class="w-75 rounded-end secondary-img"
+                  :src="'/storage/' + images.image"
+                  alt=""
+                />
+                <img
+                  v-else-if="
+                    images.is_cover == false && images.image.includes('https')
+                  "
+                  class="w-75 rounded-end secondary-img"
+                  :src="images.image"
+                />
                 <div v-else></div>
               </div>
             </div>
@@ -80,15 +94,19 @@
               <i class="bi bi-house-heart claim-icons"></i>Animali domestici
             </h3>
             <p>Porta in vacanza con te i tuoi animali domestici.</p>
-            
+
             <br />
-           
+
             <div class="col">
-            <br />
-            
+              <br />
+
               <h3 class="fw-bold">Cosa troverai:</h3>
               <ul>
-                <li class="fs-3" v-for="amenity in apartment.amenities" :key="amenity.id">
+                <li
+                  class="fs-3"
+                  v-for="amenity in apartment.amenities"
+                  :key="amenity.id"
+                >
                   <i class="bi bi-check-lg"></i> {{ amenity.name }}
                 </li>
               </ul>
@@ -98,7 +116,9 @@
           <div class="col-12 col-lg-5">
             <form class="form-border mt-5">
               <div class="mb-3">
-                <h3 class="text-center mt-3">Scrivi un messaggio al proprietario</h3>
+                <h3 class="text-center mt-3">
+                  Scrivi un messaggio al proprietario
+                </h3>
                 <label for="nome" class="form-label">Nome*</label>
                 <input
                   type="text"
@@ -108,23 +128,19 @@
                 />
               </div>
               <div class="mb-3">
-                <label class="form-label"
-                  >Cognome*</label
-                >
+                <label class="form-label">Cognome*</label>
                 <input
                   type="text"
-                  v-model = "surname"
+                  v-model="surname"
                   class="form-control"
                   required
-                  />
+                />
               </div>
               <div class="mb-3">
-                <label class="form-label"
-                  >Indirizzo email*</label
-                >
+                <label class="form-label">Indirizzo email*</label>
                 <input
                   type="email"
-                  v-model = "email"
+                  v-model="email"
                   class="form-control"
                   required
                 />
@@ -133,82 +149,124 @@
                 <label for="exampleFormControlTextarea1" class="form-label"
                   >Messaggio*</label
                 >
-                <textarea type="text" class="form-control" rows="3" id="exampleFormControlTextarea1" v-model="content" required>
+                <textarea
+                  type="text"
+                  class="form-control"
+                  rows="3"
+                  id="exampleFormControlTextarea1"
+                  v-model="content"
+                  required
+                >
                 </textarea>
               </div>
 
-              <button type="submit" @click="sendMessage(apartment.id)" class="btn btn-blue text-white fw-bold mb-2">
+              <button
+                type="submit"
+                @click="sendMessage(apartment.id)"
+                class="btn btn-blue text-white fw-bold mb-2"
+              >
                 Invia
               </button>
 
-              <h4 class="text-center fw-bold form-message">{{ messageForm }}</h4>
+              <h4 class="text-center fw-bold form-message">
+                {{ messageForm }}
+              </h4>
             </form>
-        </div>
+          </div>
         </div>
       </div>
     </div>
-    <MapView />
+     <h1 class="text-center">MAPPA</h1>
+    <div id="map-div"></div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import MapView from "../components/MapView.vue";
 
 export default {
-  components: {
-    MapView,
-  },
+
   data() {
     return {
-      apartment:{},
-      secondaryImages:[],
-      name :'',
-      surname:'',
-      email:'',
-      content:'',
-      messageForm:'',
+      apartment: {},
+      secondaryImages: [],
+      name: "",
+      surname: "",
+      email: "",
+      content: "",
+      messageForm: "",
     };
   },
   methods: {
-    getApartment(){
-            const slug = this.$route.params.slug;
-            /* Facciamo una chiamata al metodo show dell'api*/
-            axios.get(`/api/apartments/${slug}`,{
-            }).then((response) => {
-                console.log(response);
-                this.apartment = response.data.results[0];
-            }).catch((error) => {
-                console.error(error);
-            })
-        },
-    sendMessage(id){
-      event.preventDefault();
-      axios.post(`/api/messages?apartment_id=${id}&name=${this.name}&surname=${this.surname}&email=${this.email}&content=${this.content}`)
-      .then((response) => {
-        this.name = "";
-        this.surname = "";
-        this.email = "";
-        this.content = "";
-        this.messageForm = "Messaggio inviato correttamente!"
-      }).catch((error) => {
-        console.log(error);
-      })
+    getApartment() {
+      const slug = this.$route.params.slug;
+      /* Facciamo una chiamata al metodo show dell'api*/
+      axios
+        .get(`/api/apartments/${slug}`, {})
+        .then((response) => {
+          console.log(response);
+          this.apartment = response.data.results[0];
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
-    getMainImage(images){
+    sendMessage(id) {
+      event.preventDefault();
+      axios
+        .post(
+          `/api/messages?apartment_id=${id}&name=${this.name}&surname=${this.surname}&email=${this.email}&content=${this.content}`
+        )
+        .then((response) => {
+          this.name = "";
+          this.surname = "";
+          this.email = "";
+          this.content = "";
+          this.messageForm = "Messaggio inviato correttamente!";
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    getMainImage(images) {
       let cover;
-      images.forEach(image => {
-        if(image.is_cover == true){
+      images.forEach((image) => {
+        if (image.is_cover == true) {
           cover = image.image;
         }
-      }
-      )
-      return cover; 
-    },    
+      });
+      return cover;
+    },
   },
-  created(){
-   this.getApartment();
-  }
+  created() {
+    this.getApartment();
+  },
+  mounted() {
+    let mapScriptCss = document.createElement("link");
+    mapScriptCss.src =
+      "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css";
+    document.head.appendChild(mapScriptCss);
+
+    let mapScriptJS = document.createElement("script");
+    mapScriptJS.src =
+      "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js";
+    document.head.appendChild(mapScriptJS);
+
+    let searchBoxCss = document.createElement("link");
+    searchBoxCss.src =
+      "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox.css";
+    document.head.appendChild(searchBoxCss);
+
+    let searchBox = document.createElement("script");
+    searchBox.src =
+      "https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js";
+    document.head.appendChild(searchBox);
+
+    let servicesBox = document.createElement("script");
+    servicesBox.src =
+      "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/services/services-web.min.js";
+    document.head.appendChild(servicesBox);
+  },
 };
 </script>
 
@@ -220,7 +278,7 @@ img {
   padding: 0.2rem;
 }
 
-.main_image{
+.main_image {
   height: 720px;
 }
 
@@ -245,21 +303,19 @@ p {
   padding: 1rem;
 }
 
-.form-message{
-  color:#19bab3;
+.form-message {
+  color: #19bab3;
 }
 
 .btn-blue {
   background-color: #3066bd;
 }
 
-.secondary-img{
+.secondary-img {
   height: 180px;
 }
 
-// *Hover images 
-
-
+// *Hover images
 
 //! Map style
 #map-div {
