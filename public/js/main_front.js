@@ -2710,7 +2710,7 @@ var render = function render() {
     staticClass: "text-center fw-bold mb-3 text-white bg-primary"
   }, [_vm._v("APPARTAMENTI IN EVIDENZA")]), _vm._v(" "), _c("div", {
     staticClass: "row g-4"
-  }, _vm._l(_vm.sponsoredApartment, function (apartment) {
+  }, [_vm._l(_vm.sponsoredApartment, function (apartment) {
     return _c("div", {
       key: apartment.id,
       staticClass: "col-12 col-md-6 col-lg-4 col-xl-3"
@@ -2719,7 +2719,9 @@ var render = function render() {
         apartment: apartment
       }
     })], 1) : _vm._e()]);
-  }), 0)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("SearchBar", {
+  }), _vm._v(" "), _c("div", {
+    staticClass: "fst-italic text-center"
+  }, [_vm._v("Appartamenti sponsorizzati dai proprietari in evidenza")])], 2)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("SearchBar", {
     on: {
       sendApartments: _vm.SearchedApartments
     }

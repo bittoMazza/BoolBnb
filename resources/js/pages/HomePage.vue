@@ -29,6 +29,7 @@
                   <ApartmentsCards :apartment="apartment" />
               </div>
             </div>
+            <div class="fst-italic text-center">Appartamenti sponsorizzati dai proprietari in evidenza</div>
           </div>
         </div>
         <!-- APPARTAMENTI IN EVIDENZA -->
