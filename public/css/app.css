@@ -93,8 +93,10 @@ body {
 }
 
 #map-div {
+  margin: 0 auto;
   width: 80vw;
   height: 70vh;
+  border: 5px solid #3490dc;
 }
 
 #marker {

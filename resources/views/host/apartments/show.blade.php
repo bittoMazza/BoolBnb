@@ -108,7 +108,7 @@
             </div>
         </div>
         <h1 class="text-center">MAPPA</h1>
-    <div id="map-div"></div>
+    <div class="mb-5 rounded-3" id="map-div"></div>
     </div>
     
 @endsection
