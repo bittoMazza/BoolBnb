@@ -1,5 +1,8 @@
 <template>
   <div class="card px-0 shadow-sm">
+      <div v-if="apartment.isSponsored == true">
+          <i class="bi bi-bookmark-star-fill text-warning fs-2 is_sponsored"></i>
+      </div>
       <router-link  class="nav-link" :to="'/apartments/'+ apartment.slug" >
         <img v-if="getCover(apartment.images).includes('uploads')"
               class="card_img"
@@ -46,5 +49,11 @@ export default {
 .card_img{
   height: 200px;
   width: 100%;
+}
+
+.is_sponsored{
+  position: absolute;
+  top: -10px;
+  left: 5px;
 }
 </style>
