@@ -1,12 +1,12 @@
 //! Map style
 #map-div {
-    width: 90vw;
-    height: 90vh;
+    width: 80vw;
+    height: 70vh;
   }
   
   #marker {
-    background-image: url("https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png");
-  
+    background-image: url('../../../../assets/img/pointer2.png');
+
     background-size: cover;
   
     width: 40px;
