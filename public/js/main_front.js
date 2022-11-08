@@ -2268,7 +2268,9 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "card px-0 shadow-sm"
-  }, [_c("router-link", {
+  }, [_vm.apartment.isSponsored == true ? _c("div", [_c("i", {
+    staticClass: "bi bi-bookmark-star-fill text-warning fs-2 is_sponsored"
+  })]) : _vm._e(), _vm._v(" "), _c("router-link", {
     staticClass: "nav-link",
     attrs: {
       to: "/apartments/" + _vm.apartment.slug
@@ -3127,7 +3129,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card_img[data-v-ecea0872] {\n  height: 200px;\n  width: 100%;\n}", ""]);
+exports.push([module.i, ".card_img[data-v-ecea0872] {\n  height: 200px;\n  width: 100%;\n}\n.is_sponsored[data-v-ecea0872] {\n  position: absolute;\n  top: -10px;\n  left: 5px;\n}", ""]);
 
 // exports
 
