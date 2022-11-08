@@ -42,8 +42,8 @@
 
 .recycle-bin {
     background-color: #3066bd;
-    width: 120px;
-    height: 90px;
+    width: 190px;
+    height: 40px;
     border-radius: 10px;
 }
 
@@ -149,4 +149,11 @@ ul{
 // Images in deletedApartments
 .deleted_image{
     height: 200px;
+}
+
+// Show.blade if apartment is sponsored
+.is_sponsored{
+    position: absolute;
+    top: -6px;
+    left: 5px;
 }

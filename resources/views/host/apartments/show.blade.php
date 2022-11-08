@@ -23,9 +23,17 @@
                         class="bi bi-circle-fill {{ $apartment->is_visible ? 'text-success' : 'text-danger' }}"></i>
                     {{ $apartment->is_visible ? 'Appartamento disponibile' : 'Appartamento non disponibile, clicca su "Modifica" per renderlo disponibile' }}
                 </h3>
-                <h5 class="card-title my-4 fst-italic">Indirizzo: <span class="fw-semibold">{{ $apartment->address }}</span>
+                    
+                <div class="d-flex my-4">
+                <h5 class="card-title fst-italic">Indirizzo: <span class="fw-semibold">{{ $apartment->address }} </span>
                     -
-                    {{ $apartment->lat }}, {{ $apartment->long }}</h5>
+                    {{ $apartment->lat }}, {{ $apartment->long }}
+                </h5>
+                @if ($apartment->isSponsored)
+                    <span class="ms-4 badge bg-primary">Appartamento in evidenza</span>
+                @endif
+                </div>
+
                 <div class="row">
                     <div class="row row-cols-3">
                         @forelse ($apartment->images as $image)
@@ -47,7 +55,7 @@
                 </div>
 
             
-                <ul class="fs-5 list-group  list-group-horizontal mt-4">
+                <ul class="fs-5 list-group list-group-horizontal mt-4">
                     <li class="list-group-item bg-primary py-2 text-white">
                         <i class="bi bi-house-door-fill me-2"></i> Stanze:
                         {{ $apartment->rooms }}
@@ -65,7 +73,7 @@
                         {{ $apartment->square_meters }}m²
                     </li>
                 </ul>
-
+                
                 <h3 class="fw-bold mt-5">Servizi offerti al cliente</h3>
                 @foreach ($apartment->amenities as $amenity)
                     <ul class="mt-4">
@@ -75,25 +83,29 @@
                     </ul>
                 @endforeach
 
-                <div>
+                <div class="my-4">
+                    <h4 class="fw-bold mb-3">Sponsorizza il tuo appartamento:</h4>
                     @forelse ($sponsorPlan as $sponsorship)
-                        <span>{{ $sponsorship->level }}</span>
-                        <span>{{ $sponsorship->name }}</span>
-                        <span>{{ $sponsorship->price }}</span>
-                        <span>{{ $sponsorship->duration }}</span>
-                        <a href="{{ route('host.sponsorshipApartment', $apartment->id) }}">
-                            Acquista Ora
-                        </a>
+                        <div class="mt-2">
+                            <span>Livello {{ $sponsorship->level }}</span>
+                            <span class="fw-bold">{{ $sponsorship->name }}</span>
+                            <span class="fw-bold fst-italic"> - {{ $sponsorship->price }}€</span>
+                            <span> - Durata: {{ $sponsorship->duration }} ore</span>
+                            <a href="{{ route('host.sponsorshipApartment', $apartment->id) }}" class="btn btn-sm btn-outline-primary">
+                                Acquista Ora
+                            </a>
+                        </div>
                     @empty
                     
                     @endforelse
                 </div>
 
 
+                <h5 class="fw-bold my-2">Gestisci appartamento:</h5>
                 <div class="d-flex pb-4">
 
                     <a href="{{ route('host.apartments.edit', $apartment->id) }}"
-                        class="btn btn-success me-2 text-white fw-bold">
+                        class="btn btn-primary me-2 text-white fw-bold">
                         Modifica
                     </a>
 

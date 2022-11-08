@@ -10934,8 +10934,8 @@ textarea.form-control-lg {
 
 .recycle-bin {
   background-color: #3066bd;
-  width: 120px;
-  height: 90px;
+  width: 190px;
+  height: 40px;
   border-radius: 10px;
 }
 
@@ -11017,4 +11017,10 @@ ul {
 }
 .deleted_image {
   height: 200px;
+}
+
+.is_sponsored {
+  position: absolute;
+  top: -6px;
+  left: 5px;
 }
