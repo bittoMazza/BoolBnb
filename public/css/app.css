@@ -11018,3 +11018,9 @@ ul {
 .deleted_image {
   height: 200px;
 }
+
+.is_sponsored {
+  position: absolute;
+  top: -6px;
+  left: 5px;
+}

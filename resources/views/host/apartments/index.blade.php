@@ -75,6 +75,9 @@
                                     <div class="col-12 col-lg-6 my-2 d-flex flex-wrap justify-content-between px-1">
                                         @forelse ($apartments as $apartment)
                                             <div class="card w-50 mb-2">
+                                                @if ($apartment->isSponsored)
+                                                    <i class="bi bi-bookmark-star-fill text-warning fs-1 is_sponsored"></i>
+                                                @endif
                                                 @foreach ($apartment->images as $image)
                                                     @if ($image->is_cover == true)
                                                         @if (filter_var($image->image, FILTER_VALIDATE_URL))

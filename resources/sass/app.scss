@@ -150,3 +150,10 @@ ul{
 .deleted_image{
     height: 200px;
 }
+
+// Show.blade if apartment is sponsored
+.is_sponsored{
+    position: absolute;
+    top: -6px;
+    left: 5px;
+}
