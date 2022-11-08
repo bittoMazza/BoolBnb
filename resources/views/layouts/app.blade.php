@@ -11,10 +11,18 @@
     <title>BoolBnb</title>
 
     <!-- Scripts -->
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css'>
+
+<script type='text/javascript' src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js"></script>
+
+<script type='text/javascript'
+    src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js"></script>
+    <script src="{{ asset('js/map.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/register_form_validation.js') }}" defer></script>
     <script src="{{ asset('js/tomtom_coordinates.js') }}" defer></script>
     <script src="{{ asset('js/apartment_form_validation.js') }}" defer></script>
+    
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
@@ -28,9 +36,11 @@
     </script>
 
 
-    <!-- Braintree CDN -->
+
+
+    {{-- <!-- Braintree CDN -->
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/vue-braintree/dist/vue-braintree.umd.min.js"></script>
+    <script src="https://unpkg.com/vue-braintree/dist/vue-braintree.umd.min.js"></script> --}}
 
 
     <!-- Fonts -->

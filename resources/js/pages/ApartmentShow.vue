@@ -176,8 +176,8 @@
         </div>
       </div>
     </div>
-     <h1 class="text-center">MAPPA</h1>
-    <div id="map-div"></div>
+     <!-- <h1 class="text-center">MAPPA</h1>
+    <div id="map-div"></div> -->
   </div>
 </template>
 

@@ -92,6 +92,18 @@ body {
   margin-right: 0;
 }
 
+#map-div {
+  width: 90vw;
+  height: 90vh;
+}
+
+#marker {
+  background-image: url("https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png");
+  background-size: cover;
+  width: 40px;
+  height: 50px;
+}
+
 /*!
  * Bootstrap  v5.2.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
