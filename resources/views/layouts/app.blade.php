@@ -97,8 +97,7 @@
                     },
                     "properties": {
                         "title": "Casa sul mare",
-                        "address": "Via Salita Castello 13, 80079 Procida, Italia",
-                        "city": "Procida NA"
+                        "address": "Via Salita Castello 13, 80079 Procida, NA"
                     }
                 },
                 {
@@ -112,8 +111,7 @@
                     },
                     "properties": {
                         "title": "Corallo Residence",
-                        "address": "Via Vittorio Emanuele 284, 80079 Procida, Italia",
-                        "city": "Procida NA"
+                        "address": "Via Vittorio Emanuele 284, 80079 Procida, NA"
                     }
                 },
                 {
@@ -127,8 +125,7 @@
                     },
                     "properties": {
                         "title": "IzzHome Bella Vista",
-                        "address": "Via Perugia 67, 97100 Marina di Ragusa, Italia",
-                        "city": "Ragusa SR"
+                        "address": "Via Perugia 67, 97100 Marina di Ragusa, SR"
                     }
                 },
                 {
@@ -142,8 +139,7 @@
                     },
                     "properties": {
                         "title": "Villetta al mare",
-                        "address": "Viale Giuseppe Mazzini 182, 47042 Cesenatico, Emilia Romagna",
-                        "city": "Cesenatico FC"
+                        "address": "Viale Giuseppe Mazzini 182, 47042 Cesenatico, FC"
                     }
                 },
                 {
@@ -157,8 +153,7 @@
                     },
                     "properties": {
                         "title": "Appartamento vicino a Rimini",
-                        "address": "Via Cristoforo Fontemaggi, 4, 47923 Rimini RN",
-                        "city": "Rimini RN"
+                        "address": "Via Cristoforo Fontemaggi, 4, 47923 Rimini, RN"
                     }
                 }
             ]
@@ -168,7 +163,6 @@
 
         apartments.features.forEach(function(apartment, index) {
             const title = apartment.properties.title;
-            const city = apartment.properties.city;
             const address = apartment.properties.address;
             const location = apartment.geometry.coordinates;
 
@@ -198,7 +192,7 @@
 
             markersCity[index] = {
                 marker,
-                city
+               
             };
         });
     </script>
