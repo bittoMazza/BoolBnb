@@ -8,7 +8,7 @@
           </h1>
           <h5 class="card-title my-4 fst-italic ms-4">
             <span class="fw-semibold">{{ apartment.address }}</span> -
-            {{ apartment.lat }}, {{ apartment.long }}
+            {{ apartment.lat }}, {{ apartment.long }} <span class="text-white bg-primary p-1 fs-6 ms-3" v-if="apartment.isSponsored == true">Appartamento in evidenza</span>
           </h5>
         </div>
       </div>

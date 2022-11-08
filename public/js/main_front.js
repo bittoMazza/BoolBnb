@@ -2440,7 +2440,9 @@ var render = function render() {
     staticClass: "card-title my-4 fst-italic ms-4"
   }, [_c("span", {
     staticClass: "fw-semibold"
-  }, [_vm._v(_vm._s(_vm.apartment.address))]), _vm._v(" -\n          " + _vm._s(_vm.apartment.lat) + ", " + _vm._s(_vm.apartment["long"]) + "\n        ")])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.apartment.address))]), _vm._v(" -\n          " + _vm._s(_vm.apartment.lat) + ", " + _vm._s(_vm.apartment["long"]) + " "), _vm.apartment.isSponsored == true ? _c("span", {
+    staticClass: "text-white bg-primary p-1 fs-6 ms-3"
+  }, [_vm._v("Appartamento in evidenza")]) : _vm._e()])])]), _vm._v(" "), _c("div", {
     staticClass: "container mb-3"
   }, [_c("div", {
     staticClass: "row"
