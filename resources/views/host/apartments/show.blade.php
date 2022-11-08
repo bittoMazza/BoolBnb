@@ -76,12 +76,12 @@
                 @endforeach
 
                 <div>
-                    @forelse ($sponsorPlan as $sponsorship)
+                    @forelse ($sponsorships as $sponsorship)
                         <span>{{ $sponsorship->level }}</span>
                         <span>{{ $sponsorship->name }}</span>
                         <span>{{ $sponsorship->price }}</span>
                         <span>{{ $sponsorship->duration }}</span>
-                        <a href="{{ route('host.sponsorshipApartment', $apartment->id) }}">
+                        <a href="{{ route('host.sponsorshipApartment', ['apartmentId' => $apartment->id, 'sponsorshipId' => $sponsorship->id]) }}">
                             Acquista Ora
                         </a>
                     @empty

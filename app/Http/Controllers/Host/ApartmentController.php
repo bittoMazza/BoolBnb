@@ -10,7 +10,6 @@ use App\Models\Sponsorship;
 use App\Models\View;
 use Illuminate\Support\Str;
 use App\User;
-use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -123,11 +122,11 @@ class ApartmentController extends Controller
     {
         $apartment = Apartment::findOrFail($id);
         $apartments = User::where('id', Auth::id())->get();
-        $sponsorPlan = Sponsorship::all();
+        $sponsorships = Sponsorship::all();
         $views = View::where('apartment_id', '=', $apartment->id)->count();
 
         if (Auth::id() === $apartment->user_id) {
-            return view('host.apartments.show', compact('apartment', 'views', 'sponsorPlan'));
+            return view('host.apartments.show', compact('apartment', 'views', 'sponsorships'));
         }
 
         else {
@@ -281,21 +280,31 @@ class ApartmentController extends Controller
         return back();
     }
 
-    public function changeSponsorshipApartment($id)
+    public function changeSponsorshipApartment($apartment_id, $id)
     {
-        // $apartments = Apartment::find(1);
-        
-        // foreach ($apartments->sponsorships as $data) {
-        //     dd($data->pivot);   
-        // }
         
         $sponsorship = Sponsorship::findOrFail($id);
+        // dd($sponsorship);
 
-        $startSponsorApartment = Apartment::findOrFail($id)->sponsorships()->updateExistingPivot($sponsorship->id, ['start_sponsor' => now()]);
+        switch ($sponsorship->level) {
+            case '1':
+                $startSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['start_sponsor' => now()]);
 
-        $endSponsorApartment = Apartment::findOrFail($id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now() + 24]);
+                $endSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now()->addDay()]);
+                break;
+            case '2':
+                $startSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['start_sponsor' => now()]);
 
-        $singleApartment = Apartment::findOrFail($id);
+                $endSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now()->addHours(72)]);
+                break;
+            case '3':
+                $startSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['start_sponsor' => now()]);
+
+                $endSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now()->addHours(144)]);
+                break;
+        }
+
+        $singleApartment = Apartment::findOrFail($apartment_id);
         $singleApartment->isSponsored = true;
 
             
