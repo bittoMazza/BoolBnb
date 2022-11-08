@@ -153,14 +153,13 @@
 
                                         </ul>
 
-                                        <a class="text-decoration-none"
+                                        <a class="text-decoration-none mt-4"
                                             href="{{ route('host.apartments.deletedApartments') }}">
                                             <div class="recycle-bin">
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <i class="bi bi-trash3-fill text-light fs-2 mt-1"></i>
-
+                                                <div class="d-flex align-items-center">
+                                                    <span class="align-middle ms-3"><i class="bi bi-trash3-fill text-light fs-3"></i></span>
+                                                    <span class="text-center text-white align-middle fs-5 ms-3">Vai al cestino</span>
                                                 </div>
-                                                <h5 class="text-center text-white">Vai al cestino</h5>
                                             </div>
                                         </a>
                                     </div>
