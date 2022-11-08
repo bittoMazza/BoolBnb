@@ -2702,12 +2702,8 @@ var render = function render() {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-12"
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("SearchBar", {
-    on: {
-      sendApartments: _vm.SearchedApartments
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "py-5 container"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "mt-2 mb-5 container"
   }, [_c("h3", {
     staticClass: "text-center fw-bold mb-3 text-white bg-primary"
   }, [_vm._v("APPARTAMENTI IN EVIDENZA")]), _vm._v(" "), _c("div", {
@@ -2721,7 +2717,11 @@ var render = function render() {
         apartment: apartment
       }
     })], 1) : _vm._e()]);
-  }), 0)]), _vm._v(" "), _c("div", {
+  }), 0)]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("SearchBar", {
+    on: {
+      sendApartments: _vm.SearchedApartments
+    }
+  }), _vm._v(" "), _c("div", {
     staticClass: "py-5 container"
   }, [_c("fieldset", {
     staticClass: "border border-4 p-4 mb-5"
@@ -3184,7 +3184,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".margin-for-fixed[data-v-04c29797] {\n  margin-top: 20rem;\n}\n.content[data-v-04c29797] {\n  width: 100%;\n  height: 55vh;\n  max-height: 55vh;\n  background-image: url(\"https://wallpaperaccess.com/full/3434829.jpg\");\n  background-repeat: no-repeat;\n  background-clip: border-box;\n  background-size: cover;\n  background-position: center;\n  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 90%, 0% 50%);\n          clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 90%, 0% 50%);\n}\n.typewriter-jumbo[data-v-04c29797] {\n  float: left;\n  margin-top: 5rem;\n  margin-left: 3rem;\n}\n.home-title[data-v-04c29797] {\n  font-size: 4em;\n  text-shadow: 0.5px 0.5px #333;\n}\n.typewrite[data-v-04c29797] {\n  color: #3490dc;\n  font-size: 2em;\n  margin-left: 7rem;\n  text-shadow: 0.5px 0.5px #fff;\n}\n.tag[data-v-04c29797] {\n  padding: 6px 8px;\n  background-color: #19bab3;\n  color: white;\n}\n.brand-color-2[data-v-04c29797] {\n  color: #19bab3;\n}\nfieldset[data-v-04c29797] {\n  border-color: #19bab3 !important;\n}\n.ms_width[data-v-04c29797] {\n  width: 90%;\n}\n@media all and (min-width: 500px) {\n.ms_width[data-v-04c29797] {\n    width: 87%;\n}\n}", ""]);
+exports.push([module.i, ".margin-for-fixed[data-v-04c29797] {\n  margin-top: 20rem;\n}\n.content[data-v-04c29797] {\n  height: 55vh;\n  max-height: 55vh;\n  background-image: url(\"https://wallpaperaccess.com/full/3434829.jpg\");\n  background-repeat: no-repeat;\n  background-clip: border-box;\n  background-size: cover;\n  background-position: center;\n  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 90%, 0% 50%);\n          clip-path: polygon(0 0, 100% 0%, 100% 90%, 0 90%, 0% 50%);\n}\n.typewriter-jumbo[data-v-04c29797] {\n  float: left;\n  margin-top: 5rem;\n  margin-left: 3rem;\n}\n.home-title[data-v-04c29797] {\n  font-size: 4em;\n  text-shadow: 0.5px 0.5px #333;\n}\n.typewrite[data-v-04c29797] {\n  color: #3490dc;\n  font-size: 2em;\n  margin-left: 7rem;\n  text-shadow: 0.5px 0.5px #fff;\n}\n.tag[data-v-04c29797] {\n  padding: 6px 8px;\n  background-color: #19bab3;\n  color: white;\n}\n.brand-color-2[data-v-04c29797] {\n  color: #19bab3;\n}\nfieldset[data-v-04c29797] {\n  border-color: #19bab3 !important;\n}\n.ms_width[data-v-04c29797] {\n  width: 90%;\n}\n@media all and (min-width: 500px) {\n.ms_width[data-v-04c29797] {\n    width: 87%;\n}\n}", ""]);
 
 // exports
 

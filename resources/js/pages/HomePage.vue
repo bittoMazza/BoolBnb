@@ -20,17 +20,8 @@
           </div>
         </div>
 
-        <div class="fw-bold text-center fs-2 mb-1">
-            <span class="text-primary">Cerca</span> un appartamento
-        </div>
-        <div class="fw-bold fst-italic text-center fs-5 mb-1">Per iniziare a cercare un appartamento inserisci l'indirizzo di dove vorresti alloggiare, <span class="text-primary">puoi anche aggiungere dei filtri alla tua ricerca!</span></div>
-
-        <!-- Search bar -->
-        <SearchBar @sendApartments="SearchedApartments" />
-
-
-        <!-- APPARTAMENTI CONSIGLIATI -->
-        <div class="py-5 container">
+        <!-- APPARTAMENTI IN EVIDENZA -->
+        <div class="mt-2 mb-5 container">
           <h3 class="text-center fw-bold mb-3 text-white bg-primary">APPARTAMENTI IN EVIDENZA</h3>
           <div class="row g-4">
             <div class="col-12 col-md-6 col-lg-4 col-xl-3" v-for="apartment in sponsoredApartment" :key="apartment.id">
@@ -40,8 +31,15 @@
             </div>
           </div>
         </div>
-        <!-- APPARTAMENTI CONSIGLIATI -->
+        <!-- APPARTAMENTI IN EVIDENZA -->
 
+        <div class="fw-bold text-center fs-2 mb-1 ">
+            <span class="text-primary">Cerca</span> un appartamento
+        </div>
+        <div class="fw-bold fst-italic text-center fs-5 mb-1">Per iniziare a cercare un appartamento inserisci l'indirizzo di dove vorresti alloggiare, <span class="text-primary">puoi anche aggiungere dei filtri alla tua ricerca!</span></div>
+
+        <!-- Search bar -->
+        <SearchBar @sendApartments="SearchedApartments" />
 
         <!-- Risultati di ricerca Appartamenti -->
         <div class="py-5 container">
@@ -181,7 +179,7 @@ window.onload = function () {
   margin-top:20rem;
 }
 .content {
-  width: 100%;
+  // width: 100%;
   height: 55vh;
   max-height: 55vh;
   background-image: url("https://wallpaperaccess.com/full/3434829.jpg");
