@@ -192,7 +192,7 @@
 
             let popup = new tt.Popup({
                 offset: popupOffset
-            }).setHTML(`<h2> ${title} </h2><h4> ${address} </h4>`);
+            }).setHTML(`<h4> ${title} </h4><h6> ${address} </h6>`);
 
             marker.setPopup(popup);
 
