@@ -23,9 +23,17 @@
                         class="bi bi-circle-fill {{ $apartment->is_visible ? 'text-success' : 'text-danger' }}"></i>
                     {{ $apartment->is_visible ? 'Appartamento disponibile' : 'Appartamento non disponibile, clicca su "Modifica" per renderlo disponibile' }}
                 </h3>
-                <h5 class="card-title my-4 fst-italic">Indirizzo: <span class="fw-semibold">{{ $apartment->address }}</span>
+                    
+                <div class="d-flex my-4">
+                <h5 class="card-title fst-italic">Indirizzo: <span class="fw-semibold">{{ $apartment->address }} </span>
                     -
-                    {{ $apartment->lat }}, {{ $apartment->long }}</h5>
+                    {{ $apartment->lat }}, {{ $apartment->long }}
+                </h5>
+                @if ($apartment->isSponsored)
+                    <span class="ms-4 badge bg-primary">Appartamento in evidenza</span>
+                @endif
+                </div>
+
                 <div class="row">
                     <div class="row row-cols-3">
                         @forelse ($apartment->images as $image)
