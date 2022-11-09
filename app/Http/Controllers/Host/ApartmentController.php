@@ -10,6 +10,7 @@ use App\Models\Sponsorship;
 use App\Models\View;
 use Illuminate\Support\Str;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -284,42 +285,56 @@ class ApartmentController extends Controller
     {
         
         $sponsorship = Sponsorship::findOrFail($id);
-        // dd($sponsorship);
 
-        $durationSponsor = Apartment::findOrFail($apartment_id)->sponsorships()->getPivotColumns()[0];
-        dd($durationSponsor);
+        $duration = DB::table('apartment_sponsorship')->where('apartment_id', '=', $apartment_id)->where('sponsorship_id', '=', $id)->first();
 
-        // if ($sponsorship->level == 1) {
-        //     $startSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['start_sponsor' => now()]);
-
-        //     $endSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now()->addMinute()]);
-
-        // }
-
-        // switch ($sponsorship->level) {
-        //     case '1':
-        //         $startSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['start_sponsor' => now()]);
-
-        // $endSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now()->addDay()]);
-        //         $endSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now()->addMinute()]);
-        //         dd($endSponsorApartment);
-
-        //         break;
-        //     case '2':
-        //         $startSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['start_sponsor' => now()]);
-
-        //         $endSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now()->addHours(72)]);
-        //         break;
-        //     case '3':
-        //         $startSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['start_sponsor' => now()]);
-
-        //         $endSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now()->addHours(144)]);
-        //         break;
-        // }
-
+        $currentTime = Carbon::now();
+        
         $singleApartment = Apartment::findOrFail($apartment_id);
-        $singleApartment->isSponsored = true;
 
+        switch ($sponsorship->level) {
+            case '1':
+                $startSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['start_sponsor' => now()]);
+
+                $endSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now()->addDay()]);
+
+                // $endSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now()->addMinute()]);
+
+                if ($duration->start_sponsor < $currentTime) {
+                    // dd('maggiore');
+                    $singleApartment->isSponsored = true;
+                } else {
+                    // dd('minore', $currentTime, $duration->start_sponsor);
+                    $singleApartment->isSponsored = false;
+                }
+                break;
+            case '2':
+                $startSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['start_sponsor' => now()]);
+
+                $endSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now()->addHours(72)]);
+
+                if ($duration->start_sponsor < $currentTime) {
+                    // dd('maggiore');
+                    $singleApartment->isSponsored = true;
+                } else {
+                    // dd('minore', $currentTime, $duration->start_sponsor);
+                    $singleApartment->isSponsored = false;
+                }
+                break;
+            case '3':
+                $startSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['start_sponsor' => now()]);
+
+                $endSponsorApartment = Apartment::findOrFail($apartment_id)->sponsorships()->updateExistingPivot($sponsorship->id, ['end_sponsor' => now()->addHours(144)]);
+
+                if ($duration->start_sponsor < $currentTime) {
+                    // dd('maggiore');
+                    $singleApartment->isSponsored = true;
+                } else {
+                    // dd('minore', $currentTime, $duration->start_sponsor);
+                    $singleApartment->isSponsored = false;
+                }
+                break;
+        }
             
         $singleApartment->save();
         $sponsorship->save();
